@@ -76,7 +76,7 @@
             <div class="contact-box">
                 <div class="contact-item">
                     <i class="bi-envelope-at-fill"></i>
-                    <span>이메일 문의: <strong style="color:var(--accent-cyan);">hsmp@gmail.com</strong></span>
+                    <span>이메일 문의: <a id="contactEmail" href="#" style="color:var(--accent-cyan); text-decoration:none; font-weight:700;">이메일 불러오는 중...</a></span>
                 </div>
                 <div class="contact-item" style="margin-bottom:0;">
                     <i class="bi-github"></i>
@@ -94,5 +94,17 @@
             </p>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var u = 'hsmp';
+            var d = 'gmail.com';
+            var mail = u + '@' + d;
+            var el = document.getElementById('contactEmail');
+            if (el) {
+                el.textContent = mail;
+                el.href = 'mailto:' + mail;
+            }
+        });
+    </script>
 </body>
 </html>

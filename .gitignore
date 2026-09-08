@@ -1,0 +1,24 @@
+# 환경변수 및 민감 정보 파일
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# 백업 및 에디터 임시 파일
+*.bak
+*.tmp
+*.swp
+~*
+
+# 운영체제 생성 캐시
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# 개발 도구 및 에디터 설정
+.vscode/
+.idea/
+*.log
