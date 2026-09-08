@@ -524,7 +524,7 @@
         <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('es')">ES</button>
       </div>
       <button type="button" class="tpl-hamburger-btn" id="tplHamburgerBtn" aria-label="전체 메뉴 열기">
-        <i class="bi-list"></i>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
     </div>
   </div>
@@ -544,7 +544,7 @@
       </div>
     </div>
     <button type="button" class="tpl-drawer-close" id="tplDrawerClose" aria-label="메뉴 닫기">
-      <i class="bi-x-lg"></i>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
     </button>
   </div>
 
@@ -599,11 +599,10 @@
       </div>
     </div>
 
-    <!-- Section 4: Site Info & Links -->
+    <!-- Section 4: Site Info & Links (Naver Blog disconnected) -->
     <div class="tpl-drawer-group">
       <div class="tpl-drawer-group-title"><i class="bi-info-circle"></i> 서비스 정보 & 채널</div>
       <div class="tpl-drawer-sublinks">
-        <a href="https://blog.naver.com/thepathlab" target="_blank" rel="noopener"><i class="bi-box-arrow-up-right"></i> 네이버 공식 블로그</a>
         <a href="https://chicstory.github.io/about.html"><i class="bi-shield-check"></i> 소개 (About)</a>
         <a href="https://chicstory.github.io/privacy.html"><i class="bi-lock"></i> 개인정보처리방침</a>
         <a href="https://chicstory.github.io/contact.html"><i class="bi-envelope"></i> 문의하기</a>
@@ -646,6 +645,11 @@
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   if (overlay) overlay.addEventListener('click', closeDrawer);
 
+  var links = drawer ? drawer.querySelectorAll('a') : [];
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', closeDrawer);
+  }
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeDrawer();
   });
@@ -653,7 +657,7 @@
 </script>
 
 
-    <div class="container">
+<div class="container">
         <a href="index.html" class="back-link"><i class="bi-arrow-left"></i> ThePathLab 홈으로 돌아가기</a>
         <div class="card">
             <h1>ThePathLab 소개</h1>
