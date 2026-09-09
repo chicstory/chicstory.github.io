@@ -802,6 +802,260 @@
             color: #080c16;
         }
 
+        /* Live Status Badge & Pulse */
+        .live-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-bottom: 0.8rem;
+            margin-left: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.2px;
+        }
+
+        .live-status-badge.gold {
+            background: rgba(255, 184, 0, 0.1);
+            color: #ffca28;
+            border: 1px solid rgba(255, 184, 0, 0.25);
+        }
+
+        .live-status-badge.cyan {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .pulse-dot.gold {
+            background-color: #ffb800;
+            box-shadow: 0 0 8px #ffb800;
+            animation: pulse-gold 2s infinite;
+        }
+
+        .pulse-dot.cyan {
+            background-color: #00f2fe;
+            box-shadow: 0 0 8px #00f2fe;
+            animation: pulse-cyan 2s infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 184, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 184, 0, 0); }
+        }
+
+        @keyframes pulse-cyan {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 242, 254, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+        }
+
+        /* Card Internal Updates Box */
+        .card-update-box {
+            background: rgba(8, 12, 22, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-update-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card-update-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            gap: 8px;
+        }
+
+        .card-update-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.74rem;
+            color: var(--text-sub);
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .card-update-title {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .card-update-tag {
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .tag-new {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .tag-update {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        /* Recent Activity Timeline Section */
+        .recent-activity-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .activity-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .activity-title i {
+            color: var(--accent-cyan);
+        }
+
+        .activity-badge-total {
+            font-size: 0.72rem;
+            color: var(--text-sub);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .activity-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(8, 12, 22, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            gap: 12px;
+        }
+
+        .activity-row:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateX(4px);
+        }
+
+        .activity-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .activity-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .activity-cat {
+            font-size: 0.74rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .cat-metals {
+            background: rgba(255, 184, 0, 0.15);
+            color: var(--accent-gold);
+            border: 1px solid rgba(255, 184, 0, 0.3);
+        }
+
+        .cat-engines {
+            background: rgba(0, 242, 254, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+        }
+
+        .activity-text {
+            font-size: 0.88rem;
+            color: #e2e8f0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
+        }
+
+        .activity-arrow {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            transition: transform 0.2s, color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .activity-row:hover .activity-arrow {
+            color: var(--accent-cyan);
+            transform: translateX(3px);
+        }
+
         /* Quick Brand Chips */
         .brand-chips-wrap {
             background: var(--bg-card);
@@ -1101,11 +1355,38 @@
                     <div class="pillar-icon-wrap metals-icon">
                         <i class="bi-graph-up-arrow"></i>
                     </div>
-                    <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                        <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
+                        <span class="live-status-badge gold"><span class="pulse-dot gold"></span>2026-09-09 발행</span>
+                    </div>
                     <h2 class="pillar-title">7대 금속 원자재 일일 시세 & 스크랩 분석</h2>
                     <p class="pillar-desc">
                         구리, 알루미늄, 니켈, 아연, 납, 주석, 백금(귀금속) 등 조달청 및 LME 기준 환산 시세와 고물상 스크랩(70~80%) 실시간 계산기를 제공합니다.
                     </p>
+
+                    <!-- 카드 내부 최근 업데이트 현황 -->
+                    <div class="card-update-box">
+                        <div class="card-update-header">
+                            <span><i class="bi-clock-history"></i> 최근 리포트 발행 현황</span>
+                            <span style="color: #ffb800; font-family: 'JetBrains Mono';">DAILY UPDATES</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">09-09</span>
+                            <span class="card-update-title">7대 금속 일일 시세 & 스크랩 추정가</span>
+                            <span class="card-update-tag tag-new">NEW</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">09-08</span>
+                            <span class="card-update-title">7대 금속 일일 시황 & 조달청 고시가</span>
+                            <span class="card-update-tag tag-update">LATEST</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">신규</span>
+                            <span class="card-update-title">익명 한줄 메모장 & 시황 요청함 오픈</span>
+                            <span class="card-update-tag tag-new">FEATURE</span>
+                        </div>
+                    </div>
+
                     <ul class="pillar-features">
                         <li><i class="bi-check2-circle"></i> 일일 원자재 원/kg & 원/g 정밀 환산</li>
                         <li><i class="bi-check2-circle"></i> 1초 즉시 계산 스크랩 가치 계산기</li>
@@ -1124,11 +1405,38 @@
                     <div class="pillar-icon-wrap engines-icon">
                         <i class="bi-cpu"></i>
                     </div>
-                    <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                        <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
+                        <span class="live-status-badge cyan"><span class="pulse-dot cyan"></span>260개 엔진 완비</span>
+                    </div>
                     <h2 class="pillar-title">글로벌 자동차 엔진 엔진 백과사전</h2>
                     <p class="pillar-desc">
                         현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM 등 2000년대 이후 260개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.
                     </p>
+
+                    <!-- 카드 내부 최근 업데이트 현황 -->
+                    <div class="card-update-box">
+                        <div class="card-update-header">
+                            <span><i class="bi-database-check"></i> 데이터베이스 업데이트 현황</span>
+                            <span style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">260 ENGINES</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">제조사</span>
+                            <span class="card-update-title">현대·기아·BMW·벤츠·아우디·폭스바겐·KGM</span>
+                            <span class="card-update-tag tag-update">6대사</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">메모장</span>
+                            <span class="card-update-title">차주 & 정비사 익명 실전 꿀팁 연동</span>
+                            <span class="card-update-tag tag-new">ACTIVE</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">다이노</span>
+                            <span class="card-update-title">연속 물리 토크·출력 곡선 100% 시각화</span>
+                            <span class="card-update-tag tag-update">DYNO</span>
+                        </div>
+                    </div>
+
                     <ul class="pillar-features">
                         <li><i class="bi-check2-circle"></i> 260개 고유 엔진 제원 & 연속 물리 다이노</li>
                         <li><i class="bi-check2-circle"></i> 6대 제조사 제조사별 스펙 종합 비교표</li>
@@ -1140,6 +1448,43 @@
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
+        </section>
+
+        <!-- ⚡ 최근 업데이트 타임라인 섹션 -->
+        <section class="recent-activity-wrap">
+            <div class="activity-header">
+                <div class="activity-title">
+                    <i class="bi-activity"></i>
+                    <span>ThePathLab 실시간 업데이트 타임라인</span>
+                </div>
+                <span class="activity-badge-total">LATEST ACTIVITY LOG</span>
+            </div>
+            <div class="activity-list">
+                <a href="https://chicstory.github.io/metals/" class="activity-row">
+                    <div class="activity-left">
+                        <span class="activity-date">2026-09-09</span>
+                        <span class="activity-cat cat-metals">금속원자재</span>
+                        <span class="activity-text">7대 금속원자재(철·알루미늄·구리·납·귀금속) 일일 원화 환산 시세 및 스크랩 매입 추정가 리포트 발행</span>
+                    </div>
+                    <i class="bi-arrow-right activity-arrow"></i>
+                </a>
+                <a href="https://chicstory.github.io/metals/" class="activity-row">
+                    <div class="activity-left">
+                        <span class="activity-date">2026-09-09</span>
+                        <span class="activity-cat cat-metals">시스템</span>
+                        <span class="activity-text">일일 브리핑 페이지 내 '익명 한줄 요청 & 문의 메모장' 위젯 및 상단 앵커 링크 탑재</span>
+                    </div>
+                    <i class="bi-arrow-right activity-arrow"></i>
+                </a>
+                <a href="https://chicstory.github.io/engines/" class="activity-row">
+                    <div class="activity-left">
+                        <span class="activity-date">2026-09-08</span>
+                        <span class="activity-cat cat-engines">엔진백과</span>
+                        <span class="activity-text">글로벌 6대 완성차 제조사 260개 엔진 전수 제원표 다크 테크 UI 및 제조사별 전수 스펙표 배포</span>
+                    </div>
+                    <i class="bi-arrow-right activity-arrow"></i>
+                </a>
+            </div>
         </section>
 
         <!-- Quick Access to Manufacturers -->
