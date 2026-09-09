@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3PFHN6VW7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K3PFHN6VW7');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 이용 가이드 & 전체 사이트맵 | ThePathLab</title>
+    <meta name="description" content="ThePathLab 통합 이용 가이드: 7대 금속 원자재 일일 시세 및 스크랩(70~80%) 환산 공식, 260개 자동차 엔진 다이노 곡선 해석법, 전체 서비스 사이트맵 디렉터리">
+    <meta name="google-site-verification" content="l2DlGCJmdySCH0W2_G2gCKUB9hM17D9_oGa3NtRzjD4" />
+    <meta name="naver-site-verification" content="6e385fef75503fe485b5008ede241710c66cb3a0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </noscript>
+
+    <style>
+/* ==========================================================================
+   THEPATHLAB UNIFIED GLOBAL NAVIGATION & HAMBURGER DRAWER (Dark Tech UI)
+   ========================================================================== */
+:root {
+  --tpl-bg-nav: rgba(8, 12, 22, 0.94);
+  --tpl-bg-drawer: rgba(11, 15, 25, 0.98);
+  --tpl-border: rgba(255, 255, 255, 0.08);
+  --tpl-border-glow: rgba(0, 242, 254, 0.35);
+  --tpl-cyan: #00f2fe;
+  --tpl-blue: #38bdf8;
+  --tpl-gold: #ffb800;
+  --tpl-text-main: #f8fafc;
+  --tpl-text-sub: #94a3b8;
+  --tpl-text-dim: #64748b;
+
+  --bg-base: #080c16;
+  --bg-card: rgba(16, 24, 40, 0.75);
+  --bg-card-hover: rgba(22, 34, 56, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --accent-cyan: #00f2fe;
+  --accent-blue: #38bdf8;
+  --accent-gold: #ffb800;
+  --accent-green: #10b981;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--tpl-text-main);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+  word-break: keep-all;
+  background-image: 
+      radial-gradient(circle at 10% 10%, rgba(0, 242, 254, 0.07) 0%, transparent 45%),
+      radial-gradient(circle at 90% 90%, rgba(255, 184, 0, 0.05) 0%, transparent 45%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tpl-nav-bar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--tpl-bg-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--tpl-border);
+  padding: 0.65rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tpl-nav-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tpl-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.18rem;
+  letter-spacing: -0.4px;
+  flex-shrink: 0;
+}
+
+.tpl-nav-brand i {
+  color: var(--tpl-cyan);
+  font-size: 1.3rem;
+  filter: drop-shadow(0 0 6px rgba(0, 242, 254, 0.5));
+}
+
+.tpl-brand-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--tpl-gold);
+  background: rgba(255, 184, 0, 0.12);
+  border: 1px solid rgba(255, 184, 0, 0.25);
+  padding: 2px 7px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.tpl-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tpl-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--tpl-text-sub);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tpl-nav-link i { font-size: 0.95rem; color: var(--tpl-blue); }
+.tpl-nav-link:hover { color: #ffffff; background: rgba(255, 255, 255, 0.07); }
+.tpl-nav-link.active {
+  color: var(--tpl-cyan);
+  background: rgba(0, 242, 254, 0.12);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.tpl-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.tpl-hamburger-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--tpl-border);
+  color: #ffffff;
+  padding: 7px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.tpl-hamburger-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--tpl-border-glow); }
+
+/* Drawer styles */
+.tpl-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 99998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+.tpl-drawer-overlay.open { opacity: 1; visibility: visible; }
+
+.tpl-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 85vw;
+  background: var(--tpl-bg-drawer);
+  border-left: 1px solid var(--tpl-border);
+  z-index: 99999;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.tpl-drawer.open { transform: translateX(0); }
+
+.tpl-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid var(--tpl-border);
+}
+.tpl-drawer-brand { display: flex; align-items: center; gap: 10px; }
+.tpl-drawer-brand i { color: var(--tpl-cyan); font-size: 1.4rem; }
+.tpl-drawer-title { font-weight: 800; font-size: 1.1rem; color: #fff; }
+.tpl-drawer-sub { font-size: 0.75rem; color: var(--tpl-text-dim); }
+.tpl-drawer-close {
+  background: transparent;
+  border: none;
+  color: var(--tpl-text-sub);
+  cursor: pointer;
+  padding: 4px;
+}
+.tpl-drawer-close:hover { color: #fff; }
+.tpl-drawer-body {
+  padding: 1.4rem;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.tpl-drawer-group-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--tpl-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tpl-drawer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 8px;
+  transition: all 0.2s;
+}
+.tpl-drawer-item:hover {
+  background: rgba(0, 242, 254, 0.08);
+  border-color: rgba(0, 242, 254, 0.25);
+  transform: translateX(3px);
+}
+.tpl-drawer-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.icon-portal { background: rgba(56, 189, 248, 0.15); color: var(--tpl-blue); }
+.icon-metals { background: rgba(255, 184, 0, 0.15); color: var(--tpl-gold); }
+.icon-engines { background: rgba(0, 242, 254, 0.15); color: var(--tpl-cyan); }
+.icon-guide { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
+.tpl-drawer-item-title { font-size: 0.88rem; font-weight: 700; color: #fff; }
+.tpl-drawer-item-desc { font-size: 0.74rem; color: var(--tpl-text-dim); }
+
+/* Main Layout */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  width: 100%;
+}
+
+.guide-hero {
+  text-align: center;
+  padding: 3.5rem 0 2.5rem;
+}
+.guide-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+.guide-title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 30%, var(--tpl-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.guide-desc {
+  font-size: 1.08rem;
+  color: var(--tpl-text-sub);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Guide Sections & Cards */
+.guide-section {
+  margin-bottom: 3.5rem;
+}
+.section-header-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.section-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.section-icon.metals { background: rgba(255, 184, 0, 0.12); color: var(--accent-gold); border: 1px solid rgba(255, 184, 0, 0.25); }
+.section-icon.engines { background: rgba(0, 242, 254, 0.12); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.25); }
+.section-icon.sitemap { background: rgba(56, 189, 248, 0.12); color: var(--tpl-blue); border: 1px solid rgba(56, 189, 248, 0.25); }
+.section-header-title { font-size: 1.45rem; font-weight: 800; color: #ffffff; letter-spacing: -0.4px; }
+.section-header-sub { font-size: 0.84rem; color: var(--tpl-text-dim); }
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.guide-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.guide-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--tpl-border-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.guide-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guide-card-p {
+  font-size: 0.92rem;
+  color: var(--tpl-text-sub);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.formula-box {
+  background: rgba(8, 12, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.84rem;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
+
+.guide-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.pill-up { color: #34d399; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); }
+.pill-down { color: #f87171; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.3); }
+
+.card-action-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+.btn-metals { color: var(--accent-gold); background: rgba(255, 184, 0, 0.1); border: 1px solid rgba(255, 184, 0, 0.25); }
+.btn-metals:hover { background: var(--accent-gold); color: #080c16; }
+.btn-engines { color: var(--accent-cyan); background: rgba(0, 242, 254, 0.1); border: 1px solid rgba(0, 242, 254, 0.25); }
+.btn-engines:hover { background: var(--accent-cyan); color: #080c16; }
+
+/* Visual Sitemap Architecture */
+.sitemap-flow-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 3.5rem;
+}
+.sitemap-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.sitemap-column {
+  background: rgba(8, 12, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.sitemap-col-header {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sitemap-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sitemap-link-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--tpl-text-sub);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+.sitemap-link-list li a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+.sitemap-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.tag-hub { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+.tag-data { background: rgba(0, 242, 254, 0.2); color: #00f2fe; }
+.tag-info { background: rgba(255, 184, 0, 0.2); color: #ffb800; }
+
+/* Footer */
+footer {
+  margin-top: auto;
+  background: rgba(8, 12, 22, 0.95);
+  border-top: 1px solid var(--border-subtle);
+  padding: 2.5rem 0 2rem;
+  font-size: 0.88rem;
+  color: var(--tpl-text-dim);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a { color: var(--tpl-text-sub); text-decoration: none; font-size: 0.88rem; }
+.footer-links a:hover { color: #fff; }
+
+/* Floating Action Bar (FAB) */
+.fab-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 0.25s ease;
+}
+.fab-container.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.fab-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(12px);
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+.fab-btn:hover { background: #2563eb; color: white; border-color: #60a5fa; transform: scale(1.08); }
+.fab-guide { background: rgba(16, 185, 129, 0.2); border-color: rgba(16, 185, 129, 0.4); color: #34d399; }
+.fab-guide:hover { background: #059669; color: white; border-color: #34d399; }
+
+@media (max-width: 920px) {
+  .tpl-nav-links { display: none; }
+}
+    </style>
+</head>
+<body>
+
+<!-- ThePathLab Global Unified Navigation Bar -->
+<nav class="tpl-nav-bar" id="tplNavBar">
+  <div class="tpl-nav-inner">
+    <a href="https://chicstory.github.io/" class="tpl-nav-brand">
+      <i class="bi-bounding-box-circles"></i>
+      <span>ThePathLab</span>
+      <span class="tpl-brand-badge" id="tplNavBadge">GUIDE</span>
+    </a>
+
+    <div class="tpl-nav-links">
+      <a href="https://chicstory.github.io/" class="tpl-nav-link"><i class="bi-house-door"></i> 포털 홈</a>
+      <a href="https://chicstory.github.io/metals/" class="tpl-nav-link"><i class="bi-graph-up-arrow"></i> 금속 원자재·스크랩</a>
+      <a href="https://chicstory.github.io/engines/" class="tpl-nav-link"><i class="bi-cpu"></i> 엔진 전수 백과</a>
+      <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-nav-link"><i class="bi-table"></i> 제조사별 스펙표</a>
+      <a href="https://chicstory.github.io/guide.html" class="tpl-nav-link active"><i class="bi-compass"></i> 이용 가이드 & 사이트맵</a>
+    </div>
+
+    <div class="tpl-nav-actions">
+      <button type="button" class="tpl-hamburger-btn" id="tplHamburgerBtn" aria-label="전체 메뉴 열기">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Drawer Overlay & Aside -->
+<div class="tpl-drawer-overlay" id="tplDrawerOverlay"></div>
+<aside class="tpl-drawer" id="tplDrawer" aria-hidden="true">
+  <div class="tpl-drawer-header">
+    <div class="tpl-drawer-brand">
+      <i class="bi-bounding-box-circles"></i>
+      <div>
+        <div class="tpl-drawer-title">ThePathLab Guide</div>
+        <div class="tpl-drawer-sub">통합 이용 가이드 & 사이트맵</div>
+      </div>
+    </div>
+    <button type="button" class="tpl-drawer-close" id="tplDrawerClose" aria-label="메뉴 닫기">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+  </div>
+  <div class="tpl-drawer-body">
+    <div class="tpl-drawer-group">
+      <div class="tpl-drawer-group-title"><i class="bi-stars"></i> 서비스 바로가기</div>
+      <a href="https://chicstory.github.io/" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon icon-portal"><i class="bi-house-door"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">포털 홈</div>
+          <div class="tpl-drawer-item-desc">ThePathLab 메인 대시보드</div>
+        </div>
+      </a>
+      <a href="https://chicstory.github.io/metals/" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon icon-metals"><i class="bi-graph-up-arrow"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">7대 금속 원자재·스크랩</div>
+          <div class="tpl-drawer-item-desc">일일 원화 환산 시세 & 계산기</div>
+        </div>
+      </a>
+      <a href="https://chicstory.github.io/engines/" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon icon-engines"><i class="bi-cpu"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">엔진 전수 백과사전</div>
+          <div class="tpl-drawer-item-desc">260개 파워트레인 제원 & 다이노</div>
+        </div>
+      </a>
+      <a href="https://chicstory.github.io/guide.html" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon icon-guide"><i class="bi-compass"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">이용 가이드 & 사이트맵</div>
+          <div class="tpl-drawer-item-desc">서비스 원리 및 활용 팁 안내</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="tpl-drawer-footer">
+    <div>ThePathLab Data Intelligence Network</div>
+  </div>
+</aside>
+
+<!-- Main Guide Content -->
+<main class="container">
+    <section class="guide-hero">
+        <div class="guide-badge"><i class="bi-compass"></i> ARCHITECTURE & USER MANUAL</div>
+        <h1 class="guide-title">ThePathLab 통합 이용 가이드 & 사이트맵</h1>
+        <p class="guide-desc">
+            런던금속거래소(LME)·조달청 7대 금속 원자재 환산 공식부터 260개 자동차 파워트레인 다이노 곡선 해석법까지, ThePathLab 인텔리전스 데이터를 100% 활용하는 법을 안내합니다.
+        </p>
+    </section>
+
+    <!-- SECTION 1: METALS GUIDE -->
+    <section class="guide-section">
+        <div class="section-header-wrap">
+            <div class="section-icon metals"><i class="bi-graph-up-arrow"></i></div>
+            <div>
+                <h2 class="section-header-title">1. 7대 금속 원자재 & 스크랩 허브 활용법</h2>
+                <div class="section-header-sub">국제 선물 시세와 실시간 환율을 결합한 실거래 단가 및 스크랩 매입 공식</div>
+            </div>
+        </div>
+
+        <div class="guide-grid">
+            <!-- Card 1 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-calculator" style="color:var(--accent-gold);"></i>
+                    <span>원화 환산 단가 산출 원리</span>
+                </div>
+                <p class="guide-card-p">
+                    해외 주요 거래소(LME, COMEX)의 달러($) 표시 종가를 <strong>당일 원/달러 기준환율</strong>과 연동하여 국내 단위(원/kg, 원/g)로 실시간 정밀 환산합니다.
+                </p>
+                <div class="formula-box">
+                    • 일반 금속(철·알루미늄·납): (USD/T × 환율) ÷ 1,000<br>
+                    • 구리(동): (USD/Lb × 환율) ÷ 0.4536<br>
+                    • 백금족(팔라듐·로듐·백금): (USD/oz × 환율) ÷ 31.1035
+                </div>
+                <a href="https://chicstory.github.io/metals/" class="card-action-btn btn-metals">
+                    <span>금속 시세 대시보드 바로가기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-recycle" style="color:var(--accent-green);"></i>
+                    <span>♻️ 스크랩 매입 추정가 (70~80%)</span>
+                </div>
+                <p class="guide-card-p">
+                    고물상이나 스크랩(파지·비철) 매입 업계에서는 순수 원자재 단가에서 <strong>가공·제련 비용, 운송비, 감모 손실률</strong>을 공제하여 통상 <strong>시장 시세의 70% ~ 80% 수준</strong>으로 정산합니다.
+                </p>
+                <p class="guide-card-p">
+                    ThePathLab의 <strong>1초 즉시 계산기</strong>를 사용하시면 보관 중인 스크랩 중량만 넣으면 즉시 예상 정산 현금을 확인하실 수 있습니다.
+                </p>
+                <a href="https://chicstory.github.io/metals/#calculator-anchor" class="card-action-btn btn-metals">
+                    <span>1초 스크랩 계산기 열기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-activity" style="color:var(--accent-cyan);"></i>
+                    <span>전일 대비 가격 변화량 뱃지</span>
+                </div>
+                <p class="guide-card-p">
+                    단순히 해외 달러 종가만 비교하는 것이 아니라, <strong>환율 등락까지 결합된 국내 실질 단가 변동량</strong>을 산출합니다.
+                </p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem;">
+                    <span class="guide-badge-pill pill-up">▲ +9원 (+0.2%) 상승</span>
+                    <span class="guide-badge-pill pill-down">▼ -196원 (-1.0%) 하락</span>
+                </div>
+                <p class="guide-card-p" style="font-size:0.84rem; color:var(--tpl-text-dim);">
+                    ※ 국제 시세가 보합이어도 원화 가치(환율)가 변동하면 실거래 매입 단가도 변동하므로, 제조업체 및 자원 유통인에게 가장 정확한 시황 지표가 됩니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ENGINES GUIDE -->
+    <section class="guide-section">
+        <div class="section-header-wrap">
+            <div class="section-icon engines"><i class="bi-cpu"></i></div>
+            <div>
+                <h2 class="section-header-title">2. 260개 파워트레인 엔진 백과 활용법</h2>
+                <div class="section-header-sub">글로벌 6대 완성차 제조사의 연속 물리 다이노 곡선 및 고질병 실전 정비 가이드</div>
+            </div>
+        </div>
+
+        <div class="guide-grid">
+            <!-- Engine Card 1 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-speedometer" style="color:var(--accent-cyan);"></i>
+                    <span>물리 다이노(Dyno) 곡선 읽는 법</span>
+                </div>
+                <p class="guide-card-p">
+                    단순한 최대 마력(hp) 수치보다 중요한 것은 <strong>실제 일상 주행 RPM(1,500 ~ 4,000rpm) 구간의 플랫 토크(Flat Torque) 밴드</strong>입니다.
+                </p>
+                <p class="guide-card-p">
+                    ThePathLab은 260개 엔진 전수에 대해 저회전 토크 상승 구간과 고회전 출력 정점을 시각화하여, 차종 간 체감 가속감과 견인력을 객관적으로 비교할 수 있습니다.
+                </p>
+                <a href="https://chicstory.github.io/engines/" class="card-action-btn btn-engines">
+                    <span>엔진 백과사전 탐색하기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Engine Card 2 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-table" style="color:var(--tpl-blue);"></i>
+                    <span>6대 제조사별 전수 스펙 종합표</span>
+                </div>
+                <p class="guide-card-p">
+                    현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM 등 제조사별로 나뉜 종합 테이블에서 보어·스트로크, 압축비, 과급 방식, 연료 분사 방식을 다크 테크 UI로 한눈에 비교할 수 있습니다.
+                </p>
+                <div class="formula-box">
+                    • 현대·기아: 스마트스트림 / 세타 / 람다 / R디젤<br>
+                    • BMW: B48 / B58 / B47 / N20 / S58 / S63<br>
+                    • 벤츠: M254 / M256 / M274 / OM654 디젤<br>
+                    • 아우디·폭스바겐: EA888 / EA839 / EA288
+                </div>
+                <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="card-action-btn btn-engines">
+                    <span>제조사별 전수 스펙표 보기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Engine Card 3 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-chat-right-text" style="color:var(--accent-gold);"></i>
+                    <span>차주 & 정비사 익명 실전 꿀팁 메모장</span>
+                </div>
+                <p class="guide-card-p">
+                    각 엔진 상세 페이지 하단에는 차주와 전문 정비사들이 타이밍 체인 텐셔너 소음, 캠 어드저스터 누유, 워터펌프 내구성 등 실전 정비 팁을 남길 수 있는 익명 메모장이 연동되어 있습니다.
+                </p>
+                <p class="guide-card-p" style="font-size:0.84rem; color:var(--tpl-text-dim);">
+                    ※ 번거로운 로그인 없이 스팸 방지 산수 캡차만 풀면 누구나 1초 만에 실전 팁을 공유하고 조회할 수 있습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VISUAL SITEMAP DIRECTORY -->
+    <section class="guide-section">
+        <div class="section-header-wrap">
+            <div class="section-icon sitemap"><i class="bi-diagram-3"></i></div>
+            <div>
+                <h2 class="section-header-title">3. ThePathLab 전체 사이트맵 디렉터리</h2>
+                <div class="section-header-sub">ThePathLab 포털의 모든 서비스와 페이지 구조를 한눈에 탐색하세요</div>
+            </div>
+        </div>
+
+        <div class="sitemap-flow-wrap">
+            <div class="sitemap-flow-grid">
+                <!-- Column 1: Core Portal -->
+                <div class="sitemap-column">
+                    <div class="sitemap-col-header">
+                        <i class="bi-house-door" style="color:var(--tpl-cyan);"></i>
+                        <span>메인 포털 허브</span>
+                    </div>
+                    <ul class="sitemap-link-list">
+                        <li>
+                            <a href="https://chicstory.github.io/">
+                                <span>ThePathLab 통합 홈</span>
+                                <span class="sitemap-tag tag-hub">PORTAL</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/guide.html">
+                                <span>이용 가이드 & 사이트맵</span>
+                                <span class="sitemap-tag tag-hub">GUIDE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/about.html">
+                                <span>아카이브 소개 (About)</span>
+                                <span class="sitemap-tag tag-info">INFO</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/privacy.html">
+                                <span>개인정보처리방침</span>
+                                <span class="sitemap-tag tag-info">LEGAL</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/contact.html">
+                                <span>문의 및 제휴 (Contact)</span>
+                                <span class="sitemap-tag tag-info">CONTACT</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Metals Hub -->
+                <div class="sitemap-column">
+                    <div class="sitemap-col-header">
+                        <i class="bi-graph-up-arrow" style="color:var(--accent-gold);"></i>
+                        <span>금속 원자재 & 스크랩</span>
+                    </div>
+                    <ul class="sitemap-link-list">
+                        <li>
+                            <a href="https://chicstory.github.io/metals/">
+                                <span>금속 허브 대시보드</span>
+                                <span class="sitemap-tag tag-data">MAIN</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/metals/#main-price-table">
+                                <span>7대 자원 일일 시세표</span>
+                                <span class="sitemap-tag tag-data">TABLE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/metals/#calculator-anchor">
+                                <span>1초 스크랩 계산기</span>
+                                <span class="sitemap-tag tag-data">CALC</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/metals/#memoBoardSection">
+                                <span>익명 한줄 요청함 & 메모장</span>
+                                <span class="sitemap-tag tag-data">COMMUNITY</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/metals/#archive-calendar">
+                                <span>일일 브리핑 캘린더 아카이브</span>
+                                <span class="sitemap-tag tag-data">ARCHIVE</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Engine Encyclopedia -->
+                <div class="sitemap-column">
+                    <div class="sitemap-col-header">
+                        <i class="bi-cpu" style="color:var(--accent-cyan);"></i>
+                        <span>엔진 전수 백과 & 스펙표</span>
+                    </div>
+                    <ul class="sitemap-link-list">
+                        <li>
+                            <a href="https://chicstory.github.io/engines/">
+                                <span>엔진 백과사전 메인</span>
+                                <span class="sitemap-tag tag-hub">260 ENGINES</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html">
+                                <span>현대·기아 전수 스펙표 (87종)</span>
+                                <span class="sitemap-tag tag-data">HYUNDAI/KIA</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/bmw_engine_table.html">
+                                <span>BMW 파워트레인 스펙표 (45종)</span>
+                                <span class="sitemap-tag tag-data">BMW</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/mercedes_benz_engine_table.html">
+                                <span>메르세데스-벤츠 스펙표 (40종)</span>
+                                <span class="sitemap-tag tag-data">BENZ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/audi_engine_table.html">
+                                <span>아우디 전수 스펙표 (32종)</span>
+                                <span class="sitemap-tag tag-data">AUDI</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/volkswagen_engine_table.html">
+                                <span>폭스바겐 파워트레인 스펙표 (20종)</span>
+                                <span class="sitemap-tag tag-data">VW</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/engines/kgm_ssangyong_engine_table.html">
+                                <span>KGM·쌍용 엔진 스펙표 (20종)</span>
+                                <span class="sitemap-tag tag-data">KGM</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div>
+                <div style="font-weight:800; color:#fff; font-size:1.1rem; margin-bottom:0.3rem;">ThePathLab</div>
+                <p style="font-size:0.82rem; color:var(--tpl-text-dim);">관심 분야를 직접 모으고 체계적으로 정리하는 개인 데이터 인텔리전스 아카이브</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="guide.html">이용 가이드 & 사이트맵 (Guide)</a></li>
+                <li><a href="about.html">소개 (About)</a></li>
+                <li><a href="privacy.html">개인정보처리방침 (Privacy Policy)</a></li>
+                <li><a href="contact.html">문의 및 제휴 (Contact)</a></li>
+            </ul>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top:1.2rem; font-size:0.78rem; text-align:center; color:#475569;">
+            &copy; 2026 ThePathLab (ChicStory). All rights reserved. 본 사이트의 데이터는 정보 제공용이며 투자 및 매매의 최종 판단 책임은 사용자에게 있습니다.
+        </div>
+    </div>
+</footer>
+
+<!-- Floating Action Bar (Top Only in Guide) -->
+<div class="fab-container" id="fab-container">
+    <button class="fab-btn" id="fab-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="맨 위로 이동">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+</div>
+
+<script>
+(function() {
+  var btn = document.getElementById('tplHamburgerBtn');
+  var drawer = document.getElementById('tplDrawer');
+  var overlay = document.getElementById('tplDrawerOverlay');
+  var closeBtn = document.getElementById('tplDrawerClose');
+
+  function openDrawer() {
+    if (drawer && overlay) {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeDrawer() {
+    if (drawer && overlay) {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btn) btn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  var links = drawer ? drawer.querySelectorAll('a') : [];
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener('click', closeDrawer);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  // FAB scroll listener
+  window.addEventListener('scroll', function() {
+    var fab = document.getElementById('fab-container');
+    if (fab) {
+      if (window.scrollY > 300) {
+        fab.classList.add('visible');
+      } else {
+        fab.classList.remove('visible');
+      }
+    }
+  }, {passive: true});
+})();
+</script>
+
+</body>
+</html>

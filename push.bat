@@ -17,7 +17,7 @@ if not exist ".git" (
 )
 
 echo [2/4] 변경 사항 추적 및 스테이징...
-git add index.html about.html contact.html privacy.html robots.txt sitemap.xml
+git add index.html guide.html about.html contact.html privacy.html robots.txt sitemap.xml docs/
 
 echo [3/4] 커밋 생성 중...
 git commit -m "feat: ThePathLab Main Portal Hub & AdSense Essential Pages"
