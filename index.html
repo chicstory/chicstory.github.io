@@ -611,6 +611,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
+            text-rendering: optimizeSpeed;
         }
 
         .hero-desc {
@@ -619,6 +620,7 @@
             max-width: 680px;
             margin: 0 auto 2.5rem;
             line-height: 1.7;
+            text-rendering: optimizeSpeed;
         }
 
         /* Two Major Pillars */
@@ -924,6 +926,8 @@
             border-radius: 18px;
             padding: 1.5rem;
             margin-bottom: 2rem;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 250px;
         }
 
         .activity-header {
@@ -1046,6 +1050,8 @@
             border-radius: 18px;
             padding: 1.5rem;
             margin-bottom: 3.5rem;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 160px;
         }
 
         .chips-header {
@@ -1100,6 +1106,8 @@
             padding: 2.5rem 0 2rem;
             font-size: 0.88rem;
             color: var(--text-dim);
+            content-visibility: auto;
+            contain-intrinsic-size: 0 140px;
         }
 
         .footer-inner {
