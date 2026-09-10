@@ -1733,18 +1733,33 @@
                 autoDisplay: false
             }, 'google_translate_element');
         }
-        function changeLanguage(lang) {
+        function tplChangeLang(lang) {
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; domain=' + location.hostname + '; SameSite=Lax; Secure';
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+                return;
+            }
             loadGoogleTranslate(function() {
-                var select = document.querySelector('.goog-te-combo');
-                if (select) {
-                    select.value = lang;
-                    select.dispatchEvent(new Event('change'));
-                } else {
-                    document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
-                    location.reload();
-                }
+                var attempts = 0;
+                var checkInterval = setInterval(function() {
+                    attempts++;
+                    var sel = document.querySelector('.goog-te-combo');
+                    if (sel) {
+                        clearInterval(checkInterval);
+                        sel.value = lang;
+                        sel.dispatchEvent(new Event('change'));
+                    } else if (attempts > 15) {
+                        clearInterval(checkInterval);
+                        location.reload();
+                    }
+                }, 100);
             });
         }
+        window.changeLanguage = tplChangeLang;
+        window.tplChangeLang = tplChangeLang;
         function loadGoogleTranslate(cb) {
             if (window.gtLoaded) { if (cb && typeof cb === 'function') cb(); return; }
             window.gtLoaded = true;
@@ -1757,6 +1772,9 @@
         ['scroll', 'mousemove', 'touchstart'].forEach(function(ev) {
             window.addEventListener(ev, function() { loadGoogleTranslate(); }, {once: true, passive: true});
         });
+        if (document.cookie.indexOf('googtrans') !== -1 && document.cookie.indexOf('googtrans=/ko/ko') === -1) {
+            loadGoogleTranslate();
+        }
 
         // FAB scroll listener & modal handlers
         window.addEventListener('scroll', function() {

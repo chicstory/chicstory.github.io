@@ -158,6 +158,42 @@ body {
   flex-shrink: 0;
 }
 
+.tpl-lang-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--tpl-border);
+  padding: 3px 6px;
+  border-radius: 8px;
+}
+
+.tpl-lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--tpl-text-sub);
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 5px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.tpl-lang-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tpl-lang-sep {
+  color: #334155;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 480px) {
+  .tpl-lang-wrap { display: none; }
+}
+
 .tpl-hamburger-btn {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--tpl-border);
@@ -574,6 +610,15 @@ footer {
     </div>
 
     <div class="tpl-nav-actions">
+      <div class="tpl-lang-wrap">
+        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('ko')">KO</button>
+        <span class="tpl-lang-sep">|</span>
+        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('en')">EN</button>
+        <span class="tpl-lang-sep">|</span>
+        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('ru')">RU</button>
+        <span class="tpl-lang-sep">|</span>
+        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('es')">ES</button>
+      </div>
       <button type="button" class="tpl-hamburger-btn" id="tplHamburgerBtn" aria-label="전체 메뉴 열기">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
@@ -1007,5 +1052,57 @@ footer {
 })();
 </script>
 
+    <!-- Google Translate Script (On-demand Lazy Load) -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ko',
+                includedLanguages: 'ko,en,ru,es,ja,zh-CN,de,fr',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        function tplChangeLang(lang) {
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; domain=' + location.hostname + '; SameSite=Lax; Secure';
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+                return;
+            }
+            loadGoogleTranslate(function() {
+                var attempts = 0;
+                var checkInterval = setInterval(function() {
+                    attempts++;
+                    var sel = document.querySelector('.goog-te-combo');
+                    if (sel) {
+                        clearInterval(checkInterval);
+                        sel.value = lang;
+                        sel.dispatchEvent(new Event('change'));
+                    } else if (attempts > 15) {
+                        clearInterval(checkInterval);
+                        location.reload();
+                    }
+                }, 100);
+            });
+        }
+        window.changeLanguage = tplChangeLang;
+        window.tplChangeLang = tplChangeLang;
+        function loadGoogleTranslate(cb) {
+            if (window.gtLoaded) { if (cb && typeof cb === 'function') cb(); return; }
+            window.gtLoaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            if (cb && typeof cb === 'function') s.onload = cb;
+            document.body.appendChild(s);
+        }
+        ['scroll', 'mousemove', 'touchstart'].forEach(function(ev) {
+            window.addEventListener(ev, function() { loadGoogleTranslate(); }, {once: true, passive: true});
+        });
+        if (document.cookie.indexOf('googtrans') !== -1 && document.cookie.indexOf('googtrans=/ko/ko') === -1) {
+            loadGoogleTranslate();
+        }
+    </script>
 </body>
 </html>

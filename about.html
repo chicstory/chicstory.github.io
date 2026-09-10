@@ -678,5 +678,58 @@
             <p>개인이 직접 수집하고 코딩하여 만든 사이트인 만큼 간혹 오타나 수정이 필요한 스펙이 있을 수 있습니다. 언제든지 편하게 문의 페이지나 해당 엔진 메모장에 남겨주시면 즐겁게 확인하고 반영하겠습니다. 방문해 주셔서 감사합니다!</p>
         </div>
     </div>
+
+    <!-- Google Translate Script (On-demand Lazy Load) -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ko',
+                includedLanguages: 'ko,en,ru,es,ja,zh-CN,de,fr',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+        function tplChangeLang(lang) {
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
+            document.cookie = 'googtrans=/ko/' + lang + '; path=/; domain=' + location.hostname + '; SameSite=Lax; Secure';
+            var select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = lang;
+                select.dispatchEvent(new Event('change'));
+                return;
+            }
+            loadGoogleTranslate(function() {
+                var attempts = 0;
+                var checkInterval = setInterval(function() {
+                    attempts++;
+                    var sel = document.querySelector('.goog-te-combo');
+                    if (sel) {
+                        clearInterval(checkInterval);
+                        sel.value = lang;
+                        sel.dispatchEvent(new Event('change'));
+                    } else if (attempts > 15) {
+                        clearInterval(checkInterval);
+                        location.reload();
+                    }
+                }, 100);
+            });
+        }
+        window.changeLanguage = tplChangeLang;
+        window.tplChangeLang = tplChangeLang;
+        function loadGoogleTranslate(cb) {
+            if (window.gtLoaded) { if (cb && typeof cb === 'function') cb(); return; }
+            window.gtLoaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            if (cb && typeof cb === 'function') s.onload = cb;
+            document.body.appendChild(s);
+        }
+        ['scroll', 'mousemove', 'touchstart'].forEach(function(ev) {
+            window.addEventListener(ev, function() { loadGoogleTranslate(); }, {once: true, passive: true});
+        });
+        if (document.cookie.indexOf('googtrans') !== -1 && document.cookie.indexOf('googtrans=/ko/ko') === -1) {
+            loadGoogleTranslate();
+        }
+    </script>
 </body>
 </html>
