@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://chicstory.github.io/sitemap.xml
+Sitemap: https://chicstory.github.io/metals/sitemap.xml
+Sitemap: https://chicstory.github.io/engines/sitemap.xml
+Sitemap: https://chicstory.github.io/autoissue/sitemap.xml
