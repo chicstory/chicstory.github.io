@@ -1502,7 +1502,7 @@
                     </div>
                     <div style="display: flex; align-items: center; flex-wrap: wrap;">
                         <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
-                        <span class="live-status-badge gold"><span class="pulse-dot gold"></span>2026-09-09 발행</span>
+                        <span class="live-status-badge gold" id="metalsLiveBadge"><span class="pulse-dot gold"></span>2026-09-10 발행</span>
                     </div>
                     <h2 class="pillar-title">7대 금속 원자재 일일 시세 & 스크랩 분석</h2>
                     <p class="pillar-desc">
@@ -1516,12 +1516,12 @@
                             <span style="color: #ffb800; font-family: 'JetBrains Mono';">DAILY UPDATES</span>
                         </div>
                         <div class="card-update-item">
-                            <span class="card-update-date">09-09</span>
+                            <span class="card-update-date" id="metalsUpdateDate0">09-10</span>
                             <span class="card-update-title">7대 금속 일일 시세 & 스크랩 추정가</span>
                             <span class="card-update-tag tag-new">NEW</span>
                         </div>
                         <div class="card-update-item">
-                            <span class="card-update-date">09-08</span>
+                            <span class="card-update-date" id="metalsUpdateDate1">09-09</span>
                             <span class="card-update-title">7대 금속 일일 시황 & 조달청 고시가</span>
                             <span class="card-update-tag tag-update">LATEST</span>
                         </div>
@@ -1607,7 +1607,7 @@
             <div class="activity-list">
                 <a href="https://chicstory.github.io/metals/" class="activity-row">
                     <div class="activity-left">
-                        <span class="activity-date">2026-09-09</span>
+                        <span class="activity-date" id="metalsActivityDate">2026-09-10</span>
                         <span class="activity-cat cat-metals">금속원자재</span>
                         <span class="activity-text">7대 금속원자재(철·알루미늄·구리·납·귀금속) 일일 원화 환산 시세 및 스크랩 매입 추정가 리포트 발행</span>
                     </div>
@@ -1789,6 +1789,35 @@
                 document.body.style.overflow = '';
             }
         }
+
+        // 🚀 metals 일일 브리핑 최신 정보 비동기 자동 동기화 (Client-side Zero-Touch Sync)
+        (function() {
+            try {
+                fetch('https://chicstory.github.io/metals/latest.json?t=' + Date.now())
+                    .then(function(res) {
+                        if (!res.ok) throw new Error('Status: ' + res.status);
+                        return res.json();
+                    })
+                    .then(function(data) {
+                        if (!data || !data.latest_date) return;
+                        var badge = document.getElementById('metalsLiveBadge');
+                        if (badge) {
+                            badge.innerHTML = '<span class="pulse-dot gold"></span>' + data.latest_date + ' 발행';
+                        }
+                        if (data.recent_dates && data.recent_dates.length >= 2) {
+                            var d0 = document.getElementById('metalsUpdateDate0');
+                            if (d0) d0.innerText = data.recent_dates[0].substring(5);
+                            var d1 = document.getElementById('metalsUpdateDate1');
+                            if (d1) d1.innerText = data.recent_dates[1].substring(5);
+                        }
+                        var actDate = document.getElementById('metalsActivityDate');
+                        if (actDate) actDate.innerText = data.latest_date;
+                    })
+                    .catch(function() {
+                        // 정적 렌더링된 HTML 데이터로 자연스럽게 폴백
+                    });
+            } catch (e) {}
+        })();
     </script>
 </body>
 </html>
