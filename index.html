@@ -658,8 +658,16 @@
             transition: opacity 0.25s;
         }
 
+        .pillar-card.autoissue::before {
+            background: linear-gradient(90deg, #f43f5e, #fb7185);
+        }
+
         .pillar-card.metals::before {
             background: linear-gradient(90deg, #ffb800, #ff5e3a);
+        }
+
+        .pillar-card.specs::before {
+            background: linear-gradient(90deg, #a855f7, #6366f1);
         }
 
         .pillar-card.engines::before {
@@ -688,10 +696,22 @@
             margin-bottom: 1.25rem;
         }
 
+        .autoissue-icon {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
         .metals-icon {
             background: rgba(255, 184, 0, 0.12);
             color: var(--accent-gold);
             border: 1px solid rgba(255, 184, 0, 0.3);
+        }
+
+        .specs-icon {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
         }
 
         .engines-icon {
@@ -709,9 +729,19 @@
             display: inline-block;
         }
 
+        .autoissue-badge {
+            background: rgba(244, 63, 94, 0.15);
+            color: #fb7185;
+        }
+
         .metals-badge {
             background: rgba(255, 184, 0, 0.15);
             color: var(--accent-gold);
+        }
+
+        .specs-badge {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
         }
 
         .engines-badge {
@@ -766,6 +796,17 @@
             text-decoration: none;
         }
 
+        .btn-autoissue {
+            background: rgba(244, 63, 94, 0.12);
+            border: 1px solid rgba(244, 63, 94, 0.35);
+            color: #fb7185;
+        }
+
+        .btn-autoissue:hover {
+            background: #f43f5e;
+            color: #ffffff;
+        }
+
         .btn-metals {
             background: rgba(255, 184, 0, 0.12);
             border: 1px solid rgba(255, 184, 0, 0.3);
@@ -775,6 +816,17 @@
         .btn-metals:hover {
             background: var(--accent-gold);
             color: #080c16;
+        }
+
+        .btn-specs {
+            background: rgba(168, 85, 247, 0.12);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            color: #c084fc;
+        }
+
+        .btn-specs:hover {
+            background: #a855f7;
+            color: #ffffff;
         }
 
         .btn-engines {
@@ -803,10 +855,22 @@
             letter-spacing: 0.2px;
         }
 
+        .live-status-badge.red {
+            background: rgba(244, 63, 94, 0.1);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.25);
+        }
+
         .live-status-badge.gold {
             background: rgba(255, 184, 0, 0.1);
             color: #ffca28;
             border: 1px solid rgba(255, 184, 0, 0.25);
+        }
+
+        .live-status-badge.purple {
+            background: rgba(168, 85, 247, 0.1);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.25);
         }
 
         .live-status-badge.cyan {
@@ -823,10 +887,22 @@
             position: relative;
         }
 
+        .pulse-dot.red {
+            background-color: #f43f5e;
+            box-shadow: 0 0 8px #f43f5e;
+            animation: pulse-red 2s infinite;
+        }
+
         .pulse-dot.gold {
             background-color: #ffb800;
             box-shadow: 0 0 8px #ffb800;
             animation: pulse-gold 2s infinite;
+        }
+
+        .pulse-dot.purple {
+            background-color: #a855f7;
+            box-shadow: 0 0 8px #a855f7;
+            animation: pulse-purple 2s infinite;
         }
 
         .pulse-dot.cyan {
@@ -835,10 +911,22 @@
             animation: pulse-cyan 2s infinite;
         }
 
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+
         @keyframes pulse-gold {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 184, 0, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(255, 184, 0, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 184, 0, 0); }
+        }
+
+        @keyframes pulse-purple {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(168, 85, 247, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
         }
 
         @keyframes pulse-cyan {
@@ -1331,10 +1419,10 @@
 
     <div class="tpl-nav-links">
       <a href="https://chicstory.github.io/" class="tpl-nav-link active"><i class="bi-house-door"></i> 포털 홈</a>
+      <a href="https://chicstory.github.io/autoissue/" class="tpl-nav-link "><i class="bi-bell-fill"></i> 자동차 데일리 이슈</a>
       <a href="https://chicstory.github.io/metals/" class="tpl-nav-link "><i class="bi-graph-up-arrow"></i> 금속 원자재·스크랩</a>
-      <a href="https://chicstory.github.io/engines/" class="tpl-nav-link "><i class="bi-cpu"></i> 엔진 전수 백과</a>
-      <a href="https://chicstory.github.io/autoissue/" class="tpl-nav-link "><i class="bi-bell-fill"></i> 데일리 이슈</a>
       <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-nav-link "><i class="bi-table"></i> 제조사별 스펙표</a>
+      <a href="https://chicstory.github.io/engines/" class="tpl-nav-link "><i class="bi-cpu"></i> 엔진 전수 백과</a>
       <a href="https://chicstory.github.io/guide.html" class="tpl-nav-link "><i class="bi-compass"></i> 이용 가이드</a>
     </div>
 
@@ -1384,6 +1472,13 @@
           <div class="tpl-drawer-item-desc">통합 인텔리전스 허브 대시보드</div>
         </div>
       </a>
+      <a href="https://chicstory.github.io/autoissue/" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;"><i class="bi-bell-fill"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">자동차 데일리 이슈 허브</div>
+          <div class="tpl-drawer-item-desc">10대 제조사 결함·리콜 & 미국 NHTSA 선제 공고</div>
+        </div>
+      </a>
       <a href="https://chicstory.github.io/metals/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon icon-metals"><i class="bi-graph-up-arrow"></i></div>
         <div class="tpl-drawer-item-text">
@@ -1391,18 +1486,18 @@
           <div class="tpl-drawer-item-desc">일일 시세 분석 · 1초 즉시 계산기 · 캘린더 아카이브</div>
         </div>
       </a>
+      <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;"><i class="bi-table"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">제조사별 전수 스펙표</div>
+          <div class="tpl-drawer-item-desc">6대 제조사 244종 엔진 스펙 전수 비교표</div>
+        </div>
+      </a>
       <a href="https://chicstory.github.io/engines/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon icon-engines"><i class="bi-cpu"></i></div>
         <div class="tpl-drawer-item-text">
           <div class="tpl-drawer-item-title">자동차 엔진 전수 백과사전</div>
           <div class="tpl-drawer-item-desc">260개 파워트레인 실측 제원 & 다이노 그래프</div>
-        </div>
-      </a>
-      <a href="https://chicstory.github.io/autoissue/" class="tpl-drawer-item">
-        <div class="tpl-drawer-icon" style="background: rgba(244, 63, 94, 0.15); color: var(--tpl-red);"><i class="bi-bell-fill"></i></div>
-        <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">자동차 데일리 이슈 허브</div>
-          <div class="tpl-drawer-item-desc">10대 제조사 리콜 · 미국 NHTSA 선제 공고</div>
         </div>
       </a>
     </div>
@@ -1496,14 +1591,64 @@
             <div class="hero-badge"><i class="bi-shield-check"></i> INTELLIGENCE ARCHIVE</div>
             <h1 class="hero-title">산업 자원 시세 & 자동차 테크 인텔리전스</h1>
             <p class="hero-desc">
-                ThePathLab은 런던금속거래소(LME)·조달청 9대 핵심 금속원자재(구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐) 일일 시세 분석과
+                ThePathLab은 10대 완성차 결함·리콜 데일리 이슈, LME·조달청 9대 핵심 금속원자재(구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐) 일일 시세 분석과
                 글로벌 260개 자동차 파워트레인 엔진 백과사전을 제공하는 전문 데이터 포털입니다.
             </p>
         </section>
 
-        <!-- Two Core Services Pillars -->
+        <!-- Core Services Pillars Grid (Reordered: Auto Issue -> Metals -> Specs -> Engines) -->
         <section class="pillars-grid">
-            <!-- Pillar 1: Metals -->
+            <!-- Pillar 1: Auto Issue (Daily Dynamic) -->
+            <a href="https://chicstory.github.io/autoissue/" class="pillar-card autoissue">
+                <div>
+                    <div class="pillar-icon-wrap autoissue-icon">
+                        <i class="bi-bell-fill"></i>
+                    </div>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                        <span class="pillar-badge autoissue-badge">DAILY DEFECT & RECALL</span>
+                        <span class="live-status-badge red"><span class="pulse-dot red"></span>62개 이슈 누적</span>
+                    </div>
+                    <h2 class="pillar-title">10대 제조사 결함·리콜 & 신차 데일리 이슈</h2>
+                    <p class="pillar-desc">
+                        현대·기아, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사를 듀얼 트랙으로 추적합니다.
+                    </p>
+
+                    <!-- 카드 내부 최근 업데이트 현황 -->
+                    <div class="card-update-box">
+                        <div class="card-update-header">
+                            <span><i class="bi-broadcast"></i> 실시간 이슈 수집 현황</span>
+                            <span style="color: #fb7185; font-family: 'JetBrains Mono';">DUAL TRACK</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">NHTSA</span>
+                            <span class="card-update-title">미국 NHTSA 해외 선제 리콜 & 결함 조사</span>
+                            <span class="card-update-tag tag-new">GLOBAL</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">국토부</span>
+                            <span class="card-update-title">국내 10대 제조사 공식 리콜 & 무상수리</span>
+                            <span class="card-update-tag tag-update">OFFICIAL</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">연동</span>
+                            <span class="card-update-title">파워트레인 태그 클릭 시 260개 엔진 백과 0초 점프</span>
+                            <span class="card-update-tag tag-new">LINKED</span>
+                        </div>
+                    </div>
+
+                    <ul class="pillar-features">
+                        <li><i class="bi-check2-circle"></i> 10대 제조사 그룹별 칩 원클릭 필터링</li>
+                        <li><i class="bi-check2-circle"></i> 국내 공식 공고 vs 해외 선제(NHTSA) 듀얼 트랙</li>
+                        <li><i class="bi-check2-circle"></i> 차종·파워트레인·결함 증상 0초 실시간 검색</li>
+                    </ul>
+                </div>
+                <div class="btn-launch btn-autoissue">
+                    <span>자동차 이슈 대시보드 보기</span>
+                    <i class="bi-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Pillar 2: Metals & Scrap (Daily Dynamic) -->
             <a href="https://chicstory.github.io/metals/" class="pillar-card metals">
                 <div>
                     <div class="pillar-icon-wrap metals-icon">
@@ -1553,7 +1698,57 @@
                 </div>
             </a>
 
-            <!-- Pillar 2: Engines -->
+            <!-- Pillar 3: Manufacturer Specs Tables -->
+            <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="pillar-card specs">
+                <div>
+                    <div class="pillar-icon-wrap specs-icon">
+                        <i class="bi-table"></i>
+                    </div>
+                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                        <span class="pillar-badge specs-badge">MANUFACTURER SPECS</span>
+                        <span class="live-status-badge purple"><span class="pulse-dot purple"></span>6대사 전수 비교</span>
+                    </div>
+                    <h2 class="pillar-title">제조사별 전수 엔진 스펙 종합 비교표</h2>
+                    <p class="pillar-desc">
+                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종), 폭스바겐(20종), KGM(20종) 전수 제원과 변속기/유종 매칭표를 다크 테크 UI로 비교합니다.
+                    </p>
+
+                    <!-- 카드 내부 최근 업데이트 현황 -->
+                    <div class="card-update-box">
+                        <div class="card-update-header">
+                            <span><i class="bi-grid-3x3-gap"></i> 제조사별 스펙표 바로가기</span>
+                            <span style="color: #c084fc; font-family: 'JetBrains Mono';">6 BRANDS</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">국산</span>
+                            <span class="card-update-title">현대·기아 (87종) · KGM·쌍용 (20종)</span>
+                            <span class="card-update-tag tag-update">KOREA</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">독일</span>
+                            <span class="card-update-title">BMW (45종) · 메르세데스-벤츠 (40종)</span>
+                            <span class="card-update-tag tag-new">GERMAN</span>
+                        </div>
+                        <div class="card-update-item">
+                            <span class="card-update-date">VAG</span>
+                            <span class="card-update-title">아우디 (32종) · 폭스바겐 (20종)</span>
+                            <span class="card-update-tag tag-update">EUROPE</span>
+                        </div>
+                    </div>
+
+                    <ul class="pillar-features">
+                        <li><i class="bi-check2-circle"></i> 출력·토크·배기량·유종·변속기 단수 전수 표기</li>
+                        <li><i class="bi-check2-circle"></i> 다크 테크 UI 최적화 고대비 가독성 레이아웃</li>
+                        <li><i class="bi-check2-circle"></i> 엔진 클릭 시 260개 상세 다이노 페이지 원클릭 점프</li>
+                    </ul>
+                </div>
+                <div class="btn-launch btn-specs">
+                    <span>제조사별 스펙표 탐색하기</span>
+                    <i class="bi-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Pillar 4: Engine Encyclopedia -->
             <a href="https://chicstory.github.io/engines/" class="pillar-card engines">
                 <div>
                     <div class="pillar-icon-wrap engines-icon">
@@ -1563,7 +1758,7 @@
                         <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
                         <span class="live-status-badge cyan"><span class="pulse-dot cyan"></span>260개 엔진 완비</span>
                     </div>
-                    <h2 class="pillar-title">글로벌 자동차 엔진 엔진 백과사전</h2>
+                    <h2 class="pillar-title">글로벌 자동차 엔진 전수 백과사전</h2>
                     <p class="pillar-desc">
                         현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM 등 2000년대 이후 260개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.
                     </p>
@@ -1614,6 +1809,14 @@
                 <span class="activity-badge-total">LATEST ACTIVITY LOG</span>
             </div>
             <div class="activity-list">
+                <a href="https://chicstory.github.io/autoissue/" class="activity-row">
+                    <div class="activity-left">
+                        <span class="activity-date">2026-09-10</span>
+                        <span class="activity-cat" style="background:rgba(244,63,94,0.15); color:#fb7185; border:1px solid rgba(244,63,94,0.3);">데일리이슈</span>
+                        <span class="activity-text">10대 제조사 결함·리콜 & 미국 NHTSA 해외 선제 공고 62건 통합 인텔리전스 허브 런칭</span>
+                    </div>
+                    <i class="bi-arrow-right activity-arrow"></i>
+                </a>
                 <a href="https://chicstory.github.io/metals/" class="activity-row">
                     <div class="activity-left">
                         <span class="activity-date" id="metalsActivityDate">2026-09-10</span>
