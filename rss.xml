@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ThePathLab - 산업 자원 시세 &amp; 자동차 테크 인텔리전스 포털</title>
-    <link>https://chicstory.github.io/</link>
+    <link>https://thapathlab.com/</link>
     <description>ThePathLab 통합 네트워크 공식 RSS 피드: 9대 금속원자재·스크랩 일일 시황 및 10대 완성차 결함·리콜 데일리 뉴스</description>
     <language>ko-kr</language>
-    <pubDate>Sat, 12 Sep 2026 12:50:24 +0900</pubDate>
-    <lastBuildDate>Sat, 12 Sep 2026 12:50:24 +0900</lastBuildDate>
-    <atom:link href="https://chicstory.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 12 Sep 2026 16:52:30 +0900</pubDate>
+    <lastBuildDate>Sat, 12 Sep 2026 16:52:30 +0900</lastBuildDate>
+    <atom:link href="https://thapathlab.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[2026-09-12] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://chicstory.github.io/metals/resources/2026-09-12/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-12.html</link>
+      <link>https://thapathlab.com/metals/resources/2026-09-12/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-12.html</link>
       <guid isPermaLink="false">metals-2026-09-12</guid>
       <pubDate>Sat, 12 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-12 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,166원/kg | 철·철스크랩 532원/kg | 알루미늄 4,376원/kg | 금 187,954원/g | 은 2,777원/g | 팔라듐 57,202원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
@@ -18,7 +18,7 @@
     </item>
     <item>
       <title>[2026-09-11] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://chicstory.github.io/metals/resources/2026-09-11/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-11.html</link>
+      <link>https://thapathlab.com/metals/resources/2026-09-11/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-11.html</link>
       <guid isPermaLink="false">metals-2026-09-11</guid>
       <pubDate>Fri, 11 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-11 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,201원/kg | 철·철스크랩 529원/kg | 알루미늄 4,424원/kg | 금 187,545원/g | 은 2,744원/g | 팔라듐 55,876원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
@@ -26,7 +26,7 @@
     </item>
     <item>
       <title>[2026-09-10] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://chicstory.github.io/metals/resources/2026-09-10/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-10.html</link>
+      <link>https://thapathlab.com/metals/resources/2026-09-10/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-10.html</link>
       <guid isPermaLink="false">metals-2026-09-10</guid>
       <pubDate>Thu, 10 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-10 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,023원/kg | 철·철스크랩 531원/kg | 알루미늄 4,480원/kg | 금 190,190원/g | 은 2,901원/g | 팔라듐 58,781원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
@@ -34,7 +34,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 현대차 쏘나타·투싼 4만 2천대 전자식 브레이크 부스터(IEB) 소프트웨어 리콜</title>
-      <link>https://www.car.go.kr/</link>
+      <link>https://thapathlab.com/autoissue/#iss-2026-09-01</link>
       <guid isPermaLink="false">autoissue-iss-2026-09-01</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 전자식 통합 브레이크(IEB) ECU 제어 로직 오류로 특정 감속 조건에서 경고등 점등 및 제동 페달 답력 증가 가능성이 확인되어 소프트웨어 무상 업데이트를 실시합니다.</description>
@@ -42,7 +42,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 베트남에서 여러 고급 차량이 리콜될 가능성에 직면해 있습니다. - Vietnam.vn</title>
-      <link>https://news.google.com/rss/articles/CBMijwFBVV95cUxPTUMxR2RQdklWVW42NC1TbFNqU0JWek9KTWRLU2VfaTJFTThtVGdscDFBVzQ5US1jQllURlJfLWxGUnBic3pLYTdUZjYwbzFORzJkTUpmTkd2N2xPcG1nNUp3MVdkcnFwbkIxQVp2VnVEUEhPLTlwaWVnNjE3X1dDTC1IXzRZZjJsNU5UQlBxMA?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-156047</link>
       <guid isPermaLink="false">autoissue-kr-156047</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 베트남에서 여러 고급 차량이 리콜될 가능성에 직면해 있습니다. - Vietnam.vn 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -50,7 +50,7 @@
     </item>
     <item>
       <title>[BMW · MINI] 경고: 베트남에서 아우디, BMW, 포르쉐, 포드 차량 일부가 리콜될 수 있습니다. - Vietnam.vn</title>
-      <link>https://news.google.com/rss/articles/CBMingFBVV95cUxPbDBVQVA1a0VnYVdxNnhLNF9WaXFmOGJ6YUNWOUI0WEVxc21kYUZDVlkxejlNUEgzVTI1aHBMTnRMOEk5UnJYNHA4bk1RUVVIVUJMR2pVbjY5emdPWW02SWd3TGx3bnF0bDJVQlNJdHBLVXlaYjdDTUZMQWU5U21kYTVxbVU5U1lBQ2tvU2UzVzJtYUJVUE1iWEYyclNiZw?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-513163</link>
       <guid isPermaLink="false">autoissue-kr-513163</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 경고: 베트남에서 아우디, BMW, 포르쉐, 포드 차량 일부가 리콜될 수 있습니다. - Vietnam.vn 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -58,7 +58,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 자동차 | 무상보증 기간 중 입고 차량을 소비자 과실로 처리하고 사전 동의 없이 유상 정비 및 30만원 결제 - 소비자가 만드는 신문</title>
-      <link>https://news.google.com/rss/articles/CBMia0FVX3lxTE9rRExLdklnVUZaN3phb1g2LUpmZ2k5R0pxVThqcTVablhsV0tod1FmS2ZNaXI3TzZNMnRqdG9KQjJUd29LbV9DbVlwS2QyTjdYRVk4cUdQODdZNWtuYlVDbEhNNFJjLWtTUzFV?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-617676</link>
       <guid isPermaLink="false">autoissue-kr-617676</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] 자동차 | 무상보증 기간 중 입고 차량을 소비자 과실로 처리하고 사전 동의 없이 유상 정비 및 30만원 결제 - 소비자가 만드는 신문 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -66,7 +66,7 @@
     </item>
     <item>
       <title>[토요타 · 렉서스] [해외 선제공고] Toyota Recalls 8,521 C-HR EVs for Power Loss - The EV Report</title>
-      <link>https://news.google.com/rss/articles/CBMiY0FVX3lxTE9PSVlDclVlSnJjM0FEbjdPaGVaTnUyLW40YTkzejdpX2dZVmZyX1pYVzEwMklJTTB6UGFVQ2x4a1VsRWwxTktBVlpFRnVIRzdXdE4xV0FsYXc4azRVNXhtbmtjMA?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-286147</link>
       <guid isPermaLink="false">autoissue-nhtsa-286147</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -74,7 +74,7 @@
     </item>
     <item>
       <title>[토요타 · 렉서스] [해외 선제공고] Toyota recalls 8,521 electric C-HR SUVs [Update] - Electrek</title>
-      <link>https://news.google.com/rss/articles/CBMigwFBVV95cUxOOTBIYlJEN1JfdEJBVFFiMXVxVVNvTzlPVWpyRV92OGRQeU4xTUV5bmdTX3habmY0V0JwR21jeXRPNWZkRF9LSnF6Y1FGZXRpNUQ5VkQtYXhHY0FLY1Vqd241bkloRGYxLXRGdXVJWHE4NGNEZmVfSEJjZC1TbFYybldxWQ?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-582866</link>
       <guid isPermaLink="false">autoissue-nhtsa-582866</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -82,7 +82,7 @@
     </item>
     <item>
       <title>[Lucid Motors] [해외 선제공고] Lucid&apos;s Biggest Recall Yet Hits at the Worst Possible Time - Top Speed</title>
-      <link>https://news.google.com/rss/articles/CBMiaEFVX3lxTE1CYXVJM1pmZV9NeGNuT0hqNmJQZlBSeElUREw4R0RNNll5Zm5hMUJKZkgtSVlKNm5lVnRXSVBmUC1jUHJxV0RocUswSW44ZDJIV3FQRTBtb254UmF0NE5iNndrbkhNMG4w?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-787104</link>
       <guid isPermaLink="false">autoissue-nhtsa-787104</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -90,7 +90,7 @@
     </item>
     <item>
       <title>[2026-09-09] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://chicstory.github.io/metals/resources/2026-09-09/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%207%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-09.html</link>
+      <link>https://thapathlab.com/metals/resources/2026-09-09/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%207%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-09.html</link>
       <guid isPermaLink="false">metals-2026-09-09</guid>
       <pubDate>Wed, 09 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-09 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,632원/kg | 철·철스크랩 540원/kg | 알루미늄 4,466원/kg | 금 188,074원/g | 은 2,876원/g | 팔라듐 58,422원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
@@ -98,7 +98,7 @@
     </item>
     <item>
       <title>[BMW · MINI] [미국 선제공고] BMW 5시리즈·X5 스타터 모터 과열 방지 관련 10만 5천대 선제 리콜</title>
-      <link>https://www.nhtsa.gov/recalls</link>
+      <link>https://thapathlab.com/autoissue/#iss-2026-09-02</link>
       <guid isPermaLink="false">autoissue-iss-2026-09-02</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 도로교통안전국(NHTSA) 조사 결과, 스타터 모터가 장시간 엔진 시동 시도 중 과열되어 국소적 소손이 발생할 수 있는 결함이 확인되어 선제 리콜이 개시되었습니다. 국내에도 조만간 통지 예정입니다.</description>
@@ -106,7 +106,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 수입 자동차 업계, 줄줄이 ‘파격 보증’ 프로모션 - 부산일보</title>
-      <link>https://news.google.com/rss/articles/CBMidEFVX3lxTE84WXJacjhBdDNkclV1WDlzOFVOaDh4c1d5NXUwMlRxVWhUYzJhSmdodmxkbXJEVjRfM3I0Wlk2eXVBd1FQWVNxd0ludkcyOXlZeDlYTXlTMFVqMEQ5WncxNkp1b0NwRXpkZDlMSllPUEMweS1T?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-880344</link>
       <guid isPermaLink="false">autoissue-kr-880344</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] 수입 자동차 업계, 줄줄이 ‘파격 보증’ 프로모션 - 부산일보 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -114,7 +114,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] [해외 선제공고] More vehicle technology, not just EV batteries, causing uptick in ‘park outside’ recalls - repairerdrivennews.com</title>
-      <link>https://news.google.com/rss/articles/CBMiywFBVV95cUxQNHRiRGthVUxpa29tUHMwdlo5b2ZPRDhfQ0JPWElzUnFPQUg5WmpmUVdCd3N6QXU2dElUVHRTTVVYUHFMMEhRZ3RzR1VycnRoZVlESXJZek1DelFhdmFIcmhlUTlXOGRJMEhJWjhxRzJDRDE2RFRPTUZEWkJTbC1UMmR1MS10VURoRU50M2JZNFJEdGZ3MFF6SjdXTWRhUkJRQVZKRFRfWDJyNHNxRUo3UWJvZFYzdGdSN1JvTzViUWl0NXZFVDY3Y2xDZw?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-58754</link>
       <guid isPermaLink="false">autoissue-nhtsa-58754</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -122,7 +122,7 @@
     </item>
     <item>
       <title>[메르세데스-벤츠] [해외 선제공고] Nova Warranty Addresses Coverage Gaps for Mercedes-Benz Owners Following Largest Recall Year - FinancialContent</title>
-      <link>https://news.google.com/rss/articles/CBMi-gFBVV95cUxPQjFYdk45RXlyaWpVWWdSQTM4LW1PbTlFNU9jZmNjUlhsSHozMVFZNmdoTG1SVmZ4ZFJyRy02US0tQWhLdnA2blpkVThHaVBabi1kbmlOWVBEdTUxS0R6R3dhTHJkM3pwamhSZDVGdDhtbDhFdW0xbGJSVXByU0hZSkQ5c21hSXVZM1dhQmpDQ3VZNXRoRFBjSGpEc1JMeDZrYW1JRURvZXd5OFVTYnhiQmN6Wi1vdlFsNXBmVW80aHRxZTdUTjRkaFFKNXlEZ09UbDcxcFItOGk5YTVpTzNRSzNPOFh2aWNEMGlZYmk2Q01oRFp5YW5Haktn?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-475739</link>
       <guid isPermaLink="false">autoissue-nhtsa-475739</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -130,7 +130,7 @@
     </item>
     <item>
       <title>[토요타 · 렉서스] [해외 선제공고] Toyota is recalling 10,000 electric C-HR SUVs - Electrek</title>
-      <link>https://news.google.com/rss/articles/CBMifkFVX3lxTE1GeTc1bXhaZFZuN0g4QzRRMFpjM0pjX0pSQ2dxelhOZkFxQm0wTW1ackVoc2xCeWljZFRaNHZZNnFDT0NGNWwwV08wSEJpZmNlZFJ1Y2VTLXJTeXc2X0xna24xX09BclEtMG1ZR3F3RWxqZTJETXBTb3lwMzY0UQ?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-687426</link>
       <guid isPermaLink="false">autoissue-nhtsa-687426</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -138,7 +138,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] [해외 선제공고] Recall Roundup: NHTSA flags safety defects across trucks, vans, and pickups - FleetOwner</title>
-      <link>https://news.google.com/rss/articles/CBMixwFBVV95cUxQakNJRndsWURSZ1ctOGZUUERZZ295UGw4WDJvQTBHUHhvVVEyYVZxaWJGRS1FM1lOYV9rR3pRUUM1MDhaSWZLY3RvQnNadXBnc1lYN2EtdjlQT0szeE9GWEJySkRxUnlzcWV1NjV5Nmd3VXpvWVlTd0t5MTdEUmw5OVN1dDRRUFFNUkpKZmZNYkJJOXVvNzVPZGV6VGp1cWo4dHh5cTF0c25WOXpYUndpUXJkUmliOS1kbl9vNnMtVDRucm5Gc0Nn?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-715582</link>
       <guid isPermaLink="false">autoissue-nhtsa-715582</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -146,7 +146,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 신차에 명운 걸던 완성차업계…SW 강화로 출시 주기 단축 사활 - 뉴스토마토</title>
-      <link>https://news.google.com/rss/articles/CBMiYEFVX3lxTFBxM2tvMDJTbVNPOExPNXduTEVsd3MwQXplVDlKY2tnSkpreVRUdUxtaTFiZ3UxeFFZMW8ySFFhZ29Sa1c0WF80bm5KLXdpNTVkeTM4cjJlYkdDMkotYklVUw?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-158360</link>
       <guid isPermaLink="false">autoissue-kr-158360</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚗 신차·출시] 신차에 명운 걸던 완성차업계…SW 강화로 출시 주기 단축 사활 - 뉴스토마토 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -154,7 +154,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] [해외 선제공고] Jeep Recalls 328,000 Grand Cherokees—Including SUVs Already Fixed - Motor1.com</title>
-      <link>https://news.google.com/rss/articles/CBMidkFVX3lxTFBoWTJFYzBWc2M1LTA1UlMxWTB2NTAxOEZ3bnE4XzR4SExLQi1nQ0c2a0NHY2JqdXZsTWNWOGoyZVpuN1hGRW0weTFET0lMWTJIeEgwazY1Nmlqc2lzTW9nZFcyQThCekZ3ZjI3bGk2QXQxZlNSSFE?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-840427</link>
       <guid isPermaLink="false">autoissue-nhtsa-840427</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -162,7 +162,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] [해외 선제공고] Recall Roundup: NHTSA flags safety defects across trucks, vans, and pickups - fleetowner.com</title>
-      <link>https://news.google.com/rss/articles/CBMixwFBVV95cUxQakNJRndsWURSZ1ctOGZUUERZZ295UGw4WDJvQTBHUHhvVVEyYVZxaWJGRS1FM1lOYV9rR3pRUUM1MDhaSWZLY3RvQnNadXBnc1lYN2EtdjlQT0szeE9GWEJySkRxUnlzcWV1NjV5Nmd3VXpvWVlTd0t5MTdEUmw5OVN1dDRRUFFNUkpKZmZNYkJJOXVvNzVPZGV6VGp1cWo4dHh5cTF0c25WOXpYUndpUXJkUmliOS1kbl9vNnMtVDRucm5Gc0Nn?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-9391</link>
       <guid isPermaLink="false">autoissue-nhtsa-9391</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -170,7 +170,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 신차에 명운 걸던 완성차업계…SW 강화로 출시 주기 단축 사활 - newstomato.com</title>
-      <link>https://news.google.com/rss/articles/CBMiYEFVX3lxTFBxM2tvMDJTbVNPOExPNXduTEVsd3MwQXplVDlKY2tnSkpreVRUdUxtaTFiZ3UxeFFZMW8ySFFhZ29Sa1c0WF80bm5KLXdpNTVkeTM4cjJlYkdDMkotYklVUw?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-769957</link>
       <guid isPermaLink="false">autoissue-kr-769957</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚗 신차·출시] 신차에 명운 걸던 완성차업계…SW 강화로 출시 주기 단축 사활 - newstomato.com 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -178,7 +178,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 글로벌 완성차 엇갈린 생존전략…현대차는 울산에 미래 건다 - iusm.co.kr</title>
-      <link>https://news.google.com/rss/articles/CBMiakFVX3lxTE90d3FIQmUwRDlLTGRLMnYzNnF4R0l2QnIxM3dReDhxX1BlTDkzSENTVTBIZi1HenR5Nk5tc2c2RS1keV9Ga2RTWUJGQXBESTZUeDdST1RkMF9OVkhsZlZxTVJ0TWdrQnJueVHSAW5BVV95cUxQOXA2VmVxR2pZTUdGbTQwVW1fSVdiR1lYYVJVVVJXQ2FMdDVrbkc5d3RQNV9GamUzSUdlc2JLdWh6eVFTTE1CcVU3OUdEU0Y5RWxNZUJydlJqTXYxQS1JR0ZqNC1FMGhWWVlxU3JHUQ?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-926158</link>
       <guid isPermaLink="false">autoissue-kr-926158</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] 글로벌 완성차 엇갈린 생존전략…현대차는 울산에 미래 건다 - iusm.co.kr 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -186,7 +186,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] [해외 선제공고] Jeep Recalls Over 300,000 Grand Cherokee SUVs - AUTOJOSH</title>
-      <link>https://news.google.com/rss/articles/CBMidEFVX3lxTE81WTNiUEhSc2thX09oUVFxTlIwamJaeVI4NXhKeVYwcDF2ZGZFOV8taFIycmk4bkhsM0hEY09HaFdVSG1RcG9nVzFmNzhuRFJkeGotMkljcmJnenBsYVBDa2tINDNTTWUxdncwb0w1a3dQekJr?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#nhtsa-746240</link>
       <guid isPermaLink="false">autoissue-nhtsa-746240</guid>
       <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
@@ -194,7 +194,7 @@
     </item>
     <item>
       <title>[2026-09-08] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://chicstory.github.io/metals/resources/2026-09-08/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%207%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-08.html</link>
+      <link>https://thapathlab.com/metals/resources/2026-09-08/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%207%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-08.html</link>
       <guid isPermaLink="false">metals-2026-09-08</guid>
       <pubDate>Tue, 08 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-08 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,828원/kg | 철·철스크랩 542원/kg | 알루미늄 4,457원/kg | 금 188,290원/g | 은 2,861원/g | 팔라듐 60,556원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
@@ -202,7 +202,7 @@
     </item>
     <item>
       <title>[메르세데스-벤츠] 벤츠 E클래스(W214) MBUX 3세대 슈퍼스크린 터치 렉 개선 OTA 무상 업데이트</title>
-      <link>https://www.mercedes-benz.co.kr/</link>
+      <link>https://thapathlab.com/autoissue/#iss-2026-09-03</link>
       <guid isPermaLink="false">autoissue-iss-2026-09-03</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🔧 무상수리·OTA] 신형 E클래스 MBUX 슈퍼스크린 구동 시 특정 서드파티 앱(유튜브, 티맵) 실행 시 발생하는 화면 멈춤 및 터치 딜레이 현상을 개선하는 OTA(무선 펌웨어) 패치가 배포되었습니다.</description>
@@ -210,7 +210,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 발암 가능성 크림 홍콩에선 판매중단, 싱가포르에선 리콜… 국내에선 “문제없다”는 에이피알·식약처 - 조선비즈 - Chosunbiz</title>
-      <link>https://news.google.com/rss/articles/CBMikwFBVV95cUxPVFBxLTc3aVJiMnpzcmxiTHYta3k1Rzc2UzdTZHpoSG8yejBMMVIwTHB0cDVkejQ4OUFtWWhSNmdOdUhGM0p6R19yV3pBcVM3akJaaXZfMHYxaEtpZnZIeDRlSWoyVllpUXB2Mmlrb1dlUF94QTZudXppZEJTQ0UzcFZKdEpTY3o4ZnVnaEs3TGkxWVnSAacBQVVfeXFMTVBVUnVMVlhzUmVBcWFpLWYzMVFJTUVoQlF4Y3doMkR1UkkycjYzbFVuX2dpXy1ZVEJZSUlFN3h4b1czX2I2dFNweE1kQzR0Z202d0syanZaNmJqQ1JIOFFOVjJIQ0pQNHBaNHNxZ1hmWmZ2Ui02Qm4yOV91N1VJeHFjT2NvR0hvc1VOOFl3cl9vTjNqb19EY3VwbGdlcFVRQ1dIRG0tZTQ?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-833073</link>
       <guid isPermaLink="false">autoissue-kr-833073</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 발암 가능성 크림 홍콩에선 판매중단, 싱가포르에선 리콜… 국내에선 “문제없다”는 에이피알·식약처 - 조선비즈 - Chosunbiz 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -218,7 +218,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] “토션빔도 결함이네” 셀토스 차주들 빨리 확인하세요! - 닷키프레스</title>
-      <link>https://news.google.com/rss/articles/CBMiXEFVX3lxTFA0cTd0Q0ZsLVRjdFRJZGtndnM1VTV1SkstdzNLY1MzYTNuYW5GWWF4RnBXMnRrZHZBTmE5SWV0TUVzcG5WUko5N1dzdmRweWV4NjBjZFd3STI4a3NE0gFiQVVfeXFMTlRvOWY0aWJLNWlJNFRSa1J1Q2ljMHZFMlIxcDZqek5tMlFhQktQRE96THNjR0IybWNnbC13S09jcWllQjBycV9lR05DSGx2X29rVEZ2MFItZ1pPRTRCOGo0dFE?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-800066</link>
       <guid isPermaLink="false">autoissue-kr-800066</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] “토션빔도 결함이네” 셀토스 차주들 빨리 확인하세요! - 닷키프레스 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -226,7 +226,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 차주 내일 꼭 확인하세요…완성차 5사 무상점검, 선착순 쿠폰 푼다 - 아주경제</title>
-      <link>https://news.google.com/rss/articles/CBMiWEFVX3lxTE4wMHdkQkhwc09TdlhRVjI4a1BYUVZScWExWWVVdW93Xzh4VmZHYm9uN3E3d01DV0tXclJUXzhhZEZiQ3dTeFlPZFppODhrekgwbmhERnZ5cmrSAVhBVV95cUxOMDB3ZEJIcHNPU3ZYUVYyOGtQWFFWUnFhMVllVXVvd184eFZmR2JvbjdxN3dNQ1dLV3JSVF84YWRGYkN3U3hZT2RaaTg4a3pIMG5oREZ2eXJq?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-98270</link>
       <guid isPermaLink="false">autoissue-kr-98270</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] 차주 내일 꼭 확인하세요…완성차 5사 무상점검, 선착순 쿠폰 푼다 - 아주경제 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -234,7 +234,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] &quot;쿠폰 놓치면 못 받아요&quot;… 현대차·기아 등 5개사, 추석 앞두고 &apos;무상점검&apos; 실시 - 토픽트리</title>
-      <link>https://news.google.com/rss/articles/CBMijAFBVV95cUxPS0ZSSE9ybXBMUFlCcWdweFZmaEV0TFcxYm9hbWwwVWRpZUxhcWlpQks0LV9lalNZVVFkeTdySmdyc2ZKMHBDSzRkcWJlelh2dFNKck5YXzdBUm1hbWtKaUViOWVFLS1pdVhGVU8zWVFYdHpST1FlS0VPblNNMGlWRjBHZnl5YjJURUZfV9IBlAFBVV95cUxOclhCZlVncWlTbF9WMEliQld6Ulk5NWZhd3VFTl9jT2FMUTFBc0xwM1JFUTBlQW10a29HVm9OZWJGMVgwMlRlR1ZWT2c5R3hfTTlWSkU5S2gwVlFNOW1xSi0xZ3RJREl1bGhObzBoS3ZBaWw4QS1laTNfNXJfRmp3cVVSWG8wTHBxSHVMbm5vNlFCV1pS?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-34974</link>
       <guid isPermaLink="false">autoissue-kr-34974</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] &quot;쿠폰 놓치면 못 받아요&quot;… 현대차·기아 등 5개사, 추석 앞두고 &apos;무상점검&apos; 실시 - 토픽트리 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
@@ -242,7 +242,7 @@
     </item>
     <item>
       <title>[현대·기아 (제네시스)] 완성차 5사, 추석 연휴 앞두고 차량 무상점검 실시 - 뉴스핌</title>
-      <link>https://news.google.com/rss/articles/CBMiXEFVX3lxTFBNYTFDb1EzVGtfREo0aFJKZl83MERqX0VGeWpzVkdUcU92eEI1S0lTS1ZMLTloUEFfRzRMa1RUb2dJV1BCUFFydmZEUlRmSkExbXAwb1hqWWNsemYy?oc=5</link>
+      <link>https://thapathlab.com/autoissue/#kr-941431</link>
       <guid isPermaLink="false">autoissue-kr-941431</guid>
       <pubDate>Tue, 08 Sep 2026 11:00:00 +0900</pubDate>
       <description>[📰 업계·테크 이슈] 완성차 5사, 추석 연휴 앞두고 차량 무상점검 실시 - 뉴스핌 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
