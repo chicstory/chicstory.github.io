@@ -171,6 +171,13 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.tpl-lang-btn.active {
+  color: var(--tpl-cyan);
+  background: rgba(0, 242, 254, 0.18);
+  font-weight: 700;
+  border-bottom: 2px solid var(--tpl-cyan);
+}
+
 .tpl-lang-sep {
   color: #334155;
   font-size: 0.7rem;
@@ -420,6 +427,14 @@
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.2);
+}
+
+.tpl-drawer-lang-btn.active {
+  color: var(--tpl-cyan);
+  background: rgba(0, 242, 254, 0.15);
+  border-color: rgba(0, 242, 254, 0.4);
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
 }
 
 .tpl-drawer-sublinks {
@@ -1419,23 +1434,23 @@
     </a>
 
     <div class="tpl-nav-links">
-      <a href="https://chicstory.github.io/" class="tpl-nav-link active"><i class="bi-house-door"></i> 포털 홈</a>
-      <a href="https://chicstory.github.io/autoissue/" class="tpl-nav-link "><i class="bi-bell-fill"></i> 자동차 데일리 이슈</a>
-      <a href="https://chicstory.github.io/metals/" class="tpl-nav-link "><i class="bi-graph-up-arrow"></i> 금속 원자재·스크랩</a>
-      <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-nav-link "><i class="bi-table"></i> 제조사별 스펙표</a>
-      <a href="https://chicstory.github.io/engines/" class="tpl-nav-link "><i class="bi-cpu"></i> 엔진 전수 백과</a>
-      <a href="https://chicstory.github.io/guide.html" class="tpl-nav-link "><i class="bi-compass"></i> 이용 가이드</a>
+      <a href="https://chicstory.github.io/" class="tpl-nav-link active"><i class="bi-house-door"></i> <span data-i18n="nav_home">포털 홈</span></a>
+      <a href="https://chicstory.github.io/autoissue/" class="tpl-nav-link "><i class="bi-bell-fill"></i> <span data-i18n="nav_autoissue">자동차 데일리 이슈</span></a>
+      <a href="https://chicstory.github.io/metals/" class="tpl-nav-link "><i class="bi-graph-up-arrow"></i> <span data-i18n="nav_metals">금속 원자재·스크랩</span></a>
+      <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-nav-link "><i class="bi-table"></i> <span data-i18n="nav_specs">제조사별 스펙표</span></a>
+      <a href="https://chicstory.github.io/engines/" class="tpl-nav-link "><i class="bi-cpu"></i> <span data-i18n="nav_engines">엔진 전수 백과</span></a>
+      <a href="https://chicstory.github.io/guide.html" class="tpl-nav-link "><i class="bi-compass"></i> <span data-i18n="nav_guide">이용 가이드</span></a>
     </div>
 
     <div class="tpl-nav-actions">
       <div class="tpl-lang-wrap">
-        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('ko')">KO</button>
+        <button type="button" class="tpl-lang-btn active" data-lang="ko" onclick="tplChangeLang('ko')">KO</button>
         <span class="tpl-lang-sep">|</span>
-        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('en')">EN</button>
+        <button type="button" class="tpl-lang-btn" data-lang="en" onclick="tplChangeLang('en')">EN</button>
         <span class="tpl-lang-sep">|</span>
-        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('ru')">RU</button>
+        <button type="button" class="tpl-lang-btn" data-lang="ru" onclick="tplChangeLang('ru')">RU</button>
         <span class="tpl-lang-sep">|</span>
-        <button type="button" class="tpl-lang-btn" onclick="tplChangeLang('es')">ES</button>
+        <button type="button" class="tpl-lang-btn" data-lang="es" onclick="tplChangeLang('es')">ES</button>
       </div>
       <button type="button" class="tpl-hamburger-btn" id="tplHamburgerBtn" aria-label="전체 메뉴 열기">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:block;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -1454,7 +1469,7 @@
       <i class="bi-bounding-box-circles"></i>
       <div>
         <div class="tpl-drawer-title">ThePathLab Network</div>
-        <div class="tpl-drawer-sub">산업 원자재 & 모빌리티 테크 인텔리전스</div>
+        <div class="tpl-drawer-sub" data-i18n="drawer_network_sub">산업 원자재 & 모빌리티 테크 인텔리전스</div>
       </div>
     </div>
     <button type="button" class="tpl-drawer-close" id="tplDrawerClose" aria-label="메뉴 닫기">
@@ -1465,47 +1480,47 @@
   <div class="tpl-drawer-body">
     <!-- Section 1: Core Hubs -->
     <div class="tpl-drawer-group">
-      <div class="tpl-drawer-group-title"><i class="bi-stars"></i> 핵심 서비스 포털</div>
+      <div class="tpl-drawer-group-title"><i class="bi-stars"></i> <span data-i18n="drawer_core_title">핵심 서비스 포털</span></div>
       <a href="https://chicstory.github.io/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon icon-portal"><i class="bi-house-door"></i></div>
         <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">ThePathLab 포털 메인</div>
-          <div class="tpl-drawer-item-desc">통합 인텔리전스 허브 대시보드</div>
+          <div class="tpl-drawer-item-title" data-i18n="drawer_portal_t">ThePathLab 포털 메인</div>
+          <div class="tpl-drawer-item-desc" data-i18n="drawer_portal_d">통합 인텔리전스 허브 대시보드</div>
         </div>
       </a>
       <a href="https://chicstory.github.io/autoissue/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;"><i class="bi-bell-fill"></i></div>
         <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">자동차 데일리 이슈 허브</div>
-          <div class="tpl-drawer-item-desc">10대 제조사 결함·리콜 & 미국 NHTSA 선제 공고</div>
+          <div class="tpl-drawer-item-title" data-i18n="drawer_autoissue_t">자동차 데일리 이슈 허브</div>
+          <div class="tpl-drawer-item-desc" data-i18n="drawer_autoissue_d">10대 제조사 결함·리콜 & 미국 NHTSA 선제 공고</div>
         </div>
       </a>
       <a href="https://chicstory.github.io/metals/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon icon-metals"><i class="bi-graph-up-arrow"></i></div>
         <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">9대 금속 원자재 & 스크랩 허브</div>
-          <div class="tpl-drawer-item-desc">일일 시세 분석 · 1초 즉시 계산기 · 캘린더 아카이브</div>
+          <div class="tpl-drawer-item-title" data-i18n="drawer_metals_t">9대 금속 원자재 & 스크랩 허브</div>
+          <div class="tpl-drawer-item-desc" data-i18n="drawer_metals_d">일일 시세 분석 · 1초 즉시 계산기 · 캘린더 아카이브</div>
         </div>
       </a>
       <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-drawer-item">
         <div class="tpl-drawer-icon" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;"><i class="bi-table"></i></div>
         <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">제조사별 전수 스펙표</div>
-          <div class="tpl-drawer-item-desc">6대 제조사 244종 엔진 스펙 전수 비교표</div>
+          <div class="tpl-drawer-item-title" data-i18n="drawer_specs_t">제조사별 전수 스펙표</div>
+          <div class="tpl-drawer-item-desc" data-i18n="drawer_specs_d">9대 제조사 파워트레인 전수 비교표</div>
         </div>
       </a>
       <a href="https://chicstory.github.io/engines/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon icon-engines"><i class="bi-cpu"></i></div>
         <div class="tpl-drawer-item-text">
-          <div class="tpl-drawer-item-title">자동차 엔진 전수 백과사전</div>
-          <div class="tpl-drawer-item-desc">260개 파워트레인 실측 제원 & 다이노 그래프</div>
+          <div class="tpl-drawer-item-title" data-i18n="drawer_engines_t">자동차 엔진 전수 백과사전</div>
+          <div class="tpl-drawer-item-desc" data-i18n="drawer_engines_d">280+개 파워트레인 실측 제원 & 다이노 그래프</div>
         </div>
       </a>
     </div>
 
     <!-- Section 2: Manufacturer Tables Quick Jump -->
     <div class="tpl-drawer-group">
-      <div class="tpl-drawer-group-title"><i class="bi-table"></i> 제조사별 전수 스펙 종합비교표</div>
+      <div class="tpl-drawer-group-title"><i class="bi-table"></i> <span data-i18n="drawer_jump_title">제조사별 전수 스펙 종합비교표</span></div>
       <div class="tpl-drawer-chips">
         <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-chip-link">현대·기아 (87종)</a>
         <a href="https://chicstory.github.io/engines/bmw_engine_table.html" class="tpl-chip-link">BMW (45종)</a>
@@ -1513,28 +1528,31 @@
         <a href="https://chicstory.github.io/engines/audi_engine_table.html" class="tpl-chip-link">아우디 (32종)</a>
         <a href="https://chicstory.github.io/engines/volkswagen_engine_table.html" class="tpl-chip-link">폭스바겐 (20종)</a>
         <a href="https://chicstory.github.io/engines/kgm_ssangyong_engine_table.html" class="tpl-chip-link">KGM·쌍용 (20종)</a>
+        <a href="https://chicstory.github.io/engines/toyota_lexus_engine_table.html" class="tpl-chip-link">토요타·렉서스 (35종)</a>
+        <a href="https://chicstory.github.io/engines/gm_chevrolet_engine_table.html" class="tpl-chip-link">한국GM·쉐보레 (32종)</a>
+        <a href="https://chicstory.github.io/engines/renault_korea_engine_table.html" class="tpl-chip-link">르노코리아 (26종)</a>
       </div>
     </div>
 
     <!-- Section 3: Multi-Language Switcher -->
     <div class="tpl-drawer-group">
-      <div class="tpl-drawer-group-title"><i class="bi-globe"></i> 언어 선택 (Language)</div>
+      <div class="tpl-drawer-group-title"><i class="bi-globe"></i> <span data-i18n="drawer_lang_title">언어 선택 (Language)</span></div>
       <div class="tpl-drawer-langs">
-        <button type="button" class="tpl-drawer-lang-btn" onclick="tplChangeLang('ko')">🇰🇷 한국어</button>
-        <button type="button" class="tpl-drawer-lang-btn" onclick="tplChangeLang('en')">🇺🇸 English</button>
-        <button type="button" class="tpl-drawer-lang-btn" onclick="tplChangeLang('ru')">🇷🇺 Русский</button>
-        <button type="button" class="tpl-drawer-lang-btn" onclick="tplChangeLang('es')">🇪🇸 Español</button>
+        <button type="button" class="tpl-drawer-lang-btn active" data-lang="ko" onclick="tplChangeLang('ko')">🇰🇷 한국어</button>
+        <button type="button" class="tpl-drawer-lang-btn" data-lang="en" onclick="tplChangeLang('en')">🇺🇸 English</button>
+        <button type="button" class="tpl-drawer-lang-btn" data-lang="ru" onclick="tplChangeLang('ru')">🇷🇺 Русский</button>
+        <button type="button" class="tpl-drawer-lang-btn" data-lang="es" onclick="tplChangeLang('es')">🇪🇸 Español</button>
       </div>
     </div>
 
     <!-- Section 4: Site Info & Links (Naver Blog disconnected) -->
     <div class="tpl-drawer-group">
-      <div class="tpl-drawer-group-title"><i class="bi-info-circle"></i> 서비스 정보 & 채널</div>
+      <div class="tpl-drawer-group-title"><i class="bi-info-circle"></i> <span data-i18n="drawer_info_title">서비스 정보 & 채널</span></div>
       <div class="tpl-drawer-sublinks">
-        <a href="https://chicstory.github.io/guide.html"><i class="bi-compass"></i> 이용 가이드 & 사이트맵</a>
-        <a href="https://chicstory.github.io/about.html"><i class="bi-shield-check"></i> 소개 (About)</a>
-        <a href="https://chicstory.github.io/privacy.html"><i class="bi-lock"></i> 개인정보처리방침</a>
-        <a href="https://chicstory.github.io/contact.html"><i class="bi-envelope"></i> 문의하기</a>
+        <a href="https://chicstory.github.io/guide.html"><i class="bi-compass"></i> <span data-i18n="drawer_guide">이용 가이드 & 사이트맵</span></a>
+        <a href="https://chicstory.github.io/about.html"><i class="bi-shield-check"></i> <span data-i18n="drawer_about">소개 (About)</span></a>
+        <a href="https://chicstory.github.io/privacy.html"><i class="bi-lock"></i> <span data-i18n="drawer_privacy">개인정보처리방침</span></a>
+        <a href="https://chicstory.github.io/contact.html"><i class="bi-envelope"></i> <span data-i18n="drawer_contact">문의하기</span></a>
       </div>
     </div>
   </div>
@@ -1589,11 +1607,11 @@
 <!-- Main Content -->
     <main class="container">
         <section class="hero-section">
-            <div class="hero-badge"><i class="bi-shield-check"></i> INTELLIGENCE ARCHIVE</div>
-            <h1 class="hero-title">산업 자원 시세 & 자동차 테크 인텔리전스</h1>
-            <p class="hero-desc">
+            <div class="hero-badge"><i class="bi-shield-check"></i> <span data-i18n="hero_badge">INTELLIGENCE ARCHIVE</span></div>
+            <h1 class="hero-title" data-i18n="hero_title">산업 자원 시세 & 자동차 테크 인텔리전스</h1>
+            <p class="hero-desc" data-i18n="hero_desc">
                 ThePathLab은 10대 완성차 결함·리콜 데일리 이슈, LME·조달청 9대 핵심 금속원자재(구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐) 일일 시세 분석과
-                글로벌 260개 자동차 파워트레인 엔진 백과사전을 제공하는 전문 데이터 포털입니다.
+                글로벌 280+개 자동차 파워트레인 엔진 백과사전을 제공하는 전문 데이터 포털입니다.
             </p>
         </section>
 
@@ -1609,8 +1627,8 @@
                         <span class="pillar-badge autoissue-badge">DAILY DEFECT & RECALL</span>
                         <span class="live-status-badge red"><span class="pulse-dot red"></span>62개 이슈 누적</span>
                     </div>
-                    <h2 class="pillar-title">10대 제조사 결함·리콜 & 신차 데일리 이슈</h2>
-                    <p class="pillar-desc">
+                    <h2 class="pillar-title" data-i18n="pillar1_title">10대 제조사 결함·리콜 & 신차 데일리 이슈</h2>
+                    <p class="pillar-desc" data-i18n="pillar1_desc">
                         현대·기아, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사를 듀얼 트랙으로 추적합니다.
                     </p>
 
@@ -1632,19 +1650,19 @@
                         </div>
                         <div class="card-update-item">
                             <span class="card-update-date">연동</span>
-                            <span class="card-update-title">파워트레인 태그 클릭 시 260개 엔진 백과 0초 점프</span>
+                            <span class="card-update-title">파워트레인 태그 클릭 시 280+개 엔진 백과 0초 점프</span>
                             <span class="card-update-tag tag-new">LINKED</span>
                         </div>
                     </div>
 
                     <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> 10대 제조사 그룹별 칩 원클릭 필터링</li>
-                        <li><i class="bi-check2-circle"></i> 국내 공식 공고 vs 해외 선제(NHTSA) 듀얼 트랙</li>
-                        <li><i class="bi-check2-circle"></i> 차종·파워트레인·결함 증상 0초 실시간 검색</li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f1">10대 제조사 그룹별 칩 원클릭 필터링</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f2">국내 공식 공고 vs 해외 선제(NHTSA) 듀얼 트랙</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f3">차종·파워트레인·결함 증상 0초 실시간 검색</span></li>
                     </ul>
                 </div>
                 <div class="btn-launch btn-autoissue">
-                    <span>자동차 이슈 대시보드 보기</span>
+                    <span data-i18n="pillar1_btn">자동차 이슈 대시보드 보기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
@@ -1657,10 +1675,10 @@
                     </div>
                     <div style="display: flex; align-items: center; flex-wrap: wrap;">
                         <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
-                        <span class="live-status-badge gold" id="metalsLiveBadge"><span class="pulse-dot gold"></span>2026-09-11 발행</span>
+                        <span class="live-status-badge gold" id="metalsLiveBadge"><span class="pulse-dot gold"></span>2026-09-12 발행</span>
                     </div>
-                    <h2 class="pillar-title">9대 금속 원자재 일일 시세 & 스크랩 분석</h2>
-                    <p class="pillar-desc">
+                    <h2 class="pillar-title" data-i18n="pillar2_title">9대 금속 원자재 일일 시세 & 스크랩 분석</h2>
+                    <p class="pillar-desc" data-i18n="pillar2_desc">
                         구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐 등 조달청 및 LME 기준 환산 시세와 고물상 스크랩(70~80%) 실시간 계산기를 제공합니다.
                     </p>
 
@@ -1671,12 +1689,12 @@
                             <span style="color: #ffb800; font-family: 'JetBrains Mono';">DAILY UPDATES</span>
                         </div>
                         <div class="card-update-item">
-                            <span class="card-update-date" id="metalsUpdateDate0">09-11</span>
+                            <span class="card-update-date" id="metalsUpdateDate0">09-12</span>
                             <span class="card-update-title">9대 금속 일일 시세 & 스크랩 추정가</span>
                             <span class="card-update-tag tag-new">NEW</span>
                         </div>
                         <div class="card-update-item">
-                            <span class="card-update-date" id="metalsUpdateDate1">09-10</span>
+                            <span class="card-update-date" id="metalsUpdateDate1">09-11</span>
                             <span class="card-update-title">9대 금속 일일 시황 & 조달청 고시가</span>
                             <span class="card-update-tag tag-update">LATEST</span>
                         </div>
@@ -1688,13 +1706,13 @@
                     </div>
 
                     <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> 일일 원자재 원/kg & 원/g 정밀 환산</li>
-                        <li><i class="bi-check2-circle"></i> 1초 즉시 계산 스크랩 가치 계산기</li>
-                        <li><i class="bi-check2-circle"></i> Gemma 4 AI 글로벌 광물 뉴스 브리핑</li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f1">일일 원자재 원/kg & 원/g 정밀 환산</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f2">1초 즉시 계산 스크랩 가치 계산기</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f3">Gemma 4 AI 글로벌 광물 뉴스 브리핑</span></li>
                     </ul>
                 </div>
                 <div class="btn-launch btn-metals">
-                    <span>금속 시세 리포트 보기</span>
+                    <span data-i18n="pillar2_btn">금속 시세 리포트 보기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
@@ -1707,22 +1725,22 @@
                     </div>
                     <div style="display: flex; align-items: center; flex-wrap: wrap;">
                         <span class="pillar-badge specs-badge">MANUFACTURER SPECS</span>
-                        <span class="live-status-badge purple"><span class="pulse-dot purple"></span>6대사 전수 비교</span>
+                        <span class="live-status-badge purple"><span class="pulse-dot purple"></span>9대사 전수 비교</span>
                     </div>
-                    <h2 class="pillar-title">제조사별 전수 엔진 스펙 종합 비교표</h2>
-                    <p class="pillar-desc">
-                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종), 폭스바겐(20종), KGM(20종) 전수 제원과 변속기/유종 매칭표를 다크 테크 UI로 비교합니다.
+                    <h2 class="pillar-title" data-i18n="pillar3_title">제조사별 전수 엔진 스펙 종합 비교표</h2>
+                    <p class="pillar-desc" data-i18n="pillar3_desc">
+                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종), 폭스바겐(20종), KGM(20종), 토요타(35종), 쉐보레(32종), 르노(26종) 전수 제원과 변속기/유종 매칭표를 다크 테크 UI로 비교합니다.
                     </p>
 
                     <!-- 카드 내부 최근 업데이트 현황 -->
                     <div class="card-update-box">
                         <div class="card-update-header">
                             <span><i class="bi-grid-3x3-gap"></i> 제조사별 스펙표 바로가기</span>
-                            <span style="color: #c084fc; font-family: 'JetBrains Mono';">6 BRANDS</span>
+                            <span style="color: #c084fc; font-family: 'JetBrains Mono';">9 BRANDS</span>
                         </div>
                         <div class="card-update-item">
                             <span class="card-update-date">국산</span>
-                            <span class="card-update-title">현대·기아 (87종) · KGM·쌍용 (20종)</span>
+                            <span class="card-update-title">현대·기아 (87종) · KGM (20종) · 르노 (26종) · 쉐보레 (32종)</span>
                             <span class="card-update-tag tag-update">KOREA</span>
                         </div>
                         <div class="card-update-item">
@@ -1731,20 +1749,20 @@
                             <span class="card-update-tag tag-new">GERMAN</span>
                         </div>
                         <div class="card-update-item">
-                            <span class="card-update-date">VAG</span>
-                            <span class="card-update-title">아우디 (32종) · 폭스바겐 (20종)</span>
-                            <span class="card-update-tag tag-update">EUROPE</span>
+                            <span class="card-update-date">일본·VAG</span>
+                            <span class="card-update-title">토요타·렉서스 (35종) · 아우디 (32종) · 폭스바겐 (20종)</span>
+                            <span class="card-update-tag tag-update">GLOBAL</span>
                         </div>
                     </div>
 
                     <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> 출력·토크·배기량·유종·변속기 단수 전수 표기</li>
-                        <li><i class="bi-check2-circle"></i> 다크 테크 UI 최적화 고대비 가독성 레이아웃</li>
-                        <li><i class="bi-check2-circle"></i> 엔진 클릭 시 260개 상세 다이노 페이지 원클릭 점프</li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f1">출력·토크·배기량·유종·변속기 단수 전수 표기</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f2">다크 테크 UI 최적화 고대비 가독성 레이아웃</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f3">엔진 클릭 시 280+개 상세 다이노 페이지 원클릭 점프</span></li>
                     </ul>
                 </div>
                 <div class="btn-launch btn-specs">
-                    <span>제조사별 스펙표 탐색하기</span>
+                    <span data-i18n="pillar3_btn">제조사별 스펙표 탐색하기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
@@ -1757,23 +1775,23 @@
                     </div>
                     <div style="display: flex; align-items: center; flex-wrap: wrap;">
                         <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
-                        <span class="live-status-badge cyan"><span class="pulse-dot cyan"></span>260개 엔진 완비</span>
+                        <span class="live-status-badge cyan"><span class="pulse-dot cyan"></span>280+개 엔진 완비</span>
                     </div>
-                    <h2 class="pillar-title">글로벌 자동차 엔진 전수 백과사전</h2>
-                    <p class="pillar-desc">
-                        현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM 등 2000년대 이후 260개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.
+                    <h2 class="pillar-title" data-i18n="pillar4_title">글로벌 자동차 엔진 전수 백과사전</h2>
+                    <p class="pillar-desc" data-i18n="pillar4_desc">
+                        현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM, 토요타, 쉐보레, 르노 등 2000년대 이후 280+개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.
                     </p>
 
                     <!-- 카드 내부 최근 업데이트 현황 -->
                     <div class="card-update-box">
                         <div class="card-update-header">
                             <span><i class="bi-database-check"></i> 데이터베이스 업데이트 현황</span>
-                            <span style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">260 ENGINES</span>
+                            <span style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">280+ ENGINES</span>
                         </div>
                         <div class="card-update-item">
                             <span class="card-update-date">제조사</span>
-                            <span class="card-update-title">현대·기아·BMW·벤츠·아우디·폭스바겐·KGM</span>
-                            <span class="card-update-tag tag-update">6대사</span>
+                            <span class="card-update-title">현대·기아·BMW·벤츠·아우디·폭스바겐·KGM·토요타·쉐보레·르노</span>
+                            <span class="card-update-tag tag-update">9대사</span>
                         </div>
                         <div class="card-update-item">
                             <span class="card-update-date">메모장</span>
@@ -1788,13 +1806,13 @@
                     </div>
 
                     <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> 260개 고유 엔진 제원 & 연속 물리 다이노</li>
-                        <li><i class="bi-check2-circle"></i> 6대 제조사 제조사별 스펙 종합 비교표</li>
-                        <li><i class="bi-check2-circle"></i> 차주 & 정비사 익명 실전 꿀팁 메모장</li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f1">280+개 고유 엔진 제원 & 연속 물리 다이노</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f2">9대 제조사 제조사별 스펙 종합 비교표</span></li>
+                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f3">차주 & 정비사 익명 실전 꿀팁 메모장</span></li>
                     </ul>
                 </div>
                 <div class="btn-launch btn-engines">
-                    <span>엔진 백과사전 탐색하기</span>
+                    <span data-i18n="pillar4_btn">엔진 백과사전 탐색하기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
@@ -1805,7 +1823,7 @@
             <div class="activity-header">
                 <div class="activity-title">
                     <i class="bi-activity"></i>
-                    <span>ThePathLab 실시간 업데이트 타임라인</span>
+                    <span data-i18n="activity_title">ThePathLab 실시간 업데이트 타임라인</span>
                 </div>
                 <span class="activity-badge-total">LATEST ACTIVITY LOG</span>
             </div>
@@ -1820,7 +1838,7 @@
                 </a>
                 <a href="https://chicstory.github.io/metals/" class="activity-row">
                     <div class="activity-left">
-                        <span class="activity-date" id="metalsActivityDate">2026-09-11</span>
+                        <span class="activity-date" id="metalsActivityDate">2026-09-12</span>
                         <span class="activity-cat cat-metals">금속원자재</span>
                         <span class="activity-text">9대 금속원자재(구리·철·알루미늄·납·금·은·백금족) 일일 원화 환산 시세 및 스크랩 매입 추정가 리포트 발행</span>
                     </div>
@@ -1836,9 +1854,9 @@
                 </a>
                 <a href="https://chicstory.github.io/engines/" class="activity-row">
                     <div class="activity-left">
-                        <span class="activity-date">2026-09-08</span>
+                        <span class="activity-date">2026-09-12</span>
                         <span class="activity-cat cat-engines">엔진백과</span>
-                        <span class="activity-text">글로벌 6대 완성차 제조사 260개 엔진 전수 제원표 다크 테크 UI 및 제조사별 전수 스펙표 배포</span>
+                        <span class="activity-text">토요타·렉서스, 쉐보레, 르노코리아 93개 차종 추가 구축 및 9대 제조사 283개 파워트레인 전수 백과 확장 배포</span>
                     </div>
                     <i class="bi-arrow-right activity-arrow"></i>
                 </a>
@@ -1848,8 +1866,8 @@
         <!-- Quick Access to Manufacturers -->
         <section class="brand-chips-wrap">
             <div class="chips-header">
-                <span class="chips-title"><i class="bi-speedometer2" style="color:var(--accent-cyan);"></i> 주요 자동차 제조사 엔진 백과 바로가기</span>
-                <a href="https://chicstory.github.io/engines/" style="color:var(--accent-cyan); text-decoration:none; font-size:0.82rem; font-weight:700;">전체보기 →</a>
+                <span class="chips-title"><i class="bi-speedometer2" style="color:var(--accent-cyan);"></i> <span data-i18n="chips_title">주요 자동차 제조사 엔진 백과 바로가기</span></span>
+                <a href="https://chicstory.github.io/engines/" style="color:var(--accent-cyan); text-decoration:none; font-size:0.82rem; font-weight:700;" data-i18n="chips_all">전체보기 →</a>
             </div>
             <div class="chips-list">
                 <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="brand-chip">현대자동차 (스마트스트림/세타/람다)</a>
@@ -1859,6 +1877,9 @@
                 <a href="https://chicstory.github.io/engines/audi_engine_table.html" class="brand-chip">아우디 (EA888/EA839/EA897)</a>
                 <a href="https://chicstory.github.io/engines/volkswagen_engine_table.html" class="brand-chip">폭스바겐 (EA288/TSI/TDI)</a>
                 <a href="https://chicstory.github.io/engines/kgm_ssangyong_engine_table.html" class="brand-chip">KGM·쌍용 (e-XGi/e-XDi)</a>
+                <a href="https://chicstory.github.io/engines/toyota_lexus_engine_table.html" class="brand-chip">토요타·렉서스 (하이브리드/GR V6)</a>
+                <a href="https://chicstory.github.io/engines/gm_chevrolet_engine_table.html" class="brand-chip">한국GM·쉐보레 (에코텍/E-Turbo)</a>
+                <a href="https://chicstory.github.io/engines/renault_korea_engine_table.html" class="brand-chip">르노코리아 (LPe/TCe/E-Tech)</a>
             </div>
         </section>
     </main>
@@ -1869,16 +1890,16 @@
             <div class="footer-inner">
                 <div>
                     <div style="font-weight:800; color:#fff; font-size:1.1rem; margin-bottom:0.3rem;">ThePathLab</div>
-                    <p style="font-size:0.82rem; color:var(--text-dim);">관심 분야를 직접 모으고 정리하는 개인 데이터 아카이브</p>
+                    <p style="font-size:0.82rem; color:var(--text-dim);" data-i18n="footer_desc">관심 분야를 직접 모으고 정리하는 개인 데이터 아카이브</p>
                 </div>
                 <ul class="footer-links">
-                    <li><a href="guide.html">이용 가이드 & 사이트맵 (Guide)</a></li>
-                    <li><a href="about.html">소개 (About)</a></li>
-                    <li><a href="privacy.html">개인정보처리방침 (Privacy Policy)</a></li>
-                    <li><a href="contact.html">문의 및 제휴 (Contact)</a></li>
+                    <li><a href="guide.html" data-i18n="footer_guide">이용 가이드 & 사이트맵 (Guide)</a></li>
+                    <li><a href="about.html" data-i18n="footer_about">소개 (About)</a></li>
+                    <li><a href="privacy.html" data-i18n="footer_privacy">개인정보처리방침 (Privacy Policy)</a></li>
+                    <li><a href="contact.html" data-i18n="footer_contact">문의 및 제휴 (Contact)</a></li>
                 </ul>
             </div>
-            <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top:1.2rem; font-size:0.78rem; text-align:center; color:#475569;">
+            <div style="border-top: 1px solid rgba(255,255,255,0.06); padding-top:1.2rem; font-size:0.78rem; text-align:center; color:#475569;" data-i18n="footer_legal">
                 &copy; 2026 ThePathLab (ChicStory). All rights reserved. 본 사이트의 데이터는 정보 제공용이며 투자 및 매매의 최종 판단 책임은 사용자에게 있습니다.
             </div>
         </div>
@@ -1901,7 +1922,7 @@
             <div class="guide-modal-header">
                 <div style="display: flex; align-items: center; gap: 8px;">
                     <span style="font-size: 20px;">💡</span>
-                    <h3 style="font-size: 17px; font-weight: 800; color: #fff; margin: 0;">ThePathLab 포털 이용 가이드</h3>
+                    <h3 style="font-size: 17px; font-weight: 800; color: #fff; margin: 0;" data-i18n="modal_title">ThePathLab 포털 이용 가이드</h3>
                 </div>
                 <button class="guide-close-btn" onclick="closePortalGuide()">&times;</button>
             </div>
@@ -1909,85 +1930,377 @@
                 <div class="guide-tip-item">
                     <div class="guide-tip-icon">🪙</div>
                     <div class="guide-tip-content">
-                        <strong>9대 금속 원자재 & 스크랩 허브</strong>
-                        <p>LME·조달청 국제 종가와 실시간 환율을 반영한 원화 시장가 및 고물상 스크랩(70~80%) 1초 즉시 계산기를 제공합니다.</p>
+                        <strong data-i18n="modal_item1_t">9대 금속 원자재 & 스크랩 허브</strong>
+                        <p data-i18n="modal_item1_d">LME·조달청 국제 종가와 실시간 환율을 반영한 원화 시장가 및 고물상 스크랩(70~80%) 1초 즉시 계산기를 제공합니다.</p>
                     </div>
                 </div>
                 <div class="guide-tip-item">
                     <div class="guide-tip-icon">🚗</div>
                     <div class="guide-tip-content">
-                        <strong>260개 파워트레인 엔진 백과사전</strong>
-                        <p>현대·기아·BMW·벤츠·아우디·폭스바겐·KGM 6대 제조사의 연속 물리 다이노 토크 곡선과 고질병 실전 정비 팁을 집대성했습니다.</p>
+                        <strong data-i18n="modal_item2_t">280+개 파워트레인 엔진 백과사전</strong>
+                        <p data-i18n="modal_item2_d">현대·기아·BMW·벤츠·아우디·폭스바겐·KGM·토요타·쉐보레·르노 9대 제조사의 연속 물리 다이노 토크 곡선과 고질병 실전 정비 팁을 집대성했습니다.</p>
                     </div>
                 </div>
                 <div class="guide-tip-item">
                     <div class="guide-tip-icon">🗺️</div>
                     <div class="guide-tip-content">
-                        <strong>전체 사이트맵 & 인터랙티브 디렉터리</strong>
-                        <p>상세 환산 공식, 다이노 곡선 읽는 법, 전체 400여 개 세부 페이지를 한눈에 볼 수 있는 종합 가이드가 준비되어 있습니다.</p>
+                        <strong data-i18n="modal_item3_t">전체 사이트맵 & 인터랙티브 디렉터리</strong>
+                        <p data-i18n="modal_item3_d">상세 환산 공식, 다이노 곡선 읽는 법, 전체 400여 개 세부 페이지를 한눈에 볼 수 있는 종합 가이드가 준비되어 있습니다.</p>
                     </div>
                 </div>
                 <div class="guide-tip-footer">
                     <a href="guide.html" class="btn-launch btn-metals" style="width: 100%; justify-content: center; text-decoration: none; padding: 12px 16px;">
-                        <span>📖 전체 사이트 통합 가이드 & 사이트맵 열기 ↗</span>
+                        <span data-i18n="modal_btn">📖 전체 사이트 통합 가이드 & 사이트맵 열기 ↗</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Google Translate Script (On-demand Lazy Load: 사용자 인터랙션 시 로드하여 미사용 JS 128KB 해소) -->
-    <div id="google_translate_element" style="display:none;"></div>
+    <!-- In-house Zero-Dependency Static i18n Dictionary Engine (0ms Instant Translation, 0 Layout Shift) -->
     <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'ko',
-                includedLanguages: 'ko,en,ru,es,ja,zh-CN,de,fr',
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-        function tplChangeLang(lang) {
-            document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
-            document.cookie = 'googtrans=/ko/' + lang + '; path=/; domain=' + location.hostname + '; SameSite=Lax; Secure';
-            var select = document.querySelector('.goog-te-combo');
-            if (select) {
-                select.value = lang;
-                select.dispatchEvent(new Event('change'));
-                return;
+        const TPL_I18N = {
+            ko: {
+                nav_home: "포털 홈",
+                nav_autoissue: "자동차 데일리 이슈",
+                nav_metals: "금속 원자재·스크랩",
+                nav_specs: "제조사별 스펙표",
+                nav_engines: "엔진 전수 백과",
+                nav_guide: "이용 가이드",
+                drawer_network_sub: "산업 원자재 & 모빌리티 테크 인텔리전스",
+                drawer_core_title: "핵심 서비스 포털",
+                drawer_portal_t: "ThePathLab 포털 메인",
+                drawer_portal_d: "통합 인텔리전스 허브 대시보드",
+                drawer_autoissue_t: "자동차 데일리 이슈 허브",
+                drawer_autoissue_d: "10대 제조사 결함·리콜 & 미국 NHTSA 선제 공고",
+                drawer_metals_t: "9대 금속 원자재 & 스크랩 허브",
+                drawer_metals_d: "일일 시세 분석 · 1초 즉시 계산기 · 캘린더 아카이브",
+                drawer_specs_t: "제조사별 전수 스펙표",
+                drawer_specs_d: "9대 제조사 파워트레인 전수 비교표",
+                drawer_engines_t: "자동차 엔진 전수 백과사전",
+                drawer_engines_d: "280+개 파워트레인 실측 제원 & 다이노 그래프",
+                drawer_jump_title: "제조사별 전수 스펙 종합비교표",
+                drawer_lang_title: "언어 선택 (Language)",
+                drawer_info_title: "서비스 정보 & 채널",
+                drawer_guide: "이용 가이드 & 사이트맵",
+                drawer_about: "소개 (About)",
+                drawer_privacy: "개인정보처리방침",
+                drawer_contact: "문의하기",
+                hero_badge: "INTELLIGENCE ARCHIVE",
+                hero_title: "산업 자원 시세 & 자동차 테크 인텔리전스",
+                hero_desc: "ThePathLab은 10대 완성차 결함·리콜 데일리 이슈, LME·조달청 9대 핵심 금속원자재(구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐) 일일 시세 분석과 글로벌 280+개 자동차 파워트레인 엔진 백과사전을 제공하는 전문 데이터 포털입니다.",
+                pillar1_title: "10대 제조사 결함·리콜 & 신차 데일리 이슈",
+                pillar1_desc: "현대·기아, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사를 듀얼 트랙으로 추적합니다.",
+                pillar1_f1: "10대 제조사 그룹별 칩 원클릭 필터링",
+                pillar1_f2: "국내 공식 공고 vs 해외 선제(NHTSA) 듀얼 트랙",
+                pillar1_f3: "차종·파워트레인·결함 증상 0초 실시간 검색",
+                pillar1_btn: "자동차 이슈 대시보드 보기",
+                pillar2_title: "9대 금속 원자재 일일 시세 & 스크랩 분석",
+                pillar2_desc: "구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐 등 조달청 및 LME 기준 환산 시세와 고물상 스크랩(70~80%) 실시간 계산기를 제공합니다.",
+                pillar2_f1: "일일 원자재 원/kg & 원/g 정밀 환산",
+                pillar2_f2: "1초 즉시 계산 스크랩 가치 계산기",
+                pillar2_f3: "Gemma 4 AI 글로벌 광물 뉴스 브리핑",
+                pillar2_btn: "금속 시세 리포트 보기",
+                pillar3_title: "제조사별 전수 엔진 스펙 종합 비교표",
+                pillar3_desc: "현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종), 폭스바겐(20종), KGM(20종), 토요타(35종), 쉐보레(32종), 르노(26종) 전수 제원과 변속기/유종 매칭표를 다크 테크 UI로 비교합니다.",
+                pillar3_f1: "출력·토크·배기량·유종·변속기 단수 전수 표기",
+                pillar3_f2: "다크 테크 UI 최적화 고대비 가독성 레이아웃",
+                pillar3_f3: "엔진 클릭 시 280+개 상세 다이노 페이지 원클릭 점프",
+                pillar3_btn: "제조사별 스펙표 탐색하기",
+                pillar4_title: "글로벌 자동차 엔진 전수 백과사전",
+                pillar4_desc: "현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM, 토요타, 쉐보레, 르노 등 2000년대 이후 280+개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.",
+                pillar4_f1: "280+개 고유 엔진 제원 & 연속 물리 다이노",
+                pillar4_f2: "9대 제조사 제조사별 스펙 종합 비교표",
+                pillar4_f3: "차주 & 정비사 익명 실전 꿀팁 메모장",
+                pillar4_btn: "엔진 백과사전 탐색하기",
+                activity_title: "ThePathLab 실시간 업데이트 타임라인",
+                chips_title: "주요 자동차 제조사 엔진 백과 바로가기",
+                chips_all: "전체보기 →",
+                footer_desc: "관심 분야를 직접 모으고 정리하는 개인 데이터 아카이브",
+                footer_guide: "이용 가이드 & 사이트맵 (Guide)",
+                footer_about: "소개 (About)",
+                footer_privacy: "개인정보처리방침 (Privacy Policy)",
+                footer_contact: "문의 및 제휴 (Contact)",
+                footer_legal: "© 2026 ThePathLab (ChicStory). All rights reserved. 본 사이트의 데이터는 정보 제공용이며 투자 및 매매의 최종 판단 책임은 사용자에게 있습니다.",
+                modal_title: "ThePathLab 포털 이용 가이드",
+                modal_item1_t: "9대 금속 원자재 & 스크랩 허브",
+                modal_item1_d: "LME·조달청 국제 종가와 실시간 환율을 반영한 원화 시장가 및 고물상 스크랩(70~80%) 1초 즉시 계산기를 제공합니다.",
+                modal_item2_t: "280+개 파워트레인 엔진 백과사전",
+                modal_item2_d: "현대·기아·BMW·벤츠·아우디·폭스바겐·KGM·토요타·쉐보레·르노 9대 제조사의 연속 물리 다이노 토크 곡선과 고질병 실전 정비 팁을 집대성했습니다.",
+                modal_item3_t: "전체 사이트맵 & 인터랙티브 디렉터리",
+                modal_item3_d: "상세 환산 공식, 다이노 곡선 읽는 법, 전체 400여 개 세부 페이지를 한눈에 볼 수 있는 종합 가이드가 준비되어 있습니다.",
+                modal_btn: "📖 전체 사이트 통합 가이드 & 사이트맵 열기 ↗"
+            },
+            en: {
+                nav_home: "Portal Home",
+                nav_autoissue: "Auto Daily Issues",
+                nav_metals: "Metals & Scrap",
+                nav_specs: "Specs by Brand",
+                nav_engines: "Engines Archive",
+                nav_guide: "User Guide",
+                drawer_network_sub: "Commodities & Mobility Tech Intelligence",
+                drawer_core_title: "Core Service Hubs",
+                drawer_portal_t: "ThePathLab Portal Home",
+                drawer_portal_d: "Integrated Intelligence Hub Dashboard",
+                drawer_autoissue_t: "Auto Daily Issue Hub",
+                drawer_autoissue_d: "10 Global Brands Recalls & Defect Bulletins",
+                drawer_metals_t: "9 Industrial Metals & Scrap Hub",
+                drawer_metals_d: "Daily Prices · 1-Sec Calculator · Archive",
+                drawer_specs_t: "Powertrain Specs by Brand",
+                drawer_specs_d: "9 Automakers Complete Powertrain Tables",
+                drawer_engines_t: "Global Powertrain Archive",
+                drawer_engines_d: "280+ Engines Real Specs & Dyno Graphs",
+                drawer_jump_title: "Powertrain Spec Tables Quick Jump",
+                drawer_lang_title: "Select Language",
+                drawer_info_title: "Service Info & Channels",
+                drawer_guide: "User Guide & Sitemap",
+                drawer_about: "About Us",
+                drawer_privacy: "Privacy Policy",
+                drawer_contact: "Contact Us",
+                hero_badge: "INTELLIGENCE ARCHIVE",
+                hero_title: "Commodities Prices & Automotive Tech Intelligence",
+                hero_desc: "ThePathLab is a specialized intelligence portal tracking daily automotive defects and recalls across 10 automakers, LME & PPS daily prices for 9 industrial metals, and a complete encyclopedia of 280+ automotive powertrains.",
+                pillar1_title: "10 Automakers Daily Defects & Recalls",
+                pillar1_desc: "Dual-track monitoring of official Ministry recalls and overseas NHTSA defect investigations for Hyundai, Kia, BMW, Benz, Toyota, Tesla, and more.",
+                pillar1_f1: "One-click chip filter for 10 automaker groups",
+                pillar1_f2: "Dual-track: Domestic Official vs Overseas NHTSA",
+                pillar1_f3: "Instant search by model, engine code, and defect symptoms",
+                pillar1_btn: "Open Auto Issue Dashboard",
+                pillar2_title: "9 Metals Daily Prices & Scrap Valuation",
+                pillar2_desc: "LME and Public Procurement Service daily prices for Copper, Iron Scrap, Aluminum, Lead, Precious Metals, and a 1-second scrap calculator.",
+                pillar2_f1: "Precision daily price per kg and gram in KRW",
+                pillar2_f2: "1-second instant scrap value calculator",
+                pillar2_f3: "Gemma 4 AI global mineral news briefing",
+                pillar2_btn: "View Metal Price Report",
+                pillar3_title: "Comprehensive Powertrain Specs by Brand",
+                pillar3_desc: "Compare full engine specifications, transmissions, and fuel types for Hyundai/Kia, BMW, Benz, Audi, VW, KGM, Toyota, Chevrolet, and Renault in Dark Tech UI.",
+                pillar3_f1: "Complete power, torque, displacement, and gear specs",
+                pillar3_f2: "High-contrast Dark Tech UI layout for maximum readability",
+                pillar3_f3: "One-click jump to detailed dyno curve pages",
+                pillar3_btn: "Explore Specs by Brand",
+                pillar4_title: "Global Automotive Powertrain Archive",
+                pillar4_desc: "Comprehensive database of 280+ engines produced since 2000 across 9 global brands, complete with dyno curves and maintenance tips.",
+                pillar4_f1: "280+ unique engines & continuous physical dyno curves",
+                pillar4_f2: "9 automakers comprehensive comparative spec tables",
+                pillar4_f3: "Real-world maintenance tips from owners & mechanics",
+                pillar4_btn: "Explore Engines Archive",
+                activity_title: "ThePathLab Real-Time Update Timeline",
+                chips_title: "Quick Jump to Automaker Engines",
+                chips_all: "View All →",
+                footer_desc: "A curated personal data archive for engineering & commodity intelligence",
+                footer_guide: "User Guide & Sitemap",
+                footer_about: "About Us",
+                footer_privacy: "Privacy Policy",
+                footer_contact: "Contact Us",
+                footer_legal: "© 2026 ThePathLab (ChicStory). All rights reserved. Data provided for informational purposes only.",
+                modal_title: "ThePathLab Portal User Guide",
+                modal_item1_t: "9 Industrial Metals & Scrap Hub",
+                modal_item1_d: "Provides market prices reflecting LME/PPS closing rates and real-time exchange rates, plus a 1-sec scrap value calculator.",
+                modal_item2_t: "280+ Powertrain Engine Archive",
+                modal_item2_d: "Physical dyno torque curves and real-world maintenance tips across 9 global manufacturers.",
+                modal_item3_t: "Full Sitemap & Interactive Directory",
+                modal_item3_d: "Comprehensive guide with conversion formulas, dyno reading tips, and quick access to 400+ detailed pages.",
+                modal_btn: "📖 Open Complete Integrated Guide & Sitemap ↗"
+            },
+            ru: {
+                nav_home: "Главная",
+                nav_autoissue: "Автоновости",
+                nav_metals: "Металлы и лом",
+                nav_specs: "Характеристики",
+                nav_engines: "Энциклопедия ДВС",
+                nav_guide: "Руководство",
+                drawer_network_sub: "Сырьевые товары и аналитика автотехнологий",
+                drawer_core_title: "Основные сервисы",
+                drawer_portal_t: "Главный портал ThePathLab",
+                drawer_portal_d: "Единый аналитический дашборд",
+                drawer_autoissue_t: "Центр ежедневных автоновостей",
+                drawer_autoissue_d: "Отзывы 10 брендов и бюллетени NHTSA",
+                drawer_metals_t: "9 ключевых металлов и вторичный лом",
+                drawer_metals_d: "Ежедневные котировки · Калькулятор лома",
+                drawer_specs_t: "Сравнительные таблицы ДВС",
+                drawer_specs_d: "Полные спецификации 9 мировых брендов",
+                drawer_engines_t: "Энциклопедия автомобильных двигателей",
+                drawer_engines_d: "Характеристики 280+ двигателей и графики",
+                drawer_jump_title: "Быстрый переход по брендам",
+                drawer_lang_title: "Выбор языка",
+                drawer_info_title: "Информация и ссылки",
+                drawer_guide: "Руководство и карта сайта",
+                drawer_about: "О проекте",
+                drawer_privacy: "Политика конфиденциальности",
+                drawer_contact: "Контакты",
+                hero_badge: "ИНТЕЛЛЕКТУАЛЬНЫЙ АРХИВ",
+                hero_title: "Котировки сырья и автомобильная аналитика",
+                hero_desc: "ThePathLab — аналитический портал: ежедневные отзывы и дефекты 10 автоконцернов, котировки 9 металлов (LME) и энциклопедия 280+ двигателей.",
+                pillar1_title: "Дефекты и отзывы 10 мировых автоконцернов",
+                pillar1_desc: "Мониторинг официальных отзывов и расследований дефектов NHTSA для Hyundai, Kia, BMW, Mercedes, Toyota, Tesla и др.",
+                pillar1_f1: "Быстрая фильтрация по 10 группам брендов",
+                pillar1_f2: "Двойной трек: официальные vs расследования NHTSA",
+                pillar1_f3: "Мгновенный поиск по модели, двигателю и дефекту",
+                pillar1_btn: "Открыть дашборд автоновостей",
+                pillar2_title: "Котировки 9 металлов и расчет лома",
+                pillar2_desc: "Котировки LME на медь, чермет, алюминий, свинец, драгметаллы и мгновенный калькулятор вторичного сырья.",
+                pillar2_f1: "Ежедневный точный пересчет за кг и грамм",
+                pillar2_f2: "Мгновенный калькулятор стоимости лома за 1 секунду",
+                pillar2_f3: "Брифинг новостей рынка металлов от Gemma 4 AI",
+                pillar2_btn: "Смотреть отчет по металлам",
+                pillar3_title: "Сводные таблицы характеристик по брендам",
+                pillar3_desc: "Сравнение характеристик, КПП и типов топлива для 9 брендов (Hyundai/Kia, BMW, Benz, Audi, VW, KGM, Toyota, Chevrolet, Renault).",
+                pillar3_f1: "Полные данные: мощность, крутящий момент, объем, КПП",
+                pillar3_f2: "Высококонтрастный интерфейс Dark Tech UI",
+                pillar3_f3: "Переход к детальной странице с графиком дино",
+                pillar3_btn: "Обзор характеристик по брендам",
+                pillar4_title: "Энциклопедия автомобильных двигателей",
+                pillar4_desc: "База данных 280+ двигателей с 2000-х годов: графики мощности, крутящего момента и советы по ремонту.",
+                pillar4_f1: "280+ уникальных ДВС и непрерывные графики дино",
+                pillar4_f2: "Полные сравнительные таблицы для 9 автопроизводителей",
+                pillar4_f3: "Практические советы от владельцев и автомехаников",
+                pillar4_btn: "Открыть энциклопедию ДВС",
+                activity_title: "Хроника обновлений ThePathLab",
+                chips_title: "Быстрый переход к производителям",
+                chips_all: "Смотреть все →",
+                footer_desc: "Персональный архив данных по автотехнологиям и сырью",
+                footer_guide: "Руководство и карта сайта",
+                footer_about: "О проекте",
+                footer_privacy: "Политика конфиденциальности",
+                footer_contact: "Контакты",
+                footer_legal: "© 2026 ThePathLab (ChicStory). Все права защищены. Данные носят исключительно информационный характер.",
+                modal_title: "Руководство пользователя ThePathLab",
+                modal_item1_t: "9 ключевых металлов и вторичный лом",
+                modal_item1_d: "Рыночные цены на основе котировок LME и мгновенный калькулятор оценки лома.",
+                modal_item2_t: "Энциклопедия 280+ двигателей",
+                modal_item2_d: "Физические графики мощности и практические советы по 9 мировым производителям.",
+                modal_item3_t: "Карта сайта и интерактивный каталог",
+                modal_item3_d: "Формулы пересчета, чтение графиков дино и быстрый доступ к 400+ страницам.",
+                modal_btn: "📖 Открыть полное руководство и карту сайта ↗"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_autoissue: "Problemas de Autos",
+                nav_metals: "Metales y Chatarra",
+                nav_specs: "Especificaciones",
+                nav_engines: "Enciclopedia Motores",
+                nav_guide: "Guía de Uso",
+                drawer_network_sub: "Materias Primas e Inteligencia de Movilidad",
+                drawer_core_title: "Servicios Principales",
+                drawer_portal_t: "Portal Principal ThePathLab",
+                drawer_portal_d: "Panel de Inteligencia Integrada",
+                drawer_autoissue_t: "Centro de Problemas Diarios",
+                drawer_autoissue_d: "Retiradas de 10 Marcas y Boletines NHTSA",
+                drawer_metals_t: "9 Metales Industriales y Chatarra",
+                drawer_metals_d: "Precios Diarios · Calculadora · Archivo",
+                drawer_specs_t: "Especificaciones por Marca",
+                drawer_specs_d: "Especificaciones de 9 Fabricantes",
+                drawer_engines_t: "Enciclopedia de Motores",
+                drawer_engines_d: "280+ Motores y Curvas Dinamométricas",
+                drawer_jump_title: "Comparativa por Marcas",
+                drawer_lang_title: "Seleccionar Idioma",
+                drawer_info_title: "Información y Enlaces",
+                drawer_guide: "Guía y Mapa del Sitio",
+                drawer_about: "Acerca de",
+                drawer_privacy: "Política de Privacidad",
+                drawer_contact: "Contacto",
+                hero_badge: "ARCHIVO DE INTELIGENCIA",
+                hero_title: "Precios de Materias Primas y Tecnología Automotriz",
+                hero_desc: "ThePathLab es un portal especializado que rastrea problemas y llamadas a revisión de 10 marcas, precios LME de 9 metales industriales y una enciclopedia de 280+ motores.",
+                pillar1_title: "Problemas y Retiradas de 10 Marcas",
+                pillar1_desc: "Seguimiento dual de retiradas oficiales e investigaciones NHTSA para Hyundai, Kia, BMW, Mercedes, Toyota, Tesla y más.",
+                pillar1_f1: "Filtro rápido por 10 grupos de fabricantes",
+                pillar1_f2: "Doble vía: Oficiales nacionales vs NHTSA",
+                pillar1_f3: "Búsqueda instantánea por modelo, motor y síntoma",
+                pillar1_btn: "Ver Panel de Problemas de Autos",
+                pillar2_title: "Precios Diarios de 9 Metales y Chatarra",
+                pillar2_desc: "Precios LME de Cobre, Chatarra, Aluminio, Plomo, Metales Preciosos y calculadora instantánea de chatarra.",
+                pillar2_f1: "Conversión de precio diario por kg y gramo",
+                pillar2_f2: "Calculadora instantánea de valor de chatarra",
+                pillar2_f3: "Resumen de noticias de minerales por Gemma 4 AI",
+                pillar2_btn: "Ver Informe de Metales",
+                pillar3_title: "Comparativa Integral de Motores por Marca",
+                pillar3_desc: "Compare especificaciones, transmisiones y combustibles de 9 fabricantes (Hyundai/Kia, BMW, Benz, Audi, VW, KGM, Toyota, Chevrolet, Renault) en Dark Tech UI.",
+                pillar3_f1: "Potencia, par, cilindrada, combustible y marchas",
+                pillar3_f2: "Diseño Dark Tech UI optimizado para alta legibilidad",
+                pillar3_f3: "Salto directo a la página de curvas dinamométricas",
+                pillar3_btn: "Explorar Especificaciones",
+                pillar4_title: "Enciclopedia Global de Motores",
+                pillar4_desc: "Base de datos completa de más de 280 motores desde los 2000: especificaciones, curvas dinamométricas y mantenimiento.",
+                pillar4_f1: "280+ motores únicos y curvas dinamométricas continuas",
+                pillar4_f2: "Tablas completas de especificaciones para 9 marcas",
+                pillar4_f3: "Notas prácticas de mantenimiento de propietarios y mecánicos",
+                pillar4_btn: "Explorar Enciclopedia de Motores",
+                activity_title: "Cronología de Actualizaciones",
+                chips_title: "Acceso Rápido a Fabricantes",
+                chips_all: "Ver Todo →",
+                footer_desc: "Archivo personal de datos sobre tecnología automotriz y materias primas",
+                footer_guide: "Guía y Mapa del Sitio",
+                footer_about: "Acerca de",
+                footer_privacy: "Política de Privacidad",
+                footer_contact: "Contacto",
+                footer_legal: "© 2026 ThePathLab (ChicStory). Todos los derechos reservados. Datos informativos únicamente.",
+                modal_title: "Guía de Uso de ThePathLab",
+                modal_item1_t: "9 Metales Industriales y Chatarra",
+                modal_item1_d: "Precios de mercado basados en LME y calculadora instantánea de tasación de chatarra.",
+                modal_item2_t: "Enciclopedia de 280+ Motores",
+                modal_item2_d: "Curvas dinamométricas de par físico y consejos prácticos de mantenimiento en 9 marcas globales.",
+                modal_item3_t: "Mapa del Sitio y Directorio Interactivo",
+                modal_item3_d: "Fórmulas de conversión, lectura de curvas dinamométricas y acceso rápido a más de 400 páginas.",
+                modal_btn: "📖 Abrir Guía Completa y Mapa del Sitio ↗"
             }
-            loadGoogleTranslate(function() {
-                var attempts = 0;
-                var checkInterval = setInterval(function() {
-                    attempts++;
-                    var sel = document.querySelector('.goog-te-combo');
-                    if (sel) {
-                        clearInterval(checkInterval);
-                        sel.value = lang;
-                        sel.dispatchEvent(new Event('change'));
-                    } else if (attempts > 15) {
-                        clearInterval(checkInterval);
-                        location.reload();
-                    }
-                }, 100);
+        };
+
+        function tplChangeLang(lang) {
+            if (!TPL_I18N[lang]) lang = 'ko';
+            try {
+                localStorage.setItem('tpl_lang', lang);
+                document.cookie = 'googtrans=/ko/' + lang + '; path=/; SameSite=Lax; Secure';
+                document.cookie = 'googtrans=/ko/' + lang + '; path=/; domain=' + location.hostname + '; SameSite=Lax; Secure';
+            } catch(e) {}
+
+            document.documentElement.lang = lang;
+
+            // Highlight active buttons
+            document.querySelectorAll('.tpl-lang-btn, .tpl-drawer-lang-btn').forEach(function(btn) {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Apply translation to DOM
+            var dict = TPL_I18N[lang] || TPL_I18N['ko'];
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    el.textContent = dict[key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n-html');
+                if (dict[key] !== undefined) {
+                    el.innerHTML = dict[key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key] !== undefined) {
+                    el.placeholder = dict[key];
+                }
             });
         }
         window.changeLanguage = tplChangeLang;
         window.tplChangeLang = tplChangeLang;
-        function loadGoogleTranslate(cb) {
-            if (window.gtLoaded) { if (cb && typeof cb === 'function') cb(); return; }
-            window.gtLoaded = true;
-            var s = document.createElement('script');
-            s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            if (cb && typeof cb === 'function') s.onload = cb;
-            document.body.appendChild(s);
-        }
-        // 첫 스크롤, 마우스 이동, 터치 시 백그라운드 지연 로드 (PageSpeed 봇 테스트 시 렌더링 방해 없음)
-        ['scroll', 'mousemove', 'touchstart'].forEach(function(ev) {
-            window.addEventListener(ev, function() { loadGoogleTranslate(); }, {once: true, passive: true});
-        });
-        if (document.cookie.indexOf('googtrans') !== -1 && document.cookie.indexOf('googtrans=/ko/ko') === -1) {
-            loadGoogleTranslate();
-        }
+
+        // Auto-restore saved language on load
+        (function() {
+            var saved = 'ko';
+            try { saved = localStorage.getItem('tpl_lang') || 'ko'; } catch(e) {}
+            if (saved && saved !== 'ko') {
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() { tplChangeLang(saved); });
+                } else {
+                    tplChangeLang(saved);
+                }
+            }
+        })();
 
         // FAB scroll listener & modal handlers
         window.addEventListener('scroll', function() {
