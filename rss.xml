@@ -5,8 +5,8 @@
     <link>https://thapathlab.com/</link>
     <description>ThePathLab 통합 네트워크 공식 RSS 피드: 9대 금속원자재·스크랩 일일 시황 및 10대 완성차 결함·리콜 데일리 뉴스</description>
     <language>ko-kr</language>
-    <pubDate>Tue, 15 Sep 2026 10:37:58 +0900</pubDate>
-    <lastBuildDate>Tue, 15 Sep 2026 10:37:58 +0900</lastBuildDate>
+    <pubDate>Wed, 16 Sep 2026 01:38:37 +0900</pubDate>
+    <lastBuildDate>Wed, 16 Sep 2026 01:38:37 +0900</lastBuildDate>
     <atom:link href="https://thapathlab.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[2026-09-15] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
@@ -15,6 +15,30 @@
       <pubDate>Tue, 15 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-15 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 18,770원/kg | 철·철스크랩 536원/kg | 알루미늄 4,384원/kg | 금 186,657원/g | 은 2,748원/g | 팔라듐 56,179원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
       <category>금속원자재·스크랩</category>
+    </item>
+    <item>
+      <title>[테슬라 · 기타 수입차] [테슬라] Model 3 - Far-side-airbag 관련 리콜</title>
+      <link>https://thapathlab.com/autoissue/#cargokr-re-6381</link>
+      <guid isPermaLink="false">autoissue-cargokr-re-6381</guid>
+      <pubDate>Tue, 15 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: Model 3 | 주요 조치: Far-side-airbag 관련 리콜</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[현대·기아 (제네시스)] [현대] GV70 - 운전자 주행 보조 제어기(ADAS-DRV) 관련 무상수리</title>
+      <link>https://thapathlab.com/autoissue/#cargokr-se-4794</link>
+      <guid isPermaLink="false">autoissue-cargokr-se-4794</guid>
+      <pubDate>Tue, 15 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: GV70 | 주요 조치: 운전자 주행 보조 제어기(ADAS-DRV) 관련 무상수리</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[테슬라 · 기타 수입차] &apos;테슬라 모델3&apos; 1만7252대 리콜…“앞좌석 탑승자 부상 위험” - ABC뉴스</title>
+      <link>https://thapathlab.com/autoissue/#kr-411443</link>
+      <guid isPermaLink="false">autoissue-kr-411443</guid>
+      <pubDate>Tue, 15 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] &apos;테슬라 모델3&apos; 1만7252대 리콜…“앞좌석 탑승자 부상 위험” - ABC뉴스 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
     </item>
     <item>
       <title>[2026-09-14] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
@@ -30,6 +54,14 @@
       <guid isPermaLink="false">autoissue-cargokr-re-6380</guid>
       <pubDate>Mon, 14 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: GLB 250 4MATIC 등 32차종 | 주요 조치: 도어 마이크로 스위치 관련 리콜</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[포드 · 링컨] [해외 선제공고] Ford recalls more than 223,000 vehicles. See recall list - Delawareonline.com</title>
+      <link>https://thapathlab.com/autoissue/#nhtsa-521715</link>
+      <guid isPermaLink="false">autoissue-nhtsa-521715</guid>
+      <pubDate>Mon, 14 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
       <category>자동차 데일리 이슈</category>
     </item>
     <item>
@@ -214,38 +246,6 @@
       <guid isPermaLink="false">autoissue-cargokr-se-4789</guid>
       <pubDate>Thu, 10 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 아이오닉5 등 2차종 | 주요 조치: 파워 테일게이트 드라이브 유닛 관련 무상수리</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[2026-09-09] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://thapathlab.com/metals/resources/2026-09-09/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%207%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-09.html</link>
-      <guid isPermaLink="false">metals-2026-09-09</guid>
-      <pubDate>Wed, 09 Sep 2026 10:00:00 +0900</pubDate>
-      <description>[2026-09-09 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,632원/kg | 철·철스크랩 540원/kg | 알루미늄 4,466원/kg | 금 188,074원/g | 은 2,876원/g | 팔라듐 58,422원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
-      <category>금속원자재·스크랩</category>
-    </item>
-    <item>
-      <title>[BMW · MINI] [미국 선제공고] BMW 5시리즈·X5 스타터 모터 과열 방지 관련 10만 5천대 선제 리콜</title>
-      <link>https://thapathlab.com/autoissue/#iss-2026-09-02</link>
-      <guid isPermaLink="false">autoissue-iss-2026-09-02</guid>
-      <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 도로교통안전국(NHTSA) 조사 결과, 스타터 모터가 장시간 엔진 시동 시도 중 과열되어 국소적 소손이 발생할 수 있는 결함이 확인되어 선제 리콜이 개시되었습니다. 국내에도 조만간 통지 예정입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[메르세데스-벤츠] [해외 선제공고] Nova Warranty Addresses Coverage Gaps for Mercedes-Benz Owners Following Largest Recall Year - FinancialContent</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-475739</link>
-      <guid isPermaLink="false">autoissue-nhtsa-475739</guid>
-      <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[토요타 · 렉서스] [해외 선제공고] Toyota is recalling 10,000 electric C-HR SUVs - Electrek</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-687426</link>
-      <guid isPermaLink="false">autoissue-nhtsa-687426</guid>
-      <pubDate>Wed, 09 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
       <category>자동차 데일리 이슈</category>
     </item>
   </channel>
