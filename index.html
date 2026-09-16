@@ -660,39 +660,67 @@
             text-rendering: optimizeSpeed;
         }
 
-        /* Live Pulse Bar (Smart Ticker) */
-        .live-pulse-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* Quick Hub Anchor Bar (0-second Direct Jump) */
+        .quick-hub-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 12px;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid var(--border-subtle);
-            border-radius: 12px;
-            padding: 10px 18px;
             margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            overflow-x: auto;
-            white-space: nowrap;
         }
-        .pulse-item {
+        .q-chip {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            font-size: 0.82rem;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: #f1f5f9;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            word-break: keep-all;
         }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
+        .q-chip:hover {
+            transform: translateY(-2px);
+            background: var(--bg-card-hover);
         }
-        .pulse-dot.green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
-        .pulse-dot.gold { background: #ffb800; box-shadow: 0 0 8px rgba(255, 184, 0, 0.6); }
-        .pulse-dot.red { background: #f43f5e; box-shadow: 0 0 8px rgba(244, 63, 94, 0.6); }
-        .pulse-dot.blue { background: #38bdf8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.6); }
-        .pulse-label { color: var(--text-muted); font-weight: 600; }
-        .pulse-val { color: #f1f5f9; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+        .q-chip.metals { border-left: 3.5px solid #ffb800; }
+        .q-chip.metals i { color: #ffb800; font-size: 1.05rem; }
+        .q-chip.metals:hover { border-color: #ffb800; color: #ffb800; }
+
+        .q-chip.autoissue { border-left: 3.5px solid #f43f5e; }
+        .q-chip.autoissue i { color: #f43f5e; font-size: 1.05rem; }
+        .q-chip.autoissue:hover { border-color: #f43f5e; color: #fb7185; }
+
+        .q-chip.autocost { border-left: 3.5px solid #10b981; }
+        .q-chip.autocost i { color: #10b981; font-size: 1.05rem; }
+        .q-chip.autocost:hover { border-color: #10b981; color: #34d399; }
+
+        .q-chip.engines { border-left: 3.5px solid #00f2fe; }
+        .q-chip.engines i { color: #00f2fe; font-size: 1.05rem; }
+        .q-chip.engines:hover { border-color: #00f2fe; color: #00f2fe; }
+
+        @media (max-width: 992px) {
+            .quick-hub-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+        @media (max-width: 520px) {
+            .quick-hub-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .q-chip {
+                padding: 10px 8px;
+                font-size: 0.8rem;
+                gap: 5px;
+            }
+        }
 
         /* Quad Pillars Grid */
         .pillars-grid {
@@ -1404,20 +1432,23 @@
 
         /* Mobile Optimization */
         @media (max-width: 768px) {
+            .hero-section {
+                padding: 1.5rem 0 0.8rem;
+            }
             .hero-title {
-                font-size: 2rem;
-                letter-spacing: -1px;
+                font-size: 2.2rem;
+                letter-spacing: -0.5px;
             }
             .hero-desc {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+                font-size: 0.92rem;
+                margin-bottom: 1.2rem;
             }
             .pillars-grid {
                 grid-template-columns: 1fr;
-                gap: 1.25rem;
+                gap: 1rem;
             }
             .pillar-card {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
             .footer-inner {
                 flex-direction: column;
@@ -1427,6 +1458,27 @@
             .footer-links {
                 flex-wrap: wrap;
                 gap: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.85rem;
+            }
+            .hero-desc {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+            .pillar-title {
+                font-size: 1.15rem;
+                line-height: 1.35;
+            }
+            .pillar-desc {
+                font-size: 0.82rem;
+                line-height: 1.5;
+            }
+            .p-chip {
+                font-size: 0.72rem;
+                padding: 3px 6px;
             }
         }
     </style>
@@ -1624,42 +1676,34 @@
 
 <!-- Main Content -->
     <main class="container">
-        <!-- Compact Diet Hero Section -->
+        <!-- Compact Hero Section -->
         <section class="hero-section">
             <div class="hero-badge"><i class="bi-database-fill-gear"></i> THEPATHLAB DATA LAB</div>
-            <h1 class="hero-title">실무자를 위한 원자재 시세 & 모빌리티 데이터 랩</h1>
+            <h1 class="hero-title">ThePathLab</h1>
             <p class="hero-desc">
-                9대 금속 일일 시세 · 1초 스크랩 & 폐촉매 계산기 · 10대 제조사 결함/리콜 속보 · 차량 순수 유지비 & 자차보험 · 280개 엔진 백과사전
+                원자재 시세 · 자동차 결함·리콜 · 운용 유지비 계산기 · 파워트레인 백과
             </p>
         </section>
 
-        <!-- Live Pulse Ticker Bar -->
-        <div class="live-pulse-bar">
-            <div class="pulse-item">
-                <span class="pulse-dot green"></span>
-                <span class="pulse-label">오피넷 실시간 유가:</span>
-                <span class="pulse-val">휘발유 1,859원 · 경유 1,844원</span>
-            </div>
-            <div class="pulse-item">
-                <span class="pulse-dot gold"></span>
-                <span class="pulse-label">조달청·LME 9대 금속:</span>
-                <span class="pulse-val">원/kg 일일 고시 & 계산기</span>
-            </div>
-            <div class="pulse-item">
-                <span class="pulse-dot red"></span>
-                <span class="pulse-label">자동차 리콜·결함:</span>
-                <span class="pulse-val">국내외 듀얼트랙 62건 속보</span>
-            </div>
-            <div class="pulse-item">
-                <span class="pulse-dot blue"></span>
-                <span class="pulse-label">파워트레인 백과:</span>
-                <span class="pulse-val">9대 제조사 스펙표 & 다이노</span>
-            </div>
-        </div>
+        <!-- Quick Hub Anchor Bar (Direct 0-second Jump) -->
+        <nav class="quick-hub-bar" aria-label="주요 서비스 바로가기">
+            <a href="https://chicstory.github.io/metals/" class="q-chip metals">
+                <i class="bi-graph-up-arrow"></i> <span>일일 금속시세·계산기</span>
+            </a>
+            <a href="https://chicstory.github.io/autoissue/" class="q-chip autoissue">
+                <i class="bi-bell-fill"></i> <span>자동차 결함·리콜</span>
+            </a>
+            <a href="https://chicstory.github.io/autocost/" class="q-chip autocost">
+                <i class="bi-calculator-fill"></i> <span>유지비·보험 계산기</span>
+            </a>
+            <a href="https://chicstory.github.io/engines/" class="q-chip engines">
+                <i class="bi-cpu"></i> <span>엔진 전수 백과</span>
+            </a>
+        </nav>
 
         <!-- 4 Core Services Quad Dashboard (Desktop 1-Screen Optimized) -->
         <section class="pillars-grid">
-            <!-- Pillar 1: Metals & Scrap (Daily Dynamic) -->
+            <!-- Pillar 1: Metals & Scrap -->
             <a href="https://chicstory.github.io/metals/" class="pillar-card metals">
                 <div>
                     <div class="pillar-top-row">
@@ -1668,14 +1712,14 @@
                         </div>
                         <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
                     </div>
-                    <h2 class="pillar-title">9대 금속 원자재 시세 & 스크랩 계산기</h2>
+                    <h2 class="pillar-title">일일 금속 시세 & 스크랩·폐촉매 계산기</h2>
                     <p class="pillar-desc">
-                        구리, 알루미늄, 납, 아연, 니켈, 주석 및 귀금속(금, 은, 백금, 팔라듐, 로듐) 조달청·LME 환산 시세와 가솔린·LPG 폐촉매 실무 매입 견적기
+                        구리·알루미늄·니켈·귀금속 LME 환산 시세표와 가솔린·LPG 촉매 매입 견적기
                     </p>
                     <div class="pillar-quick-chips">
-                        <span class="p-chip">🪙 9대 자원 시세표</span>
+                        <span class="p-chip">🪙 9대 금속 일일 시세표</span>
                         <span class="p-chip">⚡ 1초 스크랩 계산기</span>
-                        <span class="p-chip">🚗 가솔린/LPG 폐촉매 견적</span>
+                        <span class="p-chip">🚗 폐촉매 실무 견적기</span>
                     </div>
                 </div>
                 <div class="btn-launch btn-metals">
@@ -1684,7 +1728,7 @@
                 </div>
             </a>
 
-            <!-- Pillar 2: Auto Issue (Daily Dynamic) -->
+            <!-- Pillar 2: Auto Issue -->
             <a href="https://chicstory.github.io/autoissue/" class="pillar-card autoissue">
                 <div>
                     <div class="pillar-top-row">
@@ -1693,23 +1737,23 @@
                         </div>
                         <span class="pillar-badge autoissue-badge">DEFECT & RECALL</span>
                     </div>
-                    <h2 class="pillar-title">10대 제조사 결함·리콜 & 신차 데일리 속보</h2>
+                    <h2 class="pillar-title">자동차 데일리 결함·리콜 속보</h2>
                     <p class="pillar-desc">
-                        현대·기아, 제네시스, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사 듀얼 트랙 추적
+                        국토부 공식 리콜 공고와 미국 NHTSA 선제 결함 조사 듀얼트랙 모니터링
                     </p>
                     <div class="pillar-quick-chips">
-                        <span class="p-chip">🚨 데일리 리콜 공고</span>
-                        <span class="p-chip">🇺🇸 NHTSA 선제 조사</span>
-                        <span class="p-chip">🔍 제조사별 칩 필터링</span>
+                        <span class="p-chip">🚨 데일리 리콜 속보</span>
+                        <span class="p-chip">🇺🇸 미국 NHTSA 선제 공고</span>
+                        <span class="p-chip">🔍 10대 제조사별 필터</span>
                     </div>
                 </div>
                 <div class="btn-launch btn-autoissue">
-                    <span>자동차 이슈 대시보드 바로가기</span>
+                    <span>자동차 리콜 속보 바로가기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
 
-            <!-- Pillar 3: AutoCost (Total Cost of Ownership & Underwriting) -->
+            <!-- Pillar 3: AutoCost -->
             <a href="https://chicstory.github.io/autocost/" class="pillar-card autocost">
                 <div>
                     <div class="pillar-top-row">
@@ -1718,23 +1762,23 @@
                         </div>
                         <span class="pillar-badge autocost-badge">TCO & UNDERWRITING</span>
                     </div>
-                    <h2 class="pillar-title">AutoCost 순수 유지비 & 자차가액·보험료</h2>
+                    <h2 class="pillar-title">자동차 유지비 & 보험료 계산기</h2>
                     <p class="pillar-desc">
-                        할부 제외 순수 운용비, 오피넷 실시간 유가 연동, 보험개발원식 올해 자차기준가액 & 5대 담보 다이렉트 표준 보험료, 배기량 자동차세 원스톱 산출
+                        오피넷 전국 유가 연동 주유비, 올해 내 차 자차기준가액, 5대 담보 보험료, 자동차세
                     </p>
                     <div class="pillar-quick-chips">
                         <span class="p-chip">⛽ 오피넷 실시간 유류비</span>
-                        <span class="p-chip">🛡️ 올해 내 자차기준가액</span>
-                        <span class="p-chip">🇩🇪 국산/수입 13종 비교</span>
+                        <span class="p-chip">🛡️ 내 차 자차가액·보험료</span>
+                        <span class="p-chip">🚘 국산·수입 13종 비교</span>
                     </div>
                 </div>
                 <div class="btn-launch btn-autocost">
-                    <span>자동차 유지비·보험 계산기 열기</span>
+                    <span>유지비·보험 계산기 열기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
 
-            <!-- Pillar 4: Engine Encyclopedia & Specs -->
+            <!-- Pillar 4: Engines & Specs -->
             <a href="https://chicstory.github.io/engines/" class="pillar-card engines">
                 <div>
                     <div class="pillar-top-row">
@@ -1743,18 +1787,18 @@
                         </div>
                         <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
                     </div>
-                    <h2 class="pillar-title">제조사별 전수 스펙표 & 280개 엔진 백과</h2>
+                    <h2 class="pillar-title">엔진 전수 백과 & 제조사별 스펙표</h2>
                     <p class="pillar-desc">
-                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종) 등 9대사 전수 제원표와 연속 물리 다이노 토크 곡선 및 차주·정비사 실전 꿀팁 메모장
+                        9대 제조사 280개 파워트레인 전수 비교표와 실측 연속 물리 다이노 토크 곡선
                     </p>
                     <div class="pillar-quick-chips">
-                        <span class="p-chip">📊 9대사 전수 스펙 비교</span>
+                        <span class="p-chip">📊 9대사 전수 스펙표</span>
                         <span class="p-chip">📈 실측 다이노 출력 곡선</span>
-                        <span class="p-chip">💬 차주 익명 정비 메모장</span>
+                        <span class="p-chip">💬 차주 정비 꿀팁 메모장</span>
                     </div>
                 </div>
                 <div class="btn-launch btn-engines">
-                    <span>엔진 백과사전 & 스펙표 탐색하기</span>
+                    <span>엔진 백과 & 스펙표 탐색</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
