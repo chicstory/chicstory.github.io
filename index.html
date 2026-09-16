@@ -614,10 +614,10 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Hero Section */
+        /* Hero Section (Compact Diet) */
         .hero-section {
             text-align: center;
-            padding: 4rem 0 3rem;
+            padding: 2.2rem 0 1.2rem;
         }
 
         .hero-badge {
@@ -627,53 +627,93 @@
             background: rgba(0, 242, 254, 0.1);
             border: 1px solid rgba(0, 242, 254, 0.3);
             color: var(--accent-cyan);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            padding: 0.35rem 1rem;
+            padding: 0.3rem 0.9rem;
             border-radius: 20px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .hero-title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            line-height: 1.2;
-            letter-spacing: -1.5px;
+            line-height: 1.25;
+            letter-spacing: -1.2px;
             background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             text-rendering: optimizeSpeed;
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 1.75rem; }
         }
 
         .hero-desc {
-            font-size: 1.15rem;
+            font-size: 1.02rem;
             color: var(--text-sub);
-            max-width: 680px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            max-width: 820px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
             text-rendering: optimizeSpeed;
         }
 
-        /* Two Major Pillars */
+        /* Live Pulse Bar (Smart Ticker) */
+        .live-pulse-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 10px 18px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .pulse-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.82rem;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .pulse-dot.green { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+        .pulse-dot.gold { background: #ffb800; box-shadow: 0 0 8px rgba(255, 184, 0, 0.6); }
+        .pulse-dot.red { background: #f43f5e; box-shadow: 0 0 8px rgba(244, 63, 94, 0.6); }
+        .pulse-dot.blue { background: #38bdf8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.6); }
+        .pulse-label { color: var(--text-muted); font-weight: 600; }
+        .pulse-val { color: #f1f5f9; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+        /* Quad Pillars Grid */
         .pillars-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 992px) {
+            .pillars-grid { grid-template-columns: 1fr; }
         }
 
         .pillar-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.25s ease;
+            transition: all 0.22s ease;
             position: relative;
             overflow: hidden;
             text-decoration: none;
@@ -688,168 +728,121 @@
             right: 0;
             height: 3px;
             opacity: 0;
-            transition: opacity 0.25s;
+            transition: opacity 0.22s;
         }
 
-        .pillar-card.autoissue::before {
-            background: linear-gradient(90deg, #f43f5e, #fb7185);
-        }
-
-        .pillar-card.metals::before {
-            background: linear-gradient(90deg, #ffb800, #ff5e3a);
-        }
-
-        .pillar-card.specs::before {
-            background: linear-gradient(90deg, #a855f7, #6366f1);
-        }
-
-        .pillar-card.engines::before {
-            background: linear-gradient(90deg, #00f2fe, #4facfe);
-        }
+        .pillar-card.metals::before { background: linear-gradient(90deg, #ffb800, #ff5e3a); }
+        .pillar-card.autoissue::before { background: linear-gradient(90deg, #f43f5e, #fb7185); }
+        .pillar-card.autocost::before { background: linear-gradient(90deg, #10b981, #38bdf8); }
+        .pillar-card.engines::before { background: linear-gradient(90deg, #00f2fe, #818cf8); }
 
         .pillar-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-4px);
             border-color: var(--border-glow);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
             background: var(--bg-card-hover);
         }
 
-        .pillar-card:hover::before {
-            opacity: 1;
+        .pillar-card:hover::before { opacity: 1; }
+
+        .pillar-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
         }
 
         .pillar-icon-wrap {
-            width: 54px;
-            height: 54px;
-            border-radius: 14px;
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
-            margin-bottom: 1.25rem;
+            font-size: 1.45rem;
         }
 
-        .autoissue-icon {
-            background: rgba(244, 63, 94, 0.12);
-            color: #fb7185;
-            border: 1px solid rgba(244, 63, 94, 0.3);
-        }
-
-        .metals-icon {
-            background: rgba(255, 184, 0, 0.12);
-            color: var(--accent-gold);
-            border: 1px solid rgba(255, 184, 0, 0.3);
-        }
-
-        .specs-icon {
-            background: rgba(168, 85, 247, 0.12);
-            color: #c084fc;
-            border: 1px solid rgba(168, 85, 247, 0.3);
-        }
-
-        .engines-icon {
-            background: rgba(0, 242, 254, 0.12);
-            color: var(--accent-cyan);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-        }
+        .metals-icon { background: rgba(255, 184, 0, 0.12); color: var(--accent-gold); border: 1px solid rgba(255, 184, 0, 0.3); }
+        .autoissue-icon { background: rgba(244, 63, 94, 0.12); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .autocost-icon { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .engines-icon { background: rgba(0, 242, 254, 0.12); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
 
         .pillar-badge {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             padding: 3px 8px;
             border-radius: 6px;
-            margin-bottom: 0.8rem;
             display: inline-block;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .autoissue-badge {
-            background: rgba(244, 63, 94, 0.15);
-            color: #fb7185;
-        }
-
-        .metals-badge {
-            background: rgba(255, 184, 0, 0.15);
-            color: var(--accent-gold);
-        }
-
-        .specs-badge {
-            background: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
-        }
-
-        .engines-badge {
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--accent-cyan);
-        }
+        .metals-badge { background: rgba(255, 184, 0, 0.15); color: var(--accent-gold); }
+        .autoissue-badge { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+        .autocost-badge { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .engines-badge { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); }
 
         .pillar-title {
-            font-size: 1.55rem;
+            font-size: 1.35rem;
             font-weight: 800;
             color: #ffffff;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.4px;
         }
 
         .pillar-desc {
-            font-size: 0.95rem;
-            color: var(--text-sub);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .pillar-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            margin-bottom: 1.8rem;
             font-size: 0.88rem;
-            color: #cbd5e1;
+            color: var(--text-sub);
+            line-height: 1.55;
+            margin-bottom: 1rem;
         }
 
-        .pillar-features li {
+        /* Sub-action Quick Chips inside Card */
+        .pillar-quick-chips {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
         }
-
-        .pillar-features i {
-            color: var(--accent-green);
+        .p-chip {
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 4px 9px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+            transition: all 0.15s;
+        }
+        .p-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .btn-launch {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.85rem 1.25rem;
-            border-radius: 12px;
+            padding: 0.75rem 1.15rem;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             transition: all 0.2s;
             text-decoration: none;
         }
 
-        .btn-autoissue {
-            background: rgba(244, 63, 94, 0.12);
-            border: 1px solid rgba(244, 63, 94, 0.35);
-            color: #fb7185;
-        }
+        .btn-metals { background: rgba(255, 184, 0, 0.12); border: 1px solid rgba(255, 184, 0, 0.3); color: var(--accent-gold); }
+        .btn-metals:hover { background: var(--accent-gold); color: #080c16; }
 
-        .btn-autoissue:hover {
-            background: #f43f5e;
-            color: #ffffff;
-        }
+        .btn-autoissue { background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.35); color: #fb7185; }
+        .btn-autoissue:hover { background: #f43f5e; color: #ffffff; }
 
-        .btn-metals {
-            background: rgba(255, 184, 0, 0.12);
-            border: 1px solid rgba(255, 184, 0, 0.3);
-            color: var(--accent-gold);
-        }
+        .btn-autocost { background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; }
+        .btn-autocost:hover { background: #10b981; color: #080c16; }
 
-        .btn-metals:hover {
-            background: var(--accent-gold);
-            color: #080c16;
-        }
+        .btn-engines { background: rgba(0, 242, 254, 0.12); border: 1px solid rgba(0, 242, 254, 0.3); color: var(--accent-cyan); }
+        .btn-engines:hover { background: var(--accent-cyan); color: #080c16; }
 
         .btn-specs {
             background: rgba(168, 85, 247, 0.12);
@@ -1631,213 +1624,137 @@
 
 <!-- Main Content -->
     <main class="container">
+        <!-- Compact Diet Hero Section -->
         <section class="hero-section">
-            <div class="hero-badge"><i class="bi-shield-check"></i> <span data-i18n="hero_badge">INTELLIGENCE ARCHIVE</span></div>
-            <h1 class="hero-title" data-i18n="hero_title">산업 자원 시세 & 자동차 테크 인텔리전스</h1>
-            <p class="hero-desc" data-i18n="hero_desc">
-                ThePathLab은 10대 완성차 결함·리콜 데일리 이슈, LME·조달청 9대 핵심 금속원자재(구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐) 일일 시세 분석과
-                글로벌 280+개 자동차 파워트레인 엔진 백과사전을 제공하는 전문 데이터 포털입니다.
+            <div class="hero-badge"><i class="bi-database-fill-gear"></i> THEPATHLAB DATA LAB</div>
+            <h1 class="hero-title">실무자를 위한 원자재 시세 & 모빌리티 데이터 랩</h1>
+            <p class="hero-desc">
+                9대 금속 일일 시세 · 1초 스크랩 & 폐촉매 계산기 · 10대 제조사 결함/리콜 속보 · 차량 순수 유지비 & 자차보험 · 280개 엔진 백과사전
             </p>
         </section>
 
-        <!-- Core Services Pillars Grid (Reordered: Auto Issue -> Metals -> Specs -> Engines) -->
+        <!-- Live Pulse Ticker Bar -->
+        <div class="live-pulse-bar">
+            <div class="pulse-item">
+                <span class="pulse-dot green"></span>
+                <span class="pulse-label">오피넷 실시간 유가:</span>
+                <span class="pulse-val">휘발유 1,859원 · 경유 1,844원</span>
+            </div>
+            <div class="pulse-item">
+                <span class="pulse-dot gold"></span>
+                <span class="pulse-label">조달청·LME 9대 금속:</span>
+                <span class="pulse-val">원/kg 일일 고시 & 계산기</span>
+            </div>
+            <div class="pulse-item">
+                <span class="pulse-dot red"></span>
+                <span class="pulse-label">자동차 리콜·결함:</span>
+                <span class="pulse-val">국내외 듀얼트랙 62건 속보</span>
+            </div>
+            <div class="pulse-item">
+                <span class="pulse-dot blue"></span>
+                <span class="pulse-label">파워트레인 백과:</span>
+                <span class="pulse-val">9대 제조사 스펙표 & 다이노</span>
+            </div>
+        </div>
+
+        <!-- 4 Core Services Quad Dashboard (Desktop 1-Screen Optimized) -->
         <section class="pillars-grid">
-            <!-- Pillar 1: Auto Issue (Daily Dynamic) -->
-            <a href="https://chicstory.github.io/autoissue/" class="pillar-card autoissue">
-                <div>
-                    <div class="pillar-icon-wrap autoissue-icon">
-                        <i class="bi-bell-fill"></i>
-                    </div>
-                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
-                        <span class="pillar-badge autoissue-badge">DAILY DEFECT & RECALL</span>
-                        <span class="live-status-badge red"><span class="pulse-dot red"></span>62개 이슈 누적</span>
-                    </div>
-                    <h2 class="pillar-title" data-i18n="pillar1_title">10대 제조사 결함·리콜 & 신차 데일리 이슈</h2>
-                    <p class="pillar-desc" data-i18n="pillar1_desc">
-                        현대·기아, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사를 듀얼 트랙으로 추적합니다.
-                    </p>
-
-                    <!-- 카드 내부 최근 업데이트 현황 -->
-                    <div class="card-update-box">
-                        <div class="card-update-header">
-                            <span><i class="bi-broadcast"></i> 실시간 이슈 수집 현황</span>
-                            <span style="color: #fb7185; font-family: 'JetBrains Mono';">DUAL TRACK</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">NHTSA</span>
-                            <span class="card-update-title">미국 NHTSA 해외 선제 리콜 & 결함 조사</span>
-                            <span class="card-update-tag tag-new">GLOBAL</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">국토부</span>
-                            <span class="card-update-title">국내 10대 제조사 공식 리콜 & 무상수리</span>
-                            <span class="card-update-tag tag-update">OFFICIAL</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">연동</span>
-                            <span class="card-update-title">파워트레인 태그 클릭 시 280+개 엔진 백과 0초 점프</span>
-                            <span class="card-update-tag tag-new">LINKED</span>
-                        </div>
-                    </div>
-
-                    <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f1">10대 제조사 그룹별 칩 원클릭 필터링</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f2">국내 공식 공고 vs 해외 선제(NHTSA) 듀얼 트랙</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar1_f3">차종·파워트레인·결함 증상 0초 실시간 검색</span></li>
-                    </ul>
-                </div>
-                <div class="btn-launch btn-autoissue">
-                    <span data-i18n="pillar1_btn">자동차 이슈 대시보드 보기</span>
-                    <i class="bi-arrow-right"></i>
-                </div>
-            </a>
-
-            <!-- Pillar 2: Metals & Scrap (Daily Dynamic) -->
+            <!-- Pillar 1: Metals & Scrap (Daily Dynamic) -->
             <a href="https://chicstory.github.io/metals/" class="pillar-card metals">
                 <div>
-                    <div class="pillar-icon-wrap metals-icon">
-                        <i class="bi-graph-up-arrow"></i>
-                    </div>
-                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <div class="pillar-top-row">
+                        <div class="pillar-icon-wrap metals-icon">
+                            <i class="bi-graph-up-arrow"></i>
+                        </div>
                         <span class="pillar-badge metals-badge">DAILY COMMODITIES</span>
-                        <span class="live-status-badge gold" id="metalsLiveBadge"><span class="pulse-dot gold"></span>2026-09-16 발행</span>
                     </div>
-                    <h2 class="pillar-title" data-i18n="pillar2_title">9대 금속 원자재 일일 시세 & 스크랩 분석</h2>
-                    <p class="pillar-desc" data-i18n="pillar2_desc">
-                        구리, 철스크랩, 알루미늄, 납, 금, 은, 백금, 팔라듐, 로듐 등 조달청 및 LME 기준 환산 시세와 고물상 스크랩(70~80%) 실시간 계산기를 제공합니다.
+                    <h2 class="pillar-title">9대 금속 원자재 시세 & 스크랩 계산기</h2>
+                    <p class="pillar-desc">
+                        구리, 알루미늄, 납, 아연, 니켈, 주석 및 귀금속(금, 은, 백금, 팔라듐, 로듐) 조달청·LME 환산 시세와 가솔린·LPG 폐촉매 실무 매입 견적기
                     </p>
-
-                    <!-- 카드 내부 최근 업데이트 현황 -->
-                    <div class="card-update-box">
-                        <div class="card-update-header">
-                            <span><i class="bi-clock-history"></i> 최근 리포트 발행 현황</span>
-                            <span style="color: #ffb800; font-family: 'JetBrains Mono';">DAILY UPDATES</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date" id="metalsUpdateDate0">09-16</span>
-                            <span class="card-update-title">9대 금속 일일 시세 & 스크랩 추정가</span>
-                            <span class="card-update-tag tag-new">NEW</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date" id="metalsUpdateDate1">09-15</span>
-                            <span class="card-update-title">9대 금속 일일 시황 & 조달청 고시가</span>
-                            <span class="card-update-tag tag-update">LATEST</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">신규</span>
-                            <span class="card-update-title">익명 한줄 메모장 & 시황 요청함 오픈</span>
-                            <span class="card-update-tag tag-new">FEATURE</span>
-                        </div>
+                    <div class="pillar-quick-chips">
+                        <span class="p-chip">🪙 9대 자원 시세표</span>
+                        <span class="p-chip">⚡ 1초 스크랩 계산기</span>
+                        <span class="p-chip">🚗 가솔린/LPG 폐촉매 견적</span>
                     </div>
-
-                    <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f1">일일 원자재 원/kg & 원/g 정밀 환산</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f2">1초 즉시 계산 스크랩 가치 계산기</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar2_f3">Gemma 4 AI 글로벌 광물 뉴스 브리핑</span></li>
-                    </ul>
                 </div>
                 <div class="btn-launch btn-metals">
-                    <span data-i18n="pillar2_btn">금속 시세 리포트 보기</span>
+                    <span>금속 시세 & 계산기 바로가기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
 
-            <!-- Pillar 3: Manufacturer Specs Tables -->
-            <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="pillar-card specs">
+            <!-- Pillar 2: Auto Issue (Daily Dynamic) -->
+            <a href="https://chicstory.github.io/autoissue/" class="pillar-card autoissue">
                 <div>
-                    <div class="pillar-icon-wrap specs-icon">
-                        <i class="bi-table"></i>
+                    <div class="pillar-top-row">
+                        <div class="pillar-icon-wrap autoissue-icon">
+                            <i class="bi-bell-fill"></i>
+                        </div>
+                        <span class="pillar-badge autoissue-badge">DEFECT & RECALL</span>
                     </div>
-                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
-                        <span class="pillar-badge specs-badge">MANUFACTURER SPECS</span>
-                        <span class="live-status-badge purple"><span class="pulse-dot purple"></span>9대사 전수 비교</span>
-                    </div>
-                    <h2 class="pillar-title" data-i18n="pillar3_title">제조사별 전수 엔진 스펙 종합 비교표</h2>
-                    <p class="pillar-desc" data-i18n="pillar3_desc">
-                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종), 폭스바겐(20종), KGM(20종), 토요타(35종), 쉐보레(32종), 르노(26종) 전수 제원과 변속기/유종 매칭표를 다크 테크 UI로 비교합니다.
+                    <h2 class="pillar-title">10대 제조사 결함·리콜 & 신차 데일리 속보</h2>
+                    <p class="pillar-desc">
+                        현대·기아, 제네시스, BMW, 벤츠, 토요타, 테슬라 등 10대 브랜드의 국토부 공식 리콜과 국내 미반영 미국 NHTSA 선제 결함 조사 듀얼 트랙 추적
                     </p>
-
-                    <!-- 카드 내부 최근 업데이트 현황 -->
-                    <div class="card-update-box">
-                        <div class="card-update-header">
-                            <span><i class="bi-grid-3x3-gap"></i> 제조사별 스펙표 바로가기</span>
-                            <span style="color: #c084fc; font-family: 'JetBrains Mono';">9 BRANDS</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">국산</span>
-                            <span class="card-update-title">현대·기아 (87종) · KGM (20종) · 르노 (26종) · 쉐보레 (32종)</span>
-                            <span class="card-update-tag tag-update">KOREA</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">독일</span>
-                            <span class="card-update-title">BMW (45종) · 메르세데스-벤츠 (40종)</span>
-                            <span class="card-update-tag tag-new">GERMAN</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">일본·VAG</span>
-                            <span class="card-update-title">토요타·렉서스 (35종) · 아우디 (32종) · 폭스바겐 (20종)</span>
-                            <span class="card-update-tag tag-update">GLOBAL</span>
-                        </div>
+                    <div class="pillar-quick-chips">
+                        <span class="p-chip">🚨 데일리 리콜 공고</span>
+                        <span class="p-chip">🇺🇸 NHTSA 선제 조사</span>
+                        <span class="p-chip">🔍 제조사별 칩 필터링</span>
                     </div>
-
-                    <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f1">출력·토크·배기량·유종·변속기 단수 전수 표기</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f2">다크 테크 UI 최적화 고대비 가독성 레이아웃</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar3_f3">엔진 클릭 시 280+개 상세 다이노 페이지 원클릭 점프</span></li>
-                    </ul>
                 </div>
-                <div class="btn-launch btn-specs">
-                    <span data-i18n="pillar3_btn">제조사별 스펙표 탐색하기</span>
+                <div class="btn-launch btn-autoissue">
+                    <span>자동차 이슈 대시보드 바로가기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
 
-            <!-- Pillar 4: Engine Encyclopedia -->
+            <!-- Pillar 3: AutoCost (Total Cost of Ownership & Underwriting) -->
+            <a href="https://chicstory.github.io/autocost/" class="pillar-card autocost">
+                <div>
+                    <div class="pillar-top-row">
+                        <div class="pillar-icon-wrap autocost-icon">
+                            <i class="bi-calculator-fill"></i>
+                        </div>
+                        <span class="pillar-badge autocost-badge">TCO & UNDERWRITING</span>
+                    </div>
+                    <h2 class="pillar-title">AutoCost 순수 유지비 & 자차가액·보험료</h2>
+                    <p class="pillar-desc">
+                        할부 제외 순수 운용비, 오피넷 실시간 유가 연동, 보험개발원식 올해 자차기준가액 & 5대 담보 다이렉트 표준 보험료, 배기량 자동차세 원스톱 산출
+                    </p>
+                    <div class="pillar-quick-chips">
+                        <span class="p-chip">⛽ 오피넷 실시간 유류비</span>
+                        <span class="p-chip">🛡️ 올해 내 자차기준가액</span>
+                        <span class="p-chip">🇩🇪 국산/수입 13종 비교</span>
+                    </div>
+                </div>
+                <div class="btn-launch btn-autocost">
+                    <span>자동차 유지비·보험 계산기 열기</span>
+                    <i class="bi-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Pillar 4: Engine Encyclopedia & Specs -->
             <a href="https://chicstory.github.io/engines/" class="pillar-card engines">
                 <div>
-                    <div class="pillar-icon-wrap engines-icon">
-                        <i class="bi-cpu"></i>
-                    </div>
-                    <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                    <div class="pillar-top-row">
+                        <div class="pillar-icon-wrap engines-icon">
+                            <i class="bi-cpu"></i>
+                        </div>
                         <span class="pillar-badge engines-badge">POWERTRAIN ENCYCLOPEDIA</span>
-                        <span class="live-status-badge cyan"><span class="pulse-dot cyan"></span>280+개 엔진 완비</span>
                     </div>
-                    <h2 class="pillar-title" data-i18n="pillar4_title">글로벌 자동차 엔진 전수 백과사전</h2>
-                    <p class="pillar-desc" data-i18n="pillar4_desc">
-                        현대, 기아, 제네시스, BMW, 벤츠, 아우디, 폭스바겐, KGM, 토요타, 쉐보레, 르노 등 2000년대 이후 280+개 파워트레인의 스펙, 다이노 곡선, 고질병 가이드를 집대성했습니다.
+                    <h2 class="pillar-title">제조사별 전수 스펙표 & 280개 엔진 백과</h2>
+                    <p class="pillar-desc">
+                        현대·기아(87종), BMW(45종), 벤츠(40종), 아우디(32종) 등 9대사 전수 제원표와 연속 물리 다이노 토크 곡선 및 차주·정비사 실전 꿀팁 메모장
                     </p>
-
-                    <!-- 카드 내부 최근 업데이트 현황 -->
-                    <div class="card-update-box">
-                        <div class="card-update-header">
-                            <span><i class="bi-database-check"></i> 데이터베이스 업데이트 현황</span>
-                            <span style="color: var(--accent-cyan); font-family: 'JetBrains Mono';">280+ ENGINES</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">제조사</span>
-                            <span class="card-update-title">현대·기아·BMW·벤츠·아우디·폭스바겐·KGM·토요타·쉐보레·르노</span>
-                            <span class="card-update-tag tag-update">9대사</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">메모장</span>
-                            <span class="card-update-title">차주 & 정비사 익명 실전 꿀팁 연동</span>
-                            <span class="card-update-tag tag-new">ACTIVE</span>
-                        </div>
-                        <div class="card-update-item">
-                            <span class="card-update-date">다이노</span>
-                            <span class="card-update-title">연속 물리 토크·출력 곡선 100% 시각화</span>
-                            <span class="card-update-tag tag-update">DYNO</span>
-                        </div>
+                    <div class="pillar-quick-chips">
+                        <span class="p-chip">📊 9대사 전수 스펙 비교</span>
+                        <span class="p-chip">📈 실측 다이노 출력 곡선</span>
+                        <span class="p-chip">💬 차주 익명 정비 메모장</span>
                     </div>
-
-                    <ul class="pillar-features">
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f1">280+개 고유 엔진 제원 & 연속 물리 다이노</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f2">9대 제조사 제조사별 스펙 종합 비교표</span></li>
-                        <li><i class="bi-check2-circle"></i> <span data-i18n="pillar4_f3">차주 & 정비사 익명 실전 꿀팁 메모장</span></li>
-                    </ul>
                 </div>
                 <div class="btn-launch btn-engines">
-                    <span data-i18n="pillar4_btn">엔진 백과사전 탐색하기</span>
+                    <span>엔진 백과사전 & 스펙표 탐색하기</span>
                     <i class="bi-arrow-right"></i>
                 </div>
             </a>
