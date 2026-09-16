@@ -606,6 +606,7 @@ footer {
     <div class="tpl-nav-links">
       <a href="https://chicstory.github.io/" class="tpl-nav-link"><i class="bi-house-door"></i> 포털 홈</a>
       <a href="https://chicstory.github.io/autoissue/" class="tpl-nav-link"><i class="bi-bell-fill"></i> 자동차 데일리 이슈</a>
+      <a href="https://chicstory.github.io/autocost/" class="tpl-nav-link"><i class="bi-calculator-fill"></i> 유지비·보험</a>
       <a href="https://chicstory.github.io/metals/" class="tpl-nav-link"><i class="bi-graph-up-arrow"></i> 금속 원자재·스크랩</a>
       <a href="https://chicstory.github.io/engines/hyundai_kia_engine_table.html" class="tpl-nav-link"><i class="bi-table"></i> 제조사별 스펙표</a>
       <a href="https://chicstory.github.io/engines/" class="tpl-nav-link"><i class="bi-cpu"></i> 엔진 전수 백과</a>
@@ -659,6 +660,13 @@ footer {
         <div class="tpl-drawer-item-text">
           <div class="tpl-drawer-item-title">자동차 데일리 이슈 허브</div>
           <div class="tpl-drawer-item-desc">10대 제조사 리콜 · 미국 NHTSA 선제 공고</div>
+        </div>
+      </a>
+      <a href="https://chicstory.github.io/autocost/" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;"><i class="bi-calculator-fill"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">자동차 유지비 & 보험료 (AutoCost)</div>
+          <div class="tpl-drawer-item-desc">자차가액 산출 · 다이렉트 보험료 · 실시간 유류비 · 자동차세</div>
         </div>
       </a>
       <a href="https://chicstory.github.io/metals/" class="tpl-drawer-item">
@@ -772,6 +780,28 @@ footer {
                     ※ 국제 시세가 보합이어도 원화 가치(환율)가 변동하면 실거래 매입 단가도 변동하므로, 제조업체 및 자원 유통인에게 가장 정확한 시황 지표가 됩니다.
                 </p>
             </div>
+
+            <!-- Card 4 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-car-front-fill" style="color:var(--accent-gold);"></i>
+                    <span>🚗 가솔린·LPG 폐촉매 실무 매입 견적</span>
+                </div>
+                <p class="guide-card-p">
+                    폐차 또는 정비 시 고가에 거래되는 삼원촉매 내부의 <strong>팔라듐(Pd)과 로듐(Rh)</strong> 가치를 파워트레인(MPi, GDi, T-GDi, LPi, HEV)별 엔지니어링 로딩 계수와 당일 국제 PGM 시세를 바탕으로 추정합니다.
+                </p>
+                <div class="formula-box">
+                    • 귀금속 이론가 = (Pd g × Pd단가) + (Rh g × Rh단가)<br>
+                    • 실무 매입 견적 = 이론가의 약 50% ~ 56% (정제·유통 안전마진 30% 선반영)
+                </div>
+                <p class="guide-card-p" style="font-size:0.84rem; color:var(--tpl-text-dim);">
+                    ※ 출고 당시 순정 정품 촉매 기준이며, 세라믹 벌집 털림이나 파손이 없는 정상 품목 기준입니다.
+                </p>
+                <a href="https://chicstory.github.io/metals/#calcSection" class="card-action-btn btn-metals">
+                    <span>폐촉매 실무 견적기 열기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -841,12 +871,85 @@ footer {
         </div>
     </section>
 
-    <!-- SECTION 3: VISUAL SITEMAP DIRECTORY -->
+    <!-- SECTION 3: AUTOCOST GUIDE -->
+    <section class="guide-section">
+        <div class="section-header-wrap">
+            <div class="section-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;"><i class="bi-calculator-fill"></i></div>
+            <div>
+                <h2 class="section-header-title">3. AutoCost 자동차 순수 유지비 & 자차가액·보험료 활용법</h2>
+                <div class="section-header-sub">할부·리스비 제외, 자차기준가액 · 다이렉트 표준 보험료 · 오피넷 실시간 유류비 · 자동차세 정밀 산출 공식</div>
+            </div>
+        </div>
+
+        <div class="guide-grid">
+            <!-- AutoCost Card 1 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-shield-check" style="color:var(--accent-blue);"></i>
+                    <span>🛡️ 자차기준가액 & 다이렉트 표준 보험료</span>
+                </div>
+                <p class="guide-card-p">
+                    보험개발원(KIDI)의 분기별 <strong>경년 감가상각 잔가율</strong>을 적용하여 침수·전손 사고 시 보상 상한선이 되는 <strong>올해 내 차의 공식 자차가액</strong>을 산출하고, 특약 없는 순정 5대 담보 표준 다이렉트 보험료를 추정합니다.
+                </p>
+                <div class="formula-box">
+                    • 올해 자차가액 = 신차 출고가 × 연식별 잔가율 (3년차 58%, 5년차 42%)<br>
+                    • 다이렉트 보험료 = 의무배상 + 종합배상(연령/범위/무사고 가중치) + 자차(가액연동)
+                </div>
+                <a href="https://chicstory.github.io/autocost/" class="card-action-btn" style="color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25);">
+                    <span>AutoCost 계산기 열기</span>
+                    <i class="bi-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- AutoCost Card 2 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-fuel-pump-fill" style="color:var(--accent-gold);"></i>
+                    <span>⛽ 오피넷 전국 평균 유가 연동 주유비</span>
+                </div>
+                <p class="guide-card-p">
+                    한국석유공사 오피넷(Opinet)의 <strong>전국 일일 평균 유가</strong>(휘발유, 경유, LPG, 전기)와 차종별 공인 복합연비를 결합하여 월 주행거리 대비 순수 연료 소모비를 1초 만에 계산합니다.
+                </p>
+                <div class="formula-box">
+                    • 월 주유비 = (월 주행거리 ÷ 공인 복합연비) × 당일 유가<br>
+                    • 1km 주행당 순수 연료비 원가 자동 산출
+                </div>
+            </div>
+
+            <!-- AutoCost Card 3 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-bank2" style="color:var(--accent-cyan);"></i>
+                    <span>🏛️ 배기량별 자동차세 & 차령 감면 (최대 50%)</span>
+                </div>
+                <p class="guide-card-p">
+                    지방세법 비영업용 승용 요율(1,000cc 이하 80원, 1,600cc 이하 140원, 1,600cc 초과 200원 + 지방교육세 30%)에 <strong>최초 등록 3년 차부터 매년 5%씩 적용되는 차령 경감율</strong>을 반영합니다.
+                </p>
+                <div class="formula-box">
+                    • 3년 차부터 매년 5%씩 자동 차감 (최대 50% 한도)<br>
+                    • 1월 연납 할인(약 4.57%) 토글 기능 지원
+                </div>
+            </div>
+
+            <!-- AutoCost Card 4 -->
+            <div class="guide-card">
+                <div class="guide-card-title">
+                    <i class="bi-wrench-adjustable-circle-fill" style="color:var(--accent-green);"></i>
+                    <span>🔧 필수 소모품 & 정비 예비 버퍼</span>
+                </div>
+                <p class="guide-card-p">
+                    연 1~2회 엔진오일 세트 교환, 브레이크 패드 및 타이어 마모(4~5만km 주기) 등 주행 시 반드시 발생하는 필수 소모품 감가 비용을 <strong>월 2만 ~ 7만 원의 현실적인 안전 예비비</strong>로 함께 정산합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VISUAL SITEMAP DIRECTORY -->
     <section class="guide-section">
         <div class="section-header-wrap">
             <div class="section-icon sitemap"><i class="bi-diagram-3"></i></div>
             <div>
-                <h2 class="section-header-title">3. ThePathLab 전체 사이트맵 디렉터리</h2>
+                <h2 class="section-header-title">4. ThePathLab 전체 사이트맵 디렉터리</h2>
                 <div class="section-header-sub">ThePathLab 포털의 모든 서비스와 페이지 구조를 한눈에 탐색하세요</div>
             </div>
         </div>
@@ -980,6 +1083,34 @@ footer {
                             <a href="https://chicstory.github.io/engines/kgm_ssangyong_engine_table.html">
                                 <span>KGM·쌍용 엔진 스펙표 (20종)</span>
                                 <span class="sitemap-tag tag-data">KGM</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: AutoCost & Mobility Intelligence -->
+                <div class="sitemap-column">
+                    <div class="sitemap-col-header">
+                        <i class="bi-calculator-fill" style="color:var(--accent-green);"></i>
+                        <span>유지비 · 보험 & 모빌리티 허브</span>
+                    </div>
+                    <ul class="sitemap-link-list">
+                        <li>
+                            <a href="https://chicstory.github.io/autocost/">
+                                <span>AutoCost 유지비·보험 계산기</span>
+                                <span class="sitemap-tag tag-hub">AUTOCOST</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/autoissue/">
+                                <span>자동차 데일리 이슈 허브</span>
+                                <span class="sitemap-tag tag-data">RECALL</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chicstory.github.io/metals/#calcSection">
+                                <span>가솔린·LPG 폐촉매 견적기</span>
+                                <span class="sitemap-tag tag-data">CATALYST</span>
                             </a>
                         </li>
                     </ul>
