@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThePathLab | 글로벌 산업 자원 & 모빌리티 테크 인텔리전스</title>
-    <meta name="description" content="ThePathLab: 9대 금속 원자재 일일 시세 및 1초 스크랩 계산기, 글로벌 285개 파워트레인 상세 제원 & 결합 변속기 매칭 백과사전, 전국 오피넷 실시간 유가 통합 모빌리티 인텔리전스 허브">
+    <meta name="description" content="ThePathLab: 9대 금속 원자재 일일 시세 및 1초 스크랩 계산기, 10대 제조사 데일리 리콜 & 10개년 세이프티픽·KNCAP 충돌안전 백과, 285개 파워트레인 제원 & 유지비 계산기 모빌리티 테크 인텔리전스">
     <meta name="google-site-verification" content="l2DlGCJmdySCH0W2_G2gCKUB9hM17D9_oGa3NtRzjD4" />
     <meta name="naver-site-verification" content="1d06be11b39e1b23b39f7821bd74cc7f42fe7d01" />
     <meta name="google-adsense-account" content="ca-pub-1876940323402065">
@@ -27,14 +27,14 @@
     <meta property="og:site_name" content="ThePathLab">
     <meta property="og:url" content="https://thapathlab.com/">
     <meta property="og:title" content="ThePathLab | 글로벌 산업 자원 & 모빌리티 테크 인텔리전스">
-    <meta property="og:description" content="ThePathLab: 9대 금속 원자재 일일 시세 및 1초 스크랩 계산기, 글로벌 285개 파워트레인 상세 제원 & 결합 변속기 매칭 백과사전, 전국 오피넷 실시간 유가 통합 모빌리티 인텔리전스 허브">
+    <meta property="og:description" content="ThePathLab: 9대 금속 원자재 일일 시세 및 1초 스크랩 계산기, 10대 제조사 데일리 리콜 & 10개년 세이프티픽·KNCAP 충돌안전 백과, 285개 파워트레인 제원 & 유지비 계산기 모빌리티 테크 인텔리전스">
     <meta property="og:locale" content="ko_KR">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:url" content="https://thapathlab.com/">
     <meta name="twitter:title" content="ThePathLab | 글로벌 산업 자원 & 모빌리티 테크 인텔리전스">
-    <meta name="twitter:description" content="9대 금속 원자재 일일 시세 및 스크랩 환산 계산기, 260개 글로벌 파워트레인 엔진 제원 백과사전, 10대 제조사 데일리 리콜·결함 인텔리전스 통합 허브">
+    <meta name="twitter:description" content="9대 금속 원자재 일일 시세 및 계산기, 285개 글로벌 엔진 제원 백과, 10대 제조사 데일리 리콜 & 10개년 세이프티픽·KNCAP 충돌안전 백과">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Non-blocking font & icon stylesheets (렌더링 차단 0초 달성) -->
@@ -663,7 +663,7 @@
         /* Quick Hub Anchor Bar (0-second Direct Jump) */
         .quick-hub-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 12px;
             margin-bottom: 2rem;
         }
@@ -696,21 +696,25 @@
         .q-chip.autoissue i { color: #f43f5e; font-size: 1.05rem; }
         .q-chip.autoissue:hover { border-color: #f43f5e; color: #fb7185; }
 
+        .q-chip.safepick { border-left: 3.5px solid #00f2fe; }
+        .q-chip.safepick i { color: #00f2fe; font-size: 1.05rem; }
+        .q-chip.safepick:hover { border-color: #00f2fe; color: #00f2fe; }
+
         .q-chip.autocost { border-left: 3.5px solid #10b981; }
         .q-chip.autocost i { color: #10b981; font-size: 1.05rem; }
         .q-chip.autocost:hover { border-color: #10b981; color: #34d399; }
 
-        .q-chip.engines { border-left: 3.5px solid #00f2fe; }
-        .q-chip.engines i { color: #00f2fe; font-size: 1.05rem; }
-        .q-chip.engines:hover { border-color: #00f2fe; color: #00f2fe; }
+        .q-chip.engines { border-left: 3.5px solid #a855f7; }
+        .q-chip.engines i { color: #c084fc; font-size: 1.05rem; }
+        .q-chip.engines:hover { border-color: #a855f7; color: #c084fc; }
 
         @media (max-width: 992px) {
             .quick-hub-bar {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 10px;
             }
         }
-        @media (max-width: 520px) {
+        @media (max-width: 640px) {
             .quick-hub-bar {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 8px;
@@ -1558,6 +1562,13 @@
           <div class="tpl-drawer-item-desc" data-i18n="drawer_autoissue_d">10대 제조사 결함·리콜 & 미국 NHTSA 선제 공고</div>
         </div>
       </a>
+      <a href="https://chicstory.github.io/autoissue/safepick.html" class="tpl-drawer-item">
+        <div class="tpl-drawer-icon" style="background: rgba(0, 242, 254, 0.15); color: #00f2fe;"><i class="bi-shield-check"></i></div>
+        <div class="tpl-drawer-item-text">
+          <div class="tpl-drawer-item-title">세이프티픽 &amp; 충돌안전 백과</div>
+          <div class="tpl-drawer-item-desc">국토부 KNCAP 52종 전수 &amp; IIHS 74+ 모델 10개년 충돌안전·중고차 팁</div>
+        </div>
+      </a>
       <a href="https://chicstory.github.io/autocost/" class="tpl-drawer-item">
         <div class="tpl-drawer-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;"><i class="bi-calculator-fill"></i></div>
         <div class="tpl-drawer-item-text">
@@ -1681,7 +1692,7 @@
             <div class="hero-badge"><i class="bi-database-fill-gear"></i> THEPATHLAB DATA LAB</div>
             <h1 class="hero-title">ThePathLab</h1>
             <p class="hero-desc">
-                원자재 시세 · 자동차 결함·리콜 · 운용 유지비 계산기 · 파워트레인 백과
+                원자재 시세 · 자동차 결함·리콜 &amp; 세이프티픽 · 운용 유지비 계산기 · 파워트레인 백과
             </p>
         </section>
 
@@ -1692,6 +1703,9 @@
             </a>
             <a href="https://chicstory.github.io/autoissue/" class="q-chip autoissue">
                 <i class="bi-bell-fill"></i> <span>자동차 결함·리콜</span>
+            </a>
+            <a href="https://chicstory.github.io/autoissue/safepick.html" class="q-chip safepick">
+                <i class="bi-shield-check"></i> <span>세이프티픽·충돌안전</span>
             </a>
             <a href="https://chicstory.github.io/autocost/" class="q-chip autocost">
                 <i class="bi-calculator-fill"></i> <span>유지비·보험 계산기</span>
@@ -1745,6 +1759,7 @@
                         <span class="p-chip">🚨 데일리 리콜 속보</span>
                         <span class="p-chip">🇺🇸 미국 NHTSA 선제 공고</span>
                         <span class="p-chip">🔍 10대 제조사별 필터</span>
+                        <span class="p-chip" style="color:var(--tpl-cyan); border-color:rgba(0, 242, 254, 0.35); font-weight:700;">🛡️ 10개년 세이프티픽·KNCAP (74종)</span>
                     </div>
                 </div>
                 <div class="btn-launch btn-autoissue">
@@ -1814,6 +1829,14 @@
                 <span class="activity-badge-total">LATEST ACTIVITY LOG</span>
             </div>
             <div class="activity-list">
+                <a href="https://chicstory.github.io/autoissue/safepick.html" class="activity-row">
+                    <div class="activity-left">
+                        <span class="activity-date">2026-09-17</span>
+                        <span class="activity-cat" style="background:rgba(0,242,254,0.15); color:#00f2fe; border:1px solid rgba(0,242,254,0.3);">세이프티픽</span>
+                        <span class="activity-text">국토부 KNCAP 52종 전수 &amp; 미국 IIHS 74+ 모델 10개년(2015~2026) 전수 충돌안전 평가 백과 신규 런칭</span>
+                    </div>
+                    <i class="bi-arrow-right activity-arrow"></i>
+                </a>
                 <a href="https://chicstory.github.io/autoissue/" class="activity-row">
                     <div class="activity-left">
                         <span class="activity-date">2026-09-10</span>
@@ -1824,7 +1847,7 @@
                 </a>
                 <a href="https://chicstory.github.io/metals/" class="activity-row">
                     <div class="activity-left">
-                        <span class="activity-date" id="metalsActivityDate">2026-09-16</span>
+                        <span class="activity-date" id="metalsActivityDate">2026-09-17</span>
                         <span class="activity-cat cat-metals">금속원자재</span>
                         <span class="activity-text">9대 금속원자재(구리·철·알루미늄·납·금·은·백금족) 일일 원화 환산 시세 및 스크랩 매입 추정가 리포트 발행</span>
                     </div>
