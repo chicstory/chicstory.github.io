@@ -5,9 +5,25 @@
     <link>https://thapathlab.com/</link>
     <description>ThePathLab 통합 네트워크 공식 RSS 피드: 9대 금속원자재·스크랩 일일 시황 및 10대 완성차 결함·리콜 데일리 뉴스</description>
     <language>ko-kr</language>
-    <pubDate>Thu, 17 Sep 2026 12:00:28 +0900</pubDate>
-    <lastBuildDate>Thu, 17 Sep 2026 12:00:28 +0900</lastBuildDate>
+    <pubDate>Fri, 18 Sep 2026 10:51:09 +0900</pubDate>
+    <lastBuildDate>Fri, 18 Sep 2026 10:51:09 +0900</lastBuildDate>
     <atom:link href="https://thapathlab.com/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[현대·기아 (제네시스)] [현대] 일렉시티 이층전기버스 - 중문 상단부 및 다른 차체(프레임) 관련 리콜</title>
+      <link>https://thapathlab.com/autoissue/#cargokr-re-6384</link>
+      <guid isPermaLink="false">autoissue-cargokr-re-6384</guid>
+      <pubDate>Wed, 30 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 일렉시티 이층전기버스 | 주요 조치: 중문 상단부 및 다른 차체(프레임) 관련 리콜</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[2026-09-18] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
+      <link>https://thapathlab.com/metals/resources/2026-09-18/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-18.html</link>
+      <guid isPermaLink="false">metals-2026-09-18</guid>
+      <pubDate>Fri, 18 Sep 2026 10:00:00 +0900</pubDate>
+      <description>[2026-09-18 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,000원/kg | 철·철스크랩 558원/kg | 알루미늄 4,564원/kg | 금 193,641원/g | 은 2,926원/g | 팔라듐 58,024원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
+      <category>금속원자재·스크랩</category>
+    </item>
     <item>
       <title>[2026-09-17] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
       <link>https://thapathlab.com/metals/resources/2026-09-17/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-17.html</link>
@@ -22,6 +38,14 @@
       <guid isPermaLink="false">autoissue-cargokr-re-6382</guid>
       <pubDate>Thu, 17 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 짚글래디에이터 등 2차종 | 주요 조치: 전동 유압식 파워 스티어링 펌프(EHPSP) 관련 리콜 중대리콜(화재위험)</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[BYD (비야디)] [비와이디] T4K - 감속기 관련 무상수리</title>
+      <link>https://thapathlab.com/autoissue/#cargokr-se-4800</link>
+      <guid isPermaLink="false">autoissue-cargokr-se-4800</guid>
+      <pubDate>Thu, 17 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: T4K | 주요 조치: 감속기 관련 무상수리</description>
       <category>자동차 데일리 이슈</category>
     </item>
     <item>
@@ -222,30 +246,6 @@
       <guid isPermaLink="false">autoissue-cargokr-se-4792</guid>
       <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 더 뉴 레인지로버 스포츠 P360 등 8차종 | 주요 조치: 파워트레인 컨트롤 모듈(PCM), 전자식 파워 인버터 컨버터 컨트롤 모듈 &apos;D&apos;(EPICD), 운전자 지원 도메인 컨트롤러(DADC)) 관련 무상수리</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[테슬라 · 기타 수입차] [재규어랜드로버] 레인지로버 벨라 P250 - 엔진오일 및 엔진오일 필터 관련 무상수리</title>
-      <link>https://thapathlab.com/autoissue/#cargokr-se-4791</link>
-      <guid isPermaLink="false">autoissue-cargokr-se-4791</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 레인지로버 벨라 P250 | 주요 조치: 엔진오일 및 엔진오일 필터 관련 무상수리</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[현대·기아 (제네시스)] 기름값 오르니 하이브리드차 인기…현대차·기아 美 시장 공략 속도 - ajunews.com</title>
-      <link>https://thapathlab.com/autoissue/#kr-104362</link>
-      <guid isPermaLink="false">autoissue-kr-104362</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚗 신차·출시] 기름값 오르니 하이브리드차 인기…현대차·기아 美 시장 공략 속도 - ajunews.com 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[토요타 · 렉서스] [해외 선제공고] Toyota recalls over 8,000 vehicles. See affected model - usatoday.com</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-663816</link>
-      <guid isPermaLink="false">autoissue-nhtsa-663816</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
       <category>자동차 데일리 이슈</category>
     </item>
   </channel>
