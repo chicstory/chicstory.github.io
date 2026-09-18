@@ -1,6 +1,26 @@
 User-agent: *
 Allow: /
 
+# Google Search & AI Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# AI Crawlers (OpenAI, Anthropic)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://thapathlab.com/sitemap.xml
 Sitemap: https://thapathlab.com/rss.xml
 Sitemap: https://thapathlab.com/metals/sitemap.xml
