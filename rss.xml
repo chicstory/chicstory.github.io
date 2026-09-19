@@ -5,8 +5,8 @@
     <link>https://thapathlab.com/</link>
     <description>ThePathLab 통합 네트워크 공식 RSS 피드: 9대 금속원자재·스크랩 일일 시황 및 10대 완성차 결함·리콜 데일리 뉴스</description>
     <language>ko-kr</language>
-    <pubDate>Fri, 18 Sep 2026 10:51:09 +0900</pubDate>
-    <lastBuildDate>Fri, 18 Sep 2026 10:51:09 +0900</lastBuildDate>
+    <pubDate>Sun, 20 Sep 2026 00:41:45 +0900</pubDate>
+    <lastBuildDate>Sun, 20 Sep 2026 00:41:45 +0900</lastBuildDate>
     <atom:link href="https://thapathlab.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[현대·기아 (제네시스)] [현대] 일렉시티 이층전기버스 - 중문 상단부 및 다른 차체(프레임) 관련 리콜</title>
@@ -15,6 +15,14 @@
       <pubDate>Wed, 30 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 일렉시티 이층전기버스 | 주요 조치: 중문 상단부 및 다른 차체(프레임) 관련 리콜</description>
       <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[2026-09-19] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
+      <link>https://thapathlab.com/metals/resources/2026-09-19/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-19.html</link>
+      <guid isPermaLink="false">metals-2026-09-19</guid>
+      <pubDate>Sat, 19 Sep 2026 10:00:00 +0900</pubDate>
+      <description>[2026-09-19 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,257원/kg | 철·철스크랩 561원/kg | 알루미늄 4,579원/kg | 금 195,753원/g | 은 2,958원/g | 팔라듐 58,925원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
+      <category>금속원자재·스크랩</category>
     </item>
     <item>
       <title>[2026-09-18] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
@@ -238,14 +246,6 @@
       <guid isPermaLink="false">autoissue-cargokr-re-6364</guid>
       <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: Mustang 5.0 | 주요 조치: 저압 연료펌프 관련 리콜</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[테슬라 · 기타 수입차] [재규어랜드로버] 더 뉴 레인지로버 스포츠 P360 등 8차종 - 파워트레인 컨트롤 모듈(PCM), 전자식 파워 인버터 컨버터 컨트롤 모듈 &apos;D&apos;(EPICD), 운전자 지원 도메인 컨트롤러(DADC)) 관련 무상수리</title>
-      <link>https://thapathlab.com/autoissue/#cargokr-se-4792</link>
-      <guid isPermaLink="false">autoissue-cargokr-se-4792</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 더 뉴 레인지로버 스포츠 P360 등 8차종 | 주요 조치: 파워트레인 컨트롤 모듈(PCM), 전자식 파워 인버터 컨버터 컨트롤 모듈 &apos;D&apos;(EPICD), 운전자 지원 도메인 컨트롤러(DADC)) 관련 무상수리</description>
       <category>자동차 데일리 이슈</category>
     </item>
   </channel>
