@@ -5,8 +5,8 @@
     <link>https://thapathlab.com/</link>
     <description>ThePathLab 통합 네트워크 공식 RSS 피드: 9대 금속원자재·스크랩 일일 시황 및 10대 완성차 결함·리콜 데일리 뉴스</description>
     <language>ko-kr</language>
-    <pubDate>Sun, 20 Sep 2026 00:41:45 +0900</pubDate>
-    <lastBuildDate>Sun, 20 Sep 2026 00:41:45 +0900</lastBuildDate>
+    <pubDate>Mon, 21 Sep 2026 13:35:09 +0900</pubDate>
+    <lastBuildDate>Mon, 21 Sep 2026 13:35:09 +0900</lastBuildDate>
     <atom:link href="https://thapathlab.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[현대·기아 (제네시스)] [현대] 일렉시티 이층전기버스 - 중문 상단부 및 다른 차체(프레임) 관련 리콜</title>
@@ -15,6 +15,38 @@
       <pubDate>Wed, 30 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: 일렉시티 이층전기버스 | 주요 조치: 중문 상단부 및 다른 차체(프레임) 관련 리콜</description>
       <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[2026-09-21] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
+      <link>https://thapathlab.com/metals/resources/2026-09-21/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-21.html</link>
+      <guid isPermaLink="false">metals-2026-09-21</guid>
+      <pubDate>Mon, 21 Sep 2026 10:00:00 +0900</pubDate>
+      <description>[2026-09-21 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,304원/kg | 철·철스크랩 559원/kg | 알루미늄 4,563원/kg | 금 193,962원/g | 은 2,951원/g | 팔라듐 58,740원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
+      <category>금속원자재·스크랩</category>
+    </item>
+    <item>
+      <title>[현대·기아 (제네시스)] [현대] G80 등 2차종 - 저압연료라인 어셈블리 관련 리콜 중대리콜(화재위험)</title>
+      <link>https://thapathlab.com/autoissue/#cargokr-re-6379</link>
+      <guid isPermaLink="false">autoissue-cargokr-re-6379</guid>
+      <pubDate>Mon, 21 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: G80 등 2차종 | 주요 조치: 저압연료라인 어셈블리 관련 리콜 중대리콜(화재위험)</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[현대·기아 (제네시스)] 제네시스 G80·GV70 디젤, 연료 누유로 화재 위험…글로벌 연쇄 리콜 10만 대 넘어 - 동행일보</title>
+      <link>https://thapathlab.com/autoissue/#kr-591110</link>
+      <guid isPermaLink="false">autoissue-kr-591110</guid>
+      <pubDate>Mon, 21 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 제네시스 G80·GV70 디젤, 연료 누유로 화재 위험…글로벌 연쇄 리콜 10만 대 넘어 - 동행일보 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[2026-09-20] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
+      <link>https://thapathlab.com/metals/resources/2026-09-20/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-20.html</link>
+      <guid isPermaLink="false">metals-2026-09-20</guid>
+      <pubDate>Sun, 20 Sep 2026 10:00:00 +0900</pubDate>
+      <description>[2026-09-20 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,257원/kg | 철·철스크랩 561원/kg | 알루미늄 4,579원/kg | 금 195,753원/g | 은 2,958원/g | 팔라듐 58,925원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
+      <category>금속원자재·스크랩</category>
     </item>
     <item>
       <title>[2026-09-19] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
@@ -31,6 +63,46 @@
       <pubDate>Fri, 18 Sep 2026 10:00:00 +0900</pubDate>
       <description>[2026-09-18 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 20,000원/kg | 철·철스크랩 558원/kg | 알루미늄 4,564원/kg | 금 193,641원/g | 은 2,926원/g | 팔라듐 58,024원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
       <category>금속원자재·스크랩</category>
+    </item>
+    <item>
+      <title>[현대·기아 (제네시스)] 아시아뉴스 BYD, 브레이크 페달 결함으로 18만 대 이상 대규모 리콜 실시… 니오도 함께 조치 - 뉴스케이</title>
+      <link>https://thapathlab.com/autoissue/#kr-108754</link>
+      <guid isPermaLink="false">autoissue-kr-108754</guid>
+      <pubDate>Fri, 18 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 아시아뉴스 BYD, 브레이크 페달 결함으로 18만 대 이상 대규모 리콜 실시… 니오도 함께 조치 - 뉴스케이 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[BYD (비야디)] “차 안에서 갑자기 감전?” BYD 전기차 사고 SNS 재확산...지커 7X 화재까지 안전성 관심 - yuccapostkorea.com</title>
+      <link>https://thapathlab.com/autoissue/#kr-292437</link>
+      <guid isPermaLink="false">autoissue-kr-292437</guid>
+      <pubDate>Fri, 18 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[⚡ 전기차·배터리] “차 안에서 갑자기 감전?” BYD 전기차 사고 SNS 재확산...지커 7X 화재까지 안전성 관심 - yuccapostkorea.com 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[BYD (비야디)] BYD 팡청바오, 18만 위안대 전기 스포츠세단 출격 - 글로벌이코노믹</title>
+      <link>https://thapathlab.com/autoissue/#kr-328578</link>
+      <guid isPermaLink="false">autoissue-kr-328578</guid>
+      <pubDate>Fri, 18 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[📰 업계·테크 이슈] BYD 팡청바오, 18만 위안대 전기 스포츠세단 출격 - 글로벌이코노믹 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[폭스바겐 · 아우디] [해외 선제공고] Volkswagen to recall over 208,700 US vehicles over steering rack bolt defect, NHTSA says - Reuters</title>
+      <link>https://thapathlab.com/autoissue/#nhtsa-309443</link>
+      <guid isPermaLink="false">autoissue-nhtsa-309443</guid>
+      <pubDate>Fri, 18 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[폭스바겐 · 아우디] [해외 선제공고] Volkswagen to recall over 208,700 US vehicles over steering rack bolt defect, NHTSA says - WTVB</title>
+      <link>https://thapathlab.com/autoissue/#nhtsa-905123</link>
+      <guid isPermaLink="false">autoissue-nhtsa-905123</guid>
+      <pubDate>Fri, 18 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
+      <category>자동차 데일리 이슈</category>
     </item>
     <item>
       <title>[2026-09-17] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
@@ -54,6 +126,14 @@
       <guid isPermaLink="false">autoissue-cargokr-se-4800</guid>
       <pubDate>Thu, 17 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🔧 무상수리·OTA] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: T4K | 주요 조치: 감속기 관련 무상수리</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
+      <title>[현대·기아 (제네시스)] 현대차 2층 전기버스, 차체 균열 가능성에 자발적 리콜 무상 수리 - 엔지오프레스</title>
+      <link>https://thapathlab.com/autoissue/#kr-419906</link>
+      <guid isPermaLink="false">autoissue-kr-419906</guid>
+      <pubDate>Thu, 17 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] 현대차 2층 전기버스, 차체 균열 가능성에 자발적 리콜 무상 수리 - 엔지오프레스 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
       <category>자동차 데일리 이슈</category>
     </item>
     <item>
@@ -137,6 +217,14 @@
       <category>자동차 데일리 이슈</category>
     </item>
     <item>
+      <title>[현대·기아 (제네시스)] [데스크 칼럼] 반복되는 기아 리콜, 소비자는 불안하다 - safetimes.co.kr</title>
+      <link>https://thapathlab.com/autoissue/#kr-570195</link>
+      <guid isPermaLink="false">autoissue-kr-570195</guid>
+      <pubDate>Tue, 15 Sep 2026 11:00:00 +0900</pubDate>
+      <description>[🚨 리콜 공고] [데스크 칼럼] 반복되는 기아 리콜, 소비자는 불안하다 - safetimes.co.kr 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
+      <category>자동차 데일리 이슈</category>
+    </item>
+    <item>
       <title>[2026-09-14] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
       <link>https://thapathlab.com/metals/resources/2026-09-14/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-14.html</link>
       <guid isPermaLink="false">metals-2026-09-14</guid>
@@ -158,94 +246,6 @@
       <guid isPermaLink="false">autoissue-nhtsa-521715</guid>
       <pubDate>Mon, 14 Sep 2026 11:00:00 +0900</pubDate>
       <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[포드 · 링컨] [해외 선제공고] Ford files 4 new recalls that will impact 225,000-plus vehicles - Detroit Free Press</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-609742</link>
-      <guid isPermaLink="false">autoissue-nhtsa-609742</guid>
-      <pubDate>Mon, 14 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[현대·기아 (제네시스)] 광명 ‘전기차’, 화성 PBV⋯신차 맞춰 생산지형 바꾼다 [현대차·기아, 신차 로드맵] - v.daum.net</title>
-      <link>https://thapathlab.com/autoissue/#kr-464547</link>
-      <guid isPermaLink="false">autoissue-kr-464547</guid>
-      <pubDate>Sun, 13 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[⚡ 전기차·배터리] 광명 ‘전기차’, 화성 PBV⋯신차 맞춰 생산지형 바꾼다 [현대차·기아, 신차 로드맵] - v.daum.net 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[2026-09-12] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://thapathlab.com/metals/resources/2026-09-12/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-12.html</link>
-      <guid isPermaLink="false">metals-2026-09-12</guid>
-      <pubDate>Sat, 12 Sep 2026 10:00:00 +0900</pubDate>
-      <description>[2026-09-12 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,166원/kg | 철·철스크랩 532원/kg | 알루미늄 4,376원/kg | 금 187,954원/g | 은 2,777원/g | 팔라듐 57,202원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
-      <category>금속원자재·스크랩</category>
-    </item>
-    <item>
-      <title>[2026-09-11] ThePathLab 9대 금속원자재 일일 시황 &amp; 스크랩 매입 추정가 리포트</title>
-      <link>https://thapathlab.com/metals/resources/2026-09-11/%5B%ED%86%B5%ED%95%A9%EB%B8%8C%EB%A6%AC%ED%95%91%5D%209%EB%8C%80_%EA%B8%88%EC%86%8D%EC%9B%90%EC%9E%90%EC%9E%AC_2026-09-11.html</link>
-      <guid isPermaLink="false">metals-2026-09-11</guid>
-      <pubDate>Fri, 11 Sep 2026 10:00:00 +0900</pubDate>
-      <description>[2026-09-11 기준] LME·조달청 국제 시세 및 원화 환산 단가: 구리 19,201원/kg | 철·철스크랩 529원/kg | 알루미늄 4,424원/kg | 금 187,545원/g | 은 2,744원/g | 팔라듐 55,876원/g. 실무 스크랩(70~80%) 매입 견적 계산기 포함.</description>
-      <category>금속원자재·스크랩</category>
-    </item>
-    <item>
-      <title>[포드 · 링컨] 포드베트남, ‘에어백 결함’ 레인저 700대 리콜 - 인사이드비나</title>
-      <link>https://thapathlab.com/autoissue/#kr-142096</link>
-      <guid isPermaLink="false">autoissue-kr-142096</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 포드베트남, ‘에어백 결함’ 레인저 700대 리콜 - 인사이드비나 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[현대·기아 (제네시스)] “리콜 판단기준 명문화 안돼 있었다”…현대차 ‘세타2 늑장리콜’ 재판 막바지 - 포쓰저널</title>
-      <link>https://thapathlab.com/autoissue/#kr-744066</link>
-      <guid isPermaLink="false">autoissue-kr-744066</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] “리콜 판단기준 명문화 안돼 있었다”…현대차 ‘세타2 늑장리콜’ 재판 막바지 - 포쓰저널 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[현대·기아 (제네시스)] 기름값 오르니 하이브리드차 인기…현대차·기아 美 시장 공략 속도 - 아주경제</title>
-      <link>https://thapathlab.com/autoissue/#kr-815578</link>
-      <guid isPermaLink="false">autoissue-kr-815578</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚗 신차·출시] 기름값 오르니 하이브리드차 인기…현대차·기아 美 시장 공략 속도 - 아주경제 관련 최신 국내 공식 보도 및 공고 사항입니다. 상세 세부 내역은 원문 링크에서 확인하실 수 있습니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[토요타 · 렉서스] [해외 선제공고] Weekly Recalls: Chrysler, Jeep, Mitsubishi, Ram Trucks, Toyota - CarProUSA.com.</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-535493</link>
-      <guid isPermaLink="false">autoissue-nhtsa-535493</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[토요타 · 렉서스] [해외 선제공고] Toyota recalls over 8,000 vehicles. See affected model - USA Today</title>
-      <link>https://thapathlab.com/autoissue/#nhtsa-998243</link>
-      <guid isPermaLink="false">autoissue-nhtsa-998243</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 미국 NHTSA 및 북미 안전 감독 당국에서 발표된 선제적 결함 조사 및 리콜 공고입니다. 국내 도입 여부는 순차 확인 중입니다.</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[포드 · 링컨] [에프엘오토] Mustang - 후방카메라 꽌련 리콜</title>
-      <link>https://thapathlab.com/autoissue/#cargokr-re-6365</link>
-      <guid isPermaLink="false">autoissue-cargokr-re-6365</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: Mustang | 주요 조치: 후방카메라 꽌련 리콜</description>
-      <category>자동차 데일리 이슈</category>
-    </item>
-    <item>
-      <title>[포드 · 링컨] [에프엘오토] Mustang 5.0 - 저압 연료펌프 관련 리콜</title>
-      <link>https://thapathlab.com/autoissue/#cargokr-re-6364</link>
-      <guid isPermaLink="false">autoissue-cargokr-re-6364</guid>
-      <pubDate>Fri, 11 Sep 2026 11:00:00 +0900</pubDate>
-      <description>[🚨 리콜 공고] 한국교통안전공단 자동차리콜센터(국토교통부) 공식 공고 사항입니다. 대상 차종: Mustang 5.0 | 주요 조치: 저압 연료펌프 관련 리콜</description>
       <category>자동차 데일리 이슈</category>
     </item>
   </channel>
