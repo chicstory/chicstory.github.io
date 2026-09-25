@@ -4,6 +4,16 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-09-25] [GEO/AEO] 메인 포털 통합 llms.txt 배포 및 'n대 금속' 용어 일원화
+- **1. 요청사항**: 
+  - 생성형 AI 검색(Perplexity, ChatGPT, Gemini) 대응을 위한 포털 마스터 `llms.txt` 표준 구축.
+  - '7대 금속' 등 가변적인 숫자 표현을 제거하고 '금속 원자재 & 스크랩'으로 일원화.
+- **2. 솔루션 & 구현**:
+  - `chicstory.github.io/llms.txt`: 포털 산하 5대 핵심 프로젝트(Metals, RunAnalyz, Engines, AutoIssue, AutoCost)를 체계적으로 요약한 마크다운 사이트맵 생성.
+  - `chicstory.github.io/about.html`: '7대 금속 원자재' 문구를 '금속 원자재 & 스크랩'으로 교정.
+- **3. 결과 & 검증**:
+  - `https://chicstory.github.io/llms.txt` 및 `https://thepathlab.com/llms.txt`로 AI 크롤러 0초 다이렉트 접근 지원.
+
 ---
 
 ## [2026-09-18] [SEO & AI 봇] Google-Extended & 주요 생성형 AI 크롤러 robots.txt 명시적 허용 배포

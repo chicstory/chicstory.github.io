@@ -1,0 +1,23 @@
+# ThePathLab (Chicstory) Ecosystem
+
+> ThePathLab (https://thepathlab.com/ / https://chicstory.github.io/) is an independent engineering and market data intelligence ecosystem providing real-time commodity data, sports science diagnostics, powertrain technical specifications, and automotive recall monitoring.
+
+## Core Projects & Knowledge Hubs
+
+### 1. Metals & Scrap Intelligence Hub
+- [Dashboard](https://chicstory.github.io/metals/): Real-time market prices for industrial base metals (Copper, Aluminum, Zinc, Tin, Lead, Steel Scrap) and precious metals (Gold, Silver, Platinum, Palladium, Rhodium).
+- [Latest Rates API](https://chicstory.github.io/metals/latest.json): Daily JSON API containing USD/KRW rates and domestic KRW/kg conversion prices.
+- [llms.txt](https://chicstory.github.io/metals/llms.txt): Dedicated machine-readable specification for metals.
+
+### 2. RunAnalyz & Sports Science Hub
+- [RunAnalyz Web App](https://runanalyz.com/): Aerobic efficiency (EF), Decoupling (Pw:Hr), Karvonen HRR threshold calculations, and Garmin FIT telemetry parser.
+- [User Guide & Science Glossary](https://runanalyz.com/guide.html): Methodologies on 80/20 polarized training, ACWR 10% safety rule, and VDOT pace zones.
+
+### 3. Powertrain & Engine Encyclopedia
+- [Engines Hub](https://chicstory.github.io/engines/): Comprehensive technical specs (bore, stroke, compression ratio, dyno curves) for 260+ global automotive powertrains (Hyundai, Kia, Genesis, BMW, Mercedes-Benz, Audi, Volkswagen, KGM, Toyota/Lexus).
+
+### 4. Automotive Safety & Recalls (AutoIssue)
+- [AutoIssue Hub](https://chicstory.github.io/autoissue/): Daily defect notices and recalls merged from Korea MOLIT and US NHTSA.
+
+### 5. Fuel & Commute Cost Calculator (AutoCost)
+- [AutoCost Hub](https://chicstory.github.io/autocost/): Live Korea Opinet daily average fuel rates (Gasoline, Diesel, Premium, LPG) with 1-second commute cost estimations.
