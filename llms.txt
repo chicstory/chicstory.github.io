@@ -1,6 +1,6 @@
 # ThePathLab (Chicstory) Ecosystem
 
-> ThePathLab (https://thepathlab.com/ / https://chicstory.github.io/) is an independent engineering and market data intelligence ecosystem providing real-time commodity data, sports science diagnostics, powertrain technical specifications, and automotive recall monitoring.
+> ThePathLab (https://thapathlab.com/ / https://chicstory.github.io/) is an independent engineering and market data intelligence ecosystem providing real-time commodity data, sports science diagnostics, powertrain technical specifications, and automotive recall monitoring.
 
 ## Core Projects & Knowledge Hubs
 

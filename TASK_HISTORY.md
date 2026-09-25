@@ -12,7 +12,7 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
   - `chicstory.github.io/llms.txt`: 포털 산하 5대 핵심 프로젝트(Metals, RunAnalyz, Engines, AutoIssue, AutoCost)를 체계적으로 요약한 마크다운 사이트맵 생성.
   - `chicstory.github.io/about.html`: '7대 금속 원자재' 문구를 '금속 원자재 & 스크랩'으로 교정.
 - **3. 결과 & 검증**:
-  - `https://chicstory.github.io/llms.txt` 및 `https://thepathlab.com/llms.txt`로 AI 크롤러 0초 다이렉트 접근 지원.
+  - `https://chicstory.github.io/llms.txt` 및 `https://thapathlab.com/llms.txt`로 AI 크롤러 0초 다이렉트 접근 지원.
 
 ---
 
