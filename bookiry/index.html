@@ -864,169 +864,10 @@
 
       </div>
     </div> <!-- /#readingView -->
-
-    <!-- =========================================================================
-         VIEW D: Pricing & Membership View (#pricingView)
-         ========================================================================= -->
-    <div id="pricingView" class="pricing-view" style="display: none;">
-      <div class="pricing-container">
-        
-        <!-- Pricing Top Bar -->
-        <div class="pricing-top-bar">
-          <button type="button" class="btn-back-link" id="btnPricingBack" title="Return to Explore">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            <span>Back</span>
-          </button>
-          <div class="pricing-badge-tag">💎 Transparent Pricing</div>
-        </div>
-
-        <!-- Pricing Header -->
-        <div class="pricing-header-center">
-          <h1 class="pricing-main-title">Invest in thoughts that outlive summaries</h1>
-          <p class="pricing-main-subtitle">
-            Every memorable book changes how you see reality. Choose the reading rhythm that fits your life. Zero server lock-in. 100% private to your cloud.
-          </p>
-
-          <!-- Monthly / Annual Pricing Toggle Switch -->
-          <div class="pricing-toggle-wrap">
-            <div class="pricing-toggle" role="group" aria-label="Billing frequency selection">
-              <button type="button" class="btn-toggle-option active" id="btnToggleMonthly" aria-pressed="true">
-                Monthly ($3.90/mo)
-              </button>
-              <button type="button" class="btn-toggle-option" id="btnToggleAnnual" aria-pressed="false">
-                Annual ($39/yr)
-                <span class="toggle-save-badge">Save 17%</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3-Tier Plan Comparison Cards -->
-        <div class="pricing-cards-grid">
-          
-          <!-- Card 1: Explorer (Guest) -->
-          <div class="pricing-card">
-            <div class="plan-badge">Explorer</div>
-            <div class="plan-price-wrap">
-              <span class="plan-price">$0</span>
-              <span class="plan-period">/ Free forever</span>
-            </div>
-            <p class="plan-description">For curious readers wandering through ideas and testing initial questions.</p>
-            
-            <ul class="plan-features-list">
-              <li><span class="check-icon">✓</span> <span><strong>💡 The Spark (Question 1)</strong> on every book</span></li>
-              <li><span class="check-icon">✓</span> <span>Instant book search & title matching</span></li>
-              <li><span class="check-icon">✓</span> <span>4 curated reading compasses</span></li>
-              <li class="disabled"><span class="cross-icon">✕</span> <span>3 Deep Sparks (Lens, Quest, Echo)</span></li>
-              <li class="disabled"><span class="cross-icon">✕</span> <span>Personal Library & Live Recap</span></li>
-              <li class="disabled"><span class="cross-icon">✕</span> <span>Google Drive & Obsidian Sync</span></li>
-            </ul>
-
-            <button type="button" class="btn-plan-action btn-plan-outline" id="btnPlanExplorer">
-              <span>Start Exploring Free</span>
-            </button>
-          </div>
-
-          <!-- Card 2: Reader (Free Account) -->
-          <div class="pricing-card">
-            <div class="plan-badge plan-badge-blue">Reader</div>
-            <div class="plan-price-wrap">
-              <span class="plan-price">$0</span>
-              <span class="plan-period">/ Google Account</span>
-            </div>
-            <p class="plan-description">For intentional readers testing deep questions and keeping local notes.</p>
-            
-            <ul class="plan-features-list">
-              <li><span class="check-icon">✓</span> <span><strong>Up to 3 Active Books</strong> in Library</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>All 4 Catalytic Sparks</strong> on your 3 books</span></li>
-              <li><span class="check-icon">✓</span> <span>Reflection Timeline & Voice notes (browser)</span></li>
-              <li><span class="check-icon">✓</span> <span>Basic 365-day reading stats</span></li>
-              <li class="disabled"><span class="cross-icon">✕</span> <span>Google Drive Cloud Sync</span></li>
-              <li class="disabled"><span class="cross-icon">✕</span> <span>Obsidian 00_Index.md Sync</span></li>
-            </ul>
-
-            <button type="button" class="btn-plan-action btn-plan-secondary" id="btnPlanReader">
-              <span>Sign in with Google</span>
-            </button>
-          </div>
-
-          <!-- Card 3: Bookiry Pro (Monthly / Annual Membership) -->
-          <div class="pricing-card pricing-card-featured">
-            <div class="featured-ribbon">⭐ Most Loved by Deep Thinkers</div>
-            <div class="plan-badge plan-badge-gold">Bookiry Pro</div>
-            <div class="plan-price-wrap" id="proPriceWrap">
-              <span class="plan-price" id="proPriceAmount">$3.90</span>
-              <span class="plan-period" id="proPricePeriod">/ month</span>
-            </div>
-            <p class="plan-description" id="proPlanSubtext">Flexible monthly access. Cancel anytime with 1-click in your account.</p>
-            
-            <ul class="plan-features-list">
-              <li><span class="check-icon">✓</span> <span><strong id="proFeatureLimit">Up to 30 Books / Month</strong> (Generous Fair-Use)</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>All 4 Catalytic Sparks</strong> on every book</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>📁 Google Drive 2-Way Sync</strong> (drive.file)</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>📋 Obsidian 00_Index.md</strong> 1-Click Vault Sync</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>🤖 Gemini AI Deep Reading Milestone Report</strong></span></li>
-              <li><span class="check-icon">✓</span> <span><strong>🏆 365-Day High-Resolution Live Recap</strong> cards</span></li>
-              <li><span class="check-icon">✓</span> <span><strong>🛡️ Zero server database.</strong> 100% Data Ownership</span></li>
-            </ul>
-
-            <button type="button" class="btn-plan-action btn-plan-primary" id="btnPlanPro">
-              <span id="btnPlanProText">Subscribe Monthly ($3.90/mo)</span>
-            </button>
-            <div class="guarantee-text">🔒 14-day unconditional money-back guarantee</div>
-          </div>
-
-        </div>
-
-        <!-- License Key Activation Box -->
-        <div class="license-activation-card">
-          <div class="license-card-left">
-            <div class="license-icon">🔑</div>
-            <div>
-              <div class="license-title">Already subscribed to Pro?</div>
-              <div class="license-sub">Enter your license key or order code from Lemon Squeezy / Stripe to activate your Pro membership.</div>
-            </div>
-          </div>
-          <form class="license-form" id="licenseForm">
-            <input type="text" class="license-input" id="licenseInput" placeholder="BOOKIRY-PRO-XXXX-XXXX" required spellcheck="false" autocomplete="off">
-            <button type="submit" class="btn-license-activate" id="btnActivateLicense">
-              <span>Activate Pro</span>
-            </button>
-          </form>
-        </div>
-
-        <!-- FAQ Section -->
-        <div class="pricing-faq-section">
-          <h2 class="faq-section-title">Frequently Asked Questions</h2>
-          <div class="faq-grid">
-            <div class="faq-item">
-              <h3 class="faq-q">Why do you store files in my Google Drive instead of your database?</h3>
-              <p class="faq-a">Your thoughts are deeply personal. We believe reading notes should never be locked behind a startup's private database. By storing notes in your own Google Drive (<code>Bookiry/</code> folder), you retain 100% ownership forever—even if Bookiry disappeared tomorrow.</p>
-            </div>
-            <div class="faq-item">
-              <h3 class="faq-q">How does the Obsidian sync work?</h3>
-              <p class="faq-a">When you open any book, Bookiry pre-generates a clean <code>00_Index.md</code> with standard YAML frontmatter, your 4 catalytic sparks, and your appended reflection timestamps. You can copy it or direct-sync to your Obsidian vault seamlessly.</p>
-            </div>
-            <div class="faq-item">
-              <h3 class="faq-q">What is the difference between Monthly ($3.90) and Annual ($39)?</h3>
-              <p class="faq-a">Both plans unlock all 4 catalytic sparks, Google Drive 2-way sync, and Obsidian export. The <strong>Monthly Plan ($3.90/mo)</strong> offers ultimate flexibility with up to 30 books analyzed each month. The <strong>Annual Plan ($39/yr)</strong> gives you 2 months free (saving 17%) and expands your quota to 50 books per month.</p>
-            </div>
-            <div class="faq-item">
-              <h3 class="faq-q">Can I request a refund if it is not for me?</h3>
-              <p class="faq-a">Absolutely. If Bookiry doesn't bring peace and deep resonance to your reading within 14 days, just drop us an email for a full, courteous 100% refund.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div> <!-- /#pricingView -->
   </main>
 
   <!-- =========================================================================
-       Global Footer (Identical Menu + Pricing, High-Legibility Mobile Spacing)
+       Global Footer (AdSense Compliant Navigation & Privacy Standards)
        ========================================================================= -->
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -1047,7 +888,7 @@
         <p class="footer-tagline">Intentional 1:1 Reading Sanctuary. Zero vendor lock-in. 100% private to your Google Drive.</p>
       </div>
 
-      <!-- Footer Navigation (Generous Touch Spacing for Mobile Readability) -->
+      <!-- Footer Navigation (AdSense Required Legal & Editorial Links) -->
       <nav class="footer-nav" aria-label="Footer Navigation">
         <button type="button" class="footer-nav-link" id="footerNavExplore">
           <span>🧭 Explore</span>
@@ -1055,12 +896,18 @@
         <button type="button" class="footer-nav-link" id="footerNavLibrary">
           <span>📚 Library</span>
         </button>
-        <button type="button" class="footer-nav-link footer-nav-highlight" id="footerNavPricing">
-          <span>💎 Pricing</span>
-        </button>
-        <button type="button" class="footer-nav-link" id="footerNavPrivacy">
-          <span>🛡️ Privacy</span>
-        </button>
+        <a href="about.html" class="footer-nav-link">
+          <span>🌿 About Bookiry</span>
+        </a>
+        <a href="privacy.html" class="footer-nav-link">
+          <span>🛡️ Privacy Policy</span>
+        </a>
+        <a href="terms.html" class="footer-nav-link">
+          <span>📜 Terms of Service</span>
+        </a>
+        <a href="contact.html" class="footer-nav-link">
+          <span>✉️ Contact Us</span>
+        </a>
       </nav>
 
       <div class="footer-bottom-copy">
