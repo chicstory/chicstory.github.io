@@ -2505,51 +2505,90 @@ function handleSignOut() {
   }
 }
 
-// Drive REST API: Find or Create Folder
+// Drive In-Memory Folder ID Cache & In-Flight Lock to prevent duplicates
+const driveFolderCache = new Map();
+const driveInFlightPromises = new Map();
+
+// Helper: Normalize Compass to File Suffix
+function getCompassFileSuffix(compass = 'healing') {
+  const map = {
+    'healing': 'Rest',
+    'growth': 'Growth',
+    'fiction': 'Fiction',
+    'custom': 'Custom'
+  };
+  return map[compass] || 'Rest';
+}
+
+// Drive REST API: Find or Create Folder (Thread-Safe & Eventual Consistency Immune)
 async function findOrCreateDriveFolder(folderName, parentFolderId = null) {
   const token = localStorage.getItem(STORAGE_KEY_GOOGLE_TOKEN);
   if (!token) return null;
 
-  let query = `name = '${folderName.replace(/'/g, "\\'")}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
-  if (parentFolderId) {
-    query += ` and '${parentFolderId}' in parents`;
-  } else {
-    query += ` and 'root' in parents`;
+  const parentKey = parentFolderId || 'root';
+  const cacheKey = `${parentKey}::${folderName.trim()}`;
+
+  // 1. Instant Cache Hit
+  if (driveFolderCache.has(cacheKey)) {
+    return driveFolderCache.get(cacheKey);
   }
 
-  try {
-    const searchRes = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query)}&fields=files(id,name)`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    if (searchRes.ok) {
-      const data = await searchRes.json();
-      if (data.files && data.files.length > 0) {
-        return data.files[0].id;
+  // 2. In-Flight Request Deduplication (prevents duplicate folder creation during rapid calls)
+  if (driveInFlightPromises.has(cacheKey)) {
+    return await driveInFlightPromises.get(cacheKey);
+  }
+
+  const createPromise = (async () => {
+    let query = `name = '${folderName.replace(/'/g, "\\'")}' and mimeType = 'application/vnd.google-apps.folder' and trashed = false`;
+    if (parentFolderId) {
+      query += ` and '${parentFolderId}' in parents`;
+    } else {
+      query += ` and 'root' in parents`;
+    }
+
+    try {
+      // 3. Search Drive
+      const searchRes = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query)}&fields=files(id,name)`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (searchRes.ok) {
+        const data = await searchRes.json();
+        if (data.files && data.files.length > 0) {
+          const foundId = data.files[0].id;
+          driveFolderCache.set(cacheKey, foundId);
+          return foundId;
+        }
       }
-    }
 
-    // Create folder if not found
-    const createRes = await fetch('https://www.googleapis.com/drive/v3/files', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: folderName,
-        mimeType: 'application/vnd.google-apps.folder',
-        parents: parentFolderId ? [parentFolderId] : []
-      })
-    });
+      // 4. Create Folder if not found
+      const createRes = await fetch('https://www.googleapis.com/drive/v3/files', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: folderName,
+          mimeType: 'application/vnd.google-apps.folder',
+          parents: parentFolderId ? [parentFolderId] : []
+        })
+      });
 
-    if (createRes.ok) {
-      const createData = await createRes.json();
-      return createData.id;
+      if (createRes.ok) {
+        const createData = await createRes.json();
+        driveFolderCache.set(cacheKey, createData.id);
+        return createData.id;
+      }
+    } catch (err) {
+      console.warn('Drive folder resolution error:', err);
+    } finally {
+      driveInFlightPromises.delete(cacheKey);
     }
-  } catch (err) {
-    console.warn('Drive folder creation failed:', err);
-  }
-  return null;
+    return null;
+  })();
+
+  driveInFlightPromises.set(cacheKey, createPromise);
+  return await createPromise;
 }
 
 // Drive REST API: Multipart Upload Markdown
@@ -2603,7 +2642,7 @@ async function uploadOrUpdateDriveMarkdown(parentFolderId, fileName, markdownCon
   return null;
 }
 
-// Synchronize Current Book to Google Drive
+// Synchronize Current Book to Google Drive (Separate Markdown per Mood/Compass)
 async function syncCurrentBookToDrive(isManual = false, isReport = false) {
   if (!currentActiveBook) return;
 
@@ -2632,35 +2671,47 @@ async function syncCurrentBookToDrive(isManual = false, isReport = false) {
       const rootFolderId = await findOrCreateDriveFolder('Bookiry');
       // 2. Year folder (e.g., '2026')
       const yearFolderId = await findOrCreateDriveFolder(`${new Date().getFullYear()}`, rootFolderId);
-      // 3. Book folder: "[Title - Author]"
-      const safeAuthor = currentActiveBook.author || 'Unknown';
-      const bookFolderName = `${currentActiveBook.title} - ${safeAuthor}`;
+      
+      // 3. Normalized Book folder (Title only or Title - Known Author, avoids 'Unknown' split)
+      const cleanAuthor = (currentActiveBook.author && currentActiveBook.author !== 'Unknown') 
+        ? currentActiveBook.author 
+        : '';
+      const bookFolderName = cleanAuthor 
+        ? `${currentActiveBook.title} - ${cleanAuthor}`
+        : currentActiveBook.title;
+
       const bookFolderId = await findOrCreateDriveFolder(bookFolderName, yearFolderId);
 
-      // 4. File Map Cache
-      const driveMap = JSON.parse(localStorage.getItem(STORAGE_KEY_DRIVE_MAP) || '{}');
-      const bookMap = driveMap[currentActiveBook.slug] || {};
+      // 4. File Suffix based on current reading mood / compass
+      const moodSuffix = getCompassFileSuffix(currentActiveBook.compass || currentSelectedCompass);
+      const indexFileName = `00_Index_${moodSuffix}.md`;
+      const reportFileName = `01_Report_${moodSuffix}.md`;
 
-      // 5. Upload 00_Index.md
+      // 5. File Map Cache per book and mood
+      const driveMap = JSON.parse(localStorage.getItem(STORAGE_KEY_DRIVE_MAP) || '{}');
+      const bookMapKey = `${currentActiveBook.slug}__${moodSuffix}`;
+      const bookMap = driveMap[bookMapKey] || {};
+
+      // 6. Upload 00_Index_[Mood].md
       const indexMd = buildBookMarkdown(currentActiveBook);
-      const indexResult = await uploadOrUpdateDriveMarkdown(bookFolderId, '00_Index.md', indexMd, bookMap.indexId);
+      const indexResult = await uploadOrUpdateDriveMarkdown(bookFolderId, indexFileName, indexMd, bookMap.indexId);
 
       if (indexResult && indexResult.id) {
         bookMap.indexId = indexResult.id;
         bookMap.indexLink = indexResult.webViewLink;
       }
 
-      // 6. Upload 01_reading_report.md if completed
+      // 7. Upload 01_Report_[Mood].md if completed
       if (isReport) {
         const reportMd = buildReadingReportMarkdown(currentActiveBook);
-        const reportResult = await uploadOrUpdateDriveMarkdown(bookFolderId, '01_reading_report.md', reportMd, bookMap.reportId);
+        const reportResult = await uploadOrUpdateDriveMarkdown(bookFolderId, reportFileName, reportMd, bookMap.reportId);
         if (reportResult && reportResult.id) {
           bookMap.reportId = reportResult.id;
           bookMap.reportLink = reportResult.webViewLink;
         }
       }
 
-      driveMap[currentActiveBook.slug] = bookMap;
+      driveMap[bookMapKey] = bookMap;
       localStorage.setItem(STORAGE_KEY_DRIVE_MAP, JSON.stringify(driveMap));
 
       // Link UI
@@ -2677,7 +2728,7 @@ async function syncCurrentBookToDrive(isManual = false, isReport = false) {
       if (btnSyncDriveText) btnSyncDriveText.textContent = 'Synced ✓';
 
       if (isManual) {
-        alert(`☁️ Synced to Google Drive!\n\nFolder: Bookiry/${new Date().getFullYear()}/${bookFolderName}/\nFile: 00_Index.md`);
+        alert(`☁️ Synced to Google Drive!\n\nFolder: Bookiry/${new Date().getFullYear()}/${bookFolderName}/\nFile: ${indexFileName}`);
       }
       return;
     } catch (err) {
@@ -2694,15 +2745,20 @@ async function syncCurrentBookToDrive(isManual = false, isReport = false) {
     if (btnSyncDriveText) btnSyncDriveText.textContent = 'Saved to Cloud ✓';
 
     if (isManual) {
-      alert(`☁️ Bookiry Cloud Sync Active!\n\nYour reflections for "${currentActiveBook.title}" are securely saved to your account session.`);
+      alert(`☁️ Bookiry Cloud Sync Active!\n\nYour reflections for "${currentActiveBook.title}" are securely saved.`);
     }
   }, 400);
 }
 
+// Debounced Auto-Sync (1500ms debounce to prevent burst duplicates)
+let _driveSyncTimer = null;
 function autoSyncToDriveSilently() {
   const user = getAuthUser();
   if (user && currentActiveBook) {
-    syncCurrentBookToDrive(false, false);
+    if (_driveSyncTimer) clearTimeout(_driveSyncTimer);
+    _driveSyncTimer = setTimeout(() => {
+      syncCurrentBookToDrive(false, false);
+    }, 1500);
   }
 }
 
