@@ -1807,7 +1807,12 @@ async function generateSparksWithGemini(bookTitle, bookAuthor, synopsis, compass
   const geminiKey = localStorage.getItem(STORAGE_KEY_GEMINI_KEY) || atob('QVEuQWI4Uk42THVWNDNtM0FQNk1pVGNfT3M3a3VRbFN6LXRLT1pmMWFQbTZiN3hjTkxSRnc=');
   if (geminiKey) {
     try {
-      const prompt = `You are the master curator of Bookiry (Intentional 1:1 Reading Compass).
+    const hasKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(bookTitle + ' ' + (customIntent || ''));
+    const langInstruction = hasKorean 
+      ? 'Generate 4 deeply catalytic, tailored Socratic questions in Korean:' 
+      : 'Generate 4 deeply catalytic, tailored Socratic questions in elegant, sophisticated, and evocative English:';
+
+    const prompt = `You are the master curator of Bookiry (Intentional 1:1 Reading Compass).
 A reader is about to open the book "${bookTitle}" by ${bookAuthor || 'Unknown Author'}.
 
 Context Synopsis / Themes of this specific book:
@@ -1818,7 +1823,7 @@ ${(synopsis || 'Global classical literature or modern non-fiction masterpiece.')
 The reader's current emotional state / reading compass: "${compass || 'healing'}"
 Reader's custom intention or inquiry: "${customIntent || 'Read deeply with lasting clarity'}"
 
-Generate 4 deeply catalytic, tailored Socratic questions in Korean:
+${langInstruction}
 1. Spark: A perspective-shifting question before opening page 1.
 2. Lens: An exact tension to actively observe while turning pages.
 3. Quest: A sharp philosophical conflict that challenges reader's status quo.
