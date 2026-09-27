@@ -1779,32 +1779,8 @@ async function fetchBookSynopsis(title, author = '') {
 const CLOUDFLARE_WORKER_URL = 'https://bookiry-worker.chicstory.workers.dev';
 
 async function generateSparksWithGemini(bookTitle, bookAuthor, synopsis, compass, customIntent = '') {
-  // 1. Primary: Cloudflare Worker Edge Proxy (Keyless for public readers)
-  try {
-    const res = await fetch(`${CLOUDFLARE_WORKER_URL}/api/sparks`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        title: bookTitle,
-        author: bookAuthor,
-        synopsis: synopsis,
-        compass: compass,
-        customIntent: customIntent
-      })
-    });
-
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success && data.sparks) {
-        return data.sparks;
-      }
-    }
-  } catch (workerErr) {
-    // Failover to user-provided BYOK if available
-  }
-
-  // 2. Direct Browser Call with Gemini Flash (0ms friction, no settings gear needed)
-  const geminiKey = localStorage.getItem(STORAGE_KEY_GEMINI_KEY) || atob('QVEuQWI4Uk42THVWNDNtM0FQNk1pVGNfT3M3a3VRbFN6LXRLT1pmMWFQbTZiN3hjTkxSRnc=');
+  // 1. Direct Browser Call with Free Tier Gemini (0ms friction, 0 Won cost, 1500 RPD)
+  const geminiKey = localStorage.getItem(STORAGE_KEY_GEMINI_KEY) || atob('QVEuQWI4Uk42TDNOb3J4emZVVTlYLVlIRTZxclUxeWkydklyWTIzWVNhalNVZkx3Nk1kUFE=');
   if (geminiKey) {
     try {
     const hasKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(bookTitle + ' ' + (customIntent || ''));
@@ -1833,7 +1809,7 @@ Strict Output Rules:
 - Return ONLY a raw JSON with keys: spark, lens, quest, echo.
 - Do NOT use markdown backticks.`;
 
-      for (const model of ['gemini-flash-latest', 'gemini-flash-lite-latest']) {
+      for (const model of ['gemini-flash-lite-latest', 'gemini-flash-latest']) {
         try {
           const directRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiKey}`, {
             method: 'POST',
@@ -1858,7 +1834,7 @@ Strict Output Rules:
         } catch (e) {}
       }
     } catch (directErr) {
-      console.warn('Gemini call failed:', directErr);
+      console.warn('Gemini Free Tier call failed:', directErr);
     }
   }
 
