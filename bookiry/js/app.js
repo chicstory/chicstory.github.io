@@ -1779,10 +1779,7 @@ async function fetchBookSynopsis(title, author = '') {
 const CLOUDFLARE_WORKER_URL = 'https://bookiry-worker.chicstory.workers.dev';
 
 async function generateSparksWithGemini(bookTitle, bookAuthor, synopsis, compass, customIntent = '') {
-  // Purge any legacy BYOK key from browser to keep environment 100% clean
-  localStorage.removeItem(STORAGE_KEY_GEMINI_KEY);
-
-  // Call Cloudflare Worker Edge Proxy (Keyless for readers)
+  // 1. Primary: Cloudflare Worker Edge Proxy (Keyless for public readers)
   try {
     const res = await fetch(`${CLOUDFLARE_WORKER_URL}/api/sparks`, {
       method: 'POST',
@@ -1803,7 +1800,59 @@ async function generateSparksWithGemini(bookTitle, bookAuthor, synopsis, compass
       }
     }
   } catch (workerErr) {
-    // Quietly failover to built-in dynamic sparks
+    // Failover to user-provided BYOK if available
+  }
+
+  // 2. Secondary: If user configured their own BYOK in Settings (⚙️)
+  const userKey = localStorage.getItem(STORAGE_KEY_GEMINI_KEY);
+  if (userKey) {
+    try {
+      const prompt = `You are the master curator of Bookiry (Intentional 1:1 Reading Compass).
+A reader is about to open the book "${bookTitle}" by ${bookAuthor || 'Unknown Author'}.
+
+Context Synopsis / Themes of this specific book:
+"""
+${(synopsis || 'Global classical literature or modern non-fiction masterpiece.').slice(0, 1500)}
+"""
+
+The reader's current emotional state / reading compass: "${compass || 'healing'}"
+Reader's custom intention or inquiry: "${customIntent || 'Read deeply with lasting clarity'}"
+
+Generate 4 deeply catalytic, tailored Socratic questions in Korean:
+1. Spark: A perspective-shifting question before opening page 1.
+2. Lens: An exact tension to actively observe while turning pages.
+3. Quest: A sharp philosophical conflict that challenges reader's status quo.
+4. Echo: A lasting personal inquiry for lifelong agency.
+
+Return ONLY a raw JSON with keys: spark, lens, quest, echo. Do NOT use markdown backticks.`;
+
+      for (const model of ['gemini-flash-latest', 'gemini-flash-lite-latest']) {
+        try {
+          const directRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${userKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                temperature: 0.7,
+                responseMimeType: 'application/json'
+              }
+            })
+          });
+
+          if (directRes.ok) {
+            const directData = await directRes.json();
+            const rawText = directData.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (rawText) {
+              const cleaned = rawText.replace(/```json/gi, '').replace(/```/g, '').trim();
+              return JSON.parse(cleaned);
+            }
+          }
+        } catch (e) {}
+      }
+    } catch (directErr) {
+      console.warn('BYOK Gemini call failed:', directErr);
+    }
   }
 
   return null;
