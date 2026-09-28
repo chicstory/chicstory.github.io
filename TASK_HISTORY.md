@@ -4,6 +4,27 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-09-29] 네이버 블로그 홈페이지형 1단 위젯 5종 구축, 배포 및 블로그 연동 로드맵 수립
+- **1. 요청사항**:
+  - 네이버 블로그 메인/프롤로그에 3대 핵심 사이트(thapathlab.com, runanalyz.com, bookinquiry.com) 및 계산기 연동 요청.
+  - 상단 가로형 배너(홈페이지형 블로그) 구조 전환 및 블로그 테마/스킨 리프레시.
+- **2. 솔루션 & 구현**:
+  - **네이버 블로그 1단 레이아웃 전환**: 상단에 가로 5칸 위젯 배치가 가능한 1단 레이아웃 확립.
+  - **레티나 고화질 카드 배너 5종 생성 및 배포**:
+    - `generate_widgets.py` 스크립트를 통해 가로 340×210px(렌더링 170×105px) 다크 테크 카드 배너 5종 생성.
+    - `chicstory.github.io/widgets/` 경로에 배포 (`banner_thepathlab.png`, `banner_runanalyz.png`, `banner_bookinquiry.png`, `banner_autocost.png`, `banner_hub.png`).
+    - 네이버 블로그 구형 스킨의 높이 잘림(overflow:hidden) 방지를 위한 `style="display:block !important; height:105px !important;"` 완벽 보정 코드 제공.
+  - **네이버 블로그 5대 카테고리 체계 정립**:
+    - `독서노트` (주 1회, 원제 어그로 해체 + BookInquiry 4대 질문), `매일루틴` (RunAnalyz 러닝 마일리지 캡처 및 생각 정렬), `1단계 탈출일기` (`1단계 재정일기`, `캐시플로 - 철거 현장 스토리`, `지출관리`).
+  - **4대 기기 Syncthing 풀 메시 연동 구조 확립**: 데스크탑, 노트북, 스마트폰, 태블릿 간 `00_Inbox/raw` 실시간 메모 동기화 및 `.stignore` 충돌 방지 가이드 제공.
+- **3. 결과 & 검증**:
+  - 커밋 `c298677` 푸시 완료 (`https://thapathlab.com/widgets/banner_thepathlab.png` 등 200 OK 실시간 서빙).
+- **4. 주요 합의 사항**:
+  - 네이버 블로그 위젯은 외부 이미지 직접링크와 `style="display:block !important; height:105px !important;"` 인라인 강제 스타일을 표준으로 유지.
+  - 다음 세션 우선 작업: ① BookInquiry 초경량 한글화(i18n), ② 네이버 블로그 캐시플로 첫 글(AEO 3줄 결론 + 사진 3곳 가이드).
+
+---
+
 ## [2026-09-25] [GEO/AEO] 메인 포털 통합 llms.txt 배포 및 'n대 금속' 용어 일원화
 - **1. 요청사항**: 
   - 생성형 AI 검색(Perplexity, ChatGPT, Gemini) 대응을 위한 포털 마스터 `llms.txt` 표준 구축.
