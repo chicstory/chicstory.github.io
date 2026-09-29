@@ -12,8 +12,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>미국 1억 레이더 | 52주 신저가 & 특수 상황 모니터링 - ThePathLab</title>
-    <meta name="description" content="ThePathLab US 100M Radar: 식량 안보, 심해 시추, 무차입 헬스케어, 전력망 교체 핵심 13개 독점 기업의 52주 최저가 및 특수 이슈 실시간 아침 브리핑">
+    <title>종목 레이더 | 52주 신저가 & 특수 상황 모니터링 - ThePathLab</title>
+    <meta name="description" content="ThePathLab 종목 레이더: 식량 안보, 폐기물 인프라, 원자력, 철도, 심해 시추 등 물리적 해자 독점 기업의 52주 최저가 및 특수 이슈 실시간 감시 대시보드">
     <link rel="canonical" href="https://thapathlab.com/radar/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,6 @@
             padding-bottom: 5rem;
         }
 
-        /* Header Navigation */
         .radar-nav {
             position: sticky;
             top: 0;
@@ -98,7 +97,6 @@
             background: rgba(0, 242, 254, 0.15);
         }
 
-        /* Hero Banner */
         .hero-wrap {
             max-width: 1100px;
             margin: 2rem auto 1.5rem;
@@ -148,7 +146,6 @@
         }
         .meta-item strong { color: var(--gold); }
 
-        /* Filter Chips */
         .filter-bar {
             max-width: 1100px;
             margin: 0 auto 1.5rem;
@@ -177,7 +174,6 @@
             font-weight: 700;
         }
 
-        /* Radar Card Grid */
         .radar-grid {
             max-width: 1100px;
             margin: 0 auto;
@@ -212,7 +208,6 @@
             border-left: 4px solid var(--blue);
         }
 
-        /* Card Header */
         .card-header {
             display: flex;
             justify-content: space-between;
@@ -297,7 +292,6 @@
             font-family: 'JetBrains Mono', monospace;
         }
 
-        /* 52w Range Box */
         .range-box {
             background: rgba(0, 0, 0, 0.25);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -337,7 +331,6 @@
             box-shadow: 0 0 8px rgba(0, 242, 254, 0.8);
         }
 
-        /* Issue Box */
         .issue-box {
             background: rgba(255, 184, 0, 0.06);
             border: 1px solid rgba(255, 184, 0, 0.18);
@@ -362,7 +355,6 @@
             word-break: keep-all;
         }
 
-        /* Scenario Accordion */
         .scenario-accordion details {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-subtle);
@@ -394,7 +386,6 @@
         .sc-worst strong { color: var(--gold); }
         .sc-kill strong { color: var(--red); }
 
-        /* Card Footer */
         .card-footer-actions {
             display: flex;
             justify-content: space-between;
@@ -442,7 +433,6 @@
 </head>
 <body>
 
-    <!-- Unified Navigation Bar -->
     <nav class="radar-nav">
         <div class="nav-inner">
             <a href="/" class="brand-link">
@@ -454,57 +444,177 @@
         </div>
     </nav>
 
-    <!-- Hero Header -->
     <header class="hero-wrap">
         <div class="hero-badge">
-            <i class="bi bi-radar"></i> US 100M Cashflow Radar
+            <i class="bi bi-radar"></i> ThePathLab Stock Radar
         </div>
-        <h1 class="hero-title">미국 1억 파이프라인 레이더</h1>
+        <h1 class="hero-title">종목 레이더</h1>
         <p class="hero-desc">
-            식량 안보(곡물/비료), 심해 자원, 무차입 헬스케어, 전력망 물리적 인프라 등 
-            <strong>"망할 수 없는 미국의 실물 독점 요새"</strong> 13개 종목의 52주 최저가 근접도 및 특수 상황(Special Situation) 실시간 감시 대시보드입니다.
+            식량 안보, 폐기물 처리, 원자력, 철도, 심해 시추 등 대체 불가능한 물리적 해자를 가진 기업들의 52주 최저가 근접도 및 특수 상황(Special Situation) 실시간 감시 대시보드입니다.
         </p>
         <div class="meta-bar">
             <div class="meta-item">
-                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 09월 30일 00:17</strong>
+                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 09월 30일 00:26</strong>
             </div>
             <div class="meta-item">
-                <i class="bi bi-fire text-gold"></i> 현재 바닥 사정권: <strong>4개 종목</strong>
+                <i class="bi bi-fire text-gold"></i> 현재 바닥 사정권: <strong>10개 종목</strong>
             </div>
             <div class="meta-item">
-                <i class="bi bi-sort-down text-gold"></i> 정렬: <strong>52주 최저가 근접순 (오름차순)</strong>
+                <i class="bi bi-sort-down text-gold"></i> 정렬: <strong>52주 최저가 근접순</strong>
             </div>
         </div>
     </header>
 
-    <!-- Category Filters -->
     <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all')">전체보기 (13)</button>
+        <button class="filter-btn active" onclick="filterCategory('all')">전체보기 (27)</button>
         <button class="filter-btn" onclick="filterCategory('alert')">🔥 바닥 사정권</button>
-        <button class="filter-btn" onclick="filterCategory('health')">🏥 헬스케어/RPA</button>
         <button class="filter-btn" onclick="filterCategory('food')">🌾 식량/비료</button>
-        <button class="filter-btn" onclick="filterCategory('ocean')">🌊 심해 에너지</button>
-        <button class="filter-btn" onclick="filterCategory('power')">⚡ 전력 인프라</button>
+        <button class="filter-btn" onclick="filterCategory('infra')">🏭 폐기물/인프라</button>
+        <button class="filter-btn" onclick="filterCategory('power')">⚡ 전력/원자력</button>
+        <button class="filter-btn" onclick="filterCategory('ocean')">🌊 심해/자원</button>
+        <button class="filter-btn" onclick="filterCategory('defense')">📡 방산/우주</button>
+        <button class="filter-btn" onclick="filterCategory('health')">🏥 헬스케어/기타</button>
     </div>
 
-    <!-- Stock Cards Grid -->
     <main class="radar-grid" id="stockGrid">
         
-            <div class="radar-card alert-border" id="card-NKE">
+            <div class="radar-card alert-border" id="card-LHX" data-category="defense">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">LHX</span>
+                            <span class="tag-badge">군용 전술통신</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">L3해리스 (L3Harris)</h3>
+                        <span class="card-sector">🛡️ 방산 통신 / 전자전 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$236.14</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +0.7%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $234.59</span>
+                        <span style="color: #f43f5e;">고점대비 -37.7%</span>
+                        <span>52주 최고 $379.23</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 1.1%;"></div>
+                        <div class="range-pin" style="left: 1.1%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">에어로젯 로켓다인 인수로 미사일 로켓 모터 생산 내재화</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 신냉전 미사일/위성 통신 주문 폭주 ➔ FCF 30억 달러 달성
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 인수 관련 부채 상환 지연
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 영업이익률 10% 미만 하락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">미 국방부 전술 라디오, 군용 위성 통신, 전자전 시스템 독점</span>
+                    <a href="https://finance.yahoo.com/quote/LHX" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-KTOS" data-category="defense">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">KTOS</span>
+                            <span class="tag-badge">지상국 80%</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">크라토스 (Kratos)</h3>
+                        <span class="card-sector">📡 위성 지상 관제 독점</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$43.65</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +1.3%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $43.09</span>
+                        <span style="color: #f43f5e;">고점대비 -67.4%</span>
+                        <span>52주 최고 $134.00</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 0.6%;"></div>
+                        <div class="range-pin" style="left: 0.6%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">미 우주군 차세대 관제 시스템 수주 및 무인 전투기 사업</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 미 우주군 예산 급증 + 상용 저궤도 위성 지상국 수주 폭발
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 정부 국방 예산 일시 삭감
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 우주 부문 매출 역성장 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">전 세계 위성 80%가 경유하는 지상국 관제 소프트웨어 독점</span>
+                    <a href="https://finance.yahoo.com/quote/KTOS" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-NKE" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NKE</span>
-                            <span class="tag-badge">10년 래 최저 P/E</span>
+                            <span class="tag-badge">P/E 10년 최저</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
                         </div>
                         <h3 class="card-name">나이키 (Nike)</h3>
                         <span class="card-sector">👟 스포츠 퍼포먼스</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$35.89</div>
+                        <div class="current-price">$35.95</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +1.9%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +2.1%
                         </div>
                     </div>
                 </div>
@@ -512,60 +622,60 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $35.22</span>
-                        <span style="color: #f43f5e;">고점대비 -53.4%</span>
+                        <span style="color: #f43f5e;">고점대비 -53.3%</span>
                         <span>52주 최고 $76.97</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 1.6%;"></div>
-                        <div class="range-pin" style="left: 1.6%;"></div>
+                        <div class="range-fill" style="width: 1.7%;"></div>
+                        <div class="range-pin" style="left: 1.7%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">중국 경기 침체와 애국소비(궈차오) 악재가 주가에 극단적 선반영(-53% 폭락). 엘리엇 힐의 러닝 본질 복귀 가속</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">중국 리스크 선반영으로 주가 반토막 바닥. 러닝 퍼포먼스 복원 가속</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 홀세일 유통망 복원 및 신규 러닝 라인업 호조 ➔ 주가 $55~$60대 회복 (+60%)
+                                <strong>🌟 Best:</strong> 홀세일 유통망 복원 및 신규 러닝 라인업 호조 ➔ 주가 50%+ 회복
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 중국 시장 매출 추가 역성장 및 안타/리닝에 시장 점유율 영구 상실
+                                <strong>💥 Worst:</strong> 중국 시장 점유율 추가 하락
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 분기 매출총이익률(Gross Margin) 40% 붕괴 또는 배당 컷 시
+                                <strong>🚨 킬스위치 (손절):</strong> 매출총이익률 40% 붕괴 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">알파플라이·베이퍼플라이 마라톤 기술 독점 + 32년 순혈 CEO 엘리엇 힐 복귀</span>
+                    <span class="thesis-text">알파플라이 마라톤 기술 독점 + 32년 순혈 CEO 엘리엇 힐 복귀</span>
                     <a href="https://finance.yahoo.com/quote/NKE" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-PRVA">
+            <div class="radar-card alert-border" id="card-PRVA" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">PRVA</span>
-                            <span class="tag-badge">무차입 헬스케어</span>
+                            <span class="tag-badge">무차입 순현금</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
                         </div>
-                        <h3 class="card-name">프리비아 헬스 (Privia Health)</h3>
+                        <h3 class="card-name">프리비아 헬스</h3>
                         <span class="card-sector">🩺 가치기반 1차의료</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$19.45</div>
+                        <div class="current-price">$19.49</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +2.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +3.0%
                         </div>
                     </div>
                 </div>
@@ -573,46 +683,290 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $18.91</span>
-                        <span style="color: #f43f5e;">고점대비 -32.5%</span>
+                        <span style="color: #f43f5e;">고점대비 -32.4%</span>
                         <span>52주 최고 $28.82</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 5.4%;"></div>
-                        <div class="range-pin" style="left: 5.4%;"></div>
+                        <div class="range-fill" style="width: 5.8%;"></div>
+                        <div class="range-pin" style="left: 5.8%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">52주 최저가 바로 턱밑(+2.9%). 무차입 순현금 구조로 고령화 메디케어 시대 구조적 수혜주</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">52주 최저가 부근 바닥. 무차입 순현금으로 고령화 메디케어 수혜</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 메디케어 환자 유입 폭증 ➔ EPS 연 20% 고성장 ➔ 주가 $30+ 회복 (+50%)
+                                <strong>🌟 Best:</strong> 메디케어 환자 유입 폭증 ➔ EPS 연 20% 성장 ➔ 주가 $30+ 회복
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 미 정부의 메디케어 어드밴티지 보조금 삭감으로 의사 인센티브 축소
+                                <strong>💥 Worst:</strong> 정부 메디케어 어드밴티지 보조금 삭감
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 분기 EBITDA 적자 전환 또는 파트너 의사 수 순감소 시
+                                <strong>🚨 킬스위치 (손절):</strong> 분기 EBITDA 적자 전환 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">의사들을 네트워크로 묶어 의료비 절감분을 인센티브로 공유하는 가치기반 의료 플랫폼</span>
+                    <span class="thesis-text">의사들을 네트워크로 묶어 의료비 절감분을 인센티브로 공유</span>
                     <a href="https://finance.yahoo.com/quote/PRVA" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-CI">
+            <div class="radar-card alert-border" id="card-BWXT" data-category="power">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">BWXT</span>
+                            <span class="tag-badge">국방 원자력</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">BWX 테크놀로지스</h3>
+                        <span class="card-sector">☢️ 해군 원자로 / SMR</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$138.26</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +3.3%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $133.90</span>
+                        <span style="color: #f43f5e;">고점대비 -42.8%</span>
+                        <span>52주 최고 $241.82</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 4.0%;"></div>
+                        <div class="range-pin" style="left: 4.0%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">미 해군 버지니아/컬럼비아급 잠수함 건조 증가 및 SMR 상용화</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 미 국방부 원자력 예산 증액 + 소형 SMR 수주 가시화
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 미 해군 잠수함 건조 지연
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 정부 국방 계약 취소 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">미 해군 핵잠수함/항공모함 원자로 독점 + 상용 SMR 부품 독점</span>
+                    <a href="https://finance.yahoo.com/quote/BWXT" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-WM" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">WM</span>
+                            <span class="tag-badge">북미 1위</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">웨이스트 매니지먼트</h3>
+                        <span class="card-sector">🗑️ 매립지 토지 독점</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$205.28</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +5.8%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $194.11</span>
+                        <span style="color: #94a3b8;">고점대비 -17.3%</span>
+                        <span>52주 최고 $248.13</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 20.7%;"></div>
+                        <div class="range-pin" style="left: 20.7%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">쓰레기 반입 수수료 인상으로 인플레이션 자동 전가. 안정적 FCF</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 매립가스(RNG) 전력 판매 고성장 ➔ 배당 및 자사주 확대
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 환경 규제 강화로 매립지 사후 관리 비용 급증
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 영업현금흐름(OCF) 마진율 5%p 이상 하락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">신규 인허가 불가한 북미 최대 매립지 영지 독점 + 매립가스 발전</span>
+                    <a href="https://finance.yahoo.com/quote/WM" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-RSG" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">RSG</span>
+                            <span class="tag-badge">물가연동 가격력</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">리퍼블릭 서비스</h3>
+                        <span class="card-sector">🗑️ 폐기물 과점 2위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$211.31</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +7.6%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $196.41</span>
+                        <span style="color: #94a3b8;">고점대비 -9.5%</span>
+                        <span>52주 최고 $233.42</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 40.3%;"></div>
+                        <div class="range-pin" style="left: 40.3%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">지자체 장기 수거 계약으로 경기 침체 무풍지대</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 자원 재활용 및 환경 인프라 인수로 연 10%+ EPS 성장
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 유가 폭등으로 수거 트럭 유류비 급증
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 자유현금흐름 적자 전환 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">북미 2위 폐기물 처리 과점. 장기 계약 기반 안정적 이익</span>
+                    <a href="https://finance.yahoo.com/quote/RSG" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-CCJ" data-category="power">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">CCJ</span>
+                            <span class="tag-badge">원전 연료 독점</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">카메코 (Cameco)</h3>
+                        <span class="card-sector">☢️ 우라늄 채굴 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$86.21</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +11.0%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $77.70</span>
+                        <span style="color: #f43f5e;">고점대비 -36.3%</span>
+                        <span>52주 최고 $135.24</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 14.8%;"></div>
+                        <div class="range-pin" style="left: 14.8%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">원전 르네상스와 빅테크 AI 데이터센터 전력 계약 수혜</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 우라늄 장기 계약가 파운드당 $100+ 안착 ➔ 마진 폭발
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 원전 중대 사고 발생으로 글로벌 원전 정책 후퇴
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 우라늄 스팟 가격 $40 이하 급락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">서방 1위 고품위 우라늄 광산 및 웨스팅하우스 지분 보유</span>
+                    <a href="https://finance.yahoo.com/quote/CCJ" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-CI" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
@@ -621,12 +975,12 @@
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
                         </div>
                         <h3 class="card-name">시그나 (The Cigna Group)</h3>
-                        <span class="card-sector">🏥 헬스케어 / PBM</span>
+                        <span class="card-sector">🏥 헬스케어 / PBM 요새</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$272.49</div>
+                        <div class="current-price">$273.44</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +13.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +14.2%
                         </div>
                     </div>
                 </div>
@@ -634,46 +988,46 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $239.51</span>
-                        <span style="color: #94a3b8;">고점대비 -13.6%</span>
+                        <span style="color: #94a3b8;">고점대비 -13.3%</span>
                         <span>52주 최고 $315.47</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 43.4%;"></div>
-                        <div class="range-pin" style="left: 43.4%;"></div>
+                        <div class="range-fill" style="width: 44.7%;"></div>
+                        <div class="range-pin" style="left: 44.7%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">휴마나(HUM) 인수 무리수 철회 후 남는 현금 전액 자사주 소각 선언. P/E 10배 바닥권</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">휴마나 인수 철회 후 남는 현금 전액 자사주 소각. P/E 10배 바닥권</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> AI 버블 발작 시 가치주 피난처 부각 ➔ P/E 15배 리레이팅 ($380+, +40%)
+                                <strong>🌟 Best:</strong> 가치주 피난처 부각 ➔ P/E 15배 리레이팅 ($380+)
                             </div>
                             <div class="sc-item sc-worst">
                                 <strong>💥 Worst:</strong> 미 의회의 초당적 PBM 마진 규제 입법 통과
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> PBM 수수료 모델을 금지하는 연방법 확정 시
+                                <strong>🚨 킬스위치 (손절):</strong> PBM 수수료 모델 금지 연방법 통과 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">미국 3대 처방약 급여관리(PBM) 및 기업 건강보험 과점 사업자</span>
+                    <span class="thesis-text">미국 3대 처방약 급여관리(PBM) 및 기업 건강보험 과점</span>
                     <a href="https://finance.yahoo.com/quote/CI" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-DOX">
+            <div class="radar-card warn-border" id="card-DOX" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
@@ -685,9 +1039,9 @@
                         <span class="card-sector">📞 통신사 과금 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$57.36</div>
+                        <div class="current-price">$57.26</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +15.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +15.1%
                         </div>
                     </div>
                 </div>
@@ -695,46 +1049,107 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $49.74</span>
-                        <span style="color: #f43f5e;">고점대비 -33.0%</span>
+                        <span style="color: #f43f5e;">고점대비 -33.1%</span>
                         <span>52주 최고 $85.63</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 21.2%;"></div>
-                        <div class="range-pin" style="left: 21.2%;"></div>
+                        <div class="range-fill" style="width: 21.0%;"></div>
+                        <div class="range-pin" style="left: 21.0%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">Fwd P/E 7.1배, P/FCF 9.6배의 경이로운 현금 창출력. 매년 공격적 자사주 매입</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">Fwd P/E 7.1배, P/FCF 9.6배의 탄탄한 현금흐름과 자사주 매입</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 통신사 5G/클라우드 전환 수주 지속 ➔ 멀티플 정상화 ($80+, +40%)
+                                <strong>🌟 Best:</strong> 통신사 5G/클라우드 전환 수주 지속 ➔ 멀티플 정상화
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 주요 통신사들의 자체 인하우스 빌링 시스템 전환 시도
+                                <strong>💥 Worst:</strong> 통신사들의 자체 인하우스 빌링 전환 시도
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 핵심 고객사(AT&T 등)의 계약 해지 또는 매출 역성장 2분기 지속 시
+                                <strong>🚨 킬스위치 (손절):</strong> 핵심 고객사 계약 해지 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">AT&T, 버라이즌, T-모바일 등 글로벌 통신사 빌링/과금 소프트웨어 전환 비용 극상 독점</span>
+                    <span class="thesis-text">글로벌 주요 통신사 빌링 소프트웨어 전환 비용 극상 독점</span>
                     <a href="https://finance.yahoo.com/quote/DOX" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-PATH">
+            <div class="radar-card warn-border" id="card-UNP" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">UNP</span>
+                            <span class="tag-badge">대륙의 혈관</span>
+                            <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
+                        </div>
+                        <h3 class="card-name">유니언 퍼시픽</h3>
+                        <span class="card-sector">🚂 미국 서부 철도 독점</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$273.18</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +26.7%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $215.53</span>
+                        <span style="color: #94a3b8;">고점대비 -13.5%</span>
+                        <span>52주 최고 $315.99</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 57.4%;"></div>
+                        <div class="range-pin" style="left: 57.4%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">곡물, 화학물질, 공산품 컨테이너 운송의 영구적 해자</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 니어쇼어링(멕시코 수입) 물동량 급증 ➔ 배당 증액 랠리
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 철도 노조 파업 및 경기 침체 물동량 감소
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 영업비율(OR) 65% 이상으로 악화 지속 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">트럭 대비 운송비 1/4. 미국 서부·중부 물류 인프라 독점</span>
+                    <a href="https://finance.yahoo.com/quote/UNP" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card alert-border" id="card-PATH" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
@@ -746,9 +1161,9 @@
                         <span class="card-sector">💻 RPA 사무자동화</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$12.14</div>
+                        <div class="current-price">$12.20</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +32.0%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +32.6%
                         </div>
                     </div>
                 </div>
@@ -756,60 +1171,60 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $9.20</span>
-                        <span style="color: #f43f5e;">고점대비 -38.8%</span>
+                        <span style="color: #f43f5e;">고점대비 -38.5%</span>
                         <span>52주 최고 $19.84</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 27.7%;"></div>
-                        <div class="range-pin" style="left: 27.7%;"></div>
+                        <div class="range-fill" style="width: 28.2%;"></div>
+                        <div class="range-pin" style="left: 28.2%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">AI 대체 공포로 $12대 바닥 폭락. 하지만 부채 0원 + 순현금 10억 달러 보유로 망할 위험 0, M&A 피인수 1순위</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">AI 대체 공포로 주가 폭락. 순현금 10억 달러+ 보유로 망할 위험 0</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 에이전틱 AI 워크플로우 안착 ➔ 주가 100% 턴어라운드 ($25+)
+                                <strong>🌟 Best:</strong> 에이전틱 AI 워크플로우 안착 ➔ 주가 100% 턴어라운드
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 거대 LLM(오픈AI, MS)이 RPA 없이 화면을 완벽 조작하여 해자 소멸
+                                <strong>💥 Worst:</strong> 거대 LLM이 RPA 없이 화면 완벽 조작
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 분기 ARR(연간반복매출) 순감소 또는 순현금 적자 전환 시
+                                <strong>🚨 킬스위치 (손절):</strong> 분기 ARR 순감소 또는 순현금 적자 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">글로벌 1위 RPA 기업. 단순 매크로를 넘어 대기업용 에이전틱 자동화로 진화</span>
+                    <span class="thesis-text">글로벌 1위 RPA 기업. 에이전틱 자동화로 진화 중</span>
                     <a href="https://finance.yahoo.com/quote/PATH" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-NTR">
+            <div class="radar-card normal-border" id="card-NTR" data-category="food">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NTR</span>
-                            <span class="tag-badge">글로벌 필수 영양소</span>
+                            <span class="tag-badge">필수 영양소</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
                         <h3 class="card-name">뉴트리엔 (Nutrien)</h3>
                         <span class="card-sector">🌱 칼륨 비료 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$71.95</div>
+                        <div class="current-price">$71.83</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +35.7%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +35.5%
                         </div>
                     </div>
                 </div>
@@ -817,32 +1232,32 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $53.03</span>
-                        <span style="color: #94a3b8;">고점대비 -15.7%</span>
+                        <span style="color: #94a3b8;">고점대비 -15.9%</span>
                         <span>52주 최고 $85.36</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 58.5%;"></div>
-                        <div class="range-pin" style="left: 58.5%;"></div>
+                        <div class="range-fill" style="width: 58.2%;"></div>
+                        <div class="range-pin" style="left: 58.2%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">농산물 가격 약세로 52주 신저가 부근 바닥 다지기. 글로벌 식량 안보 필수 인프라</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">농산물 가격 약세로 52주 신저가 부근 바닥 다지기</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 글로벌 곡물 파종 면적 확대 ➔ 칼륨 수요 폭발 및 주가 50%+ 반등
+                                <strong>🌟 Best:</strong> 글로벌 곡물 파종 확대 ➔ 칼륨 수요 폭발 및 주가 40%+ 반등
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 러시아·벨라루스 칼륨의 글로벌 우회 덤핑 수출 지속
+                                <strong>💥 Worst:</strong> 러시아·벨라루스 칼륨 덤핑 지속
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 칼륨 톤당 가격이 생산 원가 이하로 급락 시
+                                <strong>🚨 킬스위치 (손절):</strong> 칼륨 판가가 생산 원가 이하로 급락 시
                             </div>
                         </div>
                     </details>
@@ -856,19 +1271,141 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-ETN">
+            <div class="radar-card normal-border" id="card-BG" data-category="food">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">BG</span>
+                            <span class="tag-badge">저P/E 9배</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">번지 글로벌 (Bunge)</h3>
+                        <span class="card-sector">🌾 식량 / 대두 가공 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$107.89</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +36.4%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $79.11</span>
+                        <span style="color: #94a3b8;">고점대비 -20.0%</span>
+                        <span>52주 최고 $134.87</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 51.6%;"></div>
+                        <div class="range-pin" style="left: 51.6%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">곡물 가격 안정화 국면에서 Fwd P/E 8~9배 수준의 단단한 안전마진</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> Viterra 합병 시너지로 연 FCF 20억 달러+ 창출 ➔ 밸류 리레이팅
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 합병 승인 각국 규제당국 불허
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 핵심국 독점 규제로 합병 최종 무산 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">Viterra 합병으로 세계 최대 곡물/대두 가공 거인으로 등극</span>
+                    <a href="https://finance.yahoo.com/quote/BG" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-ETN" data-category="power">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ETN</span>
-                            <span class="tag-badge">20% 공격수 코어</span>
+                            <span class="tag-badge">전력망 심장</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
                         <h3 class="card-name">이튼 (Eaton)</h3>
-                        <span class="card-sector">⚡ 변압기 / 배전 독점</span>
+                        <span class="card-sector">⚡ 변압기 / 배전 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$432.85</div>
+                        <div class="current-price">$431.82</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +38.4%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $311.92</span>
+                        <span style="color: #94a3b8;">고점대비 -9.7%</span>
+                        <span>52주 최고 $478.00</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 72.2%;"></div>
+                        <div class="range-pin" style="left: 72.2%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">변압기 수주 잔고 2~3년 누적. 조정 시 분할 매수 적합</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 전력망 슈퍼사이클 10년 지속 ➔ EPS 연 20% 성장
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 빅테크 데이터센터 투자 축소
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 수주-출하 비율(Book-to-Bill) 1.0 미만 하락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">미국 노후 전력망 50년 교체 주기 + AI 데이터센터 전력 장비 독점</span>
+                    <a href="https://finance.yahoo.com/quote/ETN" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-CSX" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">CSX</span>
+                            <span class="tag-badge">원정수송 해자</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">CSX 코퍼레이션</h3>
+                        <span class="card-sector">🚂 미국 동부 철도 독점</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$46.68</div>
                         <div class="price-fl" style="color: #38bdf8;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +38.8%
                         </div>
@@ -877,61 +1414,61 @@
 
                 <div class="range-box">
                     <div class="range-labels">
-                        <span>52주 최저 $311.92</span>
-                        <span style="color: #94a3b8;">고점대비 -9.4%</span>
-                        <span>52주 최고 $478.00</span>
+                        <span>52주 최저 $33.63</span>
+                        <span style="color: #94a3b8;">고점대비 -12.9%</span>
+                        <span>52주 최고 $53.60</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 72.8%;"></div>
-                        <div class="range-pin" style="left: 72.8%;"></div>
+                        <div class="range-fill" style="width: 65.3%;"></div>
+                        <div class="range-pin" style="left: 65.3%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">변압기 납기가 2~3년 밀려 있을 정도로 초호황. AI 버블 논란으로 조정 시마다 분할 매수 적합</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">대체 불가한 동부 철로망 기반 높은 영업이익률</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 전력망 슈퍼사이클 10년 지속 ➔ 백로그 매출 전환으로 EPS 연 20% 성장
+                                <strong>🌟 Best:</strong> 동부 전력망 석탄/가스 발전 원자재 수송 증가
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 미국 제조업 리쇼어링 전면 중단 및 빅테크 CAPEX 축소
+                                <strong>💥 Worst:</strong> 동부 항만 물동량 급감
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 전력 부문 수주-출하 비율(Book-to-Bill) 1.0 미만 하락 시
+                                <strong>🚨 킬스위치 (손절):</strong> 분기 순이익 적자 전환 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">AI 데이터센터 + 미국 노후 전력망 50년 교체 주기의 핵심 심장</span>
-                    <a href="https://finance.yahoo.com/quote/ETN" target="_blank" rel="noopener" class="chart-btn">
+                    <span class="thesis-text">뉴욕 대도시 쓰레기 원정 수송(Trash Train) 및 동부 공업지대 철도 독점</span>
+                    <a href="https://finance.yahoo.com/quote/CSX" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-ADM">
+            <div class="radar-card normal-border" id="card-ADM" data-category="food">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ADM</span>
-                            <span class="tag-badge">글로벌 ABCD 메이저</span>
+                            <span class="tag-badge">곡물 메이저</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
-                        <h3 class="card-name">아처 대니얼스 미들랜드 (ADM)</h3>
-                        <span class="card-sector">🌾 식량 주권 / 곡물 1위</span>
+                        <h3 class="card-name">아처 대니얼스 미들랜드</h3>
+                        <span class="card-sector">🌾 식량 / 곡물 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$79.68</div>
+                        <div class="current-price">$79.73</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +43.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +43.5%
                         </div>
                     </div>
                 </div>
@@ -943,56 +1480,117 @@
                         <span>52주 최고 $88.75</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 72.7%;"></div>
-                        <div class="range-pin" style="left: 72.7%;"></div>
+                        <div class="range-fill" style="width: 72.8%;"></div>
+                        <div class="range-pin" style="left: 72.8%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">연초 영양 부문 회계 조사 노이즈로 주가 반토막 후 내부 감사 종결 및 펀더멘털 바닥 확인 중</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">영양 부문 내부 회계 조사 노이즈로 주가 급락 후 펀더멘털 바닥 확인 중</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 기상이변 속 곡물 유통 마진 폭증 + 회계 노이즈 완전 해소 ➔ 주가 $85+ 회복
+                                <strong>🌟 Best:</strong> 기상이변 속 곡물 유통 마진 폭증 + 회계 노이즈 해소 ➔ 주가 $85+ 회복
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 미 법무부의 대규모 회계 분식 기소 및 천문학적 벌금
+                                <strong>💥 Worst:</strong> 미 법무부의 대규모 회계 분식 기소 및 과징금
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 전사적 회계 부정 확정 또는 곡물 유통 시장 점유율 급락 시
+                                <strong>🚨 킬스위치 (손절):</strong> 전사적 회계 부정 확정 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">전 세계 곡물 운송선, 사일로 창고, 가공 플랜트를 독점한 100년 식량 안보 요새</span>
+                    <span class="thesis-text">전 세계 곡물 운송선, 사일로 창고, 가공 플랜트 독점</span>
                     <a href="https://finance.yahoo.com/quote/ADM" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CF">
+            <div class="radar-card normal-border" id="card-CLH" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">CLH</span>
+                            <span class="tag-badge">초고마진 소각</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">클린 하버즈</h3>
+                        <span class="card-sector">☣️ 특수 유해폐기물 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$310.29</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +54.1%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $201.34</span>
+                        <span style="color: #94a3b8;">고점대비 -7.6%</span>
+                        <span>52주 최고 $335.94</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 80.9%;"></div>
+                        <div class="range-pin" style="left: 80.9%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">미국 제조업 리쇼어링으로 산업 폐기물 처리 수요 증가</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 미국 내 반도체/배터리 팹 가동 ➔ 고마진 특수 처리 폭증
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 미국 제조업 리쇼어링 지연
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 산업 서비스 부문 마진 급락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">반도체·화학·정유 공장 유해 폐기물 소각 및 정화 인프라 독점</span>
+                    <a href="https://finance.yahoo.com/quote/CLH" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-CF" data-category="food">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CF</span>
-                            <span class="tag-badge">P/FCF 7~8배</span>
+                            <span class="tag-badge">P/FCF 7배</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
-                        <h3 class="card-name">CF 인더스트리즈 (CF Industries)</h3>
+                        <h3 class="card-name">CF 인더스트리즈</h3>
                         <span class="card-sector">⚡ 질소 비료 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$117.20</div>
+                        <div class="current-price">$117.12</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +55.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +55.3%
                         </div>
                     </div>
                 </div>
@@ -1000,60 +1598,60 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $75.42</span>
-                        <span style="color: #94a3b8;">고점대비 -17.4%</span>
+                        <span style="color: #94a3b8;">고점대비 -17.5%</span>
                         <span>52주 최고 $141.96</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 62.8%;"></div>
-                        <div class="range-pin" style="left: 62.8%;"></div>
+                        <div class="range-fill" style="width: 62.7%;"></div>
+                        <div class="range-pin" style="left: 62.7%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">P/FCF 7~8배의 미친 현금 창출력. 대규모 자사주 소각 지속 및 글로벌 식량 안보 필수재</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">P/FCF 7~8배의 강력한 현금 창출력. 대규모 자사주 소각 지속</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
                                 <strong>🌟 Best:</strong> 유럽 천연가스 불안 + 비료 부족 ➔ 판가 급등 및 대규모 특별배당
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 미국 Henry Hub 천연가스 가격의 구조적 급등으로 원가 마진 축소
+                                <strong>💥 Worst:</strong> 미국 천연가스 가격 급등으로 마진 축소
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 미국 천연가스 가격이 $6/MMBtu 이상 6개월 지속 시
+                                <strong>🚨 킬스위치 (손절):</strong> 미국 헨리허브 가스 가격 $6+ 지속 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">미국 셰일가스로 질소 비료 생산, 비싼 가스를 쓰는 유럽/러시아 원가 압살</span>
+                    <span class="thesis-text">미국 저렴한 셰일가스로 질소 비료 생산, 유럽/러시아 원가 압살</span>
                     <a href="https://finance.yahoo.com/quote/CF" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-DE">
+            <div class="radar-card normal-border" id="card-DE" data-category="food">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">DE</span>
-                            <span class="tag-badge">농업계의 테슬라</span>
+                            <span class="tag-badge">정밀 농업</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
-                        <h3 class="card-name">디어 앤 컴퍼니 (John Deere)</h3>
+                        <h3 class="card-name">디어 앤 컴퍼니</h3>
                         <span class="card-sector">🚜 스마트 농기계 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$681.16</div>
+                        <div class="current-price">$682.20</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +57.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +57.6%
                         </div>
                     </div>
                 </div>
@@ -1061,26 +1659,26 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $433.00</span>
-                        <span style="color: #94a3b8;">고점대비 -5.6%</span>
+                        <span style="color: #94a3b8;">고점대비 -5.4%</span>
                         <span>52주 최고 $721.22</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 86.1%;"></div>
-                        <div class="range-pin" style="left: 86.1%;"></div>
+                        <div class="range-fill" style="width: 86.5%;"></div>
+                        <div class="range-pin" style="left: 86.5%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">고금리로 농부들의 트랙터 교체 주기 일시 둔화 ➔ 사이클 바닥 다지는 중</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">고금리로 농부들의 트랙터 교체 주기 일시 둔화 ➔ 사이클 바닥권</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 금리 인하 + 농산물 가격 반등 ➔ 신규 자율주행 트랙터 업그레이드 사이클 개막
+                                <strong>🌟 Best:</strong> 금리 인하 + 농산물 가격 반등 ➔ 신규 자율주행 트랙터 업그레이드 사이클
                             </div>
                             <div class="sc-item sc-worst">
                                 <strong>💥 Worst:</strong> 고금리 장기화로 농가 부채 위기
@@ -1100,21 +1698,143 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-VAL">
+            <div class="radar-card normal-border" id="card-PWR" data-category="power">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">PWR</span>
+                            <span class="tag-badge">인프라 시공 1위</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">콴타 서비시즈</h3>
+                        <span class="card-sector">⚡ 송전탑 / 그리드 시공</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$646.88</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +59.9%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $404.51</span>
+                        <span style="color: #94a3b8;">고점대비 -18.0%</span>
+                        <span>52주 최고 $788.75</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 63.1%;"></div>
+                        <div class="range-pin" style="left: 63.1%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">신재생 전력망 연계 및 초고압 송전탑 시공 수요 폭발</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 미 연방정부 송전망 인허가 가속 ➔ 대형 프로젝트 수주 폭발
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 주정부 간 송전선 통과 인허가 갈등 장기화
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 백로그(수주잔고) 순감소 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">미국 1위 전력망·송전탑 전문 엔지니어링 및 시공 인력 독점</span>
+                    <a href="https://finance.yahoo.com/quote/PWR" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-BHP" data-category="ocean">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">BHP</span>
+                            <span class="tag-badge">남반구 자원요새</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">BHP 그룹</h3>
+                        <span class="card-sector">⛏️ 글로벌 광산 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$84.45</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +61.8%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $52.18</span>
+                        <span style="color: #94a3b8;">고점대비 -14.4%</span>
+                        <span>52주 최고 $98.71</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 69.4%;"></div>
+                        <div class="range-pin" style="left: 69.4%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">배당수익률 5%+의 강력한 현금 흐름. 신냉전 안전 자원 기지</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 구리 수요 폭증 + 얀센 칼륨 광산 상업 가동 ➔ 이익 점프
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 중국 철강 소비 침체로 철광석 가격 급락
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 배당 컷 또는 구리/철광석 동반 폭락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">호주 본토 중심 철광석, 구리, 칼륨 생산 세계 1위 광산 거인</span>
+                    <a href="https://finance.yahoo.com/quote/BHP" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-VAL" data-category="ocean">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">VAL</span>
-                            <span class="tag-badge">무부채 시추선사</span>
+                            <span class="tag-badge">무차입 시추선사</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
                         <h3 class="card-name">발라리스 (Valaris)</h3>
                         <span class="card-sector">🌊 해양 시추선 2위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$78.73</div>
+                        <div class="current-price">$79.05</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +68.6%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +69.3%
                         </div>
                     </div>
                 </div>
@@ -1122,60 +1842,60 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $46.70</span>
-                        <span style="color: #f43f5e;">고점대비 -31.0%</span>
+                        <span style="color: #f43f5e;">고점대비 -30.7%</span>
                         <span>52주 최고 $114.12</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 47.5%;"></div>
-                        <div class="range-pin" style="left: 47.5%;"></div>
+                        <div class="range-fill" style="width: 48.0%;"></div>
+                        <div class="range-pin" style="left: 48.0%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">수주 잔고 순차적 매출 전환으로 FCF 급증 국면. 강력한 자사주 매입 집행</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">수주 잔고 순차적 매출 전환으로 FCF 급증 국면</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 해양 플로터 가동률 95% 돌파 ➔ 주가 전고점 돌파 ($120+, +50%)
+                                <strong>🌟 Best:</strong> 해양 플로터 가동률 95% 돌파 ➔ 주가 전고점 회복
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 오프쇼어 프로젝트 지연 및 유가 하락
+                                <strong>💥 Worst:</strong> 오프쇼어 프로젝트 지연
                             </div>
                             <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (손절):</strong> 수주 잔고(Backlog) 순감소 2분기 연속 발생 시
+                                <strong>🚨 킬스위치 (손절):</strong> 수주 잔고 순감소 2분기 연속 발생 시
                             </div>
                         </div>
                     </details>
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">파산 구조조정으로 부채를 100% 털어낸 깨끗한 대차대조표의 해양 시추 과점 기업</span>
+                    <span class="thesis-text">파산 구조조정으로 부채 털어낸 깨끗한 대차대조표의 해양 시추 기업</span>
                     <a href="https://finance.yahoo.com/quote/VAL" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-RIG">
+            <div class="radar-card normal-border" id="card-RIG" data-category="ocean">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">RIG</span>
-                            <span class="tag-badge">공급 절벽 르네상스</span>
+                            <span class="tag-badge">공급절벽 수혜</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
-                        <h3 class="card-name">트랜스오션 (Transocean)</h3>
+                        <h3 class="card-name">트랜스오션</h3>
                         <span class="card-sector">🌊 초심해 시추선 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$5.22</div>
+                        <div class="current-price">$5.24</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +72.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +72.9%
                         </div>
                     </div>
                 </div>
@@ -1183,29 +1903,29 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $3.03</span>
-                        <span style="color: #f43f5e;">고점대비 -31.8%</span>
+                        <span style="color: #f43f5e;">고점대비 -31.6%</span>
                         <span>52주 최고 $7.66</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 47.3%;"></div>
-                        <div class="range-pin" style="left: 47.3%;"></div>
+                        <div class="range-fill" style="width: 47.7%;"></div>
+                        <div class="range-pin" style="left: 47.7%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">지난 10년간 신규 건조 전무로 물리적 시추선 공급 동결. 일일 용선료 $50만 돌파</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">시추선 공급 절벽으로 일일 용선료 $50만 돌파. 주가 바닥권</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 유가 $80+ 속 초심해 프로젝트 폭증 ➔ 수주 백로그 폭발 ➔ 100%+ 랠리
+                                <strong>🌟 Best:</strong> 유가 $80+ 유지 ➔ 수주 백로그 매출 전환 ➔ 100%+ 랠리
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 글로벌 경기 침체로 유가 $50 이하 급락 및 오일 메이저 시추 중단
+                                <strong>💥 Worst:</strong> 글로벌 경기 침체로 유가 $50 이하 폭락
                             </div>
                             <div class="sc-item sc-kill">
                                 <strong>🚨 킬스위치 (손절):</strong> WTI 유가 $55 이하 6개월 지속 시
@@ -1215,28 +1935,150 @@
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">셰일 유전 고갈에 따른 브라질/가이아나 심해 시추 독점 공급자</span>
+                    <span class="thesis-text">지상 셰일 고갈에 따른 가이아나/브라질 심해 시추 독점 공급자</span>
                     <a href="https://finance.yahoo.com/quote/RIG" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-OII">
+            <div class="radar-card normal-border" id="card-NUE" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">NUE</span>
+                            <span class="tag-badge">50년 배당귀족</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">뉴코어 (Nucor)</h3>
+                        <span class="card-sector">🔩 전기로 철강 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$235.74</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +79.5%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $131.32</span>
+                        <span style="color: #94a3b8;">고점대비 -15.8%</span>
+                        <span>52주 최고 $280.11</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 70.2%;"></div>
+                        <div class="range-pin" style="left: 70.2%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">50년 연속 배당 증액. 무차입급 건전한 대차대조표</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 미국 인프라 재건법(IIJA) 착공 본격화 ➔ 봉형강/후판 수요 폭발
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 글로벌 철강 수요 침체 및 판가 급락
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 가동률 60% 붕괴 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">미국 최대 전기로 고철 재활용 철강사. 저렴한 전기 원가 우위</span>
+                    <a href="https://finance.yahoo.com/quote/NUE" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-FCX" data-category="ocean">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">FCX</span>
+                            <span class="tag-badge">AI 전력 구리</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">프리포트 맥모란</h3>
+                        <span class="card-sector">🥉 상장 구리 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$70.38</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +89.2%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $37.20</span>
+                        <span style="color: #94a3b8;">고점대비 -12.3%</span>
+                        <span>52주 최고 $80.24</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 77.1%;"></div>
+                        <div class="range-pin" style="left: 77.1%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">구리 공급 부족 속 인도네시아 그라스버그 광산 마진 견조</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 구리 파운드당 $5+ 돌파 ➔ 연간 잉여현금흐름 폭발
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 인도네시아 정부 수출 규제 갈등
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 구리 가격 $3 이하 하락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">전력망, AI 데이터센터, 전기차에 필수적인 구리 광산 1위</span>
+                    <a href="https://finance.yahoo.com/quote/FCX" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-OII" data-category="ocean">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">OII</span>
-                            <span class="tag-badge">해저의 곡괭이</span>
+                            <span class="tag-badge">해저 작업 1위</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
                         </div>
-                        <h3 class="card-name">오셔니어링 (Oceaneering)</h3>
+                        <h3 class="card-name">오셔니어링</h3>
                         <span class="card-sector">🤖 심해 로봇(ROV) 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$44.11</div>
+                        <div class="current-price">$43.84</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +100.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +99.1%
                         </div>
                     </div>
                 </div>
@@ -1244,29 +2086,29 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $22.02</span>
-                        <span style="color: #94a3b8;">고점대비 -18.7%</span>
+                        <span style="color: #94a3b8;">고점대비 -19.2%</span>
                         <span>52주 최고 $54.25</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 68.5%;"></div>
-                        <div class="range-pin" style="left: 68.5%;"></div>
+                        <div class="range-fill" style="width: 67.7%;"></div>
+                        <div class="range-pin" style="left: 67.7%;"></div>
                     </div>
                 </div>
 
                 <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 🚨 특수 상황 & 핵심 촉매</div>
-                    <div class="issue-desc">해저 광케이블 매설, 심해 유전 보수, 미 해군 무인 잠수정(UUV) 수주 3중 수혜</div>
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">해저 광케이블 매설, 심해 유전 보수, 미 해군 무인 잠수정 수주</div>
                 </div>
 
                 <div class="scenario-accordion">
                     <details>
-                        <summary><i class="bi bi-diagram-3"></i> IF 시나리오 & 손절선 펼치기</summary>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
                         <div class="scenario-details">
                             <div class="sc-item sc-best">
-                                <strong>🌟 Best:</strong> 해저 데이터센터 및 해저 통신망 인프라 투자 폭증 ➔ 영업이익률 20% 돌파
+                                <strong>🌟 Best:</strong> 해저 인프라 투자 폭증 ➔ 영업이익률 20% 돌파
                             </div>
                             <div class="sc-item sc-worst">
-                                <strong>💥 Worst:</strong> 심해 설비투자 동결
+                                <strong>💥 Worst:</strong> 심해 탐사 CAPEX 동결
                             </div>
                             <div class="sc-item sc-kill">
                                 <strong>🚨 킬스위치 (손절):</strong> ROV 가동률 50% 붕괴 시
@@ -1276,7 +2118,7 @@
                 </div>
 
                 <div class="card-footer-actions">
-                    <span class="thesis-text">수심 3,000m 심해 원격 로봇팔(ROV) 점유율 1위 독점사</span>
+                    <span class="thesis-text">수심 3,000m 작업 무인 원격 로봇팔(ROV) 글로벌 1위 독점사</span>
                     <a href="https://finance.yahoo.com/quote/OII" target="_blank" rel="noopener" class="chart-btn">
                         차트 <i class="bi bi-box-arrow-up-right"></i>
                     </a>
@@ -1297,18 +2139,9 @@
                     card.style.display = 'block';
                 } else if (cat === 'alert') {
                     card.style.display = card.classList.contains('alert-border') ? 'block' : 'none';
-                } else if (cat === 'health') {
-                    const id = card.id;
-                    card.style.display = (id === 'card-PRVA' || id === 'card-CI' || id === 'card-DOX' || id === 'card-PATH') ? 'block' : 'none';
-                } else if (cat === 'food') {
-                    const id = card.id;
-                    card.style.display = (id === 'card-ADM' || id === 'card-CF' || id === 'card-NTR' || id === 'card-DE') ? 'block' : 'none';
-                } else if (cat === 'ocean') {
-                    const id = card.id;
-                    card.style.display = (id === 'card-RIG' || id === 'card-VAL' || id === 'card-OII') ? 'block' : 'none';
-                } else if (cat === 'power') {
-                    const id = card.id;
-                    card.style.display = (id === 'card-ETN') ? 'block' : 'none';
+                } else {
+                    const cCat = card.getAttribute('data-category');
+                    card.style.display = (cCat === cat) ? 'block' : 'none';
                 }
             });
         }
