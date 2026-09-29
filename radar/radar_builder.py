@@ -312,6 +312,28 @@ WATCHLIST = {
         "if_best": "홀세일 유통망 복원 및 신규 러닝 라인업 호조 ➔ 주가 50%+ 회복",
         "if_worst": "중국 시장 점유율 추가 하락",
         "kill_switch": "매출총이익률 40% 붕괴 시"
+    },
+    "GEHC": {
+        "name": "GE 헬스케어 (GE HealthCare)",
+        "sector": "🏥 영상진단(MRI/CT) 1위",
+        "tag": "저P/E 14배",
+        "category": "health",
+        "thesis": "전 세계 MRI, CT, 초음파 영상진단 장비 및 조영제 글로벌 3대 독점사",
+        "special_issue": "중국 병원 장비 발주 지연으로 52주 저점 턱밑(+12.4%) 바닥권. P/E 14배 수준의 역사적 저평가",
+        "if_best": "글로벌 병원 진단장비 교체 주기 도래 + AI 진단 소프트웨어 구독 매출 성장 ➔ 주가 $90+ 회복",
+        "if_worst": "중국 의료장비 국산화 대체 가속",
+        "kill_switch": "분기 수주(Book-to-Bill) 0.9 미만 2분기 지속 시"
+    },
+    "ASTH": {
+        "name": "아스트라나 헬스 (Astrana Health)",
+        "sector": "🩺 로컬 의사 MSO 1위",
+        "tag": "흑자 MSO",
+        "category": "health",
+        "thesis": "로컬 1차 진료 의사들의 청구/행정/EHR 대행 및 가치기반의료(VBC) 수수료 독점",
+        "special_issue": "프로스펙트 헬스 대형 M&A 인수 비용으로 고점 대비 -32.5% 조정. 통합 완료 시 FCF 급증 잠재력",
+        "if_best": "M&A 네트워크 통합 완료 ➔ 캘리포니아/텍사스 커버리지 확장 및 EPS 연 25% 점프",
+        "if_worst": "피인수 병원/클리닉의 부실 의료비 손실 전이",
+        "kill_switch": "영업이익 적자 전환 또는 부채 상환 불능 이슈 발생 시"
     }
 }
 
