@@ -454,10 +454,10 @@
         </p>
         <div class="meta-bar">
             <div class="meta-item">
-                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 09월 30일 00:32</strong>
+                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 09월 30일 00:40</strong>
             </div>
             <div class="meta-item">
-                <i class="bi bi-fire text-gold"></i> 현재 바닥 사정권: <strong>12개 종목</strong>
+                <i class="bi bi-fire text-gold"></i> 현재 바닥 사정권: <strong>14개 종목</strong>
             </div>
             <div class="meta-item">
                 <i class="bi bi-sort-down text-gold"></i> 정렬: <strong>52주 최저가 근접순</strong>
@@ -466,7 +466,7 @@
     </header>
 
     <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCategory('all')">전체보기 (30)</button>
+        <button class="filter-btn active" onclick="filterCategory('all')">전체보기 (32)</button>
         <button class="filter-btn" onclick="filterCategory('alert')">🔥 바닥 사정권</button>
         <button class="filter-btn" onclick="filterCategory('food')">🌾 식량/비료</button>
         <button class="filter-btn" onclick="filterCategory('infra')">🏭 폐기물/인프라</button>
@@ -478,6 +478,67 @@
 
     <main class="radar-grid" id="stockGrid">
         
+            <div class="radar-card alert-border" id="card-XYL" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">XYL</span>
+                            <span class="tag-badge">최저가 바닥 (+0.7%)</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">자일럼 (Xylem Inc.)</h3>
+                        <span class="card-sector">💧 글로벌 수처리 펌프/밸브 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$100.93</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +0.8%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $100.17</span>
+                        <span style="color: #f43f5e;">고점대비 -34.6%</span>
+                        <span>52주 최고 $154.27</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 1.4%;"></div>
+                        <div class="range-pin" style="left: 1.4%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">고금리 지자체 예산 집행 지연으로 고점($154) 대비 -34.6% 급락. 현재 52주 최저점($100.17) 바로 턱밑(+0.7%) 극단적 바닥권</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 기상이변 담수화 플랜트 + 반도체/AI 데이터센터 초순수 수주 본격화 ➔ 주가 $140+ 회복 (+40%)
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 글로벌 경기 침체로 각국 지자체 인프라 개보수 예산 삭감
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 분기 수주잔고(Backlog) 순감소 2분기 연속 지속 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">전 세계 상하수도, 해수담수화, 반도체 초순수 공급용 초고압 펌프·스마트 밸브 1위 독점사</span>
+                    <a href="https://finance.yahoo.com/quote/XYL" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
             <div class="radar-card alert-border" id="card-LHX" data-category="defense">
                 <div class="card-header">
                     <div class="card-title-wrap">
@@ -490,9 +551,9 @@
                         <span class="card-sector">🛡️ 방산 통신 / 전자전 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$236.12</div>
+                        <div class="current-price">$236.68</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +0.7%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +0.9%
                         </div>
                     </div>
                 </div>
@@ -500,12 +561,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $234.59</span>
-                        <span style="color: #f43f5e;">고점대비 -37.7%</span>
+                        <span style="color: #f43f5e;">고점대비 -37.6%</span>
                         <span>52주 최고 $379.23</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 1.1%;"></div>
-                        <div class="range-pin" style="left: 1.1%;"></div>
+                        <div class="range-fill" style="width: 1.4%;"></div>
+                        <div class="range-pin" style="left: 1.4%;"></div>
                     </div>
                 </div>
 
@@ -551,9 +612,9 @@
                         <span class="card-sector">📡 위성 지상 관제 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$43.70</div>
+                        <div class="current-price">$43.80</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +1.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +1.6%
                         </div>
                     </div>
                 </div>
@@ -561,12 +622,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $43.09</span>
-                        <span style="color: #f43f5e;">고점대비 -67.4%</span>
+                        <span style="color: #f43f5e;">고점대비 -67.3%</span>
                         <span>52주 최고 $134.00</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 0.7%;"></div>
-                        <div class="range-pin" style="left: 0.7%;"></div>
+                        <div class="range-fill" style="width: 0.8%;"></div>
+                        <div class="range-pin" style="left: 0.8%;"></div>
                     </div>
                 </div>
 
@@ -614,7 +675,7 @@
                     <div class="card-price-wrap">
                         <div class="current-price">$35.98</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +2.1%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +2.2%
                         </div>
                     </div>
                 </div>
@@ -673,7 +734,7 @@
                         <span class="card-sector">🩺 가치기반 1차의료</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$19.47</div>
+                        <div class="current-price">$19.46</div>
                         <div class="price-fl" style="color: #10b981;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +2.9%
                         </div>
@@ -683,12 +744,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $18.91</span>
-                        <span style="color: #f43f5e;">고점대비 -32.4%</span>
+                        <span style="color: #f43f5e;">고점대비 -32.5%</span>
                         <span>52주 최고 $28.82</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 5.6%;"></div>
-                        <div class="range-pin" style="left: 5.6%;"></div>
+                        <div class="range-fill" style="width: 5.5%;"></div>
+                        <div class="range-pin" style="left: 5.5%;"></div>
                     </div>
                 </div>
 
@@ -734,7 +795,7 @@
                         <span class="card-sector">☢️ 해군 원자로 / SMR</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$137.99</div>
+                        <div class="current-price">$138.03</div>
                         <div class="price-fl" style="color: #10b981;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +3.1%
                         </div>
@@ -795,9 +856,9 @@
                         <span class="card-sector">🗑️ 매립지 토지 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$205.40</div>
+                        <div class="current-price">$205.51</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +5.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +5.9%
                         </div>
                     </div>
                 </div>
@@ -809,8 +870,8 @@
                         <span>52주 최고 $248.13</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 20.9%;"></div>
-                        <div class="range-pin" style="left: 20.9%;"></div>
+                        <div class="range-fill" style="width: 21.1%;"></div>
+                        <div class="range-pin" style="left: 21.1%;"></div>
                     </div>
                 </div>
 
@@ -856,9 +917,9 @@
                         <span class="card-sector">🗑️ 폐기물 과점 2위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$211.69</div>
+                        <div class="current-price">$211.42</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +7.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +7.6%
                         </div>
                     </div>
                 </div>
@@ -866,12 +927,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $196.41</span>
-                        <span style="color: #94a3b8;">고점대비 -9.3%</span>
+                        <span style="color: #94a3b8;">고점대비 -9.4%</span>
                         <span>52주 최고 $233.42</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 41.3%;"></div>
-                        <div class="range-pin" style="left: 41.3%;"></div>
+                        <div class="range-fill" style="width: 40.6%;"></div>
+                        <div class="range-pin" style="left: 40.6%;"></div>
                     </div>
                 </div>
 
@@ -917,9 +978,9 @@
                         <span class="card-sector">☢️ 우라늄 채굴 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$86.08</div>
+                        <div class="current-price">$86.41</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +10.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +11.2%
                         </div>
                     </div>
                 </div>
@@ -927,12 +988,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $77.70</span>
-                        <span style="color: #f43f5e;">고점대비 -36.4%</span>
+                        <span style="color: #f43f5e;">고점대비 -36.1%</span>
                         <span>52주 최고 $135.24</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 14.6%;"></div>
-                        <div class="range-pin" style="left: 14.6%;"></div>
+                        <div class="range-fill" style="width: 15.1%;"></div>
+                        <div class="range-pin" style="left: 15.1%;"></div>
                     </div>
                 </div>
 
@@ -978,9 +1039,9 @@
                         <span class="card-sector">🏥 영상진단(MRI/CT) 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$66.20</div>
+                        <div class="current-price">$66.17</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +12.7%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +12.6%
                         </div>
                     </div>
                 </div>
@@ -992,8 +1053,8 @@
                         <span>52주 최고 $89.77</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 24.0%;"></div>
-                        <div class="range-pin" style="left: 24.0%;"></div>
+                        <div class="range-fill" style="width: 23.9%;"></div>
+                        <div class="range-pin" style="left: 23.9%;"></div>
                     </div>
                 </div>
 
@@ -1039,9 +1100,9 @@
                         <span class="card-sector">🚗 텔레매틱스 인슈어테크</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$46.37</div>
+                        <div class="current-price">$46.39</div>
                         <div class="price-fl" style="color: #10b981;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +13.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +13.4%
                         </div>
                     </div>
                 </div>
@@ -1100,7 +1161,7 @@
                         <span class="card-sector">🏥 헬스케어 / PBM 요새</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$273.49</div>
+                        <div class="current-price">$273.44</div>
                         <div class="price-fl" style="color: #10b981;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +14.2%
                         </div>
@@ -1149,6 +1210,67 @@
                 </div>
             </div>
             
+            <div class="radar-card alert-border" id="card-ECL" data-category="infra">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">ECL</span>
+                            <span class="tag-badge">빌게이츠 1위 주주</span>
+                            <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
+                        </div>
+                        <h3 class="card-name">이콜랩 (Ecolab)</h3>
+                        <span class="card-sector">💧 산업용 정수/멸균 케미컬 1위</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$278.94</div>
+                        <div class="price-fl" style="color: #10b981;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +14.7%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $243.15</span>
+                        <span style="color: #94a3b8;">고점대비 -9.8%</span>
+                        <span>52주 최고 $309.27</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 54.1%;"></div>
+                        <div class="range-pin" style="left: 54.1%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-lightning-charge-fill text-gold"></i> 특수 상황 & 핵심 촉매</div>
+                    <div class="issue-desc">빌 게이츠가 개인 자산으로 수조 원어치 묻어둔 흑자 가치주. 수자원 고갈 시대 필수 방어벽</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 시나리오 및 손절선 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best:</strong> 데이터센터 수냉식 냉각수 정수 및 공장 폐수 무방류(ZLD) 수요 폭증 ➔ 전고점 돌파
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst:</strong> 원자재(기초화학) 가격 폭등으로 제조 마진 일시 축소
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (손절):</strong> 영업이익률 5%p 이상 급락 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">전 세계 반도체 팹, 공장, 병원에서 물을 정화하고 재활용하는 특수 케미컬·소프트웨어 독점</span>
+                    <a href="https://finance.yahoo.com/quote/ECL" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
             <div class="radar-card warn-border" id="card-DOX" data-category="health">
                 <div class="card-header">
                     <div class="card-title-wrap">
@@ -1161,9 +1283,9 @@
                         <span class="card-sector">📞 통신사 과금 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$57.30</div>
+                        <div class="current-price">$57.38</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +15.2%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +15.4%
                         </div>
                     </div>
                 </div>
@@ -1171,12 +1293,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $49.74</span>
-                        <span style="color: #f43f5e;">고점대비 -33.1%</span>
+                        <span style="color: #f43f5e;">고점대비 -33.0%</span>
                         <span>52주 최고 $85.63</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 21.1%;"></div>
-                        <div class="range-pin" style="left: 21.1%;"></div>
+                        <div class="range-fill" style="width: 21.3%;"></div>
+                        <div class="range-pin" style="left: 21.3%;"></div>
                     </div>
                 </div>
 
@@ -1222,9 +1344,9 @@
                         <span class="card-sector">🚂 미국 서부 철도 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$273.14</div>
+                        <div class="current-price">$273.47</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +26.7%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +26.9%
                         </div>
                     </div>
                 </div>
@@ -1232,12 +1354,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $215.53</span>
-                        <span style="color: #94a3b8;">고점대비 -13.6%</span>
+                        <span style="color: #94a3b8;">고점대비 -13.5%</span>
                         <span>52주 최고 $315.99</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 57.3%;"></div>
-                        <div class="range-pin" style="left: 57.3%;"></div>
+                        <div class="range-fill" style="width: 57.7%;"></div>
+                        <div class="range-pin" style="left: 57.7%;"></div>
                     </div>
                 </div>
 
@@ -1283,9 +1405,9 @@
                         <span class="card-sector">💻 RPA 사무자동화</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$12.22</div>
+                        <div class="current-price">$12.26</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +32.9%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +33.2%
                         </div>
                     </div>
                 </div>
@@ -1293,12 +1415,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $9.20</span>
-                        <span style="color: #f43f5e;">고점대비 -38.4%</span>
+                        <span style="color: #f43f5e;">고점대비 -38.2%</span>
                         <span>52주 최고 $19.84</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 28.4%;"></div>
-                        <div class="range-pin" style="left: 28.4%;"></div>
+                        <div class="range-fill" style="width: 28.7%;"></div>
+                        <div class="range-pin" style="left: 28.7%;"></div>
                     </div>
                 </div>
 
@@ -1405,9 +1527,9 @@
                         <span class="card-sector">🌾 식량 / 대두 가공 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$108.03</div>
+                        <div class="current-price">$107.82</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +36.6%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +36.3%
                         </div>
                     </div>
                 </div>
@@ -1415,12 +1537,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $79.11</span>
-                        <span style="color: #94a3b8;">고점대비 -19.9%</span>
+                        <span style="color: #94a3b8;">고점대비 -20.1%</span>
                         <span>52주 최고 $134.87</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 51.9%;"></div>
-                        <div class="range-pin" style="left: 51.9%;"></div>
+                        <div class="range-fill" style="width: 51.5%;"></div>
+                        <div class="range-pin" style="left: 51.5%;"></div>
                     </div>
                 </div>
 
@@ -1466,9 +1588,9 @@
                         <span class="card-sector">⚡ 변압기 / 배전 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$431.03</div>
+                        <div class="current-price">$432.59</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +38.2%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +38.7%
                         </div>
                     </div>
                 </div>
@@ -1476,12 +1598,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $311.92</span>
-                        <span style="color: #94a3b8;">고점대비 -9.8%</span>
+                        <span style="color: #94a3b8;">고점대비 -9.5%</span>
                         <span>52주 최고 $478.00</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 71.7%;"></div>
-                        <div class="range-pin" style="left: 71.7%;"></div>
+                        <div class="range-fill" style="width: 72.7%;"></div>
+                        <div class="range-pin" style="left: 72.7%;"></div>
                     </div>
                 </div>
 
@@ -1527,9 +1649,9 @@
                         <span class="card-sector">🚂 미국 동부 철도 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$46.68</div>
+                        <div class="current-price">$46.73</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +38.8%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +38.9%
                         </div>
                     </div>
                 </div>
@@ -1537,12 +1659,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $33.63</span>
-                        <span style="color: #94a3b8;">고점대비 -12.9%</span>
+                        <span style="color: #94a3b8;">고점대비 -12.8%</span>
                         <span>52주 최고 $53.60</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 65.3%;"></div>
-                        <div class="range-pin" style="left: 65.3%;"></div>
+                        <div class="range-fill" style="width: 65.6%;"></div>
+                        <div class="range-pin" style="left: 65.6%;"></div>
                     </div>
                 </div>
 
@@ -1588,9 +1710,9 @@
                         <span class="card-sector">🌾 식량 / 곡물 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$79.74</div>
+                        <div class="current-price">$79.67</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +43.5%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +43.3%
                         </div>
                     </div>
                 </div>
@@ -1602,8 +1724,8 @@
                         <span>52주 최고 $88.75</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 72.8%;"></div>
-                        <div class="range-pin" style="left: 72.8%;"></div>
+                        <div class="range-fill" style="width: 72.6%;"></div>
+                        <div class="range-pin" style="left: 72.6%;"></div>
                     </div>
                 </div>
 
@@ -1649,9 +1771,9 @@
                         <span class="card-sector">☣️ 특수 유해폐기물 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$310.10</div>
+                        <div class="current-price">$310.21</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +54.0%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +54.1%
                         </div>
                     </div>
                 </div>
@@ -1663,8 +1785,8 @@
                         <span>52주 최고 $335.94</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 80.8%;"></div>
-                        <div class="range-pin" style="left: 80.8%;"></div>
+                        <div class="range-fill" style="width: 80.9%;"></div>
+                        <div class="range-pin" style="left: 80.9%;"></div>
                     </div>
                 </div>
 
@@ -1710,9 +1832,9 @@
                         <span class="card-sector">⚡ 질소 비료 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$117.22</div>
+                        <div class="current-price">$117.30</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +55.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +55.5%
                         </div>
                     </div>
                 </div>
@@ -1724,8 +1846,8 @@
                         <span>52주 최고 $141.96</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 62.8%;"></div>
-                        <div class="range-pin" style="left: 62.8%;"></div>
+                        <div class="range-fill" style="width: 62.9%;"></div>
+                        <div class="range-pin" style="left: 62.9%;"></div>
                     </div>
                 </div>
 
@@ -1771,7 +1893,7 @@
                         <span class="card-sector">🚜 스마트 농기계 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$681.51</div>
+                        <div class="current-price">$681.47</div>
                         <div class="price-fl" style="color: #38bdf8;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +57.4%
                         </div>
@@ -1832,9 +1954,9 @@
                         <span class="card-sector">⚡ 송전탑 / 그리드 시공</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$644.86</div>
+                        <div class="current-price">$647.35</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +59.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +60.0%
                         </div>
                     </div>
                 </div>
@@ -1842,12 +1964,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $404.51</span>
-                        <span style="color: #94a3b8;">고점대비 -18.2%</span>
+                        <span style="color: #94a3b8;">고점대비 -17.9%</span>
                         <span>52주 최고 $788.75</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 62.6%;"></div>
-                        <div class="range-pin" style="left: 62.6%;"></div>
+                        <div class="range-fill" style="width: 63.2%;"></div>
+                        <div class="range-pin" style="left: 63.2%;"></div>
                     </div>
                 </div>
 
@@ -1893,9 +2015,9 @@
                         <span class="card-sector">⛏️ 글로벌 광산 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$84.53</div>
+                        <div class="current-price">$84.48</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +62.0%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +61.9%
                         </div>
                     </div>
                 </div>
@@ -1907,8 +2029,8 @@
                         <span>52주 최고 $98.71</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 69.5%;"></div>
-                        <div class="range-pin" style="left: 69.5%;"></div>
+                        <div class="range-fill" style="width: 69.4%;"></div>
+                        <div class="range-pin" style="left: 69.4%;"></div>
                     </div>
                 </div>
 
@@ -1954,7 +2076,7 @@
                         <span class="card-sector">🌊 해양 시추선 2위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$79.12</div>
+                        <div class="current-price">$79.11</div>
                         <div class="price-fl" style="color: #38bdf8;">
                             <i class="bi bi-arrow-up-right"></i> 저점대비 +69.4%
                         </div>
@@ -2076,9 +2198,9 @@
                         <span class="card-sector">🔩 전기로 철강 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$235.40</div>
+                        <div class="current-price">$235.89</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +79.3%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +79.6%
                         </div>
                     </div>
                 </div>
@@ -2086,12 +2208,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $131.32</span>
-                        <span style="color: #94a3b8;">고점대비 -16.0%</span>
+                        <span style="color: #94a3b8;">고점대비 -15.8%</span>
                         <span>52주 최고 $280.11</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 70.0%;"></div>
-                        <div class="range-pin" style="left: 70.0%;"></div>
+                        <div class="range-fill" style="width: 70.3%;"></div>
+                        <div class="range-pin" style="left: 70.3%;"></div>
                     </div>
                 </div>
 
@@ -2137,9 +2259,9 @@
                         <span class="card-sector">🥉 상장 구리 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$70.45</div>
+                        <div class="current-price">$70.55</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +89.4%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +89.6%
                         </div>
                     </div>
                 </div>
@@ -2147,12 +2269,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $37.20</span>
-                        <span style="color: #94a3b8;">고점대비 -12.2%</span>
+                        <span style="color: #94a3b8;">고점대비 -12.1%</span>
                         <span>52주 최고 $80.24</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 77.3%;"></div>
-                        <div class="range-pin" style="left: 77.3%;"></div>
+                        <div class="range-fill" style="width: 77.5%;"></div>
+                        <div class="range-pin" style="left: 77.5%;"></div>
                     </div>
                 </div>
 
@@ -2198,9 +2320,9 @@
                         <span class="card-sector">🩺 로컬 의사 MSO 1위</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$34.80</div>
+                        <div class="current-price">$34.65</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +92.5%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +91.6%
                         </div>
                     </div>
                 </div>
@@ -2208,12 +2330,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $18.08</span>
-                        <span style="color: #f43f5e;">고점대비 -32.6%</span>
+                        <span style="color: #f43f5e;">고점대비 -32.9%</span>
                         <span>52주 최고 $51.60</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 49.9%;"></div>
-                        <div class="range-pin" style="left: 49.9%;"></div>
+                        <div class="range-fill" style="width: 49.4%;"></div>
+                        <div class="range-pin" style="left: 49.4%;"></div>
                     </div>
                 </div>
 
@@ -2259,9 +2381,9 @@
                         <span class="card-sector">🤖 심해 로봇(ROV) 독점</span>
                     </div>
                     <div class="card-price-wrap">
-                        <div class="current-price">$43.84</div>
+                        <div class="current-price">$43.99</div>
                         <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +99.1%
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +99.8%
                         </div>
                     </div>
                 </div>
@@ -2269,12 +2391,12 @@
                 <div class="range-box">
                     <div class="range-labels">
                         <span>52주 최저 $22.02</span>
-                        <span style="color: #94a3b8;">고점대비 -19.2%</span>
+                        <span style="color: #94a3b8;">고점대비 -18.9%</span>
                         <span>52주 최고 $54.25</span>
                     </div>
                     <div class="range-track">
-                        <div class="range-fill" style="width: 67.7%;"></div>
-                        <div class="range-pin" style="left: 67.7%;"></div>
+                        <div class="range-fill" style="width: 68.2%;"></div>
+                        <div class="range-pin" style="left: 68.2%;"></div>
                     </div>
                 </div>
 
