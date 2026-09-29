@@ -4,6 +4,26 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-09-30] 미국 1억 파이프라인 52주 신저가 & 특수 상황 모니터링 레이더 대시보드 구축 및 새벽 무인 자동화 배포
+- **1. 요청사항**: 
+  - 터미널이나 로컬 환경이 아닌, 아침에 눈떠서 스마트폰으로 `thapathlab.com`에서 원클릭으로 미국 시장 핵심 종목의 52주 최저가 근접도와 특수 상황(Special Situation)을 모니터링할 수 있는 전용 웹 대시보드 요청.
+- **2. 솔루션 & 구현**:
+  - **전용 웹 레이더 페이지 신설 (`chicstory.github.io/radar/`)**:
+    - `radar_builder.py`: 야후 파이낸스 실시간 시세를 수집해 52주 최저가 대비 위치, 고점 대비 하락률, 시각적 52주 레인지 프로그레스 바, 특수 이슈, IF 시나리오(Best/Worst/킬스위치)를 담은 모바일 최적화 Dark Tech UI 대시보드(`radar/index.html`) 및 경량 API(`radar/radar_data.json`) 0초 빌더 구현.
+    - 52주 최저가에 가장 가까운 순(오름차순)으로 자동 정렬하여 현재 가장 바닥에 패대기쳐진 종목(NKE +1.9%, PRVA +2.9%, CI +13.7%, DOX +15.3% 등)이 최상단에 노출되도록 설계.
+  - **포털 네비게이션 및 퀵허브 연동**:
+    - `index.html` 글로벌 내비게이션 바, 모바일 드로어, 상단 Quick Hub Anchor Bar(6열 확장)에 '미국 1억 레이더' 다이렉트 점프 칩 추가.
+  - **새벽 무인 배치 파이프라인 연계**:
+    - `thepathlab/auto_daily_briefing.bat` 및 `run_briefing.bat`의 포털 배포 단계에 `radar_builder.py` 실행 및 `git add radar/`를 포함시켜 매일 새벽 브리핑과 함께 365일 무인 자동 업데이트 완료.
+- **3. 결과 & 검증**:
+  - `https://thapathlab.com/radar/` 실시간 배포 완료 (`8bc1ecc`).
+  - 모바일(360px) 가로 스크롤 제로, GA4 추적 태그 유지 및 콘솔 에러 제로 검증.
+- **4. 주요 합의 사항**:
+  - 매일 아침 눈떠서 스마트폰으로 `thapathlab.com/radar/`만 열면 바닥 사정권 종목과 특수 이슈를 즉시 파악 가능.
+  - 13개 핵심 종목(PRVA, NKE, CI, DOX, PATH, ADM, CF, NTR, RIG, VAL, OII, DE, ETN) 중심의 바벨 포지션 감시 유지.
+
+---
+
 ## [2026-09-29] 네이버 블로그 홈페이지형 1단 위젯 5종 구축, 배포 및 블로그 연동 로드맵 수립
 - **1. 요청사항**:
   - 네이버 블로그 메인/프롤로그에 3대 핵심 사이트(thapathlab.com, runanalyz.com, bookinquiry.com) 및 계산기 연동 요청.
