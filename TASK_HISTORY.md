@@ -4,6 +4,26 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-10-04] 종목 레이더 8대 섹터 확장 (58개 독점주 & 14일 RSI) 및 GitHub Actions 일일 무인 자동화 파이프라인 구축
+- **1. 요청사항**: 
+  - 스윙과 펀더멘털을 따로 분리하지 않고 기존 레이더(`thapathlab.com/radar/`)에 카드를 확장하여 8대 섹터 전반의 고마진 독점주(테크, 산업재, 헬스케어, 전력, 금융, 원자재, 식량 등)를 누적 모니터링.
+  - 상단에 섹터별 평균 현황(고점 대비 평균 낙폭, 평균 RSI, 바닥 사정권 종목 수) 벤치마크 지표 바 추가.
+  - PC를 켜둘 필요 없이 `thepathlab`의 금속 브리핑처럼 GitHub Actions(Cron)를 통해 매일 미국 장 마감 후 완전 무인 자동화 배포 가능 여부 및 구축 요청.
+- **2. 솔루션 & 구현**:
+  - **`radar/radar_builder.py` 대규모 고도화**:
+    - **58개 정예 독점주 누적 병합**: NVDA, AVGO, SNPS, CDNS, KLAC, AMAT, INTU, ADBE, NOW, COHR, FSLR, FIX, HWM, HEI, CPRT, ULS, CTAS, VRTX, ISRG, IDXX, WST, RMD, CEG, VNOM, WHD, CBOE, CME, TW, BLK, RGLD, SCCO, VMC, MNST, COCO, GNTX, CASY, DECK 등 전 섹터 대표주 및 IF 시나리오(Best/Worst/킬스위치) 탑재.
+    - **14일 RSI 지표 순수 파이썬 계산 함수 탑재**: 1년 일봉 종가 배열을 바탕으로 14일 RSI를 실시간 계산하여 `RSI <= 35` 과매도 경고등 배지 노출.
+    - **섹터별 평균 벤치마크 자동 산출 및 상단 그리드 렌더링**: 8대 카테고리별 평균 고점 낙폭, 평균 저점 상승폭, 평균 RSI, 바닥권 종목 수를 산출하고, 카드 클릭 시 해당 섹터 자동 필터링 연동.
+  - **GitHub Actions 클라우드 무인 자동화 구축 (`.github/workflows/daily_radar.yml`)**:
+    - 매일 미국 장 마감 후 월~금 평일 UTC 22:00(한국 시간 오전 07:00 정각)에 GitHub Actions 가상머신이 자동 기동되어 `radar_builder.py` 실행 및 `radar/index.html`, `radar/radar_data.json`을 자동 커밋/푸시하도록 설정. (수동 `workflow_dispatch` 지원).
+- **3. 결과 & 검증**:
+  - 로컬 테스트: 58개 전 종목 시세/RSI 및 섹터 벤치마크 25초 만에 수집 완료 (`radar/index.html`, `radar/radar_data.json` 무결점 빌드 확인).
+  - GA4 태그 유지, 모바일 반응형 뷰포트 및 콘솔 에러 제로 검증.
+- **4. 주요 합의 사항**:
+  - `chicstory.github.io/radar/`는 단순 가치투자 레이더가 아닌, "섹터 평균 대비 과매도(RSI < 35, 고점 대비 급락) 눌림목을 포착하고 사전 정의된 IF 시나리오로 기계적 매매를 지원하는 올인원 실전 스윙 무기"로 운용됨.
+
+---
+
 ## [2026-09-30] 미국 1억 파이프라인 52주 신저가 & 특수 상황 모니터링 레이더 대시보드 구축 및 새벽 무인 자동화 배포
 - **1. 요청사항**: 
   - 터미널이나 로컬 환경이 아닌, 아침에 눈떠서 스마트폰으로 `thapathlab.com`에서 원클릭으로 미국 시장 핵심 종목의 52주 최저가 근접도와 특수 상황(Special Situation)을 모니터링할 수 있는 전용 웹 대시보드 요청.

@@ -1,0 +1,45 @@
+name: Daily Stock Radar & Swing Builder
+
+on:
+  schedule:
+    # 월~금 평일 매일 미국 장 마감 후 UTC 22:00 (한국 시간 익일 오전 07:00 정각)
+    - cron: '0 22 * * 1-5'
+  workflow_dispatch:
+    # 깃허브 웹 화면에서 수동 즉시 실행 지원
+
+permissions:
+  contents: write
+
+jobs:
+  build-radar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Radar Builder
+        run: |
+          python radar/radar_builder.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add radar/index.html radar/radar_data.json
+          if git diff --staged --quiet; then
+            echo "No changes detected to commit."
+          else
+            git commit -m "Auto update stock radar & sector benchmarks: $(date +'%Y-%m-%d') [skip ci]"
+            git stash --include-untracked || true
+            git fetch origin main
+            git rebase -X theirs origin/main || git rebase --abort || true
+            git push origin main
+          fi
