@@ -4,6 +4,26 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-10-10] thapathlab.com Google AdSense 재신청 대비 전수 태그 검증, radar & engines 전 페이지 광고 태그 동기화 배포
+- **1. 요청사항**: 
+  - `thapathlab.com` 애드센스 심사 재도전 (`ca-pub-1876940323402065`).
+  - 메인 포털 및 산하 허브 전반의 애드센스 코드 배치 현황 검증 및 누락 페이지 전수 정비.
+- **2. 솔루션 & 구현**:
+  - **도메인 & ads.txt 무결성 실측 검증**:
+    - `https://thapathlab.com/` (HTTP 200 OK)
+    - `https://www.thapathlab.com/` (HTTP 200 OK, 무한루프 없는 정규화 라우팅)
+    - `https://thapathlab.com/ads.txt` (`google.com, pub-1876940323402065, DIRECT, f08c47fec0942fa0` 라이브 정상 응답 확인)
+  - **신규 레이더 허브 AdSense & Canonical 보완**:
+    - `radar/radar_builder.py`: 애드센스 메타 및 스크립트 태그 추가, canonical URL을 `https://thapathlab.com/radar/`로 최신화.
+    - 레이더 대시보드(`radar/index.html`) 재빌드 후 커밋 및 푸시 (`6ea5868`).
+  - **`engines` 산하 9대 제조사 스펙표 및 396개 상세 엔진 페이지 AdSense 전수 탑재**:
+    - 9대 제조사별 전수 스펙표(`audi_engine_table.html` 등) 및 396개 파워트레인 상세 페이지에 `ca-pub-1876940323402065` 코드 삽입 및 푸시 (`44ae630`).
+- **3. 결과 & 검증**:
+  - `thapathlab.com` 루트, `privacy.html`, `about.html`, `contact.html`, `guide.html`, `autocost`, `radar` 전수 애드센스 코드 100% 반영 확인.
+  - 구글 애드센스 콘솔에서 즉시 [검토 요청] 가능한 상태 완료.
+- **4. 주요 합의 사항**:
+  - 향후 신규 생성되는 서브 페이지 및 빌더 템플릿에는 GA4(`G-K3PFHN6VW7`)와 AdSense(`ca-pub-1876940323402065`) 스크립트를 기본 필수 헤더로 누락 없이 유지한다.
+
 ## [2026-10-07] 베센트(3-3-3) & 드러켄밀러 고금리 체제 A/B/C 전략군 분류 개편 및 65개 종목 병렬 고속 레이더 구축
 - **1. 요청사항**: 
   - 최근 드러켄밀러의 금리 인상/인플레 재점화 경고 및 스콧 베센트(Scott Bessent) 차기 재무장관 지명자의 3-3-3 정책(재정적자 3% 축소, 규제 완화/성장률 3%, 원유 300만 배럴 증산) 방향성에 맞춘 포트폴리오 전면 재평가.
