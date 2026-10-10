@@ -947,21 +947,11 @@ def build_radar():
                 "bottom_count": cat_bottom
             }
 
-    # 그룹별 카운트 계산
-    group_a_count = sum(1 for it in stock_items if it["meta"].get("group") == "A")
-    group_b_count = sum(1 for it in stock_items if it["meta"].get("group") == "B")
-    group_c_count = sum(1 for it in stock_items if it["meta"].get("group") == "C")
-
     out_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(out_dir, "radar_data.json")
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump({
             "updated": updated_str,
-            "groups": {
-                "A": group_a_count,
-                "B": group_b_count,
-                "C": group_c_count
-            },
             "sector_benchmarks": sector_stats,
             "items": stock_items
         }, f, ensure_ascii=False, indent=2)
@@ -973,15 +963,6 @@ def build_radar():
         t = item["ticker"]
         m = item["meta"]
         d = item["data"]
-        grp = m.get("group", "B")
-        
-        # 그룹 뱃지 생성
-        if grp == "A":
-            group_badge = '<span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>'
-        elif grp == "C":
-            group_badge = '<span class="group-badge group-c"><i class="bi bi-exclamation-triangle-fill"></i> C군: 정책 주의</span>'
-        else:
-            group_badge = '<span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>'
 
         if d.get("status") == "OK":
             p = f"${d['price']:.2f}"
@@ -1018,12 +999,11 @@ def build_radar():
                 rsi_badge = f'<span class="rsi-badge">RSI {rsi:.0f}</span>'
 
             cards_html += f"""
-            <div class="{card_class}" id="card-{t}" data-category="{m['category']}" data-group="{grp}" data-bottom="{'true' if is_bottom else 'false'}">
+            <div class="{card_class}" id="card-{t}" data-category="{m['category']}" data-bottom="{'true' if is_bottom else 'false'}">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">{t}</span>
-                            {group_badge}
                             <span class="tag-badge">{m['tag']}</span>
                             {rsi_badge}
                             {status_badge}
@@ -1292,17 +1272,24 @@ def build_radar():
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 4px;
             margin-bottom: 6px;
         }}
         .sec-bench-name {{
             font-size: 0.78rem;
             font-weight: 700;
             color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: keep-all;
         }}
         .sec-bench-count {{
             font-size: 0.7rem;
             color: var(--text-dim);
             font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+            flex-shrink: 0;
         }}
         .sec-bench-row {{
             display: flex;
@@ -1323,67 +1310,35 @@ def build_radar():
             text-align: right;
         }}
 
-        /* 그룹 뱃지 */
-        .group-badge {{
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            letter-spacing: -0.2px;
-        }}
-        .group-a {{
-            background: rgba(16, 185, 129, 0.18);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.45);
-        }}
-        .group-b {{
-            background: rgba(56, 189, 248, 0.18);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.45);
-        }}
-        .group-c {{
-            background: rgba(244, 63, 94, 0.18);
-            color: #fb7185;
-            border: 1px solid rgba(244, 63, 94, 0.45);
-        }}
-
-        /* 2단 필터 컨테이너 */
-        .filter-group-container {{
+        /* 단일 직관 필터 바 */
+        .filter-container {{
             max-width: 1200px;
             margin: 0 auto 1.5rem;
             padding: 0 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-        }}
-        .filter-row {{
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             align-items: center;
         }}
-        .filter-row-label {{
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-dim);
-            min-width: 70px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+        .filter-divider {{
+            width: 1px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 4px;
         }}
         .filter-btn {{
             background: rgba(15, 23, 42, 0.7);
             border: 1px solid var(--border-subtle);
             color: var(--text-sub);
-            padding: 6px 13px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.82rem;
+            font-size: 0.83rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }}
         .filter-btn:hover {{
             color: #fff;
@@ -1395,20 +1350,10 @@ def build_radar():
             border-color: var(--cyan) !important;
             font-weight: 800;
         }}
-        .group-btn-a.active {{
-            background: #10b981 !important;
-            color: #ffffff !important;
-            border-color: #10b981 !important;
-        }}
-        .group-btn-b.active {{
-            background: #0284c7 !important;
-            color: #ffffff !important;
-            border-color: #0284c7 !important;
-        }}
-        .group-btn-c.active {{
-            background: #e11d48 !important;
-            color: #ffffff !important;
-            border-color: #e11d48 !important;
+        .filter-btn-bottom.active {{
+            background: #f59e0b !important;
+            color: #070a12 !important;
+            border-color: #f59e0b !important;
         }}
 
         /* 레이더 카드 그리드 */
@@ -1717,22 +1662,16 @@ def build_radar():
         <div class="hero-badge">
             <i class="bi bi-radar"></i> ThePathLab Stock & Swing Radar
         </div>
-        <h1 class="hero-title">종목 레이더 & 베센트 A/B/C 전략 대시보드</h1>
+        <h1 class="hero-title">독점주 종목 레이더 & 대시보드</h1>
         <p class="hero-desc">
-            베센트 3-3-3 독트린 & 고금리 환경에 맞춘 8대 섹터 고마진 독점 해자 기업 실시간 감시 대시보드입니다. 52주 신저가 근접도, 14일 RSI 과매도 눌림목 및 스윙 IF 시나리오(Best / Worst / 🚨 킬스위치)를 추적합니다.
+            각 산업 분야별 고마진 독점 기업 실시간 감시 대시보드입니다. 52주 신저가 근접도, 14일 RSI 과매도 눌림목 및 스윙 IF 시나리오(Best / Worst / 🚨 킬스위치)를 추적합니다.
         </p>
         <div class="meta-bar">
             <div class="meta-item">
                 <i class="bi bi-clock-history"></i> 갱신 기준: <strong>{updated_str}</strong>
             </div>
             <div class="meta-item">
-                <i class="bi bi-rocket-takeoff-fill text-green"></i> A군(베센트 수혜): <strong>{group_a_count}개</strong>
-            </div>
-            <div class="meta-item">
-                <i class="bi bi-shield-fill-check text-blue"></i> B군(독점 요새): <strong>{group_b_count}개</strong>
-            </div>
-            <div class="meta-item">
-                <i class="bi bi-exclamation-triangle-fill text-red"></i> C군(정책 주의): <strong>{group_c_count}개</strong>
+                <i class="bi bi-shield-check text-blue"></i> 감시 종목: <strong>{len(stock_items)}개</strong>
             </div>
             <div class="meta-item">
                 <i class="bi bi-fire text-gold"></i> 바닥 사정권: <strong>{bottom_count}개</strong>
@@ -1752,28 +1691,19 @@ def build_radar():
         </div>
     </section>
 
-    <!-- 2단 복합 필터 바 -->
-    <div class="filter-group-container">
-        <div class="filter-row">
-            <span class="filter-row-label"><i class="bi bi-funnel-fill text-gold"></i> 전략 군:</span>
-            <button class="filter-btn group-btn active" data-grp="all" onclick="filterByGroup('all')">전체 ({len(stock_items)})</button>
-            <button class="filter-btn group-btn group-btn-a" data-grp="A" onclick="filterByGroup('A')">🚀 A군: 베센트 수혜 ({group_a_count})</button>
-            <button class="filter-btn group-btn group-btn-b" data-grp="B" onclick="filterByGroup('B')">🛡️ B군: 독점 요새 ({group_b_count})</button>
-            <button class="filter-btn group-btn group-btn-c" data-grp="C" onclick="filterByGroup('C')">🚨 C군: 정책 주의 ({group_c_count})</button>
-            <button class="filter-btn group-btn" data-grp="alert" onclick="filterByGroup('alert')">🔥 바닥 사정권 ({bottom_count})</button>
-        </div>
-        <div class="filter-row">
-            <span class="filter-row-label"><i class="bi bi-grid-fill text-cyan"></i> 섹터:</span>
-            <button class="filter-btn cat-btn active" data-cat="all" onclick="filterByCategory('all')">전체</button>
-            <button class="filter-btn cat-btn" data-cat="tech" onclick="filterByCategory('tech')">💻 테크/AI</button>
-            <button class="filter-btn cat-btn" data-cat="infra" onclick="filterByCategory('infra')">🏭 산업/인프라</button>
-            <button class="filter-btn cat-btn" data-cat="health" onclick="filterByCategory('health')">🏥 헬스케어</button>
-            <button class="filter-btn cat-btn" data-cat="power" onclick="filterByCategory('power')">⚡ 전력/에너지</button>
-            <button class="filter-btn cat-btn" data-cat="finance" onclick="filterByCategory('finance')">🏛️ 금융/거래소</button>
-            <button class="filter-btn cat-btn" data-cat="ocean" onclick="filterByCategory('ocean')">🌊 자원/광산</button>
-            <button class="filter-btn cat-btn" data-cat="food" onclick="filterByCategory('food')">🌾 식량/소비재</button>
-            <button class="filter-btn cat-btn" data-cat="defense" onclick="filterByCategory('defense')">🛡️ 방산/우주</button>
-        </div>
+    <!-- 직관적인 단일 필터 바 -->
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all" onclick="applySingleFilter('all')">전체 ({len(stock_items)})</button>
+        <button class="filter-btn filter-btn-bottom" data-filter="bottom" onclick="applySingleFilter('bottom')">🔥 바닥 사정권 ({bottom_count})</button>
+        <div class="filter-divider"></div>
+        <button class="filter-btn" data-filter="tech" onclick="applySingleFilter('tech')">💻 테크/AI</button>
+        <button class="filter-btn" data-filter="infra" onclick="applySingleFilter('infra')">🏭 산업/인프라</button>
+        <button class="filter-btn" data-filter="health" onclick="applySingleFilter('health')">🏥 헬스케어</button>
+        <button class="filter-btn" data-filter="power" onclick="applySingleFilter('power')">⚡ 전력/에너지</button>
+        <button class="filter-btn" data-filter="finance" onclick="applySingleFilter('finance')">🏛️ 금융/거래소</button>
+        <button class="filter-btn" data-filter="ocean" onclick="applySingleFilter('ocean')">🌊 자원/광산</button>
+        <button class="filter-btn" data-filter="food" onclick="applySingleFilter('food')">🌾 식량/소비재</button>
+        <button class="filter-btn" data-filter="defense" onclick="applySingleFilter('defense')">🛡️ 방산/우주</button>
     </div>
 
     <main class="radar-grid" id="stockGrid">
@@ -1781,49 +1711,34 @@ def build_radar():
     </main>
 
     <script>
-        let currentGroup = 'all';
-        let currentCat = 'all';
+        let currentFilter = 'all';
 
-        function filterByGroup(grp) {{
-            currentGroup = grp;
-            document.querySelectorAll('.group-btn').forEach(b => {{
-                b.classList.toggle('active', b.getAttribute('data-grp') === grp);
+        function applySingleFilter(flt) {{
+            currentFilter = flt;
+            document.querySelectorAll('.filter-btn').forEach(b => {{
+                b.classList.toggle('active', b.getAttribute('data-filter') === flt);
             }});
-            applyFilters();
-        }}
-
-        function filterByCategory(cat) {{
-            currentCat = cat;
-            document.querySelectorAll('.cat-btn').forEach(b => {{
-                b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-            }});
-            applyFilters();
-        }}
-
-        function filterCategory(cat) {{
-            filterByCategory(cat);
-            const target = document.querySelector('.filter-group-container');
-            if (target) {{
-                window.scrollTo({{ top: target.offsetTop - 80, behavior: 'smooth' }});
-            }}
-        }}
-
-        function applyFilters() {{
+            
             const cards = document.querySelectorAll('.radar-card');
             cards.forEach(card => {{
-                const cGroup = card.getAttribute('data-group');
                 const cCat = card.getAttribute('data-category');
                 const isBottom = card.getAttribute('data-bottom') === 'true';
 
-                let matchGroup = false;
-                if (currentGroup === 'all') matchGroup = true;
-                else if (currentGroup === 'alert') matchGroup = isBottom;
-                else matchGroup = (cGroup === currentGroup);
+                let match = false;
+                if (currentFilter === 'all') match = true;
+                else if (currentFilter === 'bottom') match = isBottom;
+                else match = (cCat === currentFilter);
 
-                let matchCat = (currentCat === 'all' || cCat === currentCat);
-
-                card.style.display = (matchGroup && matchCat) ? 'block' : 'none';
+                card.style.display = match ? 'block' : 'none';
             }});
+        }}
+
+        function filterCategory(cat) {{
+            applySingleFilter(cat);
+            const target = document.querySelector('.filter-container');
+            if (target) {{
+                window.scrollTo({{ top: target.offsetTop - 80, behavior: 'smooth' }});
+            }}
         }}
     </script>
 </body>
@@ -1834,7 +1749,7 @@ def build_radar():
     with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"✅ Stock Radar dashboard built successfully with {len(stock_items)} tickers (A: {group_a_count}, B: {group_b_count}, C: {group_c_count}) at: {html_path}")
+    print(f"✅ Stock Radar dashboard built successfully with {len(stock_items)} tickers (Bottom: {bottom_count}) at: {html_path}")
 
 if __name__ == "__main__":
     build_radar()

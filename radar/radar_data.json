@@ -1,10 +1,5 @@
 {
-  "updated": "2026년 10월 10일 17:55",
-  "groups": {
-    "A": 14,
-    "B": 48,
-    "C": 3
-  },
+  "updated": "2026년 10월 11일 00:26",
   "sector_benchmarks": {
     "tech": {
       "name": "💻 테크/AI",
@@ -34,7 +29,7 @@
       "name": "⚡ 전력/에너지",
       "count": 7,
       "avg_high_drop": -22.011796422497067,
-      "avg_low_gain": 39.79673986623083,
+      "avg_low_gain": 39.71477752523235,
       "avg_rsi": 52.1107808787819,
       "bottom_count": 2
     },
@@ -1523,6 +1518,31 @@
       }
     },
     {
+      "ticker": "WHD",
+      "meta": {
+        "name": "선인장 (Cactus)",
+        "sector": "🛢️ 유전 웰헤드 안전장비 독점",
+        "tag": "5년 EPS 27% 성장",
+        "category": "power",
+        "group": "A",
+        "thesis": "셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점",
+        "special_issue": "무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털",
+        "if_best": "미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증",
+        "if_worst": "원유 시추 활동 급격한 침체",
+        "kill_switch": "분기 FCF 적자 전환 시"
+      },
+      "data": {
+        "price": 63.43,
+        "high52": 74.07,
+        "low52": 33.3,
+        "from_low_pct": 90.4804804804805,
+        "from_high_pct": -14.364790063453484,
+        "range_pct": 73.90237920039246,
+        "rsi": 41.948704108773974,
+        "status": "OK"
+      }
+    },
+    {
       "ticker": "NUE",
       "meta": {
         "name": "뉴코어 (Nucor)",
@@ -1544,31 +1564,6 @@
         "from_high_pct": -10.631537610224555,
         "range_pct": 79.98521406008469,
         "rsi": 51.61318702583176,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "WHD",
-      "meta": {
-        "name": "선인장 (Cactus)",
-        "sector": "🛢️ 유전 웰헤드 안전장비 독점",
-        "tag": "5년 EPS 27% 성장",
-        "category": "power",
-        "group": "A",
-        "thesis": "셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점",
-        "special_issue": "무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털",
-        "if_best": "미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증",
-        "if_worst": "원유 시추 활동 급격한 침체",
-        "kill_switch": "분기 FCF 적자 전환 시"
-      },
-      "data": {
-        "price": 63.43,
-        "high52": 74.07,
-        "low52": 33.2,
-        "from_low_pct": 91.05421686746986,
-        "from_high_pct": -14.364790063453484,
-        "range_pct": 73.96623440176168,
-        "rsi": 41.948704108773974,
         "status": "OK"
       }
     },

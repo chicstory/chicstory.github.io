@@ -184,17 +184,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 4px;
             margin-bottom: 6px;
         }
         .sec-bench-name {
             font-size: 0.78rem;
             font-weight: 700;
             color: #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: keep-all;
         }
         .sec-bench-count {
             font-size: 0.7rem;
             color: var(--text-dim);
             font-family: 'JetBrains Mono', monospace;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .sec-bench-row {
             display: flex;
@@ -215,67 +222,35 @@
             text-align: right;
         }
 
-        /* 그룹 뱃지 */
-        .group-badge {
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            letter-spacing: -0.2px;
-        }
-        .group-a {
-            background: rgba(16, 185, 129, 0.18);
-            color: #34d399;
-            border: 1px solid rgba(16, 185, 129, 0.45);
-        }
-        .group-b {
-            background: rgba(56, 189, 248, 0.18);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.45);
-        }
-        .group-c {
-            background: rgba(244, 63, 94, 0.18);
-            color: #fb7185;
-            border: 1px solid rgba(244, 63, 94, 0.45);
-        }
-
-        /* 2단 필터 컨테이너 */
-        .filter-group-container {
+        /* 단일 직관 필터 바 */
+        .filter-container {
             max-width: 1200px;
             margin: 0 auto 1.5rem;
             padding: 0 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-        }
-        .filter-row {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             align-items: center;
         }
-        .filter-row-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--text-dim);
-            min-width: 70px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+        .filter-divider {
+            width: 1px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 4px;
         }
         .filter-btn {
             background: rgba(15, 23, 42, 0.7);
             border: 1px solid var(--border-subtle);
             color: var(--text-sub);
-            padding: 6px 13px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.82rem;
+            font-size: 0.83rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
         .filter-btn:hover {
             color: #fff;
@@ -287,20 +262,10 @@
             border-color: var(--cyan) !important;
             font-weight: 800;
         }
-        .group-btn-a.active {
-            background: #10b981 !important;
-            color: #ffffff !important;
-            border-color: #10b981 !important;
-        }
-        .group-btn-b.active {
-            background: #0284c7 !important;
-            color: #ffffff !important;
-            border-color: #0284c7 !important;
-        }
-        .group-btn-c.active {
-            background: #e11d48 !important;
-            color: #ffffff !important;
-            border-color: #e11d48 !important;
+        .filter-btn-bottom.active {
+            background: #f59e0b !important;
+            color: #070a12 !important;
+            border-color: #f59e0b !important;
         }
 
         /* 레이더 카드 그리드 */
@@ -609,22 +574,16 @@
         <div class="hero-badge">
             <i class="bi bi-radar"></i> ThePathLab Stock & Swing Radar
         </div>
-        <h1 class="hero-title">종목 레이더 & 베센트 A/B/C 전략 대시보드</h1>
+        <h1 class="hero-title">독점주 종목 레이더 & 대시보드</h1>
         <p class="hero-desc">
-            베센트 3-3-3 독트린 & 고금리 환경에 맞춘 8대 섹터 고마진 독점 해자 기업 실시간 감시 대시보드입니다. 52주 신저가 근접도, 14일 RSI 과매도 눌림목 및 스윙 IF 시나리오(Best / Worst / 🚨 킬스위치)를 추적합니다.
+            각 산업 분야별 고마진 독점 기업 실시간 감시 대시보드입니다. 52주 신저가 근접도, 14일 RSI 과매도 눌림목 및 스윙 IF 시나리오(Best / Worst / 🚨 킬스위치)를 추적합니다.
         </p>
         <div class="meta-bar">
             <div class="meta-item">
-                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 10월 10일 17:55</strong>
+                <i class="bi bi-clock-history"></i> 갱신 기준: <strong>2026년 10월 11일 00:26</strong>
             </div>
             <div class="meta-item">
-                <i class="bi bi-rocket-takeoff-fill text-green"></i> A군(베센트 수혜): <strong>14개</strong>
-            </div>
-            <div class="meta-item">
-                <i class="bi bi-shield-fill-check text-blue"></i> B군(독점 요새): <strong>48개</strong>
-            </div>
-            <div class="meta-item">
-                <i class="bi bi-exclamation-triangle-fill text-red"></i> C군(정책 주의): <strong>3개</strong>
+                <i class="bi bi-shield-check text-blue"></i> 감시 종목: <strong>65개</strong>
             </div>
             <div class="meta-item">
                 <i class="bi bi-fire text-gold"></i> 바닥 사정권: <strong>21개</strong>
@@ -788,38 +747,28 @@
         </div>
     </section>
 
-    <!-- 2단 복합 필터 바 -->
-    <div class="filter-group-container">
-        <div class="filter-row">
-            <span class="filter-row-label"><i class="bi bi-funnel-fill text-gold"></i> 전략 군:</span>
-            <button class="filter-btn group-btn active" data-grp="all" onclick="filterByGroup('all')">전체 (65)</button>
-            <button class="filter-btn group-btn group-btn-a" data-grp="A" onclick="filterByGroup('A')">🚀 A군: 베센트 수혜 (14)</button>
-            <button class="filter-btn group-btn group-btn-b" data-grp="B" onclick="filterByGroup('B')">🛡️ B군: 독점 요새 (48)</button>
-            <button class="filter-btn group-btn group-btn-c" data-grp="C" onclick="filterByGroup('C')">🚨 C군: 정책 주의 (3)</button>
-            <button class="filter-btn group-btn" data-grp="alert" onclick="filterByGroup('alert')">🔥 바닥 사정권 (21)</button>
-        </div>
-        <div class="filter-row">
-            <span class="filter-row-label"><i class="bi bi-grid-fill text-cyan"></i> 섹터:</span>
-            <button class="filter-btn cat-btn active" data-cat="all" onclick="filterByCategory('all')">전체</button>
-            <button class="filter-btn cat-btn" data-cat="tech" onclick="filterByCategory('tech')">💻 테크/AI</button>
-            <button class="filter-btn cat-btn" data-cat="infra" onclick="filterByCategory('infra')">🏭 산업/인프라</button>
-            <button class="filter-btn cat-btn" data-cat="health" onclick="filterByCategory('health')">🏥 헬스케어</button>
-            <button class="filter-btn cat-btn" data-cat="power" onclick="filterByCategory('power')">⚡ 전력/에너지</button>
-            <button class="filter-btn cat-btn" data-cat="finance" onclick="filterByCategory('finance')">🏛️ 금융/거래소</button>
-            <button class="filter-btn cat-btn" data-cat="ocean" onclick="filterByCategory('ocean')">🌊 자원/광산</button>
-            <button class="filter-btn cat-btn" data-cat="food" onclick="filterByCategory('food')">🌾 식량/소비재</button>
-            <button class="filter-btn cat-btn" data-cat="defense" onclick="filterByCategory('defense')">🛡️ 방산/우주</button>
-        </div>
+    <!-- 직관적인 단일 필터 바 -->
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all" onclick="applySingleFilter('all')">전체 (65)</button>
+        <button class="filter-btn filter-btn-bottom" data-filter="bottom" onclick="applySingleFilter('bottom')">🔥 바닥 사정권 (21)</button>
+        <div class="filter-divider"></div>
+        <button class="filter-btn" data-filter="tech" onclick="applySingleFilter('tech')">💻 테크/AI</button>
+        <button class="filter-btn" data-filter="infra" onclick="applySingleFilter('infra')">🏭 산업/인프라</button>
+        <button class="filter-btn" data-filter="health" onclick="applySingleFilter('health')">🏥 헬스케어</button>
+        <button class="filter-btn" data-filter="power" onclick="applySingleFilter('power')">⚡ 전력/에너지</button>
+        <button class="filter-btn" data-filter="finance" onclick="applySingleFilter('finance')">🏛️ 금융/거래소</button>
+        <button class="filter-btn" data-filter="ocean" onclick="applySingleFilter('ocean')">🌊 자원/광산</button>
+        <button class="filter-btn" data-filter="food" onclick="applySingleFilter('food')">🌾 식량/소비재</button>
+        <button class="filter-btn" data-filter="defense" onclick="applySingleFilter('defense')">🛡️ 방산/우주</button>
     </div>
 
     <main class="radar-grid" id="stockGrid">
         
-            <div class="radar-card alert-border" id="card-LHX" data-category="defense" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-LHX" data-category="defense" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">LHX</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">군용 전술통신</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 34 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -877,12 +826,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-NOC" data-category="defense" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-NOC" data-category="defense" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NOC</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">국방비 최우선</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 35 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -940,12 +888,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-GNTX" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-GNTX" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">GNTX</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">부품사 마진 20%</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 31 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1003,12 +950,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-VMC" data-category="infra" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-VMC" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">VMC</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">대체 불가 광산</span>
                             <span class="rsi-badge">RSI 42</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1066,12 +1012,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-IDXX" data-category="health" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-IDXX" data-category="health" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">IDXX</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">반려동물 비급여</span>
                             <span class="rsi-badge">RSI 47</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1129,12 +1074,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-KTOS" data-category="defense" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-KTOS" data-category="defense" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">KTOS</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">지상국 80%</span>
                             <span class="rsi-badge">RSI 35</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1192,12 +1136,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-CPRT" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-CPRT" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CPRT</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">영업마진 40%</span>
                             <span class="rsi-badge">RSI 38</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1255,12 +1198,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-MKC" data-category="food" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-MKC" data-category="food" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">MKC</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">37년 배당귀족 바닥권</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 31 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1318,12 +1260,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-XYL" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-XYL" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">XYL</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">상하수도 독점</span>
                             <span class="rsi-badge">RSI 41</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1381,12 +1322,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-FSLR" data-category="tech" data-group="C" data-bottom="true">
+            <div class="radar-card alert-border" id="card-FSLR" data-category="tech" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">FSLR</span>
-                            <span class="group-badge group-c"><i class="bi bi-exclamation-triangle-fill"></i> C군: 정책 주의</span>
                             <span class="tag-badge">IRA 수혜 저P/E 7배</span>
                             <span class="rsi-badge">RSI 40</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1444,12 +1384,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-DECK" data-category="health" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-DECK" data-category="health" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">DECK</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">Fwd P/E 9.5배 극단가치</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1507,12 +1446,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-WM" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-WM" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">WM</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">북미 1위 인프라</span>
                             <span class="rsi-badge">RSI 44</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1570,12 +1508,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-GD" data-category="defense" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-GD" data-category="defense" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">GD</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">해군 1등 벤더</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 31 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1633,12 +1570,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-BWXT" data-category="power" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-BWXT" data-category="power" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">BWXT</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">국방 원자력</span>
                             <span class="rsi-badge">RSI 48</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1696,12 +1632,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-RSG" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-RSG" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">RSG</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">물가연동 가격력</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1759,12 +1694,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-ULS" data-category="infra" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-ULS" data-category="infra" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ULS</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">UL 마크 통행세</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1822,12 +1756,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-CCJ" data-category="power" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-CCJ" data-category="power" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CCJ</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">원전 연료 독점</span>
                             <span class="rsi-badge">RSI 44</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -1885,12 +1818,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-ECL" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-ECL" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ECL</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">빌게이츠 1대 주주</span>
                             <span class="rsi-badge">RSI 57</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -1948,12 +1880,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-HEI" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-HEI" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">HEI</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">버핏 스타일 복리</span>
                             <span class="rsi-badge">RSI 37</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2011,12 +1942,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-CI" data-category="health" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-CI" data-category="health" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CI</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">현금 요새</span>
                             <span class="rsi-badge">RSI 58</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2074,12 +2004,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-BLK" data-category="finance" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-BLK" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">BLK</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">10조 달러 거인</span>
                             <span class="rsi-badge">RSI 51</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2137,12 +2066,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-INTU" data-category="tech" data-group="A" data-bottom="true">
+            <div class="radar-card alert-border" id="card-INTU" data-category="tech" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">INTU</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">Fwd P/E 10배 바닥</span>
                             <span class="rsi-badge">RSI 51</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -2200,12 +2128,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-ROOT" data-category="health" data-group="C" data-bottom="true">
+            <div class="radar-card alert-border" id="card-ROOT" data-category="health" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ROOT</span>
-                            <span class="group-badge group-c"><i class="bi bi-exclamation-triangle-fill"></i> C군: 정책 주의</span>
                             <span class="tag-badge">스페셜 시츄에이션</span>
                             <span class="rsi-badge">RSI 48</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -2263,12 +2190,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-HWM" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-HWM" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">HWM</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">P/S 10배 괴물</span>
                             <span class="rsi-badge">RSI 40</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2326,12 +2252,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-TW" data-category="finance" data-group="A" data-bottom="false">
+            <div class="radar-card warn-border" id="card-TW" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">TW</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">채권 핀테크</span>
                             <span class="rsi-badge">RSI 68</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2389,12 +2314,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-VNOM" data-category="power" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-VNOM" data-category="power" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">VNOM</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">석유계 비자카드</span>
                             <span class="rsi-badge">RSI 55</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2452,12 +2376,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-AVGO" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-AVGO" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">AVGO</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">ASIC 1등</span>
                             <span class="rsi-badge">RSI 50</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2515,12 +2438,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-CTAS" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-CTAS" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CTAS</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">트럭망 네트워크</span>
                             <span class="rsi-badge">RSI 58</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2578,12 +2500,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-VRTX" data-category="health" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-VRTX" data-category="health" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">VRTX</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">순이익률 40%</span>
                             <span class="rsi-badge">RSI 46</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2641,12 +2562,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-MA" data-category="finance" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-MA" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">MA</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">무차입 통행세</span>
                             <span class="rsi-badge">RSI 65</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2704,12 +2624,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-ADBE" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-ADBE" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ADBE</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">AI 공포 과매도</span>
                             <span class="rsi-badge">RSI 47</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2767,12 +2686,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-RMD" data-category="health" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-RMD" data-category="health" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">RMD</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">필립스 리콜 수혜</span>
                             <span class="rsi-badge">RSI 60</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2830,12 +2748,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-CME" data-category="finance" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-CME" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CME</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">원자재/금리 선물</span>
                             <span class="rsi-badge">RSI 62</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2893,12 +2810,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-ISRG" data-category="health" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-ISRG" data-category="health" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ISRG</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">면도날 모델</span>
                             <span class="rsi-badge">RSI 67</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -2956,12 +2872,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-UNP" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-UNP" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">UNP</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">대륙의 혈관</span>
                             <span class="rsi-badge">RSI 46</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -3019,12 +2934,11 @@
                 </div>
             </div>
             
-            <div class="radar-card warn-border" id="card-CASY" data-category="food" data-group="B" data-bottom="false">
+            <div class="radar-card warn-border" id="card-CASY" data-category="food" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CASY</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">미국 5대 피자 체인</span>
                             <span class="rsi-badge">RSI 49</span>
                             <span class="status-badge alert-warn"><i class="bi bi-eye"></i> 분할 관심</span>
@@ -3082,12 +2996,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CEG" data-category="power" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-CEG" data-category="power" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CEG</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">MSFT 20년 PPA 독점</span>
                             <span class="rsi-badge">RSI 62</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3145,12 +3058,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-V" data-category="finance" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-V" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">V</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">인플레 자동 전가</span>
                             <span class="rsi-badge">RSI 68</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3208,12 +3120,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-MNST" data-category="food" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-MNST" data-category="food" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">MNST</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">음료계의 SaaS</span>
                             <span class="rsi-badge">RSI 49</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3271,12 +3182,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CBOE" data-category="finance" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-CBOE" data-category="finance" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CBOE</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">폭락장 헤지 자산</span>
                             <span class="rsi-badge">RSI 65</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3334,12 +3244,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CDNS" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-CDNS" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CDNS</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">반도체 필수재</span>
                             <span class="rsi-badge">RSI 66</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3397,12 +3306,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-ETN" data-category="power" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-ETN" data-category="power" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ETN</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">전력망 심장</span>
                             <span class="rsi-badge">RSI 51</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3460,12 +3368,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-NVDA" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-NVDA" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NVDA</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">AI 황제</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3523,12 +3430,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-EME" data-category="infra" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-EME" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">EME</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">CAPEX 즉시상각</span>
                             <span class="rsi-badge">RSI 55</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3586,12 +3492,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-RGLD" data-category="ocean" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-RGLD" data-category="ocean" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">RGLD</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">마진 50% 금 SaaS</span>
                             <span class="rsi-badge">RSI 45</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3649,12 +3554,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CSX" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-CSX" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CSX</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">원정수송 해자</span>
                             <span class="rsi-badge">RSI 45</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3712,12 +3616,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-SNPS" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-SNPS" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">SNPS</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">설계 소프트웨어</span>
                             <span class="rsi-badge rsi-overbought">RSI 75 과열</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3775,12 +3678,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-ADM" data-category="food" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-ADM" data-category="food" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">ADM</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">곡물 메이저</span>
                             <span class="rsi-badge">RSI 42</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3838,12 +3740,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-CF" data-category="food" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-CF" data-category="food" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CF</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">P/FCF 7배</span>
                             <span class="rsi-badge rsi-oversold"><i class="bi bi-lightning-fill"></i> RSI 32 과매도</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -3901,12 +3802,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-COCO" data-category="food" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-COCO" data-category="food" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">COCO</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">점유율 50%+</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -3964,12 +3864,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-CLH" data-category="infra" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-CLH" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">CLH</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">초고마진 소각</span>
                             <span class="rsi-badge">RSI 52</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4027,12 +3926,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-WST" data-category="health" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-WST" data-category="health" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">WST</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">필수 패키징</span>
                             <span class="rsi-badge">RSI 53</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4090,12 +3988,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-BHP" data-category="ocean" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-BHP" data-category="ocean" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">BHP</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">남반구 자원요새</span>
                             <span class="rsi-badge">RSI 50</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4153,12 +4050,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-NOW" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-NOW" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NOW</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">포춘 500 필수 SaaS</span>
                             <span class="rsi-badge">RSI 58</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4216,12 +4112,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-PWR" data-category="power" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-PWR" data-category="power" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">PWR</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">인프라 시공 1위</span>
                             <span class="rsi-badge">RSI 63</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4279,12 +4174,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-IESC" data-category="infra" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-IESC" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">IESC</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">전력 쇼티지 병목</span>
                             <span class="rsi-badge">RSI 38</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4342,12 +4236,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-RIG" data-category="ocean" data-group="C" data-bottom="false">
+            <div class="radar-card normal-border" id="card-RIG" data-category="ocean" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">RIG</span>
-                            <span class="group-badge group-c"><i class="bi bi-exclamation-triangle-fill"></i> C군: 정책 주의</span>
                             <span class="tag-badge">공급절벽 수혜</span>
                             <span class="rsi-badge">RSI 51</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4405,12 +4298,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-SCCO" data-category="ocean" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-SCCO" data-category="ocean" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">SCCO</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">순이익률 40%</span>
                             <span class="rsi-badge">RSI 59</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4468,12 +4360,73 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-NUE" data-category="infra" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-WHD" data-category="power" data-bottom="false">
+                <div class="card-header">
+                    <div class="card-title-wrap">
+                        <div class="card-ticker-row">
+                            <span class="ticker-badge">WHD</span>
+                            <span class="tag-badge">5년 EPS 27% 성장</span>
+                            <span class="rsi-badge">RSI 42</span>
+                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
+                        </div>
+                        <h3 class="card-name">선인장 (Cactus)</h3>
+                        <span class="card-sector">🛢️ 유전 웰헤드 안전장비 독점</span>
+                    </div>
+                    <div class="card-price-wrap">
+                        <div class="current-price">$63.43</div>
+                        <div class="price-fl" style="color: #38bdf8;">
+                            <i class="bi bi-arrow-up-right"></i> 저점대비 +90.5%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="range-box">
+                    <div class="range-labels">
+                        <span>52주 최저 $33.30</span>
+                        <span style="color: #94a3b8; font-weight:700;">고점대비 -14.4%</span>
+                        <span>52주 최고 $74.07</span>
+                    </div>
+                    <div class="range-track">
+                        <div class="range-fill" style="width: 73.9%;"></div>
+                        <div class="range-pin" style="left: 73.9%;"></div>
+                    </div>
+                </div>
+
+                <div class="issue-box">
+                    <div class="issue-title"><i class="bi bi-shield-lock-fill text-gold"></i> 독점 해자 & 특수 상황</div>
+                    <div class="issue-desc">무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털</div>
+                </div>
+
+                <div class="scenario-accordion">
+                    <details>
+                        <summary><i class="bi bi-diagram-3"></i> 스윙 IF 시나리오 & 킬스위치 보기</summary>
+                        <div class="scenario-details">
+                            <div class="sc-item sc-best">
+                                <strong>🌟 Best (익절 타깃):</strong> 미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증
+                            </div>
+                            <div class="sc-item sc-worst">
+                                <strong>💥 Worst (위험 요인):</strong> 원유 시추 활동 급격한 침체
+                            </div>
+                            <div class="sc-item sc-kill">
+                                <strong>🚨 킬스위치 (기계적 손절):</strong> 분기 FCF 적자 전환 시
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card-footer-actions">
+                    <span class="thesis-text">셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점</span>
+                    <a href="https://finance.yahoo.com/quote/WHD" target="_blank" rel="noopener" class="chart-btn">
+                        차트 <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="radar-card normal-border" id="card-NUE" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">NUE</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">50년 배당귀족</span>
                             <span class="rsi-badge">RSI 52</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4531,75 +4484,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-WHD" data-category="power" data-group="A" data-bottom="false">
-                <div class="card-header">
-                    <div class="card-title-wrap">
-                        <div class="card-ticker-row">
-                            <span class="ticker-badge">WHD</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
-                            <span class="tag-badge">5년 EPS 27% 성장</span>
-                            <span class="rsi-badge">RSI 42</span>
-                            <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
-                        </div>
-                        <h3 class="card-name">선인장 (Cactus)</h3>
-                        <span class="card-sector">🛢️ 유전 웰헤드 안전장비 독점</span>
-                    </div>
-                    <div class="card-price-wrap">
-                        <div class="current-price">$63.43</div>
-                        <div class="price-fl" style="color: #38bdf8;">
-                            <i class="bi bi-arrow-up-right"></i> 저점대비 +91.1%
-                        </div>
-                    </div>
-                </div>
-
-                <div class="range-box">
-                    <div class="range-labels">
-                        <span>52주 최저 $33.20</span>
-                        <span style="color: #94a3b8; font-weight:700;">고점대비 -14.4%</span>
-                        <span>52주 최고 $74.07</span>
-                    </div>
-                    <div class="range-track">
-                        <div class="range-fill" style="width: 74.0%;"></div>
-                        <div class="range-pin" style="left: 74.0%;"></div>
-                    </div>
-                </div>
-
-                <div class="issue-box">
-                    <div class="issue-title"><i class="bi bi-shield-lock-fill text-gold"></i> 독점 해자 & 특수 상황</div>
-                    <div class="issue-desc">무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털</div>
-                </div>
-
-                <div class="scenario-accordion">
-                    <details>
-                        <summary><i class="bi bi-diagram-3"></i> 스윙 IF 시나리오 & 킬스위치 보기</summary>
-                        <div class="scenario-details">
-                            <div class="sc-item sc-best">
-                                <strong>🌟 Best (익절 타깃):</strong> 미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증
-                            </div>
-                            <div class="sc-item sc-worst">
-                                <strong>💥 Worst (위험 요인):</strong> 원유 시추 활동 급격한 침체
-                            </div>
-                            <div class="sc-item sc-kill">
-                                <strong>🚨 킬스위치 (기계적 손절):</strong> 분기 FCF 적자 전환 시
-                            </div>
-                        </div>
-                    </details>
-                </div>
-
-                <div class="card-footer-actions">
-                    <span class="thesis-text">셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점</span>
-                    <a href="https://finance.yahoo.com/quote/WHD" target="_blank" rel="noopener" class="chart-btn">
-                        차트 <i class="bi bi-box-arrow-up-right"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="radar-card normal-border" id="card-FCX" data-category="ocean" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-FCX" data-category="ocean" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">FCX</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">AI 전력 구리</span>
                             <span class="rsi-badge">RSI 56</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4657,12 +4546,11 @@
                 </div>
             </div>
             
-            <div class="radar-card alert-border" id="card-KLAC" data-category="tech" data-group="B" data-bottom="true">
+            <div class="radar-card alert-border" id="card-KLAC" data-category="tech" data-bottom="true">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">KLAC</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">영업마진 40%</span>
                             <span class="rsi-badge">RSI 55</span>
                             <span class="status-badge alert-fire"><i class="bi bi-fire"></i> 바닥 사정권</span>
@@ -4720,12 +4608,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-FIX" data-category="infra" data-group="A" data-bottom="false">
+            <div class="radar-card normal-border" id="card-FIX" data-category="infra" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">FIX</span>
-                            <span class="group-badge group-a"><i class="bi bi-rocket-takeoff-fill"></i> A군: 베센트 수혜</span>
                             <span class="tag-badge">데이터센터 수혜 대장</span>
                             <span class="rsi-badge">RSI 54</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4783,12 +4670,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-AMAT" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-AMAT" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">AMAT</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">장비 제국</span>
                             <span class="rsi-badge">RSI 55</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4846,12 +4732,11 @@
                 </div>
             </div>
             
-            <div class="radar-card normal-border" id="card-COHR" data-category="tech" data-group="B" data-bottom="false">
+            <div class="radar-card normal-border" id="card-COHR" data-category="tech" data-bottom="false">
                 <div class="card-header">
                     <div class="card-title-wrap">
                         <div class="card-ticker-row">
                             <span class="ticker-badge">COHR</span>
-                            <span class="group-badge group-b"><i class="bi bi-shield-fill-check"></i> B군: 독점 요새</span>
                             <span class="tag-badge">800G 광통신 독점</span>
                             <span class="rsi-badge">RSI 52</span>
                             <span class="status-badge alert-hold"><i class="bi bi-check2-circle"></i> 관찰 유지</span>
@@ -4912,49 +4797,34 @@
     </main>
 
     <script>
-        let currentGroup = 'all';
-        let currentCat = 'all';
+        let currentFilter = 'all';
 
-        function filterByGroup(grp) {
-            currentGroup = grp;
-            document.querySelectorAll('.group-btn').forEach(b => {
-                b.classList.toggle('active', b.getAttribute('data-grp') === grp);
+        function applySingleFilter(flt) {
+            currentFilter = flt;
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.toggle('active', b.getAttribute('data-filter') === flt);
             });
-            applyFilters();
-        }
-
-        function filterByCategory(cat) {
-            currentCat = cat;
-            document.querySelectorAll('.cat-btn').forEach(b => {
-                b.classList.toggle('active', b.getAttribute('data-cat') === cat);
-            });
-            applyFilters();
-        }
-
-        function filterCategory(cat) {
-            filterByCategory(cat);
-            const target = document.querySelector('.filter-group-container');
-            if (target) {
-                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-            }
-        }
-
-        function applyFilters() {
+            
             const cards = document.querySelectorAll('.radar-card');
             cards.forEach(card => {
-                const cGroup = card.getAttribute('data-group');
                 const cCat = card.getAttribute('data-category');
                 const isBottom = card.getAttribute('data-bottom') === 'true';
 
-                let matchGroup = false;
-                if (currentGroup === 'all') matchGroup = true;
-                else if (currentGroup === 'alert') matchGroup = isBottom;
-                else matchGroup = (cGroup === currentGroup);
+                let match = false;
+                if (currentFilter === 'all') match = true;
+                else if (currentFilter === 'bottom') match = isBottom;
+                else match = (cCat === currentFilter);
 
-                let matchCat = (currentCat === 'all' || cCat === currentCat);
-
-                card.style.display = (matchGroup && matchCat) ? 'block' : 'none';
+                card.style.display = match ? 'block' : 'none';
             });
+        }
+
+        function filterCategory(cat) {
+            applySingleFilter(cat);
+            const target = document.querySelector('.filter-container');
+            if (target) {
+                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            }
         }
     </script>
 </body>
