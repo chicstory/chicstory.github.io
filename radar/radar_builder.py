@@ -1122,7 +1122,9 @@ def build_radar():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>종목 레이더 & 스윙 IF 시나리오 | ThePathLab</title>
     <meta name="description" content="ThePathLab 종목 레이더: 8대 섹터 고마진 독점 해자 기업들의 52주 신저가, RSI 과매도 눌림목 포착 및 베센트 독트린 A/B/C 전략 실시간 감시 대시보드">
-    <link rel="canonical" href="https://chicstory.github.io/radar/">
+    <meta name="google-adsense-account" content="ca-pub-1876940323402065">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1876940323402065" crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://thapathlab.com/radar/">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
