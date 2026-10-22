@@ -582,16 +582,21 @@
       gap: 12px;
     }
 
-    /* 2 & 3 가로 배치 컨테이너 */
-    .zones-top-split {
+    /* 상단: 3 (스케치 3 메인 단독 전체 폭) */
+    .zone-top-main {
+      width: 100%;
+    }
+
+    /* 하단: 2 (좌측: 휴게실/사무실) ── 1 (우측: 남측 코어 & 작업대 신상대) 가로 2열 배치 */
+    .zones-bottom-split {
       display: grid;
-      grid-template-columns: 330px 1fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 12px;
       align-items: start;
     }
 
-    @media (max-width: 980px) {
-      .zones-top-split {
+    @media (max-width: 900px) {
+      .zones-bottom-split {
         grid-template-columns: 1fr;
       }
     }
@@ -2272,14 +2277,14 @@
       const southZone = currentBoxMap.find(z => z.id === 'zone-south');
 
       warehouseContainer.innerHTML = `
-        <!-- ☕ 스케치 2(휴게실 좌측) ── 가로배치 ── 🧭 스케치 3(메인 적재존 우측 넓게) -->
-        <div class="zones-top-split">
-          ${officeZone ? renderZone(officeZone) : ''}
+        <!-- 🧭 [3] 스케치 3: 북측 벽면 & 중앙 대형 메인 스택존 (상단 단독 전체 폭) -->
+        <div class="zone-top-main">
           ${centerZone ? renderZone(centerZone) : ''}
         </div>
 
-        <!-- ⚡ 스케치 1: 남측 우측 피킹 코어 & 작업대 6단 신상대 (하단 전체) -->
-        <div class="zone-bottom-full" style="margin-top: 4px;">
+        <!-- 하단: 2 (좌측: 휴게실 & 사무실) ── 1 (우측: 남측 코어 & 작업대 신상대) 가로 2열 배치 -->
+        <div class="zones-bottom-split">
+          ${officeZone ? renderZone(officeZone) : ''}
           ${southZone ? renderZone(southZone) : ''}
         </div>
       `;
