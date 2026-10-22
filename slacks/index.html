@@ -692,14 +692,18 @@
       border-color: #38bdf8;
     }
 
-    /* 🎯 콤팩트 모눈 박스 타일 */
+    /* 🎯 콤팩트 모눈 박스 타일 & 세로 통행로 플렉스 컨테이너 */
     .box-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 4px;
+      align-items: stretch;
     }
 
     .box-stack-card {
+      flex: 1 1 88px;
+      min-width: 80px;
+      max-width: 125px;
       background: var(--box-stack-bg);
       border: 1px solid var(--box-stack-border);
       border-radius: 6px;
@@ -708,6 +712,59 @@
       user-select: none;
       transition: all 0.12s;
       position: relative;
+    }
+
+    /* 🚶 세로 통행로 타일 (박스들 사이를 가르는 수직 통로) */
+    .vertical-aisle-card {
+      flex: 0 0 32px;
+      width: 32px;
+      min-height: 54px;
+      background: repeating-linear-gradient(
+        -45deg,
+        rgba(30, 41, 59, 0.75),
+        rgba(30, 41, 59, 0.75) 5px,
+        rgba(15, 23, 42, 0.85) 5px,
+        rgba(15, 23, 42, 0.85) 10px
+      );
+      border: 1px dashed #64748b;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s;
+    }
+    .vertical-aisle-card:hover {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+    }
+    .v-aisle-icon {
+      font-size: 0.72rem;
+    }
+    .v-aisle-text {
+      font-size: 0.54rem;
+      font-weight: 800;
+      color: #94a3b8;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      letter-spacing: -1px;
+    }
+    .v-aisle-del-btn {
+      font-size: 0.52rem;
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 3px;
+      padding: 0 2px;
+      cursor: pointer;
+      margin-top: 1px;
+    }
+    .v-aisle-del-btn:hover {
+      background: #ef4444;
+      color: #fff;
     }
 
     .box-stack-card:hover {
@@ -1699,11 +1756,12 @@
           {
             type: "row",
             id: "r-stack1-top",
-            label: "1번 스택 상단: 9시리즈 숏 (994, 993, 991) & A-L / B-L",
+            label: "1번 스택 상단: 9시리즈 숏 ──세로통로── A-L / B-L",
             boxes: [
               { id: "b-994", code: "994", name: "9부 옆밴딩 숏 차콜", tiers: "9단", note: "1번 스택 상단" },
               { id: "b-993", code: "993", name: "9부 옆밴딩 숏 네이비", tiers: "9단", note: "1번 스택 상단" },
               { id: "b-991-top", code: "991", name: "9부 옆밴딩 숏 블랙", tiers: "9단", note: "1번 스택 상단" },
+              { type: "v-aisle", id: "va-s1-1", label: "통로" },
               { id: "b-al-1", code: "A-L1", name: "투핀턱 와이드롱 블랙", tiers: "9단", note: "1번 스택 중단" },
               { id: "b-al-2", code: "A-L2", name: "투핀턱 와이드롱 차콜", tiers: "9단", note: "1번 스택 중단" },
               { id: "b-bl-1", code: "B-L1", name: "스트레이트 롱 블랙", tiers: "9단", note: "1번 스택 중단" },
@@ -1730,12 +1788,13 @@
           {
             type: "row",
             id: "r-stack2-top",
-            label: "2번 스택 상단: 69시리즈 롱 (691~694) & A-S, C-L",
+            label: "2번 스택 상단: 69시리즈 롱 ──세로통로── A-S & C-L",
             boxes: [
               { id: "b-991-mid", code: "991", name: "9부 밴딩 숏 블랙", tiers: "9단", note: "2번 스택 1열" },
               { id: "b-694", code: "694", name: "10부 옆밴딩 롱 차콜", tiers: "9단", note: "2번 스택 1열" },
               { id: "b-693", code: "693", name: "10부 옆밴딩 롱 네이비", tiers: "9단", note: "2번 스택 1열" },
               { id: "b-692", code: "692", name: "10부 옆밴딩 롱 그레이", tiers: "9단", note: "2번 스택 1열" },
+              { type: "v-aisle", id: "va-s2-1", label: "통로" },
               { id: "b-992", code: "992", name: "9부 밴딩 숏 아이", tiers: "9단", note: "2번 스택 2열" },
               { id: "b-as-2", code: "A-S2", name: "투핀턱 와이드숏 차콜", tiers: "9단", note: "2번 스택 2열" },
               { id: "b-as-4", code: "A-S4", name: "투핀턱 와이드숏 아이", tiers: "9단", note: "2번 스택 2열" },
@@ -1765,11 +1824,12 @@
           {
             type: "row",
             id: "r-stack3",
-            label: "3번 스택: 기본 롱 (691, A-L1, C-L1) & 2911 오비 3줄 집중 적재",
+            label: "3번 스택: 기본 롱 ──세로통로── 2911 오비 3줄 집중 적재",
             boxes: [
               { id: "b-691-bot", code: "691", name: "10부 밴딩 롱 블랙", tiers: "9단", note: "3번 스택" },
               { id: "b-al1-bot", code: "A-L1", name: "와이드롱 블랙", tiers: "9단", note: "3번 스택" },
               { id: "b-cl1-bot", code: "C-L1", name: "세미부츠컷롱 블랙", tiers: "9단", note: "3번 스택" },
+              { type: "v-aisle", id: "va-s3-1", label: "통로" },
               { id: "b-2911-line1", code: "2911 (1줄)", name: "특가와이드오비 블랙 (1줄째)", tiers: "9단", note: "오비 3줄 연속" },
               { id: "b-2911-line2", code: "2911 (2줄)", name: "특가와이드오비 블랙 (2줄째)", tiers: "9단", note: "오비 3줄 연속" },
               { id: "b-2911-line3", code: "2911 (3줄)", name: "특가와이드오비 블랙 (3줄째)", tiers: "9단", note: "오비 3줄 연속" },
@@ -1875,7 +1935,7 @@
       }
     ];
 
-    const MAP_STORAGE_KEY = 'adorapick_box_map_v4';
+    const MAP_STORAGE_KEY = 'adorapick_box_map_v5';
     let currentBoxMap = loadBoxMap();
 
     function loadBoxMap() {
@@ -2167,12 +2227,23 @@
             `;
           }
 
-          // Row of boxes
-          const boxesHtml = (el.boxes || []).map(box => {
+          // Row items: can be a box OR a vertical aisle (v-aisle)
+          const boxesHtml = (el.boxes || []).map((item, bIdx) => {
+            if (item.type === 'v-aisle') {
+              return `
+                <div class="vertical-aisle-card" onclick="editVAisle('${zone.id}', '${el.id}', '${item.id}')" title="세로 통로 (클릭하여 이름 수정)">
+                  <span class="v-aisle-icon">🚶</span>
+                  <span class="v-aisle-text">${item.label || '통로'}</span>
+                  <button type="button" class="v-aisle-del-btn" onclick="event.stopPropagation(); deleteVAisle('${zone.id}', '${el.id}', '${item.id}')" title="세로 통로 삭제">✖</button>
+                </div>
+              `;
+            }
+
+            const box = item;
             const isMatch = q.length > 0 && (
-              box.code.toLowerCase().includes(q) ||
-              box.name.toLowerCase().includes(q) ||
-              box.note.toLowerCase().includes(q)
+              (box.code && box.code.toLowerCase().includes(q)) ||
+              (box.name && box.name.toLowerCase().includes(q)) ||
+              (box.note && box.note.toLowerCase().includes(q))
             );
 
             let tierClass = 'nine';
@@ -2246,7 +2317,8 @@
                 <span class="row-label">${el.label}</span>
                 <div class="row-actions">
                   <button type="button" class="row-action-btn" onclick="addBoxToRow('${zone.id}', '${el.id}')">+ 박스</button>
-                  <button type="button" class="row-action-btn" onclick="insertAisleAfter('${zone.id}', ${elIdx})">+ 아래 통로</button>
+                  <button type="button" class="row-action-btn" onclick="addVAisleToRow('${zone.id}', '${el.id}')" style="color:#38bdf8;border-color:rgba(56,189,248,0.4);" title="박스들 사이에 세로 통행로 추가">🚶 + 세로통로</button>
+                  <button type="button" class="row-action-btn" onclick="insertAisleAfter('${zone.id}', ${elIdx})">═ + 가로통로</button>
                 </div>
               </div>
               <div class="box-grid">
@@ -2288,6 +2360,56 @@
           ${southZone ? renderZone(southZone) : ''}
         </div>
       `;
+    }
+
+        // =============================================================
+    // 🚶 세로 통행로 (Vertical Aisle) 제어 함수
+    // =============================================================
+    function addVAisleToRow(zoneId, rowId) {
+      const zone = currentBoxMap.find(z => z.id === zoneId);
+      if (!zone) return;
+      const row = zone.elements.find(el => el.id === rowId);
+      if (!row || !row.boxes) return;
+      const label = prompt("세로 통행로 이름 (생략 시 '통로'):", "통로");
+      if (label === null) return;
+      row.boxes.push({
+        type: 'v-aisle',
+        id: 'va-' + Date.now(),
+        label: (label.trim() || '통로')
+      });
+      renderBoxMap();
+      saveBoxMapToStorage();
+      showToast("🚶 세로 통행로가 추가되었습니다!");
+    }
+
+    function editVAisle(zoneId, rowId, aisleId) {
+      const zone = currentBoxMap.find(z => z.id === zoneId);
+      if (!zone) return;
+      const row = zone.elements.find(el => el.id === rowId);
+      if (!row || !row.boxes) return;
+      const aisle = row.boxes.find(b => b.id === aisleId);
+      if (!aisle) return;
+      const newLabel = prompt("세로 통행로 이름 수정 (삭제하려면 '삭제' 입력):", aisle.label || '통로');
+      if (newLabel === null) return;
+      if (newLabel.trim() === '삭제' || newLabel.trim() === '') {
+        deleteVAisle(zoneId, rowId, aisleId);
+      } else {
+        aisle.label = newLabel.trim();
+        renderBoxMap();
+        saveBoxMapToStorage();
+        showToast("✏️ 세로 통행로 이름이 수정되었습니다.");
+      }
+    }
+
+    function deleteVAisle(zoneId, rowId, aisleId) {
+      const zone = currentBoxMap.find(z => z.id === zoneId);
+      if (!zone) return;
+      const row = zone.elements.find(el => el.id === rowId);
+      if (!row || !row.boxes) return;
+      row.boxes = row.boxes.filter(b => b.id !== aisleId);
+      renderBoxMap();
+      saveBoxMapToStorage();
+      showToast("🗑️ 세로 통행로가 삭제되었습니다.");
     }
 
     function addAisleToZone(zoneId) {
@@ -2387,13 +2509,13 @@
       if (!zone) return;
       for (const el of (zone.elements || [])) {
         if (el.type === 'row' && el.boxes) {
-          const box = el.boxes.find(b => b.id === boxId);
+          const box = el.boxes.find(b => b.id === boxId && b.type !== 'v-aisle');
           if (box) {
             editingBox = { zoneId, boxId, box };
-            modalCode.value = box.code;
-            modalName.value = box.name;
-            modalTiers.value = box.tiers;
-            modalNote.value = box.note;
+            modalCode.value = box.code || '';
+            modalName.value = box.name || '';
+            modalTiers.value = box.tiers || '9단';
+            modalNote.value = box.note || '';
             boxModal.classList.add('open');
             return;
           }
