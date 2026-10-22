@@ -5,30 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>아도라블 1초 품번 판독기 (AdoraPick)</title>
   <meta name="description" content="아도라블 슬랙스 주문서 품목명 1초 품번 역매핑 & 창고 피킹 속견표">
-  <meta name="theme-color" content="#1e293b">
-  <!-- PWA & Mobile WebApp Capable -->
+  <meta name="theme-color" content="#0f172a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <style>
     :root {
-      --bg: #0f172a;
+      --bg: #0b1120;
       --card-bg: #1e293b;
       --card-border: #334155;
       --text-main: #f8fafc;
       --text-sub: #94a3b8;
       --accent: #38bdf8;
       --accent-hover: #0ea5e9;
-      --warning-bg: rgba(245, 158, 11, 0.15);
-      --warning-border: #f59e0b;
-      --warning-text: #fbbf24;
-      --danger-bg: rgba(239, 68, 68, 0.15);
-      --danger-border: #ef4444;
-      --tag-long: #10b981;
-      --tag-short: #f59e0b;
-      --tag-female: #ec4899;
-      --tag-male: #3b82f6;
-      --tag-winter: #06b6d4;
-      --tag-summer: #eab308;
+      --target-gold: #f59e0b;
+      --target-bg: rgba(245, 158, 11, 0.12);
+      --target-border: #f59e0b;
+      --warning-bg: rgba(239, 68, 68, 0.12);
+      --warning-border: #ef4444;
+      --warning-text: #f87171;
     }
 
     * {
@@ -43,20 +37,19 @@
       background: var(--bg);
       color: var(--text-main);
       min-height: 100vh;
-      padding: 12px;
-      padding-bottom: 80px;
+      padding: 10px 12px 80px 12px;
       word-break: keep-all;
       overflow-wrap: anywhere;
     }
 
-    /* 상단 고정 헤더 & 검색바 */
+    /* 상단 헤더 & 검색바 */
     .sticky-header {
       position: sticky;
       top: 0;
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(11, 17, 32, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      padding: 10px 0 12px 0;
+      padding: 8px 0 10px 0;
       z-index: 100;
       border-bottom: 1px solid var(--card-border);
     }
@@ -69,7 +62,7 @@
     }
 
     .brand-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--accent);
       display: flex;
@@ -78,7 +71,7 @@
     }
 
     .brand-badge {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       padding: 2px 7px;
       border-radius: 999px;
       background: #0284c7;
@@ -87,11 +80,11 @@
     }
 
     .stats-count {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-sub);
     }
 
-    /* 검색 인풋 영역 */
+    /* 검색창 */
     .search-box-wrap {
       position: relative;
       display: flex;
@@ -105,8 +98,8 @@
       border: 2px solid #38bdf8;
       border-radius: 14px;
       padding: 0 46px 0 16px;
-      color: #fff;
-      font-size: 1.15rem;
+      color: #ffffff;
+      font-size: 1.1rem;
       font-weight: 600;
       outline: none;
       box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
@@ -120,7 +113,7 @@
 
     .search-input::placeholder {
       color: #64748b;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 400;
     }
 
@@ -140,17 +133,16 @@
       align-items: center;
       justify-content: center;
     }
-
     .clear-btn.visible {
       display: flex;
     }
 
-    /* 퀵 필터 칩 바 */
+    /* 칩 필터 */
     .chips-container {
       display: flex;
       gap: 6px;
       overflow-x: auto;
-      padding: 10px 0 2px 0;
+      padding: 8px 0 2px 0;
       scrollbar-width: none;
     }
     .chips-container::-webkit-scrollbar {
@@ -159,12 +151,12 @@
 
     .chip-btn {
       flex-shrink: 0;
-      padding: 7px 12px;
-      border-radius: 10px;
+      padding: 6px 11px;
+      border-radius: 8px;
       border: 1px solid var(--card-border);
       background: #1e293b;
       color: var(--text-sub);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s;
@@ -172,9 +164,88 @@
 
     .chip-btn.active {
       background: var(--accent);
-      color: #0f172a;
+      color: #0b1120;
       border-color: var(--accent);
       font-weight: 800;
+    }
+
+    /* 🎯 스마트 옵션 디코더 박스 (초고대비 하이라이트) */
+    .decoder-hero {
+      margin-top: 12px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(16, 185, 129, 0.12));
+      border: 2px solid var(--target-gold);
+      border-radius: 16px;
+      padding: 14px 16px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
+      animation: pulseGlow 1.8s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 2px 14px rgba(245, 158, 11, 0.2); }
+      to { box-shadow: 0 4px 24px rgba(245, 158, 11, 0.4); }
+    }
+
+    .decoder-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: var(--target-gold);
+      color: #0b1120;
+      padding: 3px 8px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .decoder-target-code {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fbbf24;
+      letter-spacing: 0.5px;
+      font-family: "Courier New", Courier, monospace, sans-serif;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .decoder-subsize {
+      font-size: 1.25rem;
+      color: #34d399;
+      font-weight: 800;
+    }
+
+    .decoder-desc {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .decoder-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .decoder-meta span strong {
+      color: #38bdf8;
+    }
+
+    .decoder-copy-hint {
+      margin-top: 8px;
+      font-size: 0.74rem;
+      color: #94a3b8;
+      text-align: right;
     }
 
     /* 카드 리스트 */
@@ -220,6 +291,7 @@
       color: #38bdf8;
       letter-spacing: 0.5px;
       font-family: "Courier New", Courier, monospace, sans-serif;
+      cursor: pointer;
     }
 
     .tag-gender {
@@ -288,9 +360,8 @@
       color: #cbd5e1;
     }
 
-    /* 위치 및 포장 안내 */
     .meta-box {
-      background: #0f172a;
+      background: #0b1120;
       border: 1px solid #334155;
       border-radius: 10px;
       padding: 8px 12px;
@@ -309,7 +380,7 @@
     .meta-label {
       color: #64748b;
       font-weight: 600;
-      min-width: 55px;
+      min-width: 58px;
     }
     .meta-val {
       color: #e2e8f0;
@@ -347,7 +418,7 @@
     .color-chip:active {
       transform: scale(0.95);
       background: #38bdf8;
-      color: #0f172a;
+      color: #0b1120;
     }
 
     .color-dot {
@@ -364,7 +435,7 @@
     .dot-brown { background: #78350f; }
     .dot-pink { background: #f472b6; }
 
-    /* 사이즈 터치 환산 칩 */
+    /* 사이즈 터치 버튼 */
     .sizes-wrap {
       display: flex;
       align-items: center;
@@ -379,9 +450,9 @@
       margin-right: 4px;
     }
     .size-btn {
-      padding: 3px 8px;
+      padding: 4px 8px;
       border-radius: 6px;
-      background: #0f172a;
+      background: #0b1120;
       border: 1px solid #475569;
       color: #cbd5e1;
       font-size: 0.75rem;
@@ -394,7 +465,7 @@
       border-color: #10b981;
     }
 
-    /* 함정/주의사항 배너 */
+    /* 함정/주의사항 */
     .card-warning {
       background: var(--warning-bg);
       border: 1px solid var(--warning-border);
@@ -404,12 +475,9 @@
       font-size: 0.78rem;
       color: var(--warning-text);
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
-    /* 토스트 메시지 */
+    /* 토스트 */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -417,9 +485,9 @@
       transform: translateX(-50%) translateY(100px);
       background: #10b981;
       color: #ffffff;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 800;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       z-index: 1000;
@@ -427,13 +495,11 @@
       transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       pointer-events: none;
     }
-
     .toast.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
 
-    /* 검색 결과 없음 */
     .empty-state {
       text-align: center;
       padding: 50px 20px;
@@ -453,29 +519,32 @@
   <header class="sticky-header">
     <div class="title-row">
       <div class="brand-title">
-        <span>👖 아도라블 슬랙스 1초 판독기</span>
-        <span class="brand-badge">현장용</span>
+        <span>👖 아도라블 1초 품번 판독기</span>
+        <span class="brand-badge">현장 무결점</span>
       </div>
       <div class="stats-count" id="itemCount">전체 로딩중...</div>
     </div>
 
     <!-- 검색창 -->
     <div class="search-box-wrap">
-      <input type="text" id="searchInput" class="search-input" placeholder="품목명, 코드, 색상, 키워드 (예: 기모, SAS, 181, 먹색)" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <input type="text" id="searchInput" class="search-input" placeholder="품목명, 코드, 옵션명 (예: 오비 슬랙스, 세미부츠컷 검정 숏 L)" autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
       <button type="button" id="clearBtn" class="clear-btn" aria-label="검색어 지우기">✕</button>
     </div>
 
     <!-- 퀵 필터 칩 -->
     <div class="chips-container" id="chipsBar">
       <button class="chip-btn active" data-filter="all">전체</button>
-      <button class="chip-btn" data-filter="winter">❄️ 겨울 기모/본딩</button>
+      <button class="chip-btn" data-filter="winter">❄️ 기모/본딩</button>
       <button class="chip-btn" data-filter="basic">🌿 사계절 기본</button>
-      <button class="chip-btn" data-filter="summer">☀️ 여름 쿨/라이크라</button>
+      <button class="chip-btn" data-filter="summer">☀️ 여름 쿨/오비</button>
       <button class="chip-btn" data-filter="female">👗 여성라인</button>
       <button class="chip-btn" data-filter="male">👔 남성라인</button>
       <button class="chip-btn" data-filter="fast">🚀 181/7712 초특가</button>
     </div>
   </header>
+
+  <!-- 🎯 스마트 주문서 옵션 디코더 (단품 판독 시 표시) -->
+  <div id="decoderContainer"></div>
 
   <!-- 카드 리스트 -->
   <main class="results-container" id="cardsContainer">
@@ -486,11 +555,11 @@
   <div id="toast" class="toast">복사 완료!</div>
 
   <script>
-    // -------------------------------------------------------------
-    // 아도라블 마스터 데이터베이스 (현장 매뉴얼 100% 반영)
-    // -------------------------------------------------------------
+    // =============================================================
+    // 아도라블 마스터 데이터베이스 (사진 5장 실물 발주서 100% 반영)
+    // =============================================================
     const ITEMS = [
-      // === ❄️ 겨울 남성 기모/본딩 ===
+      // --- ❄️ 겨울 기모/본딩 (남성) ---
       {
         code: "2712",
         name: "남성 TR기모 10부 (롱)",
@@ -498,14 +567,14 @@
         gender: "male",
         length: "long",
         isFast: false,
-        aliases: ["2712", "기모롱", "TR기모롱", "겨울기모롱", "기모10부", "겨울롱", "기모남자롱"],
+        aliases: ["2712", "기모롱", "TR기모롱", "겨울기모롱", "기모10부", "겨울롱", "기모슬랙스", "기모바지", "기모남자롱", "2712-1", "2712-2", "2712-3"],
         location: "남측 우측 코어존 (2층 작업대 뒤)",
-        bag: "3호 (단품) / 4호 (합포)",
+        bag: "3호",
         warning: "⚠️ 3712(숏/9부)와 헷갈림 주의! 끝자리 2는 롱(10부)입니다.",
         colors: [
-          { code: "2712-1", name: "블랙", dot: "dot-black" },
-          { code: "2712-2", name: "차콜(먹색)", dot: "dot-charcoal" },
-          { code: "2712-3", name: "네이비(곤색)", dot: "dot-navy" }
+          { code: "2712-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "2712-2", name: "2: 차콜(먹색)", dot: "dot-charcoal" },
+          { code: "2712-3", name: "3: 네이비(곤색)", dot: "dot-navy" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
@@ -516,14 +585,14 @@
         gender: "male",
         length: "short",
         isFast: false,
-        aliases: ["3712", "기모숏", "TR기모숏", "겨울기모숏", "기모9부", "겨울숏", "기모남자숏"],
+        aliases: ["3712", "기모숏", "TR기모숏", "겨울기모숏", "기모9부", "겨울숏", "기모슬랙스", "기모바지", "기모남자숏", "3712-1", "3712-2", "3712-3"],
         location: "남측 우측 코어존 (2층 작업대 뒤)",
-        bag: "3호 (단품) / 4호 (합포)",
+        bag: "3호",
         warning: "⚠️ 2712(롱/10부)와 헷갈림 주의! 3712는 숏(9부)입니다.",
         colors: [
-          { code: "3712-1", name: "블랙", dot: "dot-black" },
-          { code: "3712-2", name: "차콜(먹색)", dot: "dot-charcoal" },
-          { code: "3712-3", name: "네이비(곤색)", dot: "dot-navy" }
+          { code: "3712-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "3712-2", name: "2: 차콜(먹색)", dot: "dot-charcoal" },
+          { code: "3712-3", name: "3: 네이비(곤색)", dot: "dot-navy" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
@@ -534,14 +603,14 @@
         gender: "male",
         length: "long",
         isFast: false,
-        aliases: ["5712", "본딩롱", "TR본딩롱", "겨울본딩롱", "본딩10부", "본딩남자롱"],
+        aliases: ["5712", "본딩롱", "TR본딩롱", "겨울본딩롱", "본딩10부", "본딩슬랙스", "본딩바지", "5712-1", "5712-2", "5712-3"],
         location: "남측 우측 코어존 (2층 작업대 뒤)",
-        bag: "3호 (단품) / 4호 (합포)",
+        bag: "3호",
         warning: "⚠️ 6812(숏/9부)와 헷갈림 주의! 5712는 롱(10부)입니다.",
         colors: [
-          { code: "5712-1", name: "블랙", dot: "dot-black" },
-          { code: "5712-2", name: "차콜(먹색)", dot: "dot-charcoal" },
-          { code: "5712-3", name: "네이비(곤색)", dot: "dot-navy" }
+          { code: "5712-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "5712-2", name: "2: 차콜(먹색)", dot: "dot-charcoal" },
+          { code: "5712-3", name: "3: 네이비(곤색)", dot: "dot-navy" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
@@ -552,28 +621,28 @@
         gender: "male",
         length: "short",
         isFast: false,
-        aliases: ["6812", "본딩숏", "TR본딩숏", "겨울본딩숏", "본딩9부", "본딩남자숏"],
+        aliases: ["6812", "AJ6812", "AJ6812-1", "본딩숏", "TR본딩숏", "겨울본딩숏", "본딩9부", "본딩슬랙스", "본딩바지", "6812-1", "6812-2", "6812-3"],
         location: "남측 우측 코어존 (2층 작업대 뒤)",
-        bag: "3호 (단품) / 4호 (합포)",
+        bag: "3호",
         warning: "⚠️ 5712(롱/10부)와 헷갈림 주의! 6812는 숏(9부)입니다.",
         colors: [
-          { code: "6812-1", name: "블랙", dot: "dot-black" },
-          { code: "6812-2", name: "차콜(먹색)", dot: "dot-charcoal" },
-          { code: "6812-3", name: "네이비(곤색)", dot: "dot-navy" }
+          { code: "6812-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "6812-2", name: "2: 차콜(먹색)", dot: "dot-charcoal" },
+          { code: "6812-3", name: "3: 네이비(곤색)", dot: "dot-navy" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
       {
         code: "6911",
-        name: "남성 TR기모 와이드 슬랙스",
+        name: "남성 TR기모 와이드 슬랙스 (바지)",
         season: "winter",
         gender: "male",
         length: "basic",
         isFast: false,
-        aliases: ["6911", "6933", "6944", "기모와이드", "겨울와이드", "TR기모와이드", "남자체형와이드기모"],
+        aliases: ["6911", "6933", "6944", "기모와이드", "겨울와이드", "TR기모와이드", "와이드슬랙스", "와이드바지"],
         location: "남측 우측 코어존 (2층 작업대 뒤)",
         bag: "3호",
-        warning: "품번이 색상마다 다름: 6911(블랙), 6933(네이비), 6944(차콜)",
+        warning: "색상별 품번: 6911(블랙), 6933(네이비), 6944(차콜)",
         colors: [
           { code: "6911", name: "블랙 (6911)", dot: "dot-black" },
           { code: "6944", name: "차콜 (6944)", dot: "dot-charcoal" },
@@ -582,7 +651,7 @@
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)"]
       },
 
-      // === ❄️ 겨울 여성 히든밴딩 (WA, WC) ===
+      // --- ❄️ 겨울 여성 (WA, WC, 2WC) ---
       {
         code: "WA-L",
         name: "여성 겨울기모 투핀턱 와이드 10부 (롱)",
@@ -590,8 +659,8 @@
         gender: "female",
         length: "long",
         isFast: false,
-        aliases: ["WA-L", "WAL", "겨울투핀턱롱", "기모와이드여성롱", "히든밴딩투핀턱롱", "WA-L1", "WA-L2", "WA-L3"],
-        location: "남측 우측 코어존 (2층 작업대 뒤)",
+        aliases: ["WA-L", "WAL", "WAL1", "WAL2", "WAL3", "기모와이드", "기모와이드롱", "겨울투핀턱롱", "와이드슬랙스"],
+        location: "남측 우측 코어존 (2층)",
         bag: "3호",
         warning: "⚠️ 여성 28호칭은 M입니다! (26:S, 28:M, 30:L, 32:XL)",
         colors: [
@@ -608,8 +677,8 @@
         gender: "female",
         length: "short",
         isFast: false,
-        aliases: ["WA-S", "WAS", "겨울투핀턱숏", "기모와이드여성숏", "히든밴딩투핀턱숏", "WA-S1", "WA-S2", "WA-S3"],
-        location: "남측 우측 코어존 (2층 작업대 뒤)",
+        aliases: ["WA-S", "WAS", "WAS1", "WAS2", "WAS3", "기모와이드숏", "겨울투핀턱숏", "와이드슬랙스"],
+        location: "남측 우측 코어존 (2층)",
         bag: "3호",
         warning: "⚠️ 여성 28호칭은 M입니다! 숏기장(9부) 확인 필수.",
         colors: [
@@ -620,141 +689,164 @@
         sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
       },
       {
-        code: "WC-L",
-        name: "여성 겨울기모 히든밴딩 부츠컷 10부 (롱)",
+        code: "WC-L / 2WC-L",
+        name: "여성 겨울기모 부츠컷 10부 (롱)",
         season: "winter",
         gender: "female",
         length: "long",
         isFast: false,
-        aliases: ["WC-L", "WCL", "겨울부츠컷롱", "기모부츠컷여성롱", "히든밴딩부츠컷롱", "WC-L1", "WC-L2", "WC-L3"],
-        location: "남측 우측 코어존 (2층 작업대 뒤)",
+        aliases: ["WC-L", "WCL", "WCL1", "WCL2", "WCL3", "2WC", "2WC-L", "2WCL", "기모부츠컷", "기모부츠컷롱", "겨울부츠컷롱", "부츠컷슬랙스"],
+        location: "남측 우측 코어존 (2층)",
         bag: "3호",
-        warning: "⚠️ 여성 사이즈 호칭(26~32) 주의",
+        warning: "⚠️ 부츠컷 롱기장(10부). 2WC도 동일 라인.",
         colors: [
-          { code: "WC-L1", name: "1: 블랙", dot: "dot-black" },
-          { code: "WC-L2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "WC-L3", name: "3: 브라운", dot: "dot-brown" }
+          { code: "WC-L1", name: "1: 블랙 (2WC-L1)", dot: "dot-black" },
+          { code: "WC-L2", name: "2: 차콜 (2WC-L2)", dot: "dot-charcoal" },
+          { code: "WC-L3", name: "3: 브라운 (2WC-L3)", dot: "dot-brown" }
         ],
         sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
       },
       {
-        code: "WC-S",
-        name: "여성 겨울기모 히든밴딩 부츠컷 9부 (숏)",
+        code: "WC-S / 2WC-S",
+        name: "여성 겨울기모 부츠컷 9부 (숏)",
         season: "winter",
         gender: "female",
         length: "short",
         isFast: false,
-        aliases: ["WC-S", "WCS", "겨울부츠컷숏", "기모부츠컷여성숏", "히든밴딩부츠컷숏", "WC-S1", "WC-S2", "WC-S3"],
-        location: "남측 우측 코어존 (2층 작업대 뒤)",
+        aliases: ["WC-S", "WCS", "WCS1", "WCS2", "WCS3", "2WC", "2WC-S", "2WCS", "기모부츠컷숏", "겨울부츠컷숏", "부츠컷슬랙스"],
+        location: "남측 우측 코어존 (2층)",
         bag: "3호",
-        warning: "⚠️ 숏(9부) 부츠컷 기장 확인",
+        warning: "⚠️ 부츠컷 숏기장(9부). 2WC도 동일 라인.",
         colors: [
-          { code: "WC-S1", name: "1: 블랙", dot: "dot-black" },
-          { code: "WC-S2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "WC-S3", name: "3: 브라운", dot: "dot-brown" }
+          { code: "WC-S1", name: "1: 블랙 (2WC-S1)", dot: "dot-black" },
+          { code: "WC-S2", name: "2: 차콜 (2WC-S2)", dot: "dot-charcoal" },
+          { code: "WC-S3", name: "3: 브라운 (2WC-S3)", dot: "dot-brown" }
         ],
         sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
       },
 
-      // === 🌿 사계절 기본 남성 (181, 191, 7712, 8812 등) ===
+      // --- 🌿 사계절 기본 남성 (오비 2911, 밴딩 1911, 7712, 8812, 181, 191) ---
       {
-        code: "181 시리즈",
-        name: "남성 특가밴딩 슬랙스 9부 (숏) ⭐[최다출고]",
+        code: "2911 (오비)",
+        name: "남성 특가와이드 오비 슬랙스 (벨트고리형)",
         season: "basic",
         gender: "male",
-        length: "short",
-        isFast: true,
-        aliases: ["181", "183", "184", "187", "189", "특가밴딩숏", "특가밴딩9부", "밴딩숏", "181블랙"],
-        location: "🚀 181은 작업대 바로 옆 택배 발송대 3걸음 단독배치! (183~189는 남측 코어)",
-        bag: "3호 (단품) / 4호 (6~10장)",
-        warning: "🚨 최다 오출고 주의: 181(숏/9부) vs 191(롱/10부) 기장 재확인!",
-        colors: [
-          { code: "181", name: "블랙 (181)", dot: "dot-black" },
-          { code: "184", name: "차콜 (184)", dot: "dot-charcoal" },
-          { code: "183", name: "네이비 (183)", dot: "dot-navy" },
-          { code: "187", name: "아이보리 (187)", dot: "dot-ivory" },
-          { code: "189", name: "연베이지 (189)", dot: "dot-beige" }
-        ],
-        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
-      },
-      {
-        code: "191 시리즈",
-        name: "남성 특가밴딩 슬랙스 10부 (롱)",
-        season: "basic",
-        gender: "male",
-        length: "long",
-        isFast: true,
-        aliases: ["191", "193", "194", "197", "199", "특가밴딩롱", "특가밴딩10부", "밴딩롱", "191블랙"],
-        location: "남측 우측 코어존 (2층)",
+        length: "basic",
+        isFast: false,
+        aliases: ["2911", "2944", "2977", "2999", "오비", "오비슬랙스", "특가와이드오비", "와이드오비", "오비바지", "남성오비", "AJ2944", "R03410"],
+        location: "1911 상/하단 세로 선반 전용 구역",
         bag: "3호",
-        warning: "⚠️ 181(숏/9부)과 혼동 주의! 191은 롱(10부)입니다.",
+        warning: "⭐ 벨트고리가 있는 일반 오비 타입! 2911(블랙), 2944(차콜), 2977(아이), 2999(연베)",
         colors: [
-          { code: "191", name: "블랙 (191)", dot: "dot-black" },
-          { code: "194", name: "차콜 (194)", dot: "dot-charcoal" },
-          { code: "193", name: "네이비 (193)", dot: "dot-navy" },
-          { code: "197", name: "아이보리 (197)", dot: "dot-ivory" },
-          { code: "199", name: "연베이지 (199)", dot: "dot-beige" }
+          { code: "2911", name: "블랙 (2911)", dot: "dot-black" },
+          { code: "2944", name: "차콜 (2944)", dot: "dot-charcoal" },
+          { code: "2977", name: "아이보리 (2977)", dot: "dot-ivory" },
+          { code: "2999", name: "연베이지 (2999)", dot: "dot-beige" }
         ],
-        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
       },
       {
-        code: "7712",
+        code: "1911 (밴딩)",
+        name: "남성 특가와이드 밴딩 슬랙스 (허리밴딩)",
+        season: "basic",
+        gender: "male",
+        length: "basic",
+        isFast: false,
+        aliases: ["1911", "1944", "1977", "1999", "와이드밴딩", "와이드밴드", "와이드슬랙스", "1911시리즈", "1999연베이지"],
+        location: "1911 상/하단 세로 선반 전용 구역",
+        bag: "3호",
+        warning: "허리 전체 밴딩 와이드. 1911(블랙), 1944(차콜), 1977(아이), 1999(연베)",
+        colors: [
+          { code: "1911", name: "블랙 (1911)", dot: "dot-black" },
+          { code: "1944", name: "차콜 (1944)", dot: "dot-charcoal" },
+          { code: "1977", name: "아이보리 (1977)", dot: "dot-ivory" },
+          { code: "1999", name: "연베이지 (1999)", dot: "dot-beige" }
+        ],
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
+      },
+      {
+        code: "7712 (L7712)",
         name: "남성 특가 슬랙스 10부 (롱)",
         season: "basic",
         gender: "male",
         length: "long",
         isFast: true,
-        aliases: ["7712", "특가롱", "특가10부", "남성특가롱", "7712-1", "7712-2", "7712-3"],
+        aliases: ["7712", "L7712", "L7712-1", "L7712-2", "L7712-3", "특가롱", "특가10부", "남성특가롱", "슬랙스롱", "7712슬랙스", "ZJDO_2006", "7712-1", "7712-2", "7712-3", "7712-4", "7712-7", "7712-9"],
         location: "📍 북측 벽면 1열 렉 집중존 (통로 북쪽)",
         bag: "3호",
-        warning: "⚠️ 8812(숏/9부)와 헷갈림 주의! 7712는 롱(10부)입니다.",
+        warning: "⚠️ 트렌드쉽은 'L7712'로 표기! 8812(숏/9부)와 헷갈림 주의.",
         colors: [
-          { code: "7712-1", name: "1: 블랙", dot: "dot-black" },
-          { code: "7712-2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "7712-3", name: "3: 네이비", dot: "dot-navy" },
+          { code: "7712-1", name: "1: 블랙 (L7712-1)", dot: "dot-black" },
+          { code: "7712-2", name: "2: 차콜 (L7712-2)", dot: "dot-charcoal" },
+          { code: "7712-3", name: "3: 네이비 (L7712-3)", dot: "dot-navy" },
           { code: "7712-4", name: "4: 아이보리", dot: "dot-ivory" },
+          { code: "7712-7", name: "7: 연그레이", dot: "dot-charcoal" },
           { code: "7712-9", name: "9: 연베이지", dot: "dot-beige" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
       {
-        code: "8812",
+        code: "8812 (S8812)",
         name: "남성 특가 슬랙스 9부 (숏)",
         season: "basic",
         gender: "male",
         length: "short",
         isFast: true,
-        aliases: ["8812", "특가숏", "특가9부", "남성특가숏", "8812-1", "8812-2", "8812-3"],
+        aliases: ["8812", "S8812", "S8812-1", "S8812-2", "S8812-3", "특가숏", "특가9부", "남성특가숏", "슬랙스숏", "8812슬랙스", "AJ8812", "AJ8812-1", "AJ8812-2", "AJ8812-3", "8812-1", "8812-2", "8812-3", "8812-4", "8812-7", "8812-9"],
         location: "📍 북측 벽면 1열 렉 집중존 (통로 북쪽)",
         bag: "3호",
-        warning: "⚠️ 7712(롱/10부)와 헷갈림 주의! 8812는 숏(9부)입니다.",
+        warning: "⚠️ 트렌드쉽은 'S8812'로 표기! 레디핏은 'AJ8812'로 표기.",
         colors: [
-          { code: "8812-1", name: "1: 블랙", dot: "dot-black" },
-          { code: "8812-2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "8812-3", name: "3: 네이비", dot: "dot-navy" },
+          { code: "8812-1", name: "1: 블랙 (S8812-1)", dot: "dot-black" },
+          { code: "8812-2", name: "2: 차콜 (S8812-2)", dot: "dot-charcoal" },
+          { code: "8812-3", name: "3: 네이비 (S8812-3)", dot: "dot-navy" },
           { code: "8812-4", name: "4: 아이보리", dot: "dot-ivory" },
+          { code: "8812-7", name: "7: 연그레이", dot: "dot-charcoal" },
           { code: "8812-9", name: "9: 연베이지", dot: "dot-beige" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
       {
-        code: "691 / 991",
-        name: "남성 밴드 슬랙스 (691 롱 / 991 숏)",
+        code: "181 (S181)",
+        name: "남성 특가밴딩 슬랙스 9부 (숏) ⭐[최다출고]",
         season: "basic",
         gender: "male",
-        length: "both",
-        isFast: false,
-        aliases: ["691", "991", "밴드롱", "밴드숏", "9시리즈", "밴드슬랙스"],
-        location: "중앙 더블렉 1 & 마지막 1열 렉",
-        bag: "3호",
-        warning: "691: 롱(10부) / 991: 숏(9부). 색상: 1블랙, 2아이, 3네이비, 4차콜",
+        length: "short",
+        isFast: true,
+        aliases: ["181", "S181", "AJ181", "AJ183", "AJ184", "183", "184", "186", "187", "189", "특가밴딩숏", "특가밴딩9부", "밴딩숏", "181블랙", "S181블랙", "S183네이비", "S189연베이지"],
+        location: "🚀 181은 작업대 바로 옆 택배 발송대 3걸음 단독배치!",
+        bag: "3호 (단품) / 4호 (합포)",
+        warning: "🚨 최다 오출고: 181(숏/9부) vs 191(롱/10부) 기장 확인! 트렌드쉽은 S181로 표기.",
         colors: [
-          { code: "691/991", name: "1: 블랙", dot: "dot-black" },
-          { code: "694/994", name: "4: 차콜", dot: "dot-charcoal" },
-          { code: "693/993", name: "3: 네이비", dot: "dot-navy" },
-          { code: "692/992", name: "2: 아이보리", dot: "dot-ivory" }
+          { code: "181", name: "블랙 (181 / S181 / AJ181)", dot: "dot-black" },
+          { code: "184", name: "차콜 (184 / AJ184)", dot: "dot-charcoal" },
+          { code: "183", name: "네이비 (183 / S183)", dot: "dot-navy" },
+          { code: "186", name: "카키/브라운 (186)", dot: "dot-brown" },
+          { code: "187", name: "아이보리 (187)", dot: "dot-ivory" },
+          { code: "189", name: "연베이지 (189 / S189)", dot: "dot-beige" }
         ],
-        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
+      },
+      {
+        code: "191 (L191)",
+        name: "남성 특가밴딩 슬랙스 10부 (롱)",
+        season: "basic",
+        gender: "male",
+        length: "long",
+        isFast: true,
+        aliases: ["191", "L191", "AJ191", "193", "194", "196", "197", "199", "특가밴딩롱", "특가밴딩10부", "밴딩롱", "191블랙", "AJ191블랙"],
+        location: "남측 우측 코어존 (2층)",
+        bag: "3호",
+        warning: "⚠️ 181(숏/9부)과 혼동 주의! 191은 롱(10부)입니다.",
+        colors: [
+          { code: "191", name: "블랙 (191 / AJ191)", dot: "dot-black" },
+          { code: "194", name: "차콜 (194)", dot: "dot-charcoal" },
+          { code: "193", name: "네이비 (193)", dot: "dot-navy" },
+          { code: "196", name: "카키/브라운 (196)", dot: "dot-brown" },
+          { code: "197", name: "아이보리 (197)", dot: "dot-ivory" },
+          { code: "199", name: "연베이지 (199)", dot: "dot-beige" }
+        ],
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
       {
         code: "2953 / 2954",
@@ -763,298 +855,271 @@
         gender: "male",
         length: "both",
         isFast: false,
-        aliases: ["2953", "2954", "시크릿밴딩", "히든밴딩", "시크릿롱", "시크릿숏"],
+        aliases: ["2953", "2954", "L2953", "S2954", "AJ2953", "AJ2953-1", "시크릿밴딩", "히든밴딩", "시크릿밴드", "L2953-7연그레이", "시크릿롱", "시크릿숏"],
         location: "2층 중앙 더블렉",
         bag: "3호",
-        warning: "2953: 롱(10부) / 2954: 숏(9부). 색상: 1블랙, 2차콜, 3네이비, 7아이",
+        warning: "2953(롱) / 2954(숏). 1:블랙, 2:차콜, 3:네이비, 7:연그레이(아이)",
         colors: [
-          { code: "2953/4-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "2953/4-1", name: "1: 블랙 (L2953-1 / AJ2953-1)", dot: "dot-black" },
           { code: "2953/4-2", name: "2: 차콜", dot: "dot-charcoal" },
           { code: "2953/4-3", name: "3: 네이비", dot: "dot-navy" },
-          { code: "2953/4-7", name: "7: 아이보리", dot: "dot-ivory" }
+          { code: "2953/4-7", name: "7: 연그레이 (L2953-7)", dot: "dot-charcoal" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
+      },
+      {
+        code: "691 (L691) / 991 (S991)",
+        name: "남성 옆밴딩/밴드 슬랙스 (691 롱 / 991 숏)",
+        season: "basic",
+        gender: "male",
+        length: "both",
+        isFast: false,
+        aliases: ["691", "991", "L691", "S991", "AJ691", "AJ694", "AJ991", "AJ993", "옆밴드", "옆밴딩", "옆밴딩슬랙스", "밴드롱", "밴드숏", "9시리즈", "S991블랙", "L691블랙"],
+        location: "중앙 더블렉 1 & 마지막 1열 렉",
+        bag: "3호",
+        warning: "691: 롱(10부, L691) / 991: 숏(9부, S991). 1:블랙, 2:아이, 3:네이비, 4:차콜",
+        colors: [
+          { code: "691/991-1", name: "1: 블랙 (L691/S991/AJ691/AJ991)", dot: "dot-black" },
+          { code: "694/994-4", name: "4: 차콜 (AJ694)", dot: "dot-charcoal" },
+          { code: "693/993-3", name: "3: 네이비 (AJ993)", dot: "dot-navy" },
+          { code: "692/992-2", name: "2: 아이보리", dot: "dot-ivory" }
+        ],
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)", "40(4XL)"]
       },
       {
         code: "3911 / 4911",
-        name: "남성 뒷밴딩(=뒷밴드) 슬랙스 (3911 롱 / 4911 숏)",
+        name: "남성 특가뒷밴딩 슬랙스 (3911 롱 / 4911 숏)",
         season: "basic",
         gender: "male",
         length: "both",
         isFast: false,
-        aliases: ["3911", "4911", "뒷밴딩", "뒷밴드", "뒷밴딩롱", "뒷밴딩숏"],
+        aliases: ["3911", "4911", "AJ3911", "AJ4911", "S4977", "S4933", "특가뒷밴드", "뒷밴딩", "뒷밴드", "뒷밴딩롱", "뒷밴딩숏", "특가뒷밴딩롱", "특가뒷밴딩숏"],
         location: "2층 중앙 더블렉",
         bag: "3호",
-        warning: "3911: 롱(10부) / 4911: 숏(9부). 11블랙, 33네이비, 44차콜, 77아이",
+        warning: "3911: 롱(10부) / 4911: 숏(9부). 11:블랙, 33:네이비, 44:차콜, 77:아이",
         colors: [
-          { code: "3911/4911", name: "11: 블랙", dot: "dot-black" },
+          { code: "3911/4911", name: "11: 블랙 (AJ3911/AJ4911)", dot: "dot-black" },
           { code: "3944/4944", name: "44: 차콜", dot: "dot-charcoal" },
-          { code: "3933/4933", name: "33: 네이비", dot: "dot-navy" },
-          { code: "3977/4977", name: "77: 아이보리", dot: "dot-ivory" }
+          { code: "3933/4933", name: "33: 네이비 (S4933)", dot: "dot-navy" },
+          { code: "3977/4977", name: "77: 아이보리 (S4977)", dot: "dot-ivory" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
       },
+
+      // --- 🌿 사계절 여성 히든밴딩 (A: 투핀턱, B: 스트레이트, C: 세미부츠컷) ---
       {
-        code: "1911 / 2911",
-        name: "남성 와이드 슬랙스 (1911 밴딩 / 2911 오비)",
+        code: "C-S / C-L (세미부츠컷)",
+        name: "여성 사계절 히든밴딩 세미부츠컷 (C-S 숏 / C-L 롱)",
         season: "basic",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["C-S", "C-L", "CS", "CL", "세미부츠컷", "부츠컷", "여성부츠컷", "여자부츠컷", "부츠컷슬랙스", "부츠컷검정", "부츠컷차콜", "세미부츠컷검정숏", "C-S1", "C-L1", "CS1", "CL1"],
+        location: "중앙 2번 더블렉 (앞뒤 맞댐 9단)",
+        bag: "3호",
+        warning: "⭐ C-S: 숏(9부) / C-L: 롱(10부)! 1:블랙, 2:차콜, 3:크림, 4:핑크베이지",
+        colors: [
+          { code: "C-S1/L1", name: "1: 블랙 (C-S1 / C-L1)", dot: "dot-black" },
+          { code: "C-S2/L2", name: "2: 차콜 (C-S2 / C-L2)", dot: "dot-charcoal" },
+          { code: "C-S3/L3", name: "3: 크림 (C-S3 / C-L3)", dot: "dot-ivory" },
+          { code: "C-S4/L4", name: "4: 핑크베이지", dot: "dot-pink" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+      {
+        code: "B-S / B-L (스트레이트)",
+        name: "여성 사계절 히든밴딩 스트레이트 일자 (B-S 숏 / B-L 롱)",
+        season: "basic",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["B-S", "B-L", "BS", "BL", "AJL002L", "스트레이트", "스트레이트롱", "일자슬랙스", "여성스트레이트", "B-L1", "B-S1"],
+        location: "중앙 2번 더블렉",
+        bag: "3호",
+        warning: "⭐ 레디핏 코드는 AJL002L = B-L1! B-S: 숏 / B-L: 롱",
+        colors: [
+          { code: "B-S1/L1", name: "1: 블랙 (B-L1 / AJL002L)", dot: "dot-black" },
+          { code: "B-S2/L2", name: "2: 차콜 (B-S2 / B-L2)", dot: "dot-charcoal" },
+          { code: "B-S3/L3", name: "3: 크림 (B-S3 / B-L3)", dot: "dot-ivory" },
+          { code: "B-S4/L4", name: "4: 핑크베이지", dot: "dot-pink" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+      {
+        code: "A-S / A-L (투핀턱와이드)",
+        name: "여성 사계절 히든밴딩 투핀턱 와이드 (A-S 숏 / A-L 롱)",
+        season: "basic",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["A-S", "A-L", "AS", "AL", "투핀턱와이드", "투핀턱", "여성투핀턱", "와이드슬랙스", "A-L1", "A-S1"],
+        location: "중앙 1번 더블렉",
+        bag: "3호",
+        warning: "A-S: 숏(9부) / A-L: 롱(10부). 1:블랙, 2:차콜, 3:크림, 4:핑크베이지",
+        colors: [
+          { code: "A-S1/L1", name: "1: 블랙 (A-L1 / A-S1)", dot: "dot-black" },
+          { code: "A-S2/L2", name: "2: 차콜 (A-L2 / A-S2)", dot: "dot-charcoal" },
+          { code: "A-S3/L3", name: "3: 크림 (A-L3 / A-S3)", dot: "dot-ivory" },
+          { code: "A-S4/L4", name: "4: 핑크베이지", dot: "dot-pink" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+
+      // --- ☀️ 여름 쿨/라이크라 (신규 SAL, SAS, SCL, SCS & 5811 풀오비, HA, HC) ---
+      {
+        code: "5811 (여름 풀오비)",
+        name: "남성 여름 쿨슬랙스 풀오비 (일반 벨트고리형)",
+        season: "summer",
         gender: "male",
         length: "basic",
         isFast: false,
-        aliases: ["1911", "2911", "와이드밴딩", "와이드오비", "남자와이드", "1911시리즈"],
-        location: "1911 상/하단 세로 선반 전용 구역",
+        aliases: ["5811", "5813", "5814", "5819", "AJ5811", "쿨슬랙스오비", "오비", "오비슬랙스", "풀오비", "여름오비", "R02233"],
+        location: "5층 쿨 창고 (더미베이터 연결)",
         bag: "3호",
-        warning: "1911: 허리밴딩 / 2911: 벨트오비. 11블랙, 44차콜, 77아이, 99연베",
+        warning: "⭐ 밴딩이 아닌 벨트고리(오비) 타입 여름 바지! 11:블랙, 13:네이비, 14:아이, 19:연베",
         colors: [
-          { code: "1911/2911", name: "11: 블랙", dot: "dot-black" },
-          { code: "1944/2944", name: "44: 차콜", dot: "dot-charcoal" },
-          { code: "1977/2977", name: "77: 아이보리", dot: "dot-ivory" },
-          { code: "1999/2999", name: "99: 연베이지", dot: "dot-beige" }
+          { code: "5811", name: "11: 블랙 (5811 / AJ5811)", dot: "dot-black" },
+          { code: "5813", name: "13: 네이비", dot: "dot-navy" },
+          { code: "5814", name: "14: 아이보리", dot: "dot-ivory" },
+          { code: "5819", name: "19: 연베이지", dot: "dot-beige" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
       },
-
-      // === 🌿 사계절 기본 여성 히든밴딩 (A, B, C) ===
       {
-        code: "A-L / A-S",
-        name: "여성 사계절 히든밴딩 투핀턱 와이드 (A-L 롱 / A-S 숏)",
-        season: "basic",
-        gender: "female",
-        length: "both",
-        isFast: false,
-        aliases: ["A-L", "A-S", "AL", "AS", "투핀턱와이드", "여성투핀턱", "여자투핀턱", "투핀턱롱", "투핀턱숏"],
-        location: "중앙 1번 더블렉 (앞뒤 맞댐 9단)",
-        bag: "3호",
-        warning: "⚠️ 여성 사이즈 호칭(26~32) 필수 확인!",
-        colors: [
-          { code: "A-L/S1", name: "1: 블랙", dot: "dot-black" },
-          { code: "A-L/S2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "A-L/S3", name: "3: 크림", dot: "dot-ivory" },
-          { code: "A-L/S4", name: "4: 핑크베이지", dot: "dot-pink" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "B-L / B-S",
-        name: "여성 사계절 히든밴딩 스트레이트 (B-L 롱 / B-S 숏)",
-        season: "basic",
-        gender: "female",
-        length: "both",
-        isFast: false,
-        aliases: ["B-L", "B-S", "BL", "BS", "스트레이트", "여성스트레이트", "일자슬랙스", "스트레이트롱", "스트레이트숏"],
-        location: "중앙 2번 더블렉",
-        bag: "3호",
-        warning: "⚠️ 일자(스트레이트) 핏. 숏(S)/롱(L) 기장 확인.",
-        colors: [
-          { code: "B-L/S1", name: "1: 블랙", dot: "dot-black" },
-          { code: "B-L/S2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "B-L/S3", name: "3: 크림", dot: "dot-ivory" },
-          { code: "B-L/S4", name: "4: 핑크베이지", dot: "dot-pink" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "C-L / C-S",
-        name: "여성 사계절 히든밴딩 세미부츠컷 (C-L 롱 / C-S 숏)",
-        season: "basic",
-        gender: "female",
-        length: "both",
-        isFast: false,
-        aliases: ["C-L", "C-S", "CL", "CS", "부츠컷", "세미부츠컷", "여성부츠컷", "부츠컷롱", "부츠컷숏"],
-        location: "중앙 2번 더블렉",
-        bag: "3호",
-        warning: "⚠️ 부츠컷 핏. 숏(S)/롱(L) 기장 확인.",
-        colors: [
-          { code: "C-L/S1", name: "1: 블랙", dot: "dot-black" },
-          { code: "C-L/S2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "C-L/S3", name: "3: 크림", dot: "dot-ivory" },
-          { code: "C-L/S4", name: "4: 핑크베이지", dot: "dot-pink" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-
-      // === ☀️ 여름 여성 쿨/라이크라 (신규 추가된 SAL, SAS, SCL, SCS & HA, HC) ===
-      {
-        code: "SAL",
-        name: "여성 여름 쿨 와이드 10부 (롱)",
-        season: "summer",
-        gender: "female",
-        length: "long",
-        isFast: false,
-        aliases: ["SAL", "SAL1", "SAL2", "SAL3", "SAL4", "여름와이드롱", "쿨와이드롱", "여름투핀턱롱", "SAL시리즈"],
-        location: "5층 쿨/라이크라 창고 (더미베이터 연결) 또는 2층 쿨 존",
-        bag: "3호",
-        warning: "☀️ 여름 쿨 원단 와이드 롱(10부) 기장입니다.",
-        colors: [
-          { code: "SAL1", name: "1: 블랙 (SAL1)", dot: "dot-black" },
-          { code: "SAL2", name: "2: 차콜 (SAL2)", dot: "dot-charcoal" },
-          { code: "SAL3", name: "3: 크림 (SAL3)", dot: "dot-ivory" },
-          { code: "SAL4", name: "4: 연베이지/아이 (SAL4)", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "SAS",
-        name: "여성 여름 쿨 와이드 9부 (숏)",
-        season: "summer",
-        gender: "female",
-        length: "short",
-        isFast: false,
-        aliases: ["SAS", "SAS1", "SAS2", "SAS3", "SAS4", "여름와이드숏", "쿨와이드숏", "여름투핀턱숏", "SAS시리즈"],
-        location: "5층 쿨/라이크라 창고 또는 2층 쿨 존",
-        bag: "3호",
-        warning: "☀️ 여름 쿨 원단 와이드 숏(9부) 기장입니다.",
-        colors: [
-          { code: "SAS1", name: "1: 블랙 (SAS1)", dot: "dot-black" },
-          { code: "SAS2", name: "2: 차콜 (SAS2)", dot: "dot-charcoal" },
-          { code: "SAS3", name: "3: 크림 (SAS3)", dot: "dot-ivory" },
-          { code: "SAS4", name: "4: 연베이지/아이 (SAS4)", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "SCL",
-        name: "여성 여름 쿨 부츠컷 10부 (롱)",
-        season: "summer",
-        gender: "female",
-        length: "long",
-        isFast: false,
-        aliases: ["SCL", "SCL1", "SCL2", "SCL3", "SCL4", "여름부츠컷롱", "쿨부츠컷롱", "SCL시리즈"],
-        location: "5층 쿨/라이크라 창고 또는 2층 쿨 존",
-        bag: "3호",
-        warning: "☀️ 여름 쿨 원단 부츠컷 롱(10부) 기장입니다.",
-        colors: [
-          { code: "SCL1", name: "1: 블랙 (SCL1)", dot: "dot-black" },
-          { code: "SCL2", name: "2: 차콜 (SCL2)", dot: "dot-charcoal" },
-          { code: "SCL3", name: "3: 크림 (SCL3)", dot: "dot-ivory" },
-          { code: "SCL4", name: "4: 연베이지/아이 (SCL4)", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "SCS",
-        name: "여성 여름 쿨 부츠컷 9부 (숏)",
-        season: "summer",
-        gender: "female",
-        length: "short",
-        isFast: false,
-        aliases: ["SCS", "SCS1", "SCS2", "SCS3", "SCS4", "여름부츠컷숏", "쿨부츠컷숏", "SCS시리즈"],
-        location: "5층 쿨/라이크라 창고 또는 2층 쿨 존",
-        bag: "3호",
-        warning: "☀️ 여름 쿨 원단 부츠컷 숏(9부) 기장입니다.",
-        colors: [
-          { code: "SCS1", name: "1: 블랙 (SCS1)", dot: "dot-black" },
-          { code: "SCS2", name: "2: 차콜 (SCS2)", dot: "dot-charcoal" },
-          { code: "SCS3", name: "3: 크림 (SCS3)", dot: "dot-ivory" },
-          { code: "SCS4", name: "4: 연베이지/아이 (SCS4)", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "HA-L / HA-S",
-        name: "여성 여름 쿨 핀턱와이드 (HA-L 롱 / HA-S 숏)",
-        season: "summer",
-        gender: "female",
-        length: "both",
-        isFast: false,
-        aliases: ["HA-L", "HA-S", "HAL", "HAS", "쿨핀턱와이드", "여성쿨핀턱"],
-        location: "2층 남측 우측 ③번 구역 또는 5층",
-        bag: "3호",
-        warning: "HA: 와이드 핏 / HC: 부츠컷 핏 혼동 주의!",
-        colors: [
-          { code: "HA1", name: "1: 블랙", dot: "dot-black" },
-          { code: "HA2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "HA3", name: "3: 크림", dot: "dot-ivory" },
-          { code: "HA4", name: "4: 연베이지", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-      {
-        code: "HC-L / HC-S",
-        name: "여성 여름 쿨 핀턱부츠컷 (HC-L 롱 / HC-S 숏)",
-        season: "summer",
-        gender: "female",
-        length: "both",
-        isFast: false,
-        aliases: ["HC-L", "HC-S", "HCL", "HCS", "쿨핀턱부츠컷", "여성쿨부츠컷"],
-        location: "2층 남측 우측 ③번 구역 또는 5층",
-        bag: "3호",
-        warning: "HC: 부츠컷 핏. 숏(S)/롱(L) 기장 확인.",
-        colors: [
-          { code: "HC1", name: "1: 블랙", dot: "dot-black" },
-          { code: "HC2", name: "2: 차콜", dot: "dot-charcoal" },
-          { code: "HC3", name: "3: 크림", dot: "dot-ivory" },
-          { code: "HC4", name: "4: 연베이지", dot: "dot-beige" }
-        ],
-        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
-      },
-
-      // === ☀️ 여름 남성 라인업 ===
-      {
-        code: "581 / 583 / 584 / 589",
+        code: "581 (여름 쿨밴딩)",
         name: "남성 여름 쿨밴딩 슬랙스",
         season: "summer",
         gender: "male",
         length: "basic",
         isFast: false,
-        aliases: ["581", "583", "584", "589", "쿨밴딩", "남성쿨밴딩", "여름쿨밴딩"],
-        location: "5층 쿨 창고 (더미베이터 연결)",
+        aliases: ["581", "583", "584", "589", "쿨밴딩", "남성쿨밴딩", "여름쿨밴딩", "쿨슬랙스"],
+        location: "5층 쿨 창고",
         bag: "3호",
-        warning: "허리 밴딩형 쿨슬랙스 (1블랙, 3네이비, 4아이, 9연베)",
+        warning: "허리 전체 밴딩 쿨슬랙스",
         colors: [
-          { code: "581", name: "블랙 (581)", dot: "dot-black" },
-          { code: "583", name: "네이비 (583)", dot: "dot-navy" },
-          { code: "584", name: "아이보리 (584)", dot: "dot-ivory" },
-          { code: "589", name: "연베이지 (589)", dot: "dot-beige" }
+          { code: "581", name: "1: 블랙", dot: "dot-black" },
+          { code: "583", name: "3: 네이비", dot: "dot-navy" },
+          { code: "584", name: "4: 아이보리", dot: "dot-ivory" },
+          { code: "589", name: "9: 연베이지", dot: "dot-beige" }
         ],
         sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
       },
       {
-        code: "5811 시리즈",
-        name: "남성 여름 풀오비 (일반 벨트고리)",
+        code: "HA-L / HA-S",
+        name: "여성 여름 쿨 뒷밴드 와이드 (HA-L 롱 / HA-S 숏)",
         season: "summer",
-        gender: "male",
-        length: "basic",
+        gender: "female",
+        length: "both",
         isFast: false,
-        aliases: ["5811", "5813", "5814", "5819", "풀오비", "오비", "기본오비", "여름오비"],
-        location: "5층 쿨 창고 (더미베이터 연결)",
+        aliases: ["HA-L", "HA-S", "HAL", "HAS", "AJL007S", "뒷밴드와이드숏", "쿨핀턱와이드", "여성쿨와이드", "HA-L2", "HA-L3", "HA-L4", "HA-S1"],
+        location: "2층 남측 우측 ③번 구역 또는 5층",
         bag: "3호",
-        warning: "밴딩이 아닌 정장 벨트고리(오비) 타입입니다.",
+        warning: "⭐ 레디핏 코드는 AJL007S = HA-S1! 트렌드쉽은 HA-L3크림 등으로 표기.",
         colors: [
-          { code: "5811", name: "블랙 (5811)", dot: "dot-black" },
-          { code: "5813", name: "네이비 (5813)", dot: "dot-navy" },
-          { code: "5814", name: "아이보리 (5814)", dot: "dot-ivory" },
-          { code: "5819", name: "연베이지 (5819)", dot: "dot-beige" }
+          { code: "HA-1", name: "1: 블랙 (HA-S1 / AJL007S)", dot: "dot-black" },
+          { code: "HA-2", name: "2: 차콜 (HA-L2)", dot: "dot-charcoal" },
+          { code: "HA-3", name: "3: 크림 (HA-L3)", dot: "dot-ivory" },
+          { code: "HA-4", name: "4: 베이지 (HA-L4)", dot: "dot-beige" }
         ],
-        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
       },
       {
-        code: "5911 시리즈",
-        name: "남성 여름 풀와이드 슬랙스",
+        code: "HC-L / HC-S",
+        name: "여성 여름 쿨 핀턱 부츠컷 (HC-L 롱 / HC-S 숏)",
         season: "summer",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["HC-L", "HC-S", "HCL", "HCS", "쿨핀턱부츠컷", "여름부츠컷", "여성쿨부츠컷"],
+        location: "2층 남측 우측 ③번 구역 또는 5층",
+        bag: "3호",
+        warning: "HC는 부츠컷 / HA는 와이드!",
+        colors: [
+          { code: "HC-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "HC-2", name: "2: 차콜", dot: "dot-charcoal" },
+          { code: "HC-3", name: "3: 크림", dot: "dot-ivory" },
+          { code: "HC-4", name: "4: 연베이지", dot: "dot-beige" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+      {
+        code: "SAL / SAS",
+        name: "여성 여름 쿨 와이드 (SAL 롱 / SAS 숏)",
+        season: "summer",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["SAL", "SAS", "SAL1", "SAL2", "SAL3", "SAL4", "SAS1", "SAS2", "SAS3", "SAS4", "쿨와이드", "여름와이드"],
+        location: "5층 쿨 창고",
+        bag: "3호",
+        warning: "SAL: 롱(10부) / SAS: 숏(9부)",
+        colors: [
+          { code: "SAL/SAS-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "SAL/SAS-2", name: "2: 차콜", dot: "dot-charcoal" },
+          { code: "SAL/SAS-3", name: "3: 크림", dot: "dot-ivory" },
+          { code: "SAL/SAS-4", name: "4: 연베이지", dot: "dot-beige" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+      {
+        code: "SCL / SCS",
+        name: "여성 여름 쿨 부츠컷 (SCL 롱 / SCS 숏)",
+        season: "summer",
+        gender: "female",
+        length: "both",
+        isFast: false,
+        aliases: ["SCL", "SCS", "SCL1", "SCL2", "SCL3", "SCL4", "SCS1", "SCS2", "SCS3", "SCS4", "쿨부츠컷", "여름부츠컷"],
+        location: "5층 쿨 창고",
+        bag: "3호",
+        warning: "SCL: 롱(10부) / SCS: 숏(9부)",
+        colors: [
+          { code: "SCL/SCS-1", name: "1: 블랙", dot: "dot-black" },
+          { code: "SCL/SCS-2", name: "2: 차콜", dot: "dot-charcoal" },
+          { code: "SCL/SCS-3", name: "3: 크림", dot: "dot-ivory" },
+          { code: "SCL/SCS-4", name: "4: 연베이지", dot: "dot-beige" }
+        ],
+        sizes: ["26(S)", "28(M)", "30(L)", "32(XL)"]
+      },
+
+      // --- 📦 특수/세일/카고/후앙스 라인 ---
+      {
+        code: "4196",
+        name: "남성 흑청 슬랙스 / 팬츠 (후앙스 등)",
+        season: "basic",
         gender: "male",
         length: "basic",
         isFast: false,
-        aliases: ["5911", "5933", "5944", "5999", "풀와이드", "여름와이드", "남성여름와이드"],
-        location: "5층 쿨 창고 (더미베이터 연결)",
+        aliases: ["4196", "4196흑청", "흑청", "후앙스4196", "데님슬랙스"],
+        location: "5층 창고 또는 2층 특별 보관대",
         bag: "3호",
-        warning: "여름용 와이드 실루엣 (11블랙, 33네이비, 44아이, 99연베)",
+        warning: "후앙스 주문서 등에 등장하는 흑청 라인 (2XL=36)",
         colors: [
-          { code: "5911", name: "블랙 (5911)", dot: "dot-black" },
-          { code: "5933", name: "네이비 (5933)", dot: "dot-navy" },
-          { code: "5944", name: "아이보리 (5944)", dot: "dot-ivory" },
-          { code: "5999", name: "연베이지 (5999)", dot: "dot-beige" }
+          { code: "4196", name: "흑청 (4196)", dot: "dot-charcoal" }
         ],
-        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)"]
+        sizes: ["28(S)", "30(M)", "32(L)", "34(XL)", "36(2XL)", "38(3XL)"]
+      },
+      {
+        code: "5196 / 6196",
+        name: "세일건 중국 슬랙스 (5196 = 6196)",
+        season: "basic",
+        gender: "male",
+        length: "basic",
+        isFast: false,
+        aliases: ["5196", "6196", "5196=6196", "중국슬랙스", "세일건"],
+        location: "5층 세일건 창고",
+        bag: "3호",
+        warning: "5층 벽보: 5196과 6196은 동일 품목 교차 출고 가능!",
+        colors: [
+          { code: "5196", name: "5196 (6196 동일)", dot: "dot-black" }
+        ],
+        sizes: ["S", "M", "L", "XL", "2XL"]
       }
     ];
 
-    // -------------------------------------------------------------
-    // 한글 초성 분리 검색 유틸
-    // -------------------------------------------------------------
-    const CHOSUNG = [
-      'ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'
-    ];
+    // =============================================================
+    // 한글 초성 분리 유틸
+    // =============================================================
+    const CHOSUNG = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
 
     function getChosung(str) {
       let result = '';
@@ -1069,15 +1134,187 @@
       return result;
     }
 
-    // -------------------------------------------------------------
+    // =============================================================
+    // 🎯 스마트 주문서 옵션 디코더 (Smart Option Parser)
+    // 대표 상품명(C-S/C-L 등)이 섞여 있어도 최종 선택 옵션을 정확히 도출
+    // =============================================================
+    function parseOrderOption(raw) {
+      if (!raw || raw.trim().length < 2) return null;
+      const text = raw.trim().toLowerCase();
+
+      let fit = null;        // 'C'(부츠컷), 'A'(와이드), 'B'(스트레이트), '7712/8812', '181/191', '2911/5811' 등
+      let length = null;     // 'S'(숏/9부), 'L'(롱/10부)
+      let colorNum = null;   // '1'(블랙), '2'(차콜), '3'(네이비/브라운), '4'(아이/핑크), '7'(연그레이)
+      let colorName = '';
+      let size = '';
+
+      // 1. 기장 판독 (숏 vs 롱)
+      if (text.includes('숏') || text.includes('9부') || text.includes('_숏') || text.includes('-숏') || text.includes('s기장') || text.includes('short')) {
+        length = 'S';
+      } else if (text.includes('롱') || text.includes('10부') || text.includes('_롱') || text.includes('-롱') || text.includes('l기장') || text.includes('long')) {
+        length = 'L';
+      }
+
+      // 2. 색상 판독
+      if (text.includes('검정') || text.includes('블랙') || text.includes('black') || text.includes('1블랙') || text.includes('-1') || text.includes('흑청')) {
+        colorNum = '1';
+        colorName = text.includes('흑청') ? '흑청' : '블랙';
+      } else if (text.includes('차콜') || text.includes('먹색') || text.includes('먹') || text.includes('charcoal') || text.includes('4차콜') || text.includes('-2') || text.includes('다크그레이')) {
+        colorNum = '2';
+        colorName = '차콜';
+      } else if (text.includes('네이비') || text.includes('곤색') || text.includes('곤') || text.includes('navy') || text.includes('3네이비') || text.includes('-3')) {
+        colorNum = '3';
+        colorName = '네이비';
+      } else if (text.includes('연그레이') || text.includes('-7')) {
+        colorNum = '7';
+        colorName = '연그레이';
+      } else if (text.includes('아이보리') || text.includes('아이') || text.includes('크림') || text.includes('ivory') || text.includes('cream') || text.includes('20아이보리') || text.includes('-4')) {
+        colorNum = '4';
+        colorName = '아이보리/크림';
+      } else if (text.includes('연베이지') || text.includes('베이지') || text.includes('beige') || text.includes('-9')) {
+        colorNum = '9';
+        colorName = '연베이지';
+      } else if (text.includes('브라운') || text.includes('brown')) {
+        colorNum = '3';
+        colorName = '브라운';
+      }
+
+      // 3. 사이즈 판독 (옵션 텍스트에서 34, 32, XL, L 등)
+      const sizeMatch = text.match(/(4xl|3xl|2xl|xl|s|m|l|40|38|36|34|32|30|28|26)/i);
+      if (sizeMatch) {
+        size = sizeMatch[0].toUpperCase();
+      }
+
+      // 4. 핏/품목 판독
+      // 1) 여성 세미부츠컷 (C라인 또는 WC라인)
+      if (text.includes('부츠컷') || text.includes('세미부츠컷') || text.includes('c-s') || text.includes('c-l') || text.includes('wc')) {
+        const isWinter = text.includes('기모') || text.includes('겨울') || text.includes('2wc');
+        const prefix = isWinter ? 'WC' : 'C';
+        const finalLen = length || 'S';
+        const finalCol = colorNum || '1';
+        const finalCode = `${prefix}-${finalLen}${finalCol}`;
+        return {
+          code: finalCode,
+          size: size || 'L (권장호칭)',
+          name: `여성 ${isWinter ? '겨울기모' : '사계절'} 히든밴딩 세미부츠컷 ${finalLen === 'S' ? '9부(숏)' : '10부(롱)'} ${colorName || '블랙'}`,
+          location: isWinter ? '남측 우측 코어존 (2층)' : '중앙 2번 더블렉 (앞뒤 맞댐 9단)',
+          bag: '3호',
+          hint: `입력문장 분석: [${isWinter ? '기모' : '사계절'}] + [${finalLen === 'S' ? '숏' : '롱'}] + [${colorName || '블랙'}] ➔ ${finalCode}`
+        };
+      }
+
+      // 2) 여성 투핀턱 와이드 (A라인 또는 WA라인)
+      if (text.includes('투핀턱') || text.includes('와이드') && (text.includes('여성') || text.includes('여자') || text.includes('wa') || text.includes('a-s') || text.includes('a-l'))) {
+        const isWinter = text.includes('기모') || text.includes('겨울');
+        const prefix = isWinter ? 'WA' : 'A';
+        const finalLen = length || 'L';
+        const finalCol = colorNum || '1';
+        const finalCode = `${prefix}-${finalLen}${finalCol}`;
+        return {
+          code: finalCode,
+          size: size || 'M (28호칭)',
+          name: `여성 ${isWinter ? '기모' : '사계절'} 투핀턱 와이드 ${finalLen === 'S' ? '9부(숏)' : '10부(롱)'} ${colorName || '블랙'}`,
+          location: isWinter ? '남측 우측 코어존' : '중앙 1번 더블렉',
+          bag: '3호',
+          hint: `여성 28호칭은 영문 M입니다!`
+        };
+      }
+
+      // 3) 여성 스트레이트 (B라인)
+      if (text.includes('스트레이트') || text.includes('일자') || text.includes('b-l') || text.includes('b-s') || text.includes('ajl002l')) {
+        const finalLen = length || 'L';
+        const finalCol = colorNum || '1';
+        const finalCode = `B-${finalLen}${finalCol}`;
+        return {
+          code: finalCode,
+          size: size || 'M',
+          name: `여성 사계절 스트레이트 일자 ${finalLen === 'S' ? '9부(숏)' : '10부(롱)'} ${colorName || '블랙'}`,
+          location: '중앙 2번 더블렉',
+          bag: '3호',
+          hint: '레디핏 코드는 AJL002L = B-L1'
+        };
+      }
+
+      // 4) 특가슬랙스 (7712 롱 / 8812 숏)
+      if (text.includes('7712') || text.includes('8812') || text.includes('특가슬랙스') || (text.includes('특가') && !text.includes('밴딩') && !text.includes('뒷밴'))) {
+        const finalLen = length || (text.includes('8812') || text.includes('숏') || text.includes('9부') ? 'S' : 'L');
+        const baseCode = finalLen === 'S' ? '8812' : '7712';
+        const finalCol = colorNum || '1';
+        const finalCode = `${baseCode}-${finalCol}`;
+        return {
+          code: finalCode,
+          size: size || 'XL(34)',
+          name: `남성 특가 슬랙스 ${finalLen === 'S' ? '9부(숏)' : '10부(롱)'} ${colorName || '블랙'}`,
+          location: '📍 북측 벽면 1열 렉 집중존 (통로 북쪽)',
+          bag: '3호',
+          hint: `트렌드쉽 표기: ${finalLen}${baseCode}-${finalCol}`
+        };
+      }
+
+      // 5) 오비 슬랙스 (2911 와이드오비 vs 5811 여름 풀오비)
+      if (text.includes('오비') || text.includes('풀오비')) {
+        const isSummer = text.includes('여름') || text.includes('쿨') || text.includes('5811');
+        if (isSummer) {
+          return {
+            code: '5811',
+            size: size || '32(L)',
+            name: `남성 여름 쿨슬랙스 풀오비(벨트고리형) ${colorName || '블랙'}`,
+            location: '5층 쿨 창고 (더미베이터 연결)',
+            bag: '3호',
+            hint: '여름 쿨 원단 벨트오비 타입 (11블랙, 13네이비, 14아이, 19연베)'
+          };
+        } else {
+          const colSuffix = colorNum === '2' ? '2944' : (colorNum === '4' ? '2977' : (colorNum === '9' ? '2999' : '2911'));
+          return {
+            code: colSuffix,
+            size: size || 'XL(34)',
+            name: `남성 특가와이드 오비(벨트고리형) 슬랙스 ${colorName || '블랙'}`,
+            location: '1911 상/하단 세로 선반 전용 구역',
+            bag: '3호',
+            hint: `사계절 벨트오비형: 2911(블랙), 2944(차콜), 2977(아이), 2999(연베)`
+          };
+        }
+      }
+
+      // 6) 특가밴딩 (181 숏 vs 191 롱)
+      if (text.includes('181') || text.includes('191') || text.includes('특가밴딩')) {
+        const isShort = text.includes('181') || text.includes('숏') || text.includes('9부') || !text.includes('191');
+        const finalCode = isShort ? (colorNum === '2' ? '184' : (colorNum === '3' ? '183' : '181')) : (colorNum === '2' ? '194' : (colorNum === '3' ? '193' : '191'));
+        return {
+          code: finalCode,
+          size: size || 'L(32)',
+          name: `남성 특가밴딩 슬랙스 ${isShort ? '9부(숏)' : '10부(롱)'} ${colorName || '블랙'}`,
+          location: isShort ? '🚀 181은 작업대 바로 옆 발송대 3걸음 단독배치!' : '남측 우측 코어존 (2층)',
+          bag: '3호',
+          hint: isShort ? '181은 숏(9부)! 191(롱)과 헷갈리지 마세요.' : '191은 롱(10부)!'
+        };
+      }
+
+      // 7) 흑청 (4196)
+      if (text.includes('4196') || text.includes('흑청')) {
+        return {
+          code: '4196-흑청',
+          size: size || '2XL(36)',
+          name: '남성 흑청 슬랙스 / 데님팬츠 (후앙스 등)',
+          location: '5층 창고 또는 2층 특별 보관대',
+          bag: '3호',
+          hint: '후앙스 4196흑청-2XL(36) 출고'
+        };
+      }
+
+      return null;
+    }
+
+    // =============================================================
     // 상태 및 엘리먼트 바인딩
-    // -------------------------------------------------------------
+    // =============================================================
     let currentFilter = 'all';
     let searchQuery = '';
 
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearBtn');
     const cardsContainer = document.getElementById('cardsContainer');
+    const decoderContainer = document.getElementById('decoderContainer');
     const itemCount = document.getElementById('itemCount');
     const chipsBar = document.getElementById('chipsBar');
     const toast = document.getElementById('toast');
@@ -1087,10 +1324,9 @@
       toast.classList.add('show');
       setTimeout(() => {
         toast.classList.remove('show');
-      }, 1400);
+      }, 1500);
     }
 
-    // 클립보드 복사
     function copyText(text, label) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
@@ -1111,12 +1347,13 @@
       showToast(`📋 ${label || text} 복사됨`);
     }
 
-    // -------------------------------------------------------------
+    // =============================================================
     // 필터링 & 검색 엔진
-    // -------------------------------------------------------------
+    // =============================================================
     function filterItems() {
-      const query = searchQuery.trim().toLowerCase().replace(/-/g, '').replace(/\s+/g, '');
-      const queryChosung = getChosung(searchQuery.trim().toLowerCase().replace(/\s+/g, ''));
+      const qRaw = searchQuery.trim().toLowerCase();
+      const query = qRaw.replace(/-/g, '').replace(/\s+/g, '');
+      const queryChosung = getChosung(qRaw.replace(/\s+/g, ''));
 
       return ITEMS.filter(item => {
         // 1. 칩 필터
@@ -1127,14 +1364,15 @@
         if (currentFilter === 'male' && item.gender !== 'male') return false;
         if (currentFilter === 'fast' && !item.isFast) return false;
 
-        // 2. 검색어 필터 (비어있으면 통과)
+        // 검색어가 없으면 통과
         if (!query) return true;
 
-        // 전체 검색 대상 텍스트 합성
+        // 검색 대상 합성 (슬랙스, 바지, 팬츠 키워드를 기본 탑재하여 다중 단어 검색 오류 방지)
         const colorCodes = item.colors.map(c => c.code + " " + c.name).join(' ');
         const fullTarget = (
           item.code + " " +
           item.name + " " +
+          "슬랙스 바지 팬츠 " +
           item.aliases.join(' ') + " " +
           colorCodes + " " +
           item.location + " " +
@@ -1144,34 +1382,56 @@
         const cleanTarget = fullTarget.replace(/-/g, '').replace(/\s+/g, '');
         const targetChosung = getChosung(cleanTarget);
 
-        // 검색어 일반 매칭 or 초성 매칭
-        if (cleanTarget.includes(query)) return true;
-        if (targetChosung.includes(queryChosung)) return true;
+        // 전체 포함 or 초성 포함
+        if (cleanTarget.includes(query) || targetChosung.includes(queryChosung)) return true;
 
-        // 개별 키워드 공백 분리 다중 매칭 지원 (예: '기모 먹' -> 기모와 먹이 둘 다 있어야 함)
-        const words = searchQuery.trim().toLowerCase().split(/\s+/);
-        const allWordsMatch = words.every(w => {
+        // 다중 단어 분리 매칭 (공백으로 쪼갠 각 단어가 모두 포함되는지 확인)
+        const words = qRaw.split(/\s+/);
+        return words.every(w => {
           const wClean = w.replace(/-/g, '');
           const wCho = getChosung(wClean);
           return cleanTarget.includes(wClean) || targetChosung.includes(wCho);
         });
-
-        return allWordsMatch;
       });
     }
 
-    // -------------------------------------------------------------
-    // 카드 렌더링
-    // -------------------------------------------------------------
-    function renderCards() {
+    // =============================================================
+    // 렌더링 엔진 (디코더 + 카드)
+    // =============================================================
+    function renderApp() {
+      // 1. 스마트 옵션 디코더 판독
+      const decoded = parseOrderOption(searchQuery);
+      if (decoded) {
+        const fullCopy = `${decoded.code}-${decoded.size}`;
+        decoderContainer.innerHTML = `
+          <div class="decoder-hero" onclick="copyText('${fullCopy}', '최종 출고품번 ${fullCopy}')">
+            <div class="decoder-badge">🎯 주문 옵션 최종 판독 결과 (터치 시 복사)</div>
+            <div class="decoder-target-code">
+              <span>${decoded.code}</span>
+              <span class="decoder-subsize">[${decoded.size}]</span>
+            </div>
+            <div class="decoder-desc">${decoded.name}</div>
+            <div class="decoder-meta">
+              <span>📍 위치: <strong>${decoded.location}</strong></span>
+              <span>📦 봉투: <strong>${decoded.bag}</strong></span>
+              ${decoded.hint ? `<span style="color:#fbbf24;">💡 ${decoded.hint}</span>` : ''}
+            </div>
+            <div class="decoder-copy-hint">👉 터치하면 '${fullCopy}' 클립보드 즉시 복사</div>
+          </div>
+        `;
+      } else {
+        decoderContainer.innerHTML = '';
+      }
+
+      // 2. 카드 목록 렌더링
       const filtered = filterItems();
       itemCount.textContent = `결과 ${filtered.length}개`;
 
-      if (filtered.length === 0) {
+      if (filtered.length === 0 && !decoded) {
         cardsContainer.innerHTML = `
           <div class="empty-state">
             <div class="empty-title">검색된 품목이 없습니다</div>
-            <p style="font-size: 0.85rem;">품목명, 코드(181, 7712, SAS), 색상(차콜, 먹색) 등을 확인해보세요.</p>
+            <p style="font-size: 0.85rem;">오비, 세미부츠컷 검정 숏, 181, 7712, SAS 등을 입력해보세요.</p>
           </div>
         `;
         return;
@@ -1191,7 +1451,6 @@
           ? '<span class="tag-season">❄️ 기모/본딩</span>'
           : (item.season === 'summer' ? '<span class="tag-season summer">☀️ 쿨/라이크라</span>' : '<span class="tag-season" style="background:rgba(100,116,139,0.2);color:#94a3b8;border-color:#475569;">사계절</span>');
 
-        // 컬러 칩 생성
         const colorsHtml = item.colors.map(c => `
           <div class="color-chip" onclick="copyText('${c.code}', '${c.name} (${c.code})')">
             <span class="color-dot ${c.dot}"></span>
@@ -1200,7 +1459,6 @@
           </div>
         `).join('');
 
-        // 사이즈 버튼 생성
         const sizesHtml = item.sizes.map(s => {
           const pureSize = s.split('(')[0];
           return `<button class="size-btn" onclick="copySizeWithCode('${item.code}', '${pureSize}')">${s}</button>`;
@@ -1234,34 +1492,31 @@
               </div>
             </div>
 
-            <!-- 색상별 코드 -->
             <div style="font-size:0.75rem;color:#94a3b8;margin-bottom:4px;font-weight:600;">🎨 색상별 품번 (터치 시 복사):</div>
             <div class="colors-grid">
               ${colorsHtml}
             </div>
 
-            <!-- 사이즈 환산 -->
             <div class="sizes-wrap">
               <span class="size-guide-label">📏 사이즈:</span>
               ${sizesHtml}
             </div>
 
-            <!-- 경고 배너 -->
             ${item.warning ? `<div class="card-warning">${item.warning}</div>` : ''}
           </article>
         `;
       }).join('');
     }
 
-    // 품번 + 사이즈 조합 복사
     function copySizeWithCode(itemCode, size) {
-      const fullCode = `${itemCode}-${size}`;
+      const pureCode = itemCode.split(' ')[0].split('/')[0];
+      const fullCode = `${pureCode}-${size}`;
       copyText(fullCode, `${fullCode}`);
     }
 
-    // -------------------------------------------------------------
-    // 이벤트 리스너 등록
-    // -------------------------------------------------------------
+    // =============================================================
+    // 이벤트 바인딩
+    // =============================================================
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
       if (searchQuery.length > 0) {
@@ -1269,7 +1524,7 @@
       } else {
         clearBtn.classList.remove('visible');
       }
-      renderCards();
+      renderApp();
     });
 
     clearBtn.addEventListener('click', () => {
@@ -1277,7 +1532,7 @@
       searchQuery = '';
       clearBtn.classList.remove('visible');
       searchInput.focus();
-      renderCards();
+      renderApp();
     });
 
     chipsBar.addEventListener('click', (e) => {
@@ -1288,11 +1543,11 @@
       target.classList.add('active');
 
       currentFilter = target.dataset.filter;
-      renderCards();
+      renderApp();
     });
 
-    // 초기 렌더링
-    renderCards();
+    // 초기 실행
+    renderApp();
   </script>
 </body>
 </html>
