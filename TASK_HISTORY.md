@@ -4,6 +4,20 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-10-28] 네이버 서치어드바이저 SEO 진단 대응 (<meta name="description"> 누락 및 OG/Canonical 보강)
+- **1. 요청사항**: 
+  - `thapathlab.com` 네이버 서치어드바이저 진단 시 `<meta name="description"> 설명 누락: 2` 경고가 발생하는 원인 파악 및 해결.
+- **2. 솔루션 & 구현**:
+  - `sitemap.xml`에 포함된 전체 페이지 메타태그 전수 점검.
+  - `about.html`, `contact.html`, `privacy.html` 3개 페이지에서 `<meta name="description">`, `canonical`, Open Graph (`og:*`), Twitter Cards 태그가 누락되어 있던 것을 확인.
+  - `about.html`, `contact.html`, `privacy.html`, `guide.html`에 일관된 네이버/구글 표준 SEO 메타태그 세트(고유 description, canonical url, og:*, twitter:*) 탑재.
+- **3. 결과 & 검증**:
+  - 네이버 검색 로봇 수집 시 모든 공개 페이지에서 description 및 대표 URL이 정상 파싱되도록 구조적 결함 해소.
+- **4. 주요 합의 사항**:
+  - 포털 내 신규 HTML 페이지 추가 시 반드시 `<title>`, `<meta name="description">`, `<link rel="canonical">`, Open Graph 태그를 세트로 필수 작성함.
+
+---
+
 ## [2026-10-24] 종목 레이더(Radar) 대시보드 15대 BM 계급론 & 밸류에이션 해자 연계
 - **1. 요청사항**: 
   - 종목 레이더(`chicstory.github.io/radar/`)에 단순 업종 구분을 넘어 15대 수익 모델(BM) 기반의 월가 적정 멀티플 및 가짜 테크 스크리닝 기준 안내 콜아웃 탑재.
