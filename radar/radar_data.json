@@ -1,94 +1,94 @@
 {
-  "updated": "2026년 11월 05일 01:58",
+  "updated": "2026년 11월 06일 01:58",
   "sector_benchmarks": {
     "tech": {
       "name": "💻 테크/AI",
       "count": 11,
-      "avg_high_drop": -36.524837526628964,
-      "avg_low_gain": 35.120484820267016,
-      "avg_rsi": 44.45796312509821,
-      "bottom_count": 7
+      "avg_high_drop": -40.63504211304148,
+      "avg_low_gain": 24.842108354338816,
+      "avg_rsi": 44.468763263770924,
+      "bottom_count": 8
     },
     "infra": {
       "name": "🏭 산업/인프라",
       "count": 18,
-      "avg_high_drop": -18.228859998248836,
-      "avg_low_gain": 29.974916605351684,
-      "avg_rsi": 55.45766844779981,
-      "bottom_count": 5
+      "avg_high_drop": -21.223609645353545,
+      "avg_low_gain": 25.556166697958997,
+      "avg_rsi": 55.88407699279102,
+      "bottom_count": 7
     },
     "health": {
       "name": "🏥 헬스케어",
       "count": 8,
-      "avg_high_drop": -15.096295230878182,
-      "avg_low_gain": 38.99575020525003,
-      "avg_rsi": 57.851329937383156,
-      "bottom_count": 1
+      "avg_high_drop": -18.345344479026057,
+      "avg_low_gain": 32.85405609555062,
+      "avg_rsi": 65.76756787322967,
+      "bottom_count": 2
     },
     "power": {
       "name": "⚡ 전력/에너지",
       "count": 7,
-      "avg_high_drop": -32.29476623015696,
-      "avg_low_gain": 18.946659382936616,
-      "avg_rsi": 45.10784802773003,
-      "bottom_count": 4
+      "avg_high_drop": -36.30454108277711,
+      "avg_low_gain": 13.348893444617373,
+      "avg_rsi": 35.81854879549214,
+      "bottom_count": 6
     },
     "finance": {
       "name": "🏛️ 금융/거래소",
       "count": 6,
-      "avg_high_drop": -2.5546289277758536,
-      "avg_low_gain": 43.152201109220165,
-      "avg_rsi": 67.14176203110839,
+      "avg_high_drop": -4.435096438003991,
+      "avg_low_gain": 41.384449144279664,
+      "avg_rsi": 71.6983278418426,
       "bottom_count": 0
     },
     "ocean": {
       "name": "🌊 자원/광산",
       "count": 5,
-      "avg_high_drop": -21.679283612987287,
-      "avg_low_gain": 52.71411878430405,
-      "avg_rsi": 38.48809675350567,
-      "bottom_count": 2
+      "avg_high_drop": -24.136550786206904,
+      "avg_low_gain": 47.56802505922063,
+      "avg_rsi": 41.99196497193036,
+      "bottom_count": 1
     },
     "food": {
       "name": "🌾 식량/소비재",
       "count": 6,
-      "avg_high_drop": -20.936034737013554,
-      "avg_low_gain": 39.343280748910615,
-      "avg_rsi": 47.037876010705695,
+      "avg_high_drop": -20.692328013942262,
+      "avg_low_gain": 39.33393074277121,
+      "avg_rsi": 50.94967087337202,
       "bottom_count": 1
     },
     "defense": {
       "name": "🛡️ 방산/우주",
       "count": 4,
-      "avg_high_drop": -36.395146320900984,
-      "avg_low_gain": 10.79516171224055,
-      "avg_rsi": 63.77763134191635,
+      "avg_high_drop": -37.51780848601686,
+      "avg_low_gain": 10.433241283493677,
+      "avg_rsi": 48.761335791150145,
       "bottom_count": 3
     }
   },
   "items": [
     {
-      "ticker": "KTOS",
+      "ticker": "AVGO",
       "meta": {
-        "name": "크라토스 (Kratos)",
-        "sector": "📡 위성 지상 관제 독점",
-        "tag": "지상국 80%",
-        "category": "defense",
-        "group": "A",
-        "thesis": "전 세계 위성 80%가 경유하는 지상국 관제 소프트웨어 독점",
-        "special_issue": "미 우주군 차세대 관제 시스템 수주 및 무인 전투기 사업",
-        "if_best": "미 우주군 예산 급증 + 상용 저궤도 위성 지상국 수주 폭발",
-        "if_worst": "정부 국방 예산 일시 삭감",
-        "kill_switch": "우주 부문 매출 역성장 시"
+        "name": "브로드컴 (Broadcom)",
+        "sector": "💻 커스텀 AI ASIC & 스위칭",
+        "tag": "ASIC 1등",
+        "category": "tech",
+        "group": "B",
+        "thesis": "구글 TPU, 메타 MTIA 맞춤형 AI 칩 설계 1위 + 토마호크 통신 스위칭 독점",
+        "special_issue": "VMware 구독 모델 전환으로 FCF 폭발. Fwd P/E 18.4배, PEG 0.28 저평가 구간",
+        "if_best": "빅테크 자체 ASIC 채택률 50%+ 돌파 ➔ 연 FCF 300억 달러+ 창출",
+        "if_worst": "VMware 핵심 대기업 고객사 오픈소스 이탈 가속",
+        "kill_switch": "반도체 솔루션 영업이익률 30% 붕괴 시"
       },
       "data": {
-        "price": 35.96,
-        "high52": 134.0,
-        "low52": 35.715,
-        "from_low_pct": 0.6859862802743872,
-        "from_high_pct": -73.16417910447761,
-        "range_pct": 0.24927506740601052,
-        "rsi": 46.17557648053546,
+        "price": 291.53,
+        "high52": 495.0,
+        "low52": 289.96,
+        "from_low_pct": 0.5414539936542948,
+        "from_high_pct": -41.105050505050514,
+        "range_pct": 0.7657042528287129,
+        "rsi": 42.030742095664124,
         "status": "OK"
       }
     },
@@ -107,13 +107,13 @@
         "kill_switch": "영업이익률 8% 미만 하락 시"
       },
       "data": {
-        "price": 169.07,
+        "price": 145.58,
         "high52": 408.255,
-        "low52": 167.735,
-        "from_low_pct": 0.7958982919485972,
-        "from_high_pct": -58.5871575363437,
-        "range_pct": 0.5550473973058289,
-        "rsi": 25.896558859894128,
+        "low52": 142.66,
+        "from_low_pct": 2.046824617972814,
+        "from_high_pct": -64.3409143794932,
+        "range_pct": 1.099418287241859,
+        "rsi": 19.584388509638742,
         "status": "OK"
       }
     },
@@ -132,38 +132,13 @@
         "kill_switch": "정부 국방 계약 취소 시"
       },
       "data": {
-        "price": 121.5,
+        "price": 114.96,
         "high52": 241.82,
-        "low52": 119.6,
-        "from_low_pct": 1.588628762541811,
-        "from_high_pct": -49.75601687205359,
-        "range_pct": 1.5545737195221778,
-        "rsi": 42.6530175567699,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CCJ",
-      "meta": {
-        "name": "카메코 (Cameco)",
-        "sector": "☢️ 우라늄 채굴 1위",
-        "tag": "원전 연료 독점",
-        "category": "power",
-        "group": "B",
-        "thesis": "서방 1위 고품위 우라늄 광산 및 웨스팅하우스 지분 보유",
-        "special_issue": "원전 르네상스와 빅테크 AI 데이터센터 전력 계약 수혜",
-        "if_best": "우라늄 장기 계약가 파운드당 $100+ 안착 ➔ 마진 폭발",
-        "if_worst": "원전 중대 사고 발생으로 글로벌 원전 정책 후퇴",
-        "kill_switch": "우라늄 스팟 가격 $40 이하 급락 시"
-      },
-      "data": {
-        "price": 71.68,
-        "high52": 135.24,
-        "low52": 69.62,
-        "from_low_pct": 2.958919850617642,
-        "from_high_pct": -46.997929606625256,
-        "range_pct": 3.139286802804026,
-        "rsi": 30.091288118843792,
+        "low52": 112.59,
+        "from_low_pct": 2.1049826805222405,
+        "from_high_pct": -52.46050781573071,
+        "range_pct": 1.8339394877350388,
+        "rsi": 32.67823120018333,
         "status": "OK"
       }
     },
@@ -182,13 +157,63 @@
         "kill_switch": "매출총이익률 30% 붕괴 시"
       },
       "data": {
-        "price": 20.82,
+        "price": 20.21,
         "high52": 26.48,
         "low52": 19.75,
-        "from_low_pct": 5.417721518987343,
-        "from_high_pct": -21.37462235649547,
-        "range_pct": 15.898959881129276,
-        "rsi": 39.332346160724185,
+        "from_low_pct": 2.329113924050637,
+        "from_high_pct": -23.67824773413897,
+        "range_pct": 6.835066864784559,
+        "rsi": 48.01269441477825,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "KTOS",
+      "meta": {
+        "name": "크라토스 (Kratos)",
+        "sector": "📡 위성 지상 관제 독점",
+        "tag": "지상국 80%",
+        "category": "defense",
+        "group": "A",
+        "thesis": "전 세계 위성 80%가 경유하는 지상국 관제 소프트웨어 독점",
+        "special_issue": "미 우주군 차세대 관제 시스템 수주 및 무인 전투기 사업",
+        "if_best": "미 우주군 예산 급증 + 상용 저궤도 위성 지상국 수주 폭발",
+        "if_worst": "정부 국방 예산 일시 삭감",
+        "kill_switch": "우주 부문 매출 역성장 시"
+      },
+      "data": {
+        "price": 33.39,
+        "high52": 134.0,
+        "low52": 32.5,
+        "from_low_pct": 2.7384615384615403,
+        "from_high_pct": -75.08208955223881,
+        "range_pct": 0.8768472906403946,
+        "rsi": 33.30254199602753,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CCJ",
+      "meta": {
+        "name": "카메코 (Cameco)",
+        "sector": "☢️ 우라늄 채굴 1위",
+        "tag": "원전 연료 독점",
+        "category": "power",
+        "group": "B",
+        "thesis": "서방 1위 고품위 우라늄 광산 및 웨스팅하우스 지분 보유",
+        "special_issue": "원전 르네상스와 빅테크 AI 데이터센터 전력 계약 수혜",
+        "if_best": "우라늄 장기 계약가 파운드당 $100+ 안착 ➔ 마진 폭발",
+        "if_worst": "원전 중대 사고 발생으로 글로벌 원전 정책 후퇴",
+        "kill_switch": "우라늄 스팟 가격 $40 이하 급락 시"
+      },
+      "data": {
+        "price": 68.33,
+        "high52": 135.24,
+        "low52": 66.06,
+        "from_low_pct": 3.436270057523457,
+        "from_high_pct": -49.47500739426206,
+        "range_pct": 3.281295172015027,
+        "rsi": 29.107695352452936,
         "status": "OK"
       }
     },
@@ -207,113 +232,13 @@
         "kill_switch": "FERC의 데이터센터 원전 전력망 직결 영구 금지 판결 시"
       },
       "data": {
-        "price": 245.72,
+        "price": 239.65,
         "high52": 380.78,
         "low52": 228.63,
-        "from_low_pct": 7.474959541617462,
-        "from_high_pct": -35.46929985818583,
-        "range_pct": 11.232336510023007,
-        "rsi": 47.84544033394349,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "NOC",
-      "meta": {
-        "name": "노스롭그루먼 (Northrop Grumman)",
-        "sector": "🛡️ B-21 스텔스 폭격기 독점",
-        "tag": "국방비 최우선",
-        "category": "defense",
-        "group": "A",
-        "thesis": "미 공군 차세대 B-21 레이더 스텔스 폭격기 및 전략 핵 억제 미사일 독점",
-        "special_issue": "재정 감축에도 국방 예산 및 전략 무기는 전액 보장. P/E 15~18배 밸류 안전마진",
-        "if_best": "B-21 양산 단가 안정화 및 해외 동맹국 무기 수출 폭증 ➔ 전고점 돌파",
-        "if_worst": "고정가 계약(Fixed-price) 비용 초과 손실",
-        "kill_switch": "항공우주 부문 영업마진 6% 붕괴 시"
-      },
-      "data": {
-        "price": 525.35,
-        "high52": 774.0,
-        "low52": 470.06,
-        "from_low_pct": 11.762328213419568,
-        "from_high_pct": -32.12532299741602,
-        "range_pct": 18.191090346778978,
-        "rsi": 59.72290335121103,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "LHX",
-      "meta": {
-        "name": "L3해리스 (L3Harris)",
-        "sector": "🛡️ 방산 통신 / 로켓 모터 1위",
-        "tag": "군용 전술통신",
-        "category": "defense",
-        "group": "A",
-        "thesis": "미 국방부 전술 라디오 및 에어로젯 로켓다인 미사일 로켓 모터 독점",
-        "special_issue": "신냉전 국방비 증액 속 FCF 25억 달러+ 창출 궤도 안착",
-        "if_best": "전술 통신 + 고체 로켓 모터 주문 폭주 ➔ 주가 전고점 돌파",
-        "if_worst": "로켓 모터 생산 지연에 따른 납기 페널티",
-        "kill_switch": "영업이익률 10% 미만 하락 시"
-      },
-      "data": {
-        "price": 259.74,
-        "high52": 379.23,
-        "low52": 232.34,
-        "from_low_pct": 11.79306189205475,
-        "from_high_pct": -31.50858318171031,
-        "range_pct": 18.653414119409085,
-        "rsi": 74.76654055585576,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "AVGO",
-      "meta": {
-        "name": "브로드컴 (Broadcom)",
-        "sector": "💻 커스텀 AI ASIC & 스위칭",
-        "tag": "ASIC 1등",
-        "category": "tech",
-        "group": "B",
-        "thesis": "구글 TPU, 메타 MTIA 맞춤형 AI 칩 설계 1위 + 토마호크 통신 스위칭 독점",
-        "special_issue": "VMware 구독 모델 전환으로 FCF 폭발. Fwd P/E 18.4배, PEG 0.28 저평가 구간",
-        "if_best": "빅테크 자체 ASIC 채택률 50%+ 돌파 ➔ 연 FCF 300억 달러+ 창출",
-        "if_worst": "VMware 핵심 대기업 고객사 오픈소스 이탈 가속",
-        "kill_switch": "반도체 솔루션 영업이익률 30% 붕괴 시"
-      },
-      "data": {
-        "price": 325.48,
-        "high52": 495.0,
-        "low52": 289.96,
-        "from_low_pct": 12.249965512484495,
-        "from_high_pct": -34.246464646464645,
-        "range_pct": 17.323449083105753,
-        "rsi": 44.77056518337985,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "EME",
-      "meta": {
-        "name": "EMCOR 그룹",
-        "sector": "🏭 전기 & 기계 엔지니어링 1위",
-        "tag": "CAPEX 즉시상각",
-        "category": "infra",
-        "group": "A",
-        "thesis": "미국 내 제조 리쇼어링 및 데이터센터 전기·기계 설비 시공 과점",
-        "special_issue": "법인세 감세 및 CAPEX 100% 즉시상각 수혜. 수주 잔고 사상 최대",
-        "if_best": "미국 내 첨단 공장 및 AI 시설 투자 폭발 ➔ 연 20%+ EPS 성장",
-        "if_worst": "민간 상업용 부동산 건설 급랭",
-        "kill_switch": "수주 잔고(Backlog) 2분기 연속 감소 시"
-      },
-      "data": {
-        "price": 639.25,
-        "high52": 951.96,
-        "low52": 564.92,
-        "from_low_pct": 13.157615237555767,
-        "from_high_pct": -32.84906928862558,
-        "range_pct": 19.204733360892938,
-        "rsi": 47.44746575263414,
+        "from_low_pct": 4.8200148711892625,
+        "from_high_pct": -37.06339618677451,
+        "range_pct": 7.242852448241874,
+        "rsi": 39.17069869525195,
         "status": "OK"
       }
     },
@@ -332,63 +257,38 @@
         "kill_switch": "수주-출하 비율(Book-to-Bill) 1.0 미만 하락 시"
       },
       "data": {
-        "price": 353.08,
+        "price": 327.02,
         "high52": 478.0,
         "low52": 311.92,
-        "from_low_pct": 13.19569120287252,
-        "from_high_pct": -26.133891213389127,
-        "range_pct": 24.78323699421964,
-        "rsi": 47.69199308172005,
+        "from_low_pct": 4.840984867914839,
+        "from_high_pct": -31.58577405857741,
+        "range_pct": 9.092003853564528,
+        "rsi": 36.767699898793516,
         "status": "OK"
       }
     },
     {
-      "ticker": "DECK",
+      "ticker": "EME",
       "meta": {
-        "name": "덱커스 (Deckers Outdoor)",
-        "sector": "👟 호카(HOKA) + 어그(UGG) 챔피언",
-        "tag": "Fwd P/E 9.5배 극단가치",
-        "category": "health",
-        "group": "B",
-        "thesis": "나이키 점유율을 흡수하는 프리미엄 러닝화 호카 및 라이프스타일 어그 보유",
-        "special_issue": "현재 Fwd P/E 9.5배 수준의 압도적 안전마진. 무차입 건전 대차대조표",
-        "if_best": "호카 글로벌 유통망 확장 + 직영 D2C 마진 확대 ➔ 전고점 돌파 (+35%)",
-        "if_worst": "러닝화 트렌드 급변으로 호카 브랜드 피로도 노출",
-        "kill_switch": "호카 브랜드 매출 성장률 10% 미만 급랭 시"
-      },
-      "data": {
-        "price": 89.11,
-        "high52": 122.29,
-        "low52": 77.2,
-        "from_low_pct": 15.427461139896367,
-        "from_high_pct": -27.132226674298803,
-        "range_pct": 26.41383898868928,
-        "rsi": 52.97347783194733,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "XYL",
-      "meta": {
-        "name": "자일럼 (Xylem)",
-        "sector": "💧 글로벌 수처리 펌프 1위",
-        "tag": "상하수도 독점",
+        "name": "EMCOR 그룹",
+        "sector": "🏭 전기 & 기계 엔지니어링 1위",
+        "tag": "CAPEX 즉시상각",
         "category": "infra",
-        "group": "B",
-        "thesis": "전 세계 상하수도, 해수담수화, 반도체 초순수 공급용 초고압 펌프·스마트 밸브 1위",
-        "special_issue": "고금리 지자체 예산 집행 지연으로 고점 대비 -34% 급락 후 52주 바닥권 다지기",
-        "if_best": "담수화 플랜트 + 반도체/AI 데이터센터 초순수 수주 본격화 ➔ 주가 $140+ 회복",
-        "if_worst": "글로벌 경기 침체로 각국 지자체 인프라 개보수 예산 삭감",
-        "kill_switch": "분기 수주잔고(Backlog) 순감소 2분기 연속 지속 시"
+        "group": "A",
+        "thesis": "미국 내 제조 리쇼어링 및 데이터센터 전기·기계 설비 시공 과점",
+        "special_issue": "법인세 감세 및 CAPEX 100% 즉시상각 수혜. 수주 잔고 사상 최대",
+        "if_best": "미국 내 첨단 공장 및 AI 시설 투자 폭발 ➔ 연 20%+ EPS 성장",
+        "if_worst": "민간 상업용 부동산 건설 급랭",
+        "kill_switch": "수주 잔고(Backlog) 2분기 연속 감소 시"
       },
       "data": {
-        "price": 101.05,
-        "high52": 152.44,
-        "low52": 87.4,
-        "from_low_pct": 15.617848970251705,
-        "from_high_pct": -33.711624245604824,
-        "range_pct": 20.987084870848697,
-        "rsi": 41.802027137898214,
+        "price": 595.32,
+        "high52": 951.96,
+        "low52": 564.92,
+        "from_low_pct": 5.381292926432078,
+        "from_high_pct": -37.46375898146981,
+        "range_pct": 7.854485324514283,
+        "rsi": 34.13486215744098,
         "status": "OK"
       }
     },
@@ -407,163 +307,13 @@
         "kill_switch": "엔진 부문 영업이익률 20% 미만 하락 시"
       },
       "data": {
-        "price": 213.56,
+        "price": 200.9,
         "high52": 310.0,
         "low52": 183.52,
-        "from_low_pct": 16.368788142981685,
-        "from_high_pct": -31.109677419354835,
-        "range_pct": 23.750790638836175,
-        "rsi": 55.3902466289181,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "MKC",
-      "meta": {
-        "name": "맥코믹 (McCormick & Co.)",
-        "sector": "🧂 글로벌 1위 향신료/소스 독점",
-        "tag": "37년 배당귀족 바닥권",
-        "category": "food",
-        "group": "B",
-        "thesis": "전 세계 향신료, 머스타드(French's), 핫소스(Cholula/Frank's) 1위 독점 + 글로벌 프랜차이즈 B2B 주방 장악",
-        "special_issue": "유니레버 식품 M&A 및 저가 PB 대체 공포로 52주 신저가($44) 바닥권. Gross Margin 39.3%로 어닝 서프라이즈",
-        "if_best": "M&A 불확실성 해소 + 핫소스/시즈닝 글로벌 판매 회복 ➔ P/E 20배 리레이팅 ($65+, +45%)",
-        "if_worst": "유니레버 인수 후 부채 부담 지속 및 저가 PB 상품으로의 영구 이탈",
-        "kill_switch": "영업이익률 12% 미만 붕괴 또는 37년 배당 삭감 시"
-      },
-      "data": {
-        "price": 50.48,
-        "high52": 72.41,
-        "low52": 43.25,
-        "from_low_pct": 16.71676300578034,
-        "from_high_pct": -30.285872117110895,
-        "range_pct": 24.794238683127563,
-        "rsi": 51.99311184332771,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "VNOM",
-      "meta": {
-        "name": "바이퍼 에너지 (Viper)",
-        "sector": "🛢️ 셰일 시추비 0원 로열티 독점",
-        "tag": "석유계 비자카드",
-        "category": "power",
-        "group": "B",
-        "thesis": "시추 비용 부담 0원으로 퍼미안 분지 원유 생산량의 15~25% 로열티만 현금 징수",
-        "special_issue": "P/FCF 9.7배, 부채비율 0.2미만. 유가 하락에도 파산 리스크 0",
-        "if_best": "유가 $80+ 회귀 + 시추량 증가 ➔ 배당 및 자사주 소각 극대화 (+30%)",
-        "if_worst": "OPEC+ 치킨게임 장기화로 유가 $50 이하 폭락",
-        "kill_switch": "모회사(다이아몬드백)의 퍼미안 시추 리그 50% 이상 철수 시"
-      },
-      "data": {
-        "price": 41.06,
-        "high52": 51.13,
-        "low52": 35.1,
-        "from_low_pct": 16.980056980056982,
-        "from_high_pct": -19.694895364756505,
-        "range_pct": 37.18028696194635,
-        "rsi": 46.861996581678326,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "FSLR",
-      "meta": {
-        "name": "퍼스트 솔라 (First Solar)",
-        "sector": "☀️ 미국 대형 박막 태양광 독점",
-        "tag": "IRA 수혜 저P/E 7배",
-        "category": "tech",
-        "group": "C",
-        "thesis": "중국 실리콘 태양광 대신 미국 내 100% 제조되는 카드뮴-텔루라이드(CdTe) 박막 모듈 독점",
-        "special_issue": "2027~2028년까지 수주 백로그 완판. Fwd P/E 7.5배, PEG 0.27 극단적 저평가",
-        "if_best": "빅테크 데이터센터 전력 자가공급 태양광 대형 수주 ➔ 밸류 리레이팅 (+50%)",
-        "if_worst": "미국 대선 이후 IRA 세액공제(45X) 폐지 또는 대폭 축소",
-        "kill_switch": "IRA 제조 보조금 전면 폐지 입법 통과 시"
-      },
-      "data": {
-        "price": 194.51,
-        "high52": 320.95,
-        "low52": 165.86,
-        "from_low_pct": 17.273604244543574,
-        "from_high_pct": -39.39554447733292,
-        "range_pct": 18.47314462570119,
-        "rsi": 56.13861806416091,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "GD",
-      "meta": {
-        "name": "제너럴다이내믹스 (General Dynamics)",
-        "sector": "🚢 핵잠수함 & 걸프스트림 1위",
-        "tag": "해군 1등 벤더",
-        "category": "defense",
-        "group": "A",
-        "thesis": "미 해군 버지니아/컬럼비아급 핵추진 잠수함 100% 독점 및 비즈니스 제트기 걸프스트림",
-        "special_issue": "AUKUS(오커스) 동맹 핵잠수함 수주 및 신냉전 해상 안보 핵심 축",
-        "if_best": "잠수함 건조 속도 가속화 + 걸프스트림 G700 인도 급증 ➔ FCF 40억 달러+",
-        "if_worst": "조선소 숙련공 부족으로 납기 지연",
-        "kill_switch": "해양 부문(Marine Systems) 영업적자 전환 시"
-      },
-      "data": {
-        "price": 364.87,
-        "high52": 400.0,
-        "low52": 306.77,
-        "from_low_pct": 18.939270463213493,
-        "from_high_pct": -8.782499999999999,
-        "range_pct": 62.31899603132041,
-        "rsi": 74.44550498006312,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CI",
-      "meta": {
-        "name": "시그나 (The Cigna Group)",
-        "sector": "🏥 헬스케어 / PBM 요새",
-        "tag": "현금 요새",
-        "category": "health",
-        "group": "B",
-        "thesis": "미국 3대 처방약 급여관리(PBM) 및 기업 건강보험 과점",
-        "special_issue": "휴마나 인수 철회 후 남는 현금 전액 자사주 소각. P/E 10배 바닥권",
-        "if_best": "가치주 피난처 부각 ➔ P/E 15배 리레이팅 ($380+)",
-        "if_worst": "미 의회의 초당적 PBM 마진 규제 입법 통과",
-        "kill_switch": "PBM 수수료 모델 금지 연방법 통과 시"
-      },
-      "data": {
-        "price": 305.41,
-        "high52": 316.27,
-        "low52": 255.53,
-        "from_low_pct": 19.520212890854314,
-        "from_high_pct": -3.43377493913427,
-        "range_pct": 82.12051366480085,
-        "rsi": 52.8592024582264,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "WM",
-      "meta": {
-        "name": "웨이스트 매니지먼트",
-        "sector": "🗑️ 매립지 토지 독점",
-        "tag": "북미 1위 인프라",
-        "category": "infra",
-        "group": "B",
-        "thesis": "신규 인허가 불가한 북미 최대 매립지 영지 독점 + 매립가스 발전",
-        "special_issue": "쓰레기 반입 수수료 인상으로 인플레이션 자동 전가. 안정적 FCF 창출",
-        "if_best": "매립가스(RNG) 전력 판매 고성장 ➔ 배당 및 자사주 확대",
-        "if_worst": "환경 규제 강화로 매립지 사후 관리 비용 급증",
-        "kill_switch": "영업현금흐름(OCF) 마진율 5%p 이상 하락 시"
-      },
-      "data": {
-        "price": 238.49,
-        "high52": 248.13,
-        "low52": 197.47,
-        "from_low_pct": 20.772775611485294,
-        "from_high_pct": -3.885060250675044,
-        "range_pct": 80.97118041847614,
-        "rsi": 60.123131556215334,
+        "from_low_pct": 9.470357454228418,
+        "from_high_pct": -35.193548387096776,
+        "range_pct": 13.741302972802021,
+        "rsi": 49.35174511042115,
         "status": "OK"
       }
     },
@@ -582,463 +332,88 @@
         "kill_switch": "데이터센터 부문 분기 매출 전분기 대비 15% 이상 역성장 시"
       },
       "data": {
-        "price": 200.13,
+        "price": 181.6,
         "high52": 243.37,
         "low52": 164.27,
-        "from_low_pct": 21.829914165702796,
-        "from_high_pct": -17.767185766528335,
-        "range_pct": 45.33501896333753,
-        "rsi": 39.175734573708354,
+        "from_low_pct": 10.549704754367799,
+        "from_high_pct": -25.38110695648601,
+        "range_pct": 21.90897597977242,
+        "rsi": 34.53729410696846,
         "status": "OK"
       }
     },
     {
-      "ticker": "RSG",
+      "ticker": "LHX",
       "meta": {
-        "name": "리퍼블릭 서비스",
-        "sector": "🗑️ 폐기물 과점 2위",
-        "tag": "물가연동 가격력",
-        "category": "infra",
-        "group": "B",
-        "thesis": "북미 2위 폐기물 처리 과점. 장기 계약 기반 안정적 이익",
-        "special_issue": "지자체 장기 수거 계약으로 경기 침체 무풍지대",
-        "if_best": "자원 재활용 및 환경 인프라 인수로 연 10%+ EPS 성장",
-        "if_worst": "유가 폭등으로 수거 트럭 유류비 급증",
-        "kill_switch": "자유현금흐름 적자 전환 시"
-      },
-      "data": {
-        "price": 245.41,
-        "high52": 249.37,
-        "low52": 196.41,
-        "from_low_pct": 24.947813247797974,
-        "from_high_pct": -1.5880017644464082,
-        "range_pct": 92.52265861027189,
-        "rsi": 65.33780381522908,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CDNS",
-      "meta": {
-        "name": "케이던스 (Cadence)",
-        "sector": "🧠 반도체 EDA 소프트웨어 과점",
-        "tag": "반도체 필수재",
-        "category": "tech",
-        "group": "B",
-        "thesis": "시놉시스와 함께 전 세계 칩 설계를 양분하는 과점 소프트웨어 제국",
-        "special_issue": "자율주행, AI, 모바일 칩 복잡도 증가로 R&D 필수 소프트웨어 락인 심화",
-        "if_best": "파운드리 2나노 공정 전환 가속 ➔ EDA 툴 사용료 30% 인상 반영",
-        "if_worst": "글로벌 팹리스 스타트업들의 R&D 예산 삭감",
-        "kill_switch": "영업현금흐름(OCF) 마진 30% 미만 하락 시"
-      },
-      "data": {
-        "price": 329.52,
-        "high52": 416.69,
-        "low52": 262.75,
-        "from_low_pct": 25.411988582302563,
-        "from_high_pct": -20.91962850080396,
-        "range_pct": 43.374041834480956,
-        "rsi": 47.280610074359906,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "VMC",
-      "meta": {
-        "name": "벌컨 머티리얼즈",
-        "sector": "🪨 골재/채석장 인허가 독점",
-        "tag": "대체 불가 광산",
-        "category": "infra",
+        "name": "L3해리스 (L3Harris)",
+        "sector": "🛡️ 방산 통신 / 로켓 모터 1위",
+        "tag": "군용 전술통신",
+        "category": "defense",
         "group": "A",
-        "thesis": "도로/건축용 모래·자갈 채석장 독점 (인허가 규제로 신규 채석장 개설 불가)",
-        "special_issue": "무거운 골재 특성상 운송 반경 80km 내 지역 독점권 보유. 판가 매년 인상",
-        "if_best": "미국 인프라 재건 및 공장 건설 붐 ➔ 골재 판가 10%+ 인상 전가",
-        "if_worst": "건설 착공 급감으로 출하량 감소",
-        "kill_switch": "골재 판매 톤당 마진 하락 전환 시"
+        "thesis": "미 국방부 전술 라디오 및 에어로젯 로켓다인 미사일 로켓 모터 독점",
+        "special_issue": "신냉전 국방비 증액 속 FCF 25억 달러+ 창출 궤도 안착",
+        "if_best": "전술 통신 + 고체 로켓 모터 주문 폭주 ➔ 주가 전고점 돌파",
+        "if_worst": "로켓 모터 생산 지연에 따른 납기 페널티",
+        "kill_switch": "영업이익률 10% 미만 하락 시"
       },
       "data": {
-        "price": 297.69,
-        "high52": 331.09,
-        "low52": 237.03,
-        "from_low_pct": 25.591697253512212,
-        "from_high_pct": -10.087891509861361,
-        "range_pct": 64.49075058473316,
-        "rsi": 70.59150970551919,
+        "price": 258.11,
+        "high52": 379.23,
+        "low52": 232.34,
+        "from_low_pct": 11.091503830593101,
+        "from_high_pct": -31.9384014977718,
+        "range_pct": 17.543740213765407,
+        "rsi": 52.89825153992943,
         "status": "OK"
       }
     },
     {
-      "ticker": "ULS",
+      "ticker": "NOC",
       "meta": {
-        "name": "UL 솔루션스 (UL Solutions)",
-        "sector": "🏷️ 전자기기 안전규격 100% 독점",
-        "tag": "UL 마크 통행세",
-        "category": "infra",
-        "group": "B",
-        "thesis": "전 세계 전자기기, 배터리, 건축 자재에 찍히는 'UL 마크' 안전인증 독점 톨게이트",
-        "special_issue": "EV 배터리, 신재생, AI 데이터센터 기기 안전 인증 필수화로 안정적 성장",
-        "if_best": "글로벌 신제품 출시 붐 속 시험인증 수수료 매출 연 15% 성장",
-        "if_worst": "유럽 CE 등 경쟁 인증 규격의 미국 시장 잠식",
-        "kill_switch": "인증 부문 영업이익률 15% 미만 하락 시"
-      },
-      "data": {
-        "price": 79.73,
-        "high52": 107.54,
-        "low52": 63.17,
-        "from_low_pct": 26.214975463036254,
-        "from_high_pct": -25.860145062302397,
-        "range_pct": 37.32251521298174,
-        "rsi": 73.66213340694551,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CPRT",
-      "meta": {
-        "name": "코파트 (Copart)",
-        "sector": "🚗 전손차/사고차 경매 독점",
-        "tag": "영업마진 40%",
-        "category": "infra",
-        "group": "B",
-        "thesis": "미국 보험사고 전손 차량 온라인 경매 1위 독점 + 대도시 주변 토지 야드 인허가 해자",
-        "special_issue": "차량 첨단화로 수리비 급증 ➔ 전손 처리율 상승 수혜. Fwd P/E 15.4배 밸류 매력",
-        "if_best": "글로벌 바이어 네트워크 확대 속 수수료 인상 ➔ FCF 15억 달러+ 달성",
-        "if_worst": "자동차 사고율의 구조적 급감 (자율주행 급진적 보급)",
-        "kill_switch": "전손차 출품 대수 2분기 연속 10% 이상 감소 시"
-      },
-      "data": {
-        "price": 32.62,
-        "high52": 42.95,
-        "low52": 25.72,
-        "from_low_pct": 26.827371695178844,
-        "from_high_pct": -24.051222351571607,
-        "range_pct": 40.046430644225175,
-        "rsi": 64.2416486035024,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "ADM",
-      "meta": {
-        "name": "아처 대니얼스 미들랜드",
-        "sector": "🌾 식량 / 곡물 1위",
-        "tag": "곡물 메이저",
-        "category": "food",
-        "group": "B",
-        "thesis": "전 세계 곡물 운송선, 사일로 창고, 가공 플랜트 독점",
-        "special_issue": "영양 부문 내부 회계 조사 노이즈로 주가 급락 후 펀더멘털 바닥 확인 중",
-        "if_best": "기상이변 속 곡물 유통 마진 폭증 + 회계 노이즈 해소 ➔ 주가 $85+ 회복",
-        "if_worst": "미 법무부의 대규모 회계 분식 기소 및 과징금",
-        "kill_switch": "전사적 회계 부정 확정 시"
-      },
-      "data": {
-        "price": 70.84,
-        "high52": 88.75,
-        "low52": 55.58,
-        "from_low_pct": 27.455919395466005,
-        "from_high_pct": -20.18028169014084,
-        "range_pct": 46.005426590292444,
-        "rsi": 23.40086015582193,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "SNPS",
-      "meta": {
-        "name": "시놉시스 (Synopsys)",
-        "sector": "🧠 반도체 설계 EDA 툴 1위",
-        "tag": "설계 소프트웨어",
-        "category": "tech",
-        "group": "B",
-        "thesis": "2nm/3nm 칩 설계 시 절대 대체 불가한 전자설계자동화(EDA) 글로벌 과점",
-        "special_issue": "앤시스(Ansys) 대형 인수로 시뮬레이션 통합. 최근 기술주 조정으로 매력적 밸류 도달",
-        "if_best": "AI 칩 설계 붐으로 EDA 라이선스 계약 단가 폭증 ➔ 전고점 회복 (+30%)",
-        "if_worst": "각국 반독점 규제 당국의 앤시스 합병 불허",
-        "kill_switch": "분기 반복 라이선스 매출(ARR) 순감소 시"
-      },
-      "data": {
-        "price": 462.95,
-        "high52": 539.48,
-        "low52": 362.55,
-        "from_low_pct": 27.69273203696041,
-        "from_high_pct": -14.185882701861056,
-        "range_pct": 56.745605606737115,
-        "rsi": 51.45134076344506,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "ECL",
-      "meta": {
-        "name": "이콜랩 (Ecolab)",
-        "sector": "💧 산업용 정수/멸균 1위",
-        "tag": "빌게이츠 1대 주주",
-        "category": "infra",
-        "group": "B",
-        "thesis": "전 세계 반도체 팹, 공장, 병원에서 물을 정화하고 재활용하는 특수 케미컬·소프트웨어 독점",
-        "special_issue": "수자원 고갈 시대 필수 방어벽. 영업마진 꾸준히 개선 중",
-        "if_best": "데이터센터 수냉식 냉각수 정수 및 공장 폐수 무방류(ZLD) 수요 폭증 ➔ 전고점 돌파",
-        "if_worst": "원자재(기초화학) 가격 폭등으로 제조 마진 일시 축소",
-        "kill_switch": "영업이익률 5%p 이상 급락 시"
-      },
-      "data": {
-        "price": 315.01,
-        "high52": 315.58,
-        "low52": 243.15,
-        "from_low_pct": 29.553773390910955,
-        "from_high_pct": -0.1806198111413883,
-        "range_pct": 99.21303327350546,
-        "rsi": 69.77589632344623,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "FIX",
-      "meta": {
-        "name": "컴포트 시스템즈 (Comfort Systems)",
-        "sector": "❄️ AI 데이터센터 냉각/MEP 1위",
-        "tag": "데이터센터 수혜 대장",
-        "category": "infra",
+        "name": "노스롭그루먼 (Northrop Grumman)",
+        "sector": "🛡️ B-21 스텔스 폭격기 독점",
+        "tag": "국방비 최우선",
+        "category": "defense",
         "group": "A",
-        "thesis": "빅테크 AI 데이터센터의 액체냉각, HVAC 공조 및 모듈러 MEP 시공 압도적 1위",
-        "special_issue": "수주 잔고 사상 최대 경신. 5년 EPS 성장률 47.8%, PEG 0.78 고성장 알짜",
-        "if_best": "차세대 액체냉각 단가 인상 + 메가 데이터센터 착공 폭증 ➔ 전고점 돌파 (+30%)",
-        "if_worst": "빅테크 AI 데이터센터 설비투자(CAPEX) 급격한 동결",
-        "kill_switch": "수주-출하 비율(Book-to-Bill) 1.0 미만 2분기 연속 붕괴 시"
+        "thesis": "미 공군 차세대 B-21 레이더 스텔스 폭격기 및 전략 핵 억제 미사일 독점",
+        "special_issue": "재정 감축에도 국방 예산 및 전략 무기는 전액 보장. P/E 15~18배 밸류 안전마진",
+        "if_best": "B-21 양산 단가 안정화 및 해외 동맹국 무기 수출 폭증 ➔ 전고점 돌파",
+        "if_worst": "고정가 계약(Fixed-price) 비용 초과 손실",
+        "kill_switch": "항공우주 부문 영업마진 6% 붕괴 시"
       },
       "data": {
-        "price": 1091.31,
-        "high52": 2073.99,
-        "low52": 841.66,
-        "from_low_pct": 29.66162108214718,
-        "from_high_pct": -47.381134913861686,
-        "range_pct": 20.258372351561675,
-        "rsi": 39.60135459816088,
+        "price": 525.25,
+        "high52": 774.0,
+        "low52": 470.06,
+        "from_low_pct": 11.741054333489341,
+        "from_high_pct": -32.138242894056845,
+        "range_pct": 18.15818911627295,
+        "rsi": 47.686751319514144,
         "status": "OK"
       }
     },
     {
-      "ticker": "ADBE",
+      "ticker": "VNOM",
       "meta": {
-        "name": "어도비 (Adobe)",
-        "sector": "🎨 크리에이티브 클라우드 독점",
-        "tag": "AI 공포 과매도",
-        "category": "tech",
+        "name": "바이퍼 에너지 (Viper)",
+        "sector": "🛢️ 셰일 시추비 0원 로열티 독점",
+        "tag": "석유계 비자카드",
+        "category": "power",
         "group": "B",
-        "thesis": "포토샵, 일러스트레이터, 프리미어 등 디지털 디자인 표준 툴 영구 락인",
-        "special_issue": "생성형 AI 위협론 공포로 고점 대비 -40% 폭락. Fwd P/E 8.6배, PEG 0.58 바닥권",
-        "if_best": "파이어플라이(Firefly) AI 엔터프라이즈 구독 폭증 ➔ P/E 20배 복귀 (+40% 익절)",
-        "if_worst": "Canva, Midjourney 등 신생 AI 툴로 기업 고객 대량 이탈",
-        "kill_switch": "기업용 디지털 미디어 ARR 순감소 공시 시"
+        "thesis": "시추 비용 부담 0원으로 퍼미안 분지 원유 생산량의 15~25% 로열티만 현금 징수",
+        "special_issue": "P/FCF 9.7배, 부채비율 0.2미만. 유가 하락에도 파산 리스크 0",
+        "if_best": "유가 $80+ 회귀 + 시추량 증가 ➔ 배당 및 자사주 소각 극대화 (+30%)",
+        "if_worst": "OPEC+ 치킨게임 장기화로 유가 $50 이하 폭락",
+        "kill_switch": "모회사(다이아몬드백)의 퍼미안 시추 리그 50% 이상 철수 시"
       },
       "data": {
-        "price": 248.48,
-        "high52": 362.71,
-        "low52": 190.12,
-        "from_low_pct": 30.696402272249095,
-        "from_high_pct": -31.493479639381324,
-        "range_pct": 33.81424184483458,
-        "rsi": 47.172662452451995,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CASY",
-      "meta": {
-        "name": "케이시스 (Casey's)",
-        "sector": "🍕 시골 읍내 독점 편의점",
-        "tag": "미국 5대 피자 체인",
-        "category": "food",
-        "group": "B",
-        "thesis": "미국 중서부 인구 5천 명 이하 시골 마을의 유일한 피자집+주유소+편의점",
-        "special_issue": "시골 상권 독점으로 경기 불황 무풍지대. FCF 재투자로 매장 확장 지속",
-        "if_best": "M&A 편의점 인수 통합 + 즉석식품 마진 확대 ➔ EPS 연 15% 성장",
-        "if_worst": "농촌 지역 인구 급감 및 가솔린 마진 축소",
-        "kill_switch": "동일매장 매출 성장률(SSSG) 마이너스 전환 시"
-      },
-      "data": {
-        "price": 674.84,
-        "high52": 927.85,
-        "low52": 513.1,
-        "from_low_pct": 31.522120444357824,
-        "from_high_pct": -27.26841623107183,
-        "range_pct": 38.996986136226646,
-        "rsi": 47.48330996302311,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "HEI",
-      "meta": {
-        "name": "하이코 (HEICO)",
-        "sector": "✈️ FAA 승인 대체부품(PMA) 독점",
-        "tag": "버핏 스타일 복리",
-        "category": "infra",
-        "group": "B",
-        "thesis": "순정품 대비 30~50% 저렴한 FAA 승인 항공기 대체 부품 독점 공급자",
-        "special_issue": "항공사들의 비용 절감 필수 파트너. 지난 30년간 연평균 복리 20%+ 우상향",
-        "if_best": "글로벌 항공 여객 수요 증가 속 대체 부품 침투율 40% 돌파 ➔ 실적 점프",
-        "if_worst": "PMA 대체 부품의 중대 품질 결함 이슈 발생",
-        "kill_switch": "FAA의 핵심 부품 PMA 인가 취소 시"
-      },
-      "data": {
-        "price": 337.67,
-        "high52": 376.86,
-        "low52": 256.11,
-        "from_low_pct": 31.845691304517587,
-        "from_high_pct": -10.399087194183515,
-        "range_pct": 67.54451345755695,
-        "rsi": 69.19628316506403,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "RMD",
-      "meta": {
-        "name": "레스메드 (ResMed)",
-        "sector": "💨 수면무호흡증 양압기(CPAP) 1위",
-        "tag": "필립스 리콜 수혜",
-        "category": "health",
-        "group": "B",
-        "thesis": "수면무호흡증 치료용 양압기 및 호흡기 마스크 글로벌 1위 독점사",
-        "special_issue": "비만약 공포로 과매도 후 펀더멘털 증명하며 강력한 반등세 지속",
-        "if_best": "GLP-1 복용자들의 수면무호흡 진단율 증가 ➔ 양압기 수요 동반 증가",
-        "if_worst": "필립스의 양압기 시장 전면 재진입 및 가격 인하",
-        "kill_switch": "시장 점유율 10%p 이상 잠식 시"
-      },
-      "data": {
-        "price": 240.51,
-        "high52": 277.67,
-        "low52": 180.27,
-        "from_low_pct": 33.416541853885825,
-        "from_high_pct": -13.382792523499127,
-        "range_pct": 61.84804928131415,
-        "rsi": 40.25602027341814,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "BLK",
-      "meta": {
-        "name": "블랙록 (BlackRock)",
-        "sector": "🏛️ 세계 1위 자산운용 & 알라딘",
-        "tag": "10조 달러 거인",
-        "category": "finance",
-        "group": "B",
-        "thesis": "10조 달러 iShares ETF 수수료 + 금융기관 필수 리스크관리 SaaS(알라딘)",
-        "special_issue": "글로벌 패시브 자금 유입과 사모 자산(Private Credit) 확장 가속",
-        "if_best": "글로벌 증시 랠리 속 AUM 12조 달러 돌파 ➔ 수수료 레버리지 폭발",
-        "if_worst": "글로벌 금융위기로 인한 AUM 급감 및 운용보수 하락",
-        "kill_switch": "분기 순유입 자금(Net Flows) 순유출 전환 시"
-      },
-      "data": {
-        "price": 1224.37,
-        "high52": 1231.138,
-        "low52": 917.39,
-        "from_low_pct": 33.462322458278365,
-        "from_high_pct": -0.549735285565065,
-        "range_pct": 97.84285477516987,
-        "rsi": 60.2294377238362,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "NOW",
-      "meta": {
-        "name": "서비스나우 (ServiceNow)",
-        "sector": "🏢 전사 IT 워크플로우 1위",
-        "tag": "포춘 500 필수 SaaS",
-        "category": "tech",
-        "group": "B",
-        "thesis": "포춘 500대 기업 85%가 사용하는 IT 헬프데스크 및 업무 자동화 중앙 플랫폼",
-        "special_issue": "AI 에이전트 도입으로 기업 생산성 혁신 주도. 갱신율(Renewal Rate) 98% 경이적 락인",
-        "if_best": "엔터프라이즈 AI 플랫폼 계약 폭증 ➔ 연간 FCF 40억 달러+ 돌파",
-        "if_worst": "빅테크(MS, Salesforce)와의 업무 영역 침범 경쟁 격화",
-        "kill_switch": "순매출 유지율(NRR) 115% 미만 붕괴 시"
-      },
-      "data": {
-        "price": 108.81,
-        "high52": 178.524,
-        "low52": 81.24,
-        "from_low_pct": 33.936484490398826,
-        "from_high_pct": -39.050211736237145,
-        "range_pct": 28.339706426544968,
-        "rsi": 30.832354749380755,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "VRTX",
-      "meta": {
-        "name": "버텍스 파마슈티컬",
-        "sector": "🧬 낭포성 섬유증 100% 독점",
-        "tag": "순이익률 40%",
-        "category": "health",
-        "group": "B",
-        "thesis": "치명적 유전병인 낭포성 섬유증(CF) 치료제 시장 전 세계 100% 독점",
-        "special_issue": "대체재 0개. 비마약성 진통제(Suzetrigine) 승인 대기 속 FCF 복리 누적",
-        "if_best": "비마약성 진통제 FDA 승인 잭팟 ➔ 주가 전고점 돌파 (+30%)",
-        "if_worst": "경쟁사의 CF 복제약/대체 신약 임상 3상 성공 공시",
-        "kill_switch": "경쟁사 낭포성 섬유증 대체 치료제 승인 시"
-      },
-      "data": {
-        "price": 549.04,
-        "high52": 568.67,
-        "low52": 406.67,
-        "from_low_pct": 35.00872943664395,
-        "from_high_pct": -3.4519141153920545,
-        "range_pct": 87.88271604938271,
-        "rsi": 53.117762149522186,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "TW",
-      "meta": {
-        "name": "트레이드웹 (Tradeweb)",
-        "sector": "🏛️ 미국 국채 전자거래 1위",
-        "tag": "채권 핀테크",
-        "category": "finance",
-        "group": "A",
-        "thesis": "글로벌 기관 투자자들의 미국 국채, 모기지 채권 전자 거래 1등 플랫폼",
-        "special_issue": "미국 재정적자로 국채 발행량 폭증 ➔ 거래 수수료 매출 자동 수혜",
-        "if_best": "채권 시장 전자화 침투율 60% 돌파 ➔ 연 20% 고성장 지속",
-        "if_worst": "채권 시장 유동성 고갈 및 발행량 급감",
-        "kill_switch": "분기 거래 수수료 마진 5%p 이상 하락 시"
-      },
-      "data": {
-        "price": 126.99,
-        "high52": 128.65,
-        "low52": 91.42,
-        "from_low_pct": 38.90833515642091,
-        "from_high_pct": -1.2903225806451697,
-        "range_pct": 95.5412301907064,
-        "rsi": 75.12964664693266,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "IDXX",
-      "meta": {
-        "name": "아이덱스 랩스 (IDEXX)",
-        "sector": "🐕 동물병원 진단 장비/시약 1위",
-        "tag": "반려동물 비급여",
-        "category": "health",
-        "group": "B",
-        "thesis": "전 세계 동물병원 임상 진단 장비 및 진단 시약 압도적 1위 독점",
-        "special_issue": "정부 의료보험 통제 없는 비급여 반려동물 헬스케어의 영구적 캐시카우",
-        "if_best": "글로벌 동물병원 진단 장비 설치 기반 확대 ➔ 고마진 시약 매출 폭증",
-        "if_worst": "반려동물 입양 감소 및 진료 건수 감소",
-        "kill_switch": "시약/소모품 반복 매출 성장률 5% 미만 둔화 시"
-      },
-      "data": {
-        "price": 698.55,
-        "high52": 769.98,
-        "low52": 500.61,
-        "from_low_pct": 39.53976149098099,
-        "from_high_pct": -9.276864334138557,
-        "range_pct": 73.48257044214276,
-        "rsi": 76.76064817721368,
+        "price": 39.7,
+        "high52": 51.13,
+        "low52": 35.1,
+        "from_low_pct": 13.105413105413108,
+        "from_high_pct": -22.354781928417758,
+        "range_pct": 28.696194635059268,
+        "rsi": 35.32629326394695,
         "status": "OK"
       }
     },
@@ -1057,13 +432,263 @@
         "kill_switch": "카바나 제휴 해지 공시 또는 합산손해율 105% 초과 시"
       },
       "data": {
-        "price": 57.15,
+        "price": 46.28,
         "high52": 91.0,
         "low52": 40.91,
-        "from_low_pct": 39.69689562454168,
-        "from_high_pct": -37.1978021978022,
-        "range_pct": 32.42164104611699,
-        "rsi": 59.93642333103595,
+        "from_low_pct": 13.126374969445134,
+        "from_high_pct": -49.142857142857146,
+        "range_pct": 10.72070273507687,
+        "rsi": 68.22751106134662,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "DECK",
+      "meta": {
+        "name": "덱커스 (Deckers Outdoor)",
+        "sector": "👟 호카(HOKA) + 어그(UGG) 챔피언",
+        "tag": "Fwd P/E 9.5배 극단가치",
+        "category": "health",
+        "group": "B",
+        "thesis": "나이키 점유율을 흡수하는 프리미엄 러닝화 호카 및 라이프스타일 어그 보유",
+        "special_issue": "현재 Fwd P/E 9.5배 수준의 압도적 안전마진. 무차입 건전 대차대조표",
+        "if_best": "호카 글로벌 유통망 확장 + 직영 D2C 마진 확대 ➔ 전고점 돌파 (+35%)",
+        "if_worst": "러닝화 트렌드 급변으로 호카 브랜드 피로도 노출",
+        "kill_switch": "호카 브랜드 매출 성장률 10% 미만 급랭 시"
+      },
+      "data": {
+        "price": 87.74,
+        "high52": 122.29,
+        "low52": 77.2,
+        "from_low_pct": 13.652849740932632,
+        "from_high_pct": -28.252514514678236,
+        "range_pct": 23.375471279662875,
+        "rsi": 63.65744719984979,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "XYL",
+      "meta": {
+        "name": "자일럼 (Xylem)",
+        "sector": "💧 글로벌 수처리 펌프 1위",
+        "tag": "상하수도 독점",
+        "category": "infra",
+        "group": "B",
+        "thesis": "전 세계 상하수도, 해수담수화, 반도체 초순수 공급용 초고압 펌프·스마트 밸브 1위",
+        "special_issue": "고금리 지자체 예산 집행 지연으로 고점 대비 -34% 급락 후 52주 바닥권 다지기",
+        "if_best": "담수화 플랜트 + 반도체/AI 데이터센터 초순수 수주 본격화 ➔ 주가 $140+ 회복",
+        "if_worst": "글로벌 경기 침체로 각국 지자체 인프라 개보수 예산 삭감",
+        "kill_switch": "분기 수주잔고(Backlog) 순감소 2분기 연속 지속 시"
+      },
+      "data": {
+        "price": 100.05,
+        "high52": 152.44,
+        "low52": 87.4,
+        "from_low_pct": 14.473684210526304,
+        "from_high_pct": -34.3676200472317,
+        "range_pct": 19.449569495694945,
+        "rsi": 49.86846131233279,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "FIX",
+      "meta": {
+        "name": "컴포트 시스템즈 (Comfort Systems)",
+        "sector": "❄️ AI 데이터센터 냉각/MEP 1위",
+        "tag": "데이터센터 수혜 대장",
+        "category": "infra",
+        "group": "A",
+        "thesis": "빅테크 AI 데이터센터의 액체냉각, HVAC 공조 및 모듈러 MEP 시공 압도적 1위",
+        "special_issue": "수주 잔고 사상 최대 경신. 5년 EPS 성장률 47.8%, PEG 0.78 고성장 알짜",
+        "if_best": "차세대 액체냉각 단가 인상 + 메가 데이터센터 착공 폭증 ➔ 전고점 돌파 (+30%)",
+        "if_worst": "빅테크 AI 데이터센터 설비투자(CAPEX) 급격한 동결",
+        "kill_switch": "수주-출하 비율(Book-to-Bill) 1.0 미만 2분기 연속 붕괴 시"
+      },
+      "data": {
+        "price": 964.94,
+        "high52": 2073.99,
+        "low52": 841.66,
+        "from_low_pct": 14.647244730651343,
+        "from_high_pct": -53.47422118718026,
+        "range_pct": 10.003813913480975,
+        "rsi": 31.040917114436553,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "MKC",
+      "meta": {
+        "name": "맥코믹 (McCormick & Co.)",
+        "sector": "🧂 글로벌 1위 향신료/소스 독점",
+        "tag": "37년 배당귀족 바닥권",
+        "category": "food",
+        "group": "B",
+        "thesis": "전 세계 향신료, 머스타드(French's), 핫소스(Cholula/Frank's) 1위 독점 + 글로벌 프랜차이즈 B2B 주방 장악",
+        "special_issue": "유니레버 식품 M&A 및 저가 PB 대체 공포로 52주 신저가($44) 바닥권. Gross Margin 39.3%로 어닝 서프라이즈",
+        "if_best": "M&A 불확실성 해소 + 핫소스/시즈닝 글로벌 판매 회복 ➔ P/E 20배 리레이팅 ($65+, +45%)",
+        "if_worst": "유니레버 인수 후 부채 부담 지속 및 저가 PB 상품으로의 영구 이탈",
+        "kill_switch": "영업이익률 12% 미만 붕괴 또는 37년 배당 삭감 시"
+      },
+      "data": {
+        "price": 50.06,
+        "high52": 72.41,
+        "low52": 43.25,
+        "from_low_pct": 15.745664739884399,
+        "from_high_pct": -30.865902499654734,
+        "range_pct": 23.353909465020585,
+        "rsi": 60.95711446206057,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "GD",
+      "meta": {
+        "name": "제너럴다이내믹스 (General Dynamics)",
+        "sector": "🚢 핵잠수함 & 걸프스트림 1위",
+        "tag": "해군 1등 벤더",
+        "category": "defense",
+        "group": "A",
+        "thesis": "미 해군 버지니아/컬럼비아급 핵추진 잠수함 100% 독점 및 비즈니스 제트기 걸프스트림",
+        "special_issue": "AUKUS(오커스) 동맹 핵잠수함 수주 및 신냉전 해상 안보 핵심 축",
+        "if_best": "잠수함 건조 속도 가속화 + 걸프스트림 G700 인도 급증 ➔ FCF 40억 달러+",
+        "if_worst": "조선소 숙련공 부족으로 납기 지연",
+        "kill_switch": "해양 부문(Marine Systems) 영업적자 전환 시"
+      },
+      "data": {
+        "price": 356.35,
+        "high52": 400.0,
+        "low52": 306.77,
+        "from_low_pct": 16.161945431430727,
+        "from_high_pct": -10.912499999999994,
+        "range_pct": 53.1803067682077,
+        "rsi": 61.15779830912946,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CI",
+      "meta": {
+        "name": "시그나 (The Cigna Group)",
+        "sector": "🏥 헬스케어 / PBM 요새",
+        "tag": "현금 요새",
+        "category": "health",
+        "group": "B",
+        "thesis": "미국 3대 처방약 급여관리(PBM) 및 기업 건강보험 과점",
+        "special_issue": "휴마나 인수 철회 후 남는 현금 전액 자사주 소각. P/E 10배 바닥권",
+        "if_best": "가치주 피난처 부각 ➔ P/E 15배 리레이팅 ($380+)",
+        "if_worst": "미 의회의 초당적 PBM 마진 규제 입법 통과",
+        "kill_switch": "PBM 수수료 모델 금지 연방법 통과 시"
+      },
+      "data": {
+        "price": 301.48,
+        "high52": 318.0,
+        "low52": 255.53,
+        "from_low_pct": 17.982233005909293,
+        "from_high_pct": -5.1949685534591135,
+        "range_pct": 73.55530654714266,
+        "rsi": 60.81642563761744,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "FSLR",
+      "meta": {
+        "name": "퍼스트 솔라 (First Solar)",
+        "sector": "☀️ 미국 대형 박막 태양광 독점",
+        "tag": "IRA 수혜 저P/E 7배",
+        "category": "tech",
+        "group": "C",
+        "thesis": "중국 실리콘 태양광 대신 미국 내 100% 제조되는 카드뮴-텔루라이드(CdTe) 박막 모듈 독점",
+        "special_issue": "2027~2028년까지 수주 백로그 완판. Fwd P/E 7.5배, PEG 0.27 극단적 저평가",
+        "if_best": "빅테크 데이터센터 전력 자가공급 태양광 대형 수주 ➔ 밸류 리레이팅 (+50%)",
+        "if_worst": "미국 대선 이후 IRA 세액공제(45X) 폐지 또는 대폭 축소",
+        "kill_switch": "IRA 제조 보조금 전면 폐지 입법 통과 시"
+      },
+      "data": {
+        "price": 195.76,
+        "high52": 320.95,
+        "low52": 165.86,
+        "from_low_pct": 18.027251899192073,
+        "from_high_pct": -39.00607571272784,
+        "range_pct": 19.279128248113985,
+        "rsi": 62.94765523358755,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CDNS",
+      "meta": {
+        "name": "케이던스 (Cadence)",
+        "sector": "🧠 반도체 EDA 소프트웨어 과점",
+        "tag": "반도체 필수재",
+        "category": "tech",
+        "group": "B",
+        "thesis": "시놉시스와 함께 전 세계 칩 설계를 양분하는 과점 소프트웨어 제국",
+        "special_issue": "자율주행, AI, 모바일 칩 복잡도 증가로 R&D 필수 소프트웨어 락인 심화",
+        "if_best": "파운드리 2나노 공정 전환 가속 ➔ EDA 툴 사용료 30% 인상 반영",
+        "if_worst": "글로벌 팹리스 스타트업들의 R&D 예산 삭감",
+        "kill_switch": "영업현금흐름(OCF) 마진 30% 미만 하락 시"
+      },
+      "data": {
+        "price": 311.43,
+        "high52": 416.69,
+        "low52": 262.75,
+        "from_low_pct": 18.52711703139867,
+        "from_high_pct": -25.260985384818447,
+        "range_pct": 31.62271014681045,
+        "rsi": 50.491808842759625,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "VMC",
+      "meta": {
+        "name": "벌컨 머티리얼즈",
+        "sector": "🪨 골재/채석장 인허가 독점",
+        "tag": "대체 불가 광산",
+        "category": "infra",
+        "group": "A",
+        "thesis": "도로/건축용 모래·자갈 채석장 독점 (인허가 규제로 신규 채석장 개설 불가)",
+        "special_issue": "무거운 골재 특성상 운송 반경 80km 내 지역 독점권 보유. 판가 매년 인상",
+        "if_best": "미국 인프라 재건 및 공장 건설 붐 ➔ 골재 판가 10%+ 인상 전가",
+        "if_worst": "건설 착공 급감으로 출하량 감소",
+        "kill_switch": "골재 판매 톤당 마진 하락 전환 시"
+      },
+      "data": {
+        "price": 285.51,
+        "high52": 331.09,
+        "low52": 237.03,
+        "from_low_pct": 20.453107201620043,
+        "from_high_pct": -13.766649551481466,
+        "range_pct": 51.54156921114183,
+        "rsi": 76.47162642913483,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "ULS",
+      "meta": {
+        "name": "UL 솔루션스 (UL Solutions)",
+        "sector": "🏷️ 전자기기 안전규격 100% 독점",
+        "tag": "UL 마크 통행세",
+        "category": "infra",
+        "group": "B",
+        "thesis": "전 세계 전자기기, 배터리, 건축 자재에 찍히는 'UL 마크' 안전인증 독점 톨게이트",
+        "special_issue": "EV 배터리, 신재생, AI 데이터센터 기기 안전 인증 필수화로 안정적 성장",
+        "if_best": "글로벌 신제품 출시 붐 속 시험인증 수수료 매출 연 15% 성장",
+        "if_worst": "유럽 CE 등 경쟁 인증 규격의 미국 시장 잠식",
+        "kill_switch": "인증 부문 영업이익률 15% 미만 하락 시"
+      },
+      "data": {
+        "price": 76.15,
+        "high52": 107.54,
+        "low52": 63.17,
+        "from_low_pct": 20.54772835206586,
+        "from_high_pct": -29.189138925051143,
+        "range_pct": 29.25400045075502,
+        "rsi": 70.72245243301373,
         "status": "OK"
       }
     },
@@ -1082,88 +707,63 @@
         "kill_switch": "분기 영업이익률 30% 이하로 급락 시"
       },
       "data": {
-        "price": 149.79,
+        "price": 129.8,
         "high52": 307.37,
         "low52": 107.196,
-        "from_low_pct": 39.73469159296988,
-        "from_high_pct": -51.267202394508246,
-        "range_pct": 21.278487715687348,
-        "rsi": 40.07621921683054,
+        "from_low_pct": 21.086607709242895,
+        "from_high_pct": -57.77076487620783,
+        "range_pct": 11.292175807047874,
+        "rsi": 36.484111267892786,
         "status": "OK"
       }
     },
     {
-      "ticker": "INTU",
+      "ticker": "SNPS",
       "meta": {
-        "name": "인튜이트 (Intuit)",
-        "sector": "📊 세무 & 회계 SaaS 독점",
-        "tag": "Fwd P/E 10배 바닥",
+        "name": "시놉시스 (Synopsys)",
+        "sector": "🧠 반도체 설계 EDA 툴 1위",
+        "tag": "설계 소프트웨어",
         "category": "tech",
-        "group": "A",
-        "thesis": "미국 개인 세무 신고(터보택스) + 3천만 중소기업 회계 장부(퀵북스) 100% 독점",
-        "special_issue": "현재 Fwd P/E 10.7배, PEG 0.50 수준의 극단적 저평가 안전마진 타점",
-        "if_best": "퀵북스 AI 자동장부 기능 안착 + 중소기업 ARPU 15% 상승 ➔ 주가 $400+ 복귀",
-        "if_worst": "미 국세청(IRS)의 직접 무료 세무 신고(Direct File) 전면 의무화",
-        "kill_switch": "터보택스 유료 이용자 수 10% 이상 순감소 시"
-      },
-      "data": {
-        "price": 356.64,
-        "high52": 682.27,
-        "low52": 252.84,
-        "from_low_pct": 41.05363075462742,
-        "from_high_pct": -47.72743928356809,
-        "range_pct": 24.171576275528025,
-        "rsi": 60.33728971209393,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CME",
-      "meta": {
-        "name": "CME 그룹",
-        "sector": "🏛️ 세계 1위 파생상품 거래소",
-        "tag": "원자재/금리 선물",
-        "category": "finance",
         "group": "B",
-        "thesis": "원유, 금, 국채, 통화, 농산물 글로벌 1위 선물/옵션 거래소 독점",
-        "special_issue": "영업이익률 60%에 달하는 현금인출기. 변동성 장세마다 배당 증액",
-        "if_best": "금리 변동성 및 원자재 슈퍼사이클 ➔ 계약 거래량 사상 최대",
-        "if_worst": "장외(OTC) 거래 플랫폼으로의 기관 자금 이탈",
-        "kill_switch": "평균 일일 거래량(ADV) 15% 이상 지속 감소 시"
+        "thesis": "2nm/3nm 칩 설계 시 절대 대체 불가한 전자설계자동화(EDA) 글로벌 과점",
+        "special_issue": "앤시스(Ansys) 대형 인수로 시뮬레이션 통합. 최근 기술주 조정으로 매력적 밸류 도달",
+        "if_best": "AI 칩 설계 붐으로 EDA 라이선스 계약 단가 폭증 ➔ 전고점 회복 (+30%)",
+        "if_worst": "각국 반독점 규제 당국의 앤시스 합병 불허",
+        "kill_switch": "분기 반복 라이선스 매출(ARR) 순감소 시"
       },
       "data": {
-        "price": 308.27,
-        "high52": 329.16,
-        "low52": 218.31,
-        "from_low_pct": 41.20745728551142,
-        "from_high_pct": -6.346457649775197,
-        "range_pct": 81.15471357690569,
-        "rsi": 64.55291944530511,
+        "price": 440.31,
+        "high52": 539.48,
+        "low52": 362.55,
+        "from_low_pct": 21.448076127430696,
+        "from_high_pct": -18.38251649736784,
+        "range_pct": 43.9495845814729,
+        "rsi": 51.475473420034724,
         "status": "OK"
       }
     },
     {
-      "ticker": "CTAS",
+      "ticker": "WM",
       "meta": {
-        "name": "신타스 (Cintas)",
-        "sector": "👔 기업 유니폼 렌탈/세탁 1위",
-        "tag": "트럭망 네트워크",
+        "name": "웨이스트 매니지먼트",
+        "sector": "🗑️ 매립지 토지 독점",
+        "tag": "북미 1위 인프라",
         "category": "infra",
         "group": "B",
-        "thesis": "미국 기업 유니폼 렌탈 및 사업장 안전용품 배송 트럭망 독점",
-        "special_issue": "고객 유지율 95%+의 무차입 현금흐름 제국. 경기 둔화기에도 가격 전가력 유지",
-        "if_best": "신규 헬스케어/서비스업 유니폼 고객 침투 ➔ 40년 연속 배당 증액 랠리",
-        "if_worst": "미국 실업률 급등으로 사업장 근무자 수 급감",
-        "kill_switch": "유기적 매출 성장률 마이너스 전환 시"
+        "thesis": "신규 인허가 불가한 북미 최대 매립지 영지 독점 + 매립가스 발전",
+        "special_issue": "쓰레기 반입 수수료 인상으로 인플레이션 자동 전가. 안정적 FCF 창출",
+        "if_best": "매립가스(RNG) 전력 판매 고성장 ➔ 배당 및 자사주 확대",
+        "if_worst": "환경 규제 강화로 매립지 사후 관리 비용 급증",
+        "kill_switch": "영업현금흐름(OCF) 마진율 5%p 이상 하락 시"
       },
       "data": {
-        "price": 229.03,
-        "high52": 230.7,
-        "low52": 161.16,
-        "from_low_pct": 42.11342764954083,
-        "from_high_pct": -0.7238838318162062,
-        "range_pct": 97.598504457866,
-        "rsi": 64.76666502384293,
+        "price": 241.27,
+        "high52": 248.13,
+        "low52": 197.47,
+        "from_low_pct": 22.180584392565965,
+        "from_high_pct": -2.7646798049409527,
+        "range_pct": 86.4587445716542,
+        "rsi": 63.23290878651078,
         "status": "OK"
       }
     },
@@ -1182,363 +782,213 @@
         "kill_switch": "백로그(수주잔고) 순감소 시"
       },
       "data": {
-        "price": 580.44,
+        "price": 509.06,
         "high52": 788.75,
         "low52": 408.36,
-        "from_low_pct": 42.139288862768154,
-        "from_high_pct": -26.410142630744843,
-        "range_pct": 45.237782276085085,
-        "rsi": 56.45577891872208,
+        "from_low_pct": 24.659614066020175,
+        "from_high_pct": -35.45990491283676,
+        "range_pct": 26.472830516049317,
+        "rsi": 42.251166779005196,
         "status": "OK"
       }
     },
     {
-      "ticker": "UNP",
+      "ticker": "ECL",
       "meta": {
-        "name": "유니언 퍼시픽",
-        "sector": "🚂 미국 서부 철도 독점",
-        "tag": "대륙의 혈관",
+        "name": "이콜랩 (Ecolab)",
+        "sector": "💧 산업용 정수/멸균 1위",
+        "tag": "빌게이츠 1대 주주",
         "category": "infra",
         "group": "B",
-        "thesis": "트럭 대비 운송비 1/4. 미국 서부·중부 물류 인프라 독점",
-        "special_issue": "곡물, 화학물질, 공산품 컨테이너 운송의 영구적 해자",
-        "if_best": "니어쇼어링(멕시코 수입) 물동량 급증 ➔ 배당 증액 랠리",
-        "if_worst": "철도 노조 파업 및 경기 침체 물동량 감소",
-        "kill_switch": "영업비율(OR) 65% 이상으로 악화 지속 시"
+        "thesis": "전 세계 반도체 팹, 공장, 병원에서 물을 정화하고 재활용하는 특수 케미컬·소프트웨어 독점",
+        "special_issue": "수자원 고갈 시대 필수 방어벽. 영업마진 꾸준히 개선 중",
+        "if_best": "데이터센터 수냉식 냉각수 정수 및 공장 폐수 무방류(ZLD) 수요 폭증 ➔ 전고점 돌파",
+        "if_worst": "원자재(기초화학) 가격 폭등으로 제조 마진 일시 축소",
+        "kill_switch": "영업이익률 5%p 이상 급락 시"
       },
       "data": {
-        "price": 308.53,
-        "high52": 315.99,
-        "low52": 216.32,
-        "from_low_pct": 42.626664201183424,
-        "from_high_pct": -2.3608342036140497,
-        "range_pct": 92.51530049162233,
-        "rsi": 65.79973487956383,
+        "price": 305.83,
+        "high52": 318.93,
+        "low52": 243.15,
+        "from_low_pct": 25.77832613612995,
+        "from_high_pct": -4.1074844009657365,
+        "range_pct": 82.71311691739243,
+        "rsi": 76.2715694592327,
         "status": "OK"
       }
     },
     {
-      "ticker": "CLH",
+      "ticker": "NOW",
       "meta": {
-        "name": "클린 하버즈",
-        "sector": "☣️ 특수 유해폐기물 1위",
-        "tag": "초고마진 소각",
+        "name": "서비스나우 (ServiceNow)",
+        "sector": "🏢 전사 IT 워크플로우 1위",
+        "tag": "포춘 500 필수 SaaS",
+        "category": "tech",
+        "group": "B",
+        "thesis": "포춘 500대 기업 85%가 사용하는 IT 헬프데스크 및 업무 자동화 중앙 플랫폼",
+        "special_issue": "AI 에이전트 도입으로 기업 생산성 혁신 주도. 갱신율(Renewal Rate) 98% 경이적 락인",
+        "if_best": "엔터프라이즈 AI 플랫폼 계약 폭증 ➔ 연간 FCF 40억 달러+ 돌파",
+        "if_worst": "빅테크(MS, Salesforce)와의 업무 영역 침범 경쟁 격화",
+        "kill_switch": "순매출 유지율(NRR) 115% 미만 붕괴 시"
+      },
+      "data": {
+        "price": 102.36,
+        "high52": 175.8,
+        "low52": 81.24,
+        "from_low_pct": 25.997045790251118,
+        "from_high_pct": -41.774744027303754,
+        "range_pct": 22.33502538071066,
+        "rsi": 30.674305651058035,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CPRT",
+      "meta": {
+        "name": "코파트 (Copart)",
+        "sector": "🚗 전손차/사고차 경매 독점",
+        "tag": "영업마진 40%",
         "category": "infra",
         "group": "B",
-        "thesis": "반도체·화학·정유 공장 유해 폐기물 소각 및 정화 인프라 독점",
-        "special_issue": "미국 제조업 리쇼어링으로 산업 폐기물 처리 수요 증가",
-        "if_best": "미국 내 반도체/배터리 팹 가동 ➔ 고마진 특수 처리 폭증",
-        "if_worst": "미국 제조업 리쇼어링 지연",
-        "kill_switch": "산업 서비스 부문 마진 급락 시"
+        "thesis": "미국 보험사고 전손 차량 온라인 경매 1위 독점 + 대도시 주변 토지 야드 인허가 해자",
+        "special_issue": "차량 첨단화로 수리비 급증 ➔ 전손 처리율 상승 수혜. Fwd P/E 15.4배 밸류 매력",
+        "if_best": "글로벌 바이어 네트워크 확대 속 수수료 인상 ➔ FCF 15억 달러+ 달성",
+        "if_worst": "자동차 사고율의 구조적 급감 (자율주행 급진적 보급)",
+        "kill_switch": "전손차 출품 대수 2분기 연속 10% 이상 감소 시"
       },
       "data": {
-        "price": 288.24,
-        "high52": 335.94,
-        "low52": 201.34,
-        "from_low_pct": 43.160822489321546,
-        "from_high_pct": -14.198964100732269,
-        "range_pct": 64.56166419019317,
-        "rsi": 24.925837305605143,
+        "price": 32.48,
+        "high52": 42.05,
+        "low52": 25.72,
+        "from_low_pct": 26.283048211508547,
+        "from_high_pct": -22.758620689655174,
+        "range_pct": 41.3962033067973,
+        "rsi": 70.52545334053087,
         "status": "OK"
       }
     },
     {
-      "ticker": "MA",
+      "ticker": "ADM",
       "meta": {
-        "name": "마스터카드 (Mastercard)",
-        "sector": "🏛️ 글로벌 결제망 2위 과점",
-        "tag": "무차입 통행세",
-        "category": "finance",
-        "group": "B",
-        "thesis": "비자와 함께 전 세계 디지털 화폐 흐름을 장악한 과점 톨게이트 (영업마진 55%+)",
-        "special_issue": "국경 간 거래(Cross-border) 수수료 고마진 성장. 부채 리스크 제로",
-        "if_best": "B2B 결제 및 해외 결제액 폭증 ➔ 전고점 경신 랠리",
-        "if_worst": "각국 정부의 국가 자체 결제망 구축 확대",
-        "kill_switch": "분기 결제 볼륨 성장률 마이너스 전환 시"
-      },
-      "data": {
-        "price": 672.68,
-        "high52": 673.5,
-        "low52": 464.52,
-        "from_low_pct": 44.811848790148964,
-        "from_high_pct": -0.12175204157387529,
-        "range_pct": 99.60761795387117,
-        "rsi": 68.58626709611353,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "RGLD",
-      "meta": {
-        "name": "로열 골드 (Royal Gold)",
-        "sector": "⛏️ 금광 로열티/스트리밍 1위",
-        "tag": "마진 50% 금 SaaS",
-        "category": "ocean",
-        "group": "B",
-        "thesis": "직접 땅 파지 않고 광산 개발 자금 대주고 금 생산량 5~10% 영구 수취",
-        "special_issue": "곡괭이/인건비 부담 0원. 금값 상승 시 영업마진 50%+ 복리 향유",
-        "if_best": "금 온스당 $3,000+ 돌파 ➔ 잉여현금흐름 폭발 및 배당 증액",
-        "if_worst": "핵심 로열티 계약 광산의 지정학적 국유화 또는 폐광",
-        "kill_switch": "핵심 광산 생산 중단 또는 금 가격 $1,800 이하 급락 시"
-      },
-      "data": {
-        "price": 246.08,
-        "high52": 306.25,
-        "low52": 169.54,
-        "from_low_pct": 45.14568833313673,
-        "from_high_pct": -19.647346938775506,
-        "range_pct": 55.98712603320899,
-        "rsi": 45.48425779274889,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "ISRG",
-      "meta": {
-        "name": "인튜이티브 서지컬",
-        "sector": "🦾 다빈치 수술 로봇 1등 독점",
-        "tag": "면도날 모델",
-        "category": "health",
-        "group": "B",
-        "thesis": "글로벌 복강경 수술 로봇 독점. 매출의 70%가 일회용 수술 도구 반복 매출",
-        "special_issue": "최신 다빈치 5(DV5) 교체 사이클 본격화. 의사들의 기술 락인 극강",
-        "if_best": "다빈치 5 병원 도입 가속 + 수술 건수 15%+ 성장 ➔ 사상 최고가 경신",
-        "if_worst": "병원들의 의료장비 자본지출(CAPEX) 급격한 긴축",
-        "kill_switch": "분기 수술 건수(Procedure Growth) 8% 미만 하락 시"
-      },
-      "data": {
-        "price": 482.1,
-        "high52": 603.88,
-        "low52": 328.57,
-        "from_low_pct": 46.726724898803916,
-        "from_high_pct": -20.166258196992775,
-        "range_pct": 55.76622716210819,
-        "rsi": 58.5614966085871,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "MNST",
-      "meta": {
-        "name": "몬스터 베버리지",
-        "sector": "⚡ 에너지 음료 제국",
-        "tag": "음료계의 SaaS",
+        "name": "아처 대니얼스 미들랜드",
+        "sector": "🌾 식량 / 곡물 1위",
+        "tag": "곡물 메이저",
         "category": "food",
         "group": "B",
-        "thesis": "공장 소유 없이 코카콜라 글로벌 배송망에 원액만 얹어 무차입 마진 30% 창출",
-        "special_issue": "Z세대 충성도 극강. 밸류에이션 조정 시 강력한 자사주 매입 하방 지지",
-        "if_best": "글로벌 신흥국 시장 점유율 40% 돌파 ➔ 30년 복리 우상향 재현",
-        "if_worst": "카페인 음료 규제 및 신흥 에너지 음료(셀시어스 등) 추격",
-        "kill_switch": "글로벌 매출총이익률 50% 붕괴 시"
+        "thesis": "전 세계 곡물 운송선, 사일로 창고, 가공 플랜트 독점",
+        "special_issue": "영양 부문 내부 회계 조사 노이즈로 주가 급락 후 펀더멘털 바닥 확인 중",
+        "if_best": "기상이변 속 곡물 유통 마진 폭증 + 회계 노이즈 해소 ➔ 주가 $85+ 회복",
+        "if_worst": "미 법무부의 대규모 회계 분식 기소 및 과징금",
+        "kill_switch": "전사적 회계 부정 확정 시"
       },
       "data": {
-        "price": 48.75,
-        "high52": 50.17,
-        "low52": 32.94,
-        "from_low_pct": 47.996357012750465,
-        "from_high_pct": -2.8303767191548768,
-        "range_pct": 91.75856065002901,
-        "rsi": 59.62732267917832,
+        "price": 70.47,
+        "high52": 88.75,
+        "low52": 55.58,
+        "from_low_pct": 26.790212306585104,
+        "from_high_pct": -20.59718309859155,
+        "range_pct": 44.889960807959,
+        "rsi": 24.511887180036,
         "status": "OK"
       }
     },
     {
-      "ticker": "CF",
+      "ticker": "RSG",
       "meta": {
-        "name": "CF 인더스트리즈",
-        "sector": "⚡ 질소 비료 독점",
-        "tag": "P/FCF 7배",
-        "category": "food",
-        "group": "B",
-        "thesis": "미국 저렴한 셰일가스로 질소 비료 생산, 유럽/러시아 원가 압살",
-        "special_issue": "P/FCF 7~8배의 강력한 현금 창출력. 대규모 자사주 소각 지속",
-        "if_best": "유럽 천연가스 불안 + 비료 부족 ➔ 판가 급등 및 대규모 특별배당",
-        "if_worst": "미국 천연가스 가격 급등으로 마진 축소",
-        "kill_switch": "미국 헨리허브 가스 가격 $6+ 지속 시"
-      },
-      "data": {
-        "price": 111.68,
-        "high52": 141.96,
-        "low52": 75.42,
-        "from_low_pct": 48.077433041633526,
-        "from_high_pct": -21.329952099182865,
-        "range_pct": 54.49353772167118,
-        "rsi": 44.747924518559046,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "RIG",
-      "meta": {
-        "name": "트랜스오션",
-        "sector": "🌊 초심해 시추선 1위",
-        "tag": "공급절벽 수혜",
-        "category": "ocean",
-        "group": "C",
-        "thesis": "지상 셰일 고갈에 따른 가이아나/브라질 심해 시추 독점 공급자",
-        "special_issue": "시추선 공급 절벽으로 일일 용선료 $50만 돌파. 주가 바닥권",
-        "if_best": "유가 $80+ 유지 ➔ 수주 백로그 매출 전환 ➔ 100%+ 랠리",
-        "if_worst": "글로벌 경기 침체로 유가 $50 이하 폭락",
-        "kill_switch": "WTI 유가 $55 이하 6개월 지속 시"
-      },
-      "data": {
-        "price": 5.45,
-        "high52": 7.66,
-        "low52": 3.68,
-        "from_low_pct": 48.097826086956516,
-        "from_high_pct": -28.851174934725847,
-        "range_pct": 44.472361809045225,
-        "rsi": 47.798783199425785,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "WHD",
-      "meta": {
-        "name": "선인장 (Cactus)",
-        "sector": "🛢️ 유전 웰헤드 안전장비 독점",
-        "tag": "5년 EPS 27% 성장",
-        "category": "power",
-        "group": "A",
-        "thesis": "셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점",
-        "special_issue": "무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털",
-        "if_best": "미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증",
-        "if_worst": "원유 시추 활동 급격한 침체",
-        "kill_switch": "분기 FCF 적자 전환 시"
-      },
-      "data": {
-        "price": 58.07,
-        "high52": 74.07,
-        "low52": 39.16,
-        "from_low_pct": 48.28907048008173,
-        "from_high_pct": -21.601188065343585,
-        "range_pct": 54.16786021197366,
-        "rsi": 44.15542160243254,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "V",
-      "meta": {
-        "name": "비자 (Visa)",
-        "sector": "🏛️ 글로벌 결제망 1위 독점",
-        "tag": "인플레 자동 전가",
-        "category": "finance",
-        "group": "B",
-        "thesis": "전 세계 신용카드/직불카드 결제 승인 네트워크 과점 (영업마진 65%+)",
-        "special_issue": "인플레이션으로 결제액 증가 시 수수료 자동 인상. 무차입 현금 기계 + 대규모 자사주 소각",
-        "if_best": "글로벌 여행/소비 견조 속 FCF 80% 자사주 소각 ➔ EPS 복리 15% 우상향",
-        "if_worst": "미 의회의 신용카드 수수료 강제 인하 입법 통과",
-        "kill_switch": "신용카드 수수료율 강제 인하 법안 통과 시"
-      },
-      "data": {
-        "price": 436.57,
-        "high52": 436.67,
-        "low52": 293.89,
-        "from_low_pct": 48.54877675320699,
-        "from_high_pct": -0.022900588545130815,
-        "range_pct": 99.92996217957696,
-        "rsi": 69.20239855806972,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CBOE",
-      "meta": {
-        "name": "Cboe 글로벌 마켓",
-        "sector": "🏛️ 공포지수(VIX) & 옵션 독점",
-        "tag": "폭락장 헤지 자산",
-        "category": "finance",
-        "group": "B",
-        "thesis": "공포지수(VIX) 선물 및 S&P 500 지수 옵션(SPX) 독점 톨게이트",
-        "special_issue": "대출 부실 리스크 0원. 시장 폭락 시 변동성 수수료 폭발 수혜",
-        "if_best": "매크로 충격으로 VIX 폭등 ➔ 사상 최대 거래 수수료 창출 (+35%)",
-        "if_worst": "초장기 저변동성 평화 장세 지속으로 옵션 거래량 감소",
-        "kill_switch": "경쟁 거래소의 대체 변동성 상품 시장 점유율 20% 잠식 시"
-      },
-      "data": {
-        "price": 345.21,
-        "high52": 371.18,
-        "low52": 227.15,
-        "from_low_pct": 51.97446621175433,
-        "from_high_pct": -6.996605420550683,
-        "range_pct": 81.96903422898005,
-        "rsi": 65.14990271639309,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "BHP",
-      "meta": {
-        "name": "BHP 그룹",
-        "sector": "⛏️ 글로벌 광산 1위",
-        "tag": "남반구 자원요새",
-        "category": "ocean",
-        "group": "B",
-        "thesis": "호주 본토 중심 철광석, 구리, 칼륨 생산 세계 1위 광산 거인",
-        "special_issue": "배당수익률 5%+의 강력한 현금 흐름. 신냉전 안전 자원 기지",
-        "if_best": "구리 수요 폭증 + 얀센 칼륨 광산 상업 가동 ➔ 이익 점프",
-        "if_worst": "중국 철강 소비 침체로 철광석 가격 급락",
-        "kill_switch": "배당 컷 또는 구리/철광석 동반 폭락 시"
-      },
-      "data": {
-        "price": 80.14,
-        "high52": 98.71,
-        "low52": 52.18,
-        "from_low_pct": 53.58374856266769,
-        "from_high_pct": -18.81268361868098,
-        "range_pct": 60.0902643455835,
-        "rsi": 36.346436379281656,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "SCCO",
-      "meta": {
-        "name": "서던 코퍼 (Southern Copper)",
-        "sector": "🥉 세계 최저 원가 구리 독점",
-        "tag": "순이익률 40%",
-        "category": "ocean",
-        "group": "B",
-        "thesis": "부산물(몰리브덴/은) 크레딧으로 파운드당 구리 생산 원가가 글로벌 최저 수준",
-        "special_issue": "AI 데이터센터 및 전력망 구리 쇼티지의 최대 수혜자. 엔비디아급 순이익률",
-        "if_best": "구리 파운드당 $5+ 안착 ➔ 주당 배당금 사상 최대 지급",
-        "if_worst": "페루/멕시코 정부의 광산 특별세 인상 또는 파업",
-        "kill_switch": "구리 현물 가격 파운드당 $3.20 이하 급락 시"
-      },
-      "data": {
-        "price": 176.84,
-        "high52": 218.594,
-        "low52": 114.597,
-        "from_low_pct": 54.314685375707924,
-        "from_high_pct": -19.10116471632341,
-        "range_pct": 59.850764925911335,
-        "rsi": 32.84628920754642,
-        "status": "OK"
-      }
-    },
-    {
-      "ticker": "CSX",
-      "meta": {
-        "name": "CSX 코퍼레이션",
-        "sector": "🚂 미국 동부 철도 독점",
-        "tag": "원정수송 해자",
+        "name": "리퍼블릭 서비스",
+        "sector": "🗑️ 폐기물 과점 2위",
+        "tag": "물가연동 가격력",
         "category": "infra",
         "group": "B",
-        "thesis": "뉴욕 대도시 쓰레기 원정 수송(Trash Train) 및 동부 공업지대 철도 독점",
-        "special_issue": "대체 불가한 동부 철로망 기반 높은 영업이익률",
-        "if_best": "동부 전력망 석탄/가스 발전 원자재 수송 증가",
-        "if_worst": "동부 항만 물동량 급감",
-        "kill_switch": "분기 순이익 적자 전환 시"
+        "thesis": "북미 2위 폐기물 처리 과점. 장기 계약 기반 안정적 이익",
+        "special_issue": "지자체 장기 수거 계약으로 경기 침체 무풍지대",
+        "if_best": "자원 재활용 및 환경 인프라 인수로 연 10%+ EPS 성장",
+        "if_worst": "유가 폭등으로 수거 트럭 유류비 급증",
+        "kill_switch": "자유현금흐름 적자 전환 시"
       },
       "data": {
-        "price": 52.05,
-        "high52": 53.6,
-        "low52": 33.63,
-        "from_low_pct": 54.77252453166813,
-        "from_high_pct": -2.8917910447761273,
-        "range_pct": 92.23835753630443,
-        "rsi": 56.75354535539834,
+        "price": 249.42,
+        "high52": 254.394,
+        "low52": 196.41,
+        "from_low_pct": 26.989460821750416,
+        "from_high_pct": -1.955234793273433,
+        "range_pct": 91.42177152317878,
+        "rsi": 67.39434128607749,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "BLK",
+      "meta": {
+        "name": "블랙록 (BlackRock)",
+        "sector": "🏛️ 세계 1위 자산운용 & 알라딘",
+        "tag": "10조 달러 거인",
+        "category": "finance",
+        "group": "B",
+        "thesis": "10조 달러 iShares ETF 수수료 + 금융기관 필수 리스크관리 SaaS(알라딘)",
+        "special_issue": "글로벌 패시브 자금 유입과 사모 자산(Private Credit) 확장 가속",
+        "if_best": "글로벌 증시 랠리 속 AUM 12조 달러 돌파 ➔ 수수료 레버리지 폭발",
+        "if_worst": "글로벌 금융위기로 인한 AUM 급감 및 운용보수 하락",
+        "kill_switch": "분기 순유입 자금(Net Flows) 순유출 전환 시"
+      },
+      "data": {
+        "price": 1170.67,
+        "high52": 1241.645,
+        "low52": 917.39,
+        "from_low_pct": 27.608759633307546,
+        "from_high_pct": -5.71620712844653,
+        "range_pct": 78.11136297050165,
+        "rsi": 70.07857657340514,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "HEI",
+      "meta": {
+        "name": "하이코 (HEICO)",
+        "sector": "✈️ FAA 승인 대체부품(PMA) 독점",
+        "tag": "버핏 스타일 복리",
+        "category": "infra",
+        "group": "B",
+        "thesis": "순정품 대비 30~50% 저렴한 FAA 승인 항공기 대체 부품 독점 공급자",
+        "special_issue": "항공사들의 비용 절감 필수 파트너. 지난 30년간 연평균 복리 20%+ 우상향",
+        "if_best": "글로벌 항공 여객 수요 증가 속 대체 부품 침투율 40% 돌파 ➔ 실적 점프",
+        "if_worst": "PMA 대체 부품의 중대 품질 결함 이슈 발생",
+        "kill_switch": "FAA의 핵심 부품 PMA 인가 취소 시"
+      },
+      "data": {
+        "price": 327.33,
+        "high52": 376.86,
+        "low52": 256.11,
+        "from_low_pct": 27.808363593768288,
+        "from_high_pct": -13.1428116541952,
+        "range_pct": 58.9813664596273,
+        "rsi": 69.14273623245441,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "ADBE",
+      "meta": {
+        "name": "어도비 (Adobe)",
+        "sector": "🎨 크리에이티브 클라우드 독점",
+        "tag": "AI 공포 과매도",
+        "category": "tech",
+        "group": "B",
+        "thesis": "포토샵, 일러스트레이터, 프리미어 등 디지털 디자인 표준 툴 영구 락인",
+        "special_issue": "생성형 AI 위협론 공포로 고점 대비 -40% 폭락. Fwd P/E 8.6배, PEG 0.58 바닥권",
+        "if_best": "파이어플라이(Firefly) AI 엔터프라이즈 구독 폭증 ➔ P/E 20배 복귀 (+40% 익절)",
+        "if_worst": "Canva, Midjourney 등 신생 AI 툴로 기업 고객 대량 이탈",
+        "kill_switch": "기업용 디지털 미디어 ARR 순감소 공시 시"
+      },
+      "data": {
+        "price": 246.44,
+        "high52": 362.71,
+        "low52": 190.12,
+        "from_low_pct": 29.623395750052595,
+        "from_high_pct": -32.055912436933085,
+        "range_pct": 32.632249840662844,
+        "rsi": 49.058535332161235,
         "status": "OK"
       }
     },
@@ -1557,13 +1007,438 @@
         "kill_switch": "광통신 부문 분기 수주잔고 순감소 시"
       },
       "data": {
-        "price": 195.09,
+        "price": 169.76,
         "high52": 440.0,
-        "low52": 126.0,
-        "from_low_pct": 54.833333333333336,
-        "from_high_pct": -55.66136363636364,
-        "range_pct": 22.0031847133758,
-        "rsi": 35.815142872964145,
+        "low52": 130.42,
+        "from_low_pct": 30.164085262996476,
+        "from_high_pct": -61.418181818181814,
+        "range_pct": 12.707539246721364,
+        "rsi": 33.11820103436516,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "RMD",
+      "meta": {
+        "name": "레스메드 (ResMed)",
+        "sector": "💨 수면무호흡증 양압기(CPAP) 1위",
+        "tag": "필립스 리콜 수혜",
+        "category": "health",
+        "group": "B",
+        "thesis": "수면무호흡증 치료용 양압기 및 호흡기 마스크 글로벌 1위 독점사",
+        "special_issue": "비만약 공포로 과매도 후 펀더멘털 증명하며 강력한 반등세 지속",
+        "if_best": "GLP-1 복용자들의 수면무호흡 진단율 증가 ➔ 양압기 수요 동반 증가",
+        "if_worst": "필립스의 양압기 시장 전면 재진입 및 가격 인하",
+        "kill_switch": "시장 점유율 10%p 이상 잠식 시"
+      },
+      "data": {
+        "price": 239.31,
+        "high52": 277.67,
+        "low52": 180.27,
+        "from_low_pct": 32.75087368946579,
+        "from_high_pct": -13.814960204559373,
+        "range_pct": 60.61601642710471,
+        "rsi": 52.737733514609054,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "VRTX",
+      "meta": {
+        "name": "버텍스 파마슈티컬",
+        "sector": "🧬 낭포성 섬유증 100% 독점",
+        "tag": "순이익률 40%",
+        "category": "health",
+        "group": "B",
+        "thesis": "치명적 유전병인 낭포성 섬유증(CF) 치료제 시장 전 세계 100% 독점",
+        "special_issue": "대체재 0개. 비마약성 진통제(Suzetrigine) 승인 대기 속 FCF 복리 누적",
+        "if_best": "비마약성 진통제 FDA 승인 잭팟 ➔ 주가 전고점 돌파 (+30%)",
+        "if_worst": "경쟁사의 CF 복제약/대체 신약 임상 3상 성공 공시",
+        "kill_switch": "경쟁사 낭포성 섬유증 대체 치료제 승인 시"
+      },
+      "data": {
+        "price": 542.5,
+        "high52": 568.67,
+        "low52": 406.67,
+        "from_low_pct": 33.400545897164776,
+        "from_high_pct": -4.60196599082068,
+        "range_pct": 83.8456790123457,
+        "rsi": 59.32574328255646,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "IDXX",
+      "meta": {
+        "name": "아이덱스 랩스 (IDEXX)",
+        "sector": "🐕 동물병원 진단 장비/시약 1위",
+        "tag": "반려동물 비급여",
+        "category": "health",
+        "group": "B",
+        "thesis": "전 세계 동물병원 임상 진단 장비 및 진단 시약 압도적 1위 독점",
+        "special_issue": "정부 의료보험 통제 없는 비급여 반려동물 헬스케어의 영구적 캐시카우",
+        "if_best": "글로벌 동물병원 진단 장비 설치 기반 확대 ➔ 고마진 시약 매출 폭증",
+        "if_worst": "반려동물 입양 감소 및 진료 건수 감소",
+        "kill_switch": "시약/소모품 반복 매출 성장률 5% 미만 둔화 시"
+      },
+      "data": {
+        "price": 670.71,
+        "high52": 769.98,
+        "low52": 500.61,
+        "from_low_pct": 33.97854617366813,
+        "from_high_pct": -12.892542663445802,
+        "range_pct": 63.14734380220516,
+        "rsi": 79.43826393316758,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CASY",
+      "meta": {
+        "name": "케이시스 (Casey's)",
+        "sector": "🍕 시골 읍내 독점 편의점",
+        "tag": "미국 5대 피자 체인",
+        "category": "food",
+        "group": "B",
+        "thesis": "미국 중서부 인구 5천 명 이하 시골 마을의 유일한 피자집+주유소+편의점",
+        "special_issue": "시골 상권 독점으로 경기 불황 무풍지대. FCF 재투자로 매장 확장 지속",
+        "if_best": "M&A 편의점 인수 통합 + 즉석식품 마진 확대 ➔ EPS 연 15% 성장",
+        "if_worst": "농촌 지역 인구 급감 및 가솔린 마진 축소",
+        "kill_switch": "동일매장 매출 성장률(SSSG) 마이너스 전환 시"
+      },
+      "data": {
+        "price": 689.53,
+        "high52": 927.85,
+        "low52": 513.1,
+        "from_low_pct": 34.38511011498732,
+        "from_high_pct": -25.685186183111497,
+        "range_pct": 42.5388788426763,
+        "rsi": 51.056993519171755,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "UNP",
+      "meta": {
+        "name": "유니언 퍼시픽",
+        "sector": "🚂 미국 서부 철도 독점",
+        "tag": "대륙의 혈관",
+        "category": "infra",
+        "group": "B",
+        "thesis": "트럭 대비 운송비 1/4. 미국 서부·중부 물류 인프라 독점",
+        "special_issue": "곡물, 화학물질, 공산품 컨테이너 운송의 영구적 해자",
+        "if_best": "니어쇼어링(멕시코 수입) 물동량 급증 ➔ 배당 증액 랠리",
+        "if_worst": "철도 노조 파업 및 경기 침체 물동량 감소",
+        "kill_switch": "영업비율(OR) 65% 이상으로 악화 지속 시"
+      },
+      "data": {
+        "price": 297.95,
+        "high52": 315.99,
+        "low52": 216.32,
+        "from_low_pct": 37.735761834319526,
+        "from_high_pct": -5.709041425361568,
+        "range_pct": 81.90027089395002,
+        "rsi": 69.95507527081047,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CLH",
+      "meta": {
+        "name": "클린 하버즈",
+        "sector": "☣️ 특수 유해폐기물 1위",
+        "tag": "초고마진 소각",
+        "category": "infra",
+        "group": "B",
+        "thesis": "반도체·화학·정유 공장 유해 폐기물 소각 및 정화 인프라 독점",
+        "special_issue": "미국 제조업 리쇼어링으로 산업 폐기물 처리 수요 증가",
+        "if_best": "미국 내 반도체/배터리 팹 가동 ➔ 고마진 특수 처리 폭증",
+        "if_worst": "미국 제조업 리쇼어링 지연",
+        "kill_switch": "산업 서비스 부문 마진 급락 시"
+      },
+      "data": {
+        "price": 277.7,
+        "high52": 335.94,
+        "low52": 201.34,
+        "from_low_pct": 37.92589649349358,
+        "from_high_pct": -17.336429124248383,
+        "range_pct": 56.73105497771173,
+        "rsi": 21.00364834894779,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "RIG",
+      "meta": {
+        "name": "트랜스오션",
+        "sector": "🌊 초심해 시추선 1위",
+        "tag": "공급절벽 수혜",
+        "category": "ocean",
+        "group": "C",
+        "thesis": "지상 셰일 고갈에 따른 가이아나/브라질 심해 시추 독점 공급자",
+        "special_issue": "시추선 공급 절벽으로 일일 용선료 $50만 돌파. 주가 바닥권",
+        "if_best": "유가 $80+ 유지 ➔ 수주 백로그 매출 전환 ➔ 100%+ 랠리",
+        "if_worst": "글로벌 경기 침체로 유가 $50 이하 폭락",
+        "kill_switch": "WTI 유가 $55 이하 6개월 지속 시"
+      },
+      "data": {
+        "price": 5.1,
+        "high52": 7.66,
+        "low52": 3.68,
+        "from_low_pct": 38.58695652173911,
+        "from_high_pct": -33.420365535248045,
+        "range_pct": 35.67839195979899,
+        "rsi": 40.248448045123915,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "TW",
+      "meta": {
+        "name": "트레이드웹 (Tradeweb)",
+        "sector": "🏛️ 미국 국채 전자거래 1위",
+        "tag": "채권 핀테크",
+        "category": "finance",
+        "group": "A",
+        "thesis": "글로벌 기관 투자자들의 미국 국채, 모기지 채권 전자 거래 1등 플랫폼",
+        "special_issue": "미국 재정적자로 국채 발행량 폭증 ➔ 거래 수수료 매출 자동 수혜",
+        "if_best": "채권 시장 전자화 침투율 60% 돌파 ➔ 연 20% 고성장 지속",
+        "if_worst": "채권 시장 유동성 고갈 및 발행량 급감",
+        "kill_switch": "분기 거래 수수료 마진 5%p 이상 하락 시"
+      },
+      "data": {
+        "price": 127.56,
+        "high52": 128.97,
+        "low52": 91.42,
+        "from_low_pct": 39.53183110916648,
+        "from_high_pct": -1.0932775063968339,
+        "range_pct": 96.24500665778962,
+        "rsi": 76.58089574184552,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "INTU",
+      "meta": {
+        "name": "인튜이트 (Intuit)",
+        "sector": "📊 세무 & 회계 SaaS 독점",
+        "tag": "Fwd P/E 10배 바닥",
+        "category": "tech",
+        "group": "A",
+        "thesis": "미국 개인 세무 신고(터보택스) + 3천만 중소기업 회계 장부(퀵북스) 100% 독점",
+        "special_issue": "현재 Fwd P/E 10.7배, PEG 0.50 수준의 극단적 저평가 안전마진 타점",
+        "if_best": "퀵북스 AI 자동장부 기능 안착 + 중소기업 ARPU 15% 상승 ➔ 주가 $400+ 복귀",
+        "if_worst": "미 국세청(IRS)의 직접 무료 세무 신고(Direct File) 전면 의무화",
+        "kill_switch": "터보택스 유료 이용자 수 10% 이상 순감소 시"
+      },
+      "data": {
+        "price": 354.84,
+        "high52": 682.27,
+        "low52": 252.84,
+        "from_low_pct": 40.341718082581856,
+        "from_high_pct": -47.991264455420875,
+        "range_pct": 23.752415993293432,
+        "rsi": 64.81907084645276,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "WHD",
+      "meta": {
+        "name": "선인장 (Cactus)",
+        "sector": "🛢️ 유전 웰헤드 안전장비 독점",
+        "tag": "5년 EPS 27% 성장",
+        "category": "power",
+        "group": "A",
+        "thesis": "셰일 유전 시추 시 폭발을 방지하는 안전 웰헤드(Wellhead) 시장 1위 독점",
+        "special_issue": "무차입 대차대조표에 Fwd P/E 17배 수준의 견고한 펀더멘털",
+        "if_best": "미국 셰일 가동 리그 수 반등 ➔ 웰헤드 출하량 및 마진 급증",
+        "if_worst": "원유 시추 활동 급격한 침체",
+        "kill_switch": "분기 FCF 적자 전환 시"
+      },
+      "data": {
+        "price": 55.01,
+        "high52": 74.07,
+        "low52": 39.16,
+        "from_low_pct": 40.47497446373852,
+        "from_high_pct": -25.732415282840552,
+        "range_pct": 45.402463477513614,
+        "rsi": 35.42805637881112,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CTAS",
+      "meta": {
+        "name": "신타스 (Cintas)",
+        "sector": "👔 기업 유니폼 렌탈/세탁 1위",
+        "tag": "트럭망 네트워크",
+        "category": "infra",
+        "group": "B",
+        "thesis": "미국 기업 유니폼 렌탈 및 사업장 안전용품 배송 트럭망 독점",
+        "special_issue": "고객 유지율 95%+의 무차입 현금흐름 제국. 경기 둔화기에도 가격 전가력 유지",
+        "if_best": "신규 헬스케어/서비스업 유니폼 고객 침투 ➔ 40년 연속 배당 증액 랠리",
+        "if_worst": "미국 실업률 급등으로 사업장 근무자 수 급감",
+        "kill_switch": "유기적 매출 성장률 마이너스 전환 시"
+      },
+      "data": {
+        "price": 226.41,
+        "high52": 233.42,
+        "low52": 161.16,
+        "from_low_pct": 40.48771407297096,
+        "from_high_pct": -3.0031702510496063,
+        "range_pct": 90.29892056462775,
+        "rsi": 69.12268777498318,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CME",
+      "meta": {
+        "name": "CME 그룹",
+        "sector": "🏛️ 세계 1위 파생상품 거래소",
+        "tag": "원자재/금리 선물",
+        "category": "finance",
+        "group": "B",
+        "thesis": "원유, 금, 국채, 통화, 농산물 글로벌 1위 선물/옵션 거래소 독점",
+        "special_issue": "영업이익률 60%에 달하는 현금인출기. 변동성 장세마다 배당 증액",
+        "if_best": "금리 변동성 및 원자재 슈퍼사이클 ➔ 계약 거래량 사상 최대",
+        "if_worst": "장외(OTC) 거래 플랫폼으로의 기관 자금 이탈",
+        "kill_switch": "평균 일일 거래량(ADV) 15% 이상 지속 감소 시"
+      },
+      "data": {
+        "price": 307.24,
+        "high52": 329.16,
+        "low52": 218.31,
+        "from_low_pct": 40.73565113828959,
+        "from_high_pct": -6.659375379754532,
+        "range_pct": 80.22552999548938,
+        "rsi": 67.44870352730277,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "MA",
+      "meta": {
+        "name": "마스터카드 (Mastercard)",
+        "sector": "🏛️ 글로벌 결제망 2위 과점",
+        "tag": "무차입 통행세",
+        "category": "finance",
+        "group": "B",
+        "thesis": "비자와 함께 전 세계 디지털 화폐 흐름을 장악한 과점 톨게이트 (영업마진 55%+)",
+        "special_issue": "국경 간 거래(Cross-border) 수수료 고마진 성장. 부채 리스크 제로",
+        "if_best": "B2B 결제 및 해외 결제액 폭증 ➔ 전고점 경신 랠리",
+        "if_worst": "각국 정부의 국가 자체 결제망 구축 확대",
+        "kill_switch": "분기 결제 볼륨 성장률 마이너스 전환 시"
+      },
+      "data": {
+        "price": 655.92,
+        "high52": 681.99,
+        "low52": 464.52,
+        "from_low_pct": 41.20382330147249,
+        "from_high_pct": -3.822636695552728,
+        "range_pct": 88.0121396054628,
+        "rsi": 74.91105186819303,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "ISRG",
+      "meta": {
+        "name": "인튜이티브 서지컬",
+        "sector": "🦾 다빈치 수술 로봇 1등 독점",
+        "tag": "면도날 모델",
+        "category": "health",
+        "group": "B",
+        "thesis": "글로벌 복강경 수술 로봇 독점. 매출의 70%가 일회용 수술 도구 반복 매출",
+        "special_issue": "최신 다빈치 5(DV5) 교체 사이클 본격화. 의사들의 기술 락인 극강",
+        "if_best": "다빈치 5 병원 도입 가속 + 수술 건수 15%+ 성장 ➔ 사상 최고가 경신",
+        "if_worst": "병원들의 의료장비 자본지출(CAPEX) 급격한 긴축",
+        "kill_switch": "분기 수술 건수(Procedure Growth) 8% 미만 하락 시"
+      },
+      "data": {
+        "price": 468.52,
+        "high52": 603.88,
+        "low52": 328.57,
+        "from_low_pct": 42.59366345071065,
+        "from_high_pct": -22.415049347552497,
+        "range_pct": 50.83360575351421,
+        "rsi": 72.55798572695464,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "V",
+      "meta": {
+        "name": "비자 (Visa)",
+        "sector": "🏛️ 글로벌 결제망 1위 독점",
+        "tag": "인플레 자동 전가",
+        "category": "finance",
+        "group": "B",
+        "thesis": "전 세계 신용카드/직불카드 결제 승인 네트워크 과점 (영업마진 65%+)",
+        "special_issue": "인플레이션으로 결제액 증가 시 수수료 자동 인상. 무차입 현금 기계 + 대규모 자사주 소각",
+        "if_best": "글로벌 여행/소비 견조 속 FCF 80% 자사주 소각 ➔ EPS 복리 15% 우상향",
+        "if_worst": "미 의회의 신용카드 수수료 강제 인하 입법 통과",
+        "kill_switch": "신용카드 수수료율 강제 인하 법안 통과 시"
+      },
+      "data": {
+        "price": 422.59,
+        "high52": 442.225,
+        "low52": 293.89,
+        "from_low_pct": 43.791894926673244,
+        "from_high_pct": -4.44004748713891,
+        "range_pct": 86.76307007786427,
+        "rsi": 75.71477622309564,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "SCCO",
+      "meta": {
+        "name": "서던 코퍼 (Southern Copper)",
+        "sector": "🥉 세계 최저 원가 구리 독점",
+        "tag": "순이익률 40%",
+        "category": "ocean",
+        "group": "B",
+        "thesis": "부산물(몰리브덴/은) 크레딧으로 파운드당 구리 생산 원가가 글로벌 최저 수준",
+        "special_issue": "AI 데이터센터 및 전력망 구리 쇼티지의 최대 수혜자. 엔비디아급 순이익률",
+        "if_best": "구리 파운드당 $5+ 안착 ➔ 주당 배당금 사상 최대 지급",
+        "if_worst": "페루/멕시코 정부의 광산 특별세 인상 또는 파업",
+        "kill_switch": "구리 현물 가격 파운드당 $3.20 이하 급락 시"
+      },
+      "data": {
+        "price": 165.38,
+        "high52": 218.594,
+        "low52": 114.597,
+        "from_low_pct": 44.314423588750145,
+        "from_high_pct": -24.34376057897289,
+        "range_pct": 48.83121628508515,
+        "rsi": 36.900558388084455,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "MNST",
+      "meta": {
+        "name": "몬스터 베버리지",
+        "sector": "⚡ 에너지 음료 제국",
+        "tag": "음료계의 SaaS",
+        "category": "food",
+        "group": "B",
+        "thesis": "공장 소유 없이 코카콜라 글로벌 배송망에 원액만 얹어 무차입 마진 30% 창출",
+        "special_issue": "Z세대 충성도 극강. 밸류에이션 조정 시 강력한 자사주 매입 하방 지지",
+        "if_best": "글로벌 신흥국 시장 점유율 40% 돌파 ➔ 30년 복리 우상향 재현",
+        "if_worst": "카페인 음료 규제 및 신흥 에너지 음료(셀시어스 등) 추격",
+        "kill_switch": "글로벌 매출총이익률 50% 붕괴 시"
+      },
+      "data": {
+        "price": 47.83,
+        "high52": 50.17,
+        "low52": 32.94,
+        "from_low_pct": 45.203400121432914,
+        "from_high_pct": -4.664141917480573,
+        "range_pct": 86.41903656413231,
+        "rsi": 66.17460820692506,
         "status": "OK"
       }
     },
@@ -1582,13 +1457,113 @@
         "kill_switch": "구리 가격 $3 이하 하락 시"
       },
       "data": {
-        "price": 62.6,
+        "price": 57.9,
         "high52": 80.24,
         "low52": 38.54,
-        "from_low_pct": 62.428645563051376,
-        "from_high_pct": -21.984047856430703,
-        "range_pct": 57.69784172661871,
-        "rsi": 29.96471718852561,
+        "from_low_pct": 50.23352361183186,
+        "from_high_pct": -27.841475573280157,
+        "range_pct": 46.42685851318945,
+        "rsi": 33.64906373592814,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "BHP",
+      "meta": {
+        "name": "BHP 그룹",
+        "sector": "⛏️ 글로벌 광산 1위",
+        "tag": "남반구 자원요새",
+        "category": "ocean",
+        "group": "B",
+        "thesis": "호주 본토 중심 철광석, 구리, 칼륨 생산 세계 1위 광산 거인",
+        "special_issue": "배당수익률 5%+의 강력한 현금 흐름. 신냉전 안전 자원 기지",
+        "if_best": "구리 수요 폭증 + 얀센 칼륨 광산 상업 가동 ➔ 이익 점프",
+        "if_worst": "중국 철강 소비 침체로 철광석 가격 급락",
+        "kill_switch": "배당 컷 또는 구리/철광석 동반 폭락 시"
+      },
+      "data": {
+        "price": 78.58,
+        "high52": 98.71,
+        "low52": 52.18,
+        "from_low_pct": 50.59409735530854,
+        "from_high_pct": -20.393070610880354,
+        "range_pct": 56.73758865248227,
+        "rsi": 43.31913189313354,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CSX",
+      "meta": {
+        "name": "CSX 코퍼레이션",
+        "sector": "🚂 미국 동부 철도 독점",
+        "tag": "원정수송 해자",
+        "category": "infra",
+        "group": "B",
+        "thesis": "뉴욕 대도시 쓰레기 원정 수송(Trash Train) 및 동부 공업지대 철도 독점",
+        "special_issue": "대체 불가한 동부 철로망 기반 높은 영업이익률",
+        "if_best": "동부 전력망 석탄/가스 발전 원자재 수송 증가",
+        "if_worst": "동부 항만 물동량 급감",
+        "kill_switch": "분기 순이익 적자 전환 시"
+      },
+      "data": {
+        "price": 50.83,
+        "high52": 53.6,
+        "low52": 33.63,
+        "from_low_pct": 51.14481118049359,
+        "from_high_pct": -5.1679104477612,
+        "range_pct": 86.129193790686,
+        "rsi": 63.4576513299534,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "RGLD",
+      "meta": {
+        "name": "로열 골드 (Royal Gold)",
+        "sector": "⛏️ 금광 로열티/스트리밍 1위",
+        "tag": "마진 50% 금 SaaS",
+        "category": "ocean",
+        "group": "B",
+        "thesis": "직접 땅 파지 않고 광산 개발 자금 대주고 금 생산량 5~10% 영구 수취",
+        "special_issue": "곡괭이/인건비 부담 0원. 금값 상승 시 영업마진 50%+ 복리 향유",
+        "if_best": "금 온스당 $3,000+ 돌파 ➔ 잉여현금흐름 폭발 및 배당 증액",
+        "if_worst": "핵심 로열티 계약 광산의 지정학적 국유화 또는 폐광",
+        "kill_switch": "핵심 광산 생산 중단 또는 금 가격 $1,800 이하 급락 시"
+      },
+      "data": {
+        "price": 261.28,
+        "high52": 306.25,
+        "low52": 169.54,
+        "from_low_pct": 54.111124218473506,
+        "from_high_pct": -14.68408163265307,
+        "range_pct": 67.1055518981786,
+        "rsi": 55.84262279738175,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "CBOE",
+      "meta": {
+        "name": "Cboe 글로벌 마켓",
+        "sector": "🏛️ 공포지수(VIX) & 옵션 독점",
+        "tag": "폭락장 헤지 자산",
+        "category": "finance",
+        "group": "B",
+        "thesis": "공포지수(VIX) 선물 및 S&P 500 지수 옵션(SPX) 독점 톨게이트",
+        "special_issue": "대출 부실 리스크 0원. 시장 폭락 시 변동성 수수료 폭발 수혜",
+        "if_best": "매크로 충격으로 VIX 폭등 ➔ 사상 최대 거래 수수료 창출 (+35%)",
+        "if_worst": "초장기 저변동성 평화 장세 지속으로 옵션 거래량 감소",
+        "kill_switch": "경쟁 거래소의 대체 변동성 상품 시장 점유율 20% 잠식 시"
+      },
+      "data": {
+        "price": 353.07,
+        "high52": 371.18,
+        "low52": 227.15,
+        "from_low_pct": 55.43473475676864,
+        "from_high_pct": -4.879034430734419,
+        "range_pct": 87.4262306463931,
+        "rsi": 65.45596311721346,
         "status": "OK"
       }
     },
@@ -1607,13 +1582,13 @@
         "kill_switch": "코코넛 워터 시장 점유율 40% 미만 하락 시"
       },
       "data": {
-        "price": 65.47,
+        "price": 63.63,
         "high52": 85.83,
-        "low52": 39.85,
-        "from_low_pct": 64.29109159347553,
-        "from_high_pct": -23.721309565420015,
-        "range_pct": 55.71987820791649,
-        "rsi": 54.97472690432402,
+        "low52": 40.615,
+        "from_low_pct": 56.666256309245355,
+        "from_high_pct": -25.865082139112193,
+        "range_pct": 50.90124958531461,
+        "rsi": 65.62634462194514,
         "status": "OK"
       }
     },
@@ -1632,38 +1607,38 @@
         "kill_switch": "수주-출하 비율(Book-to-Bill) 0.90 미만 2분기 지속 시"
       },
       "data": {
-        "price": 369.4,
+        "price": 319.25,
         "high52": 739.67,
         "low52": 203.4,
-        "from_low_pct": 81.61258603736479,
-        "from_high_pct": -50.05881000986927,
-        "range_pct": 30.954556473418236,
-        "rsi": 35.98705671330485,
+        "from_low_pct": 56.956735496558494,
+        "from_high_pct": -56.838860572958204,
+        "range_pct": 21.602923900274114,
+        "rsi": 33.519198070535694,
         "status": "OK"
       }
     },
     {
-      "ticker": "WST",
+      "ticker": "CF",
       "meta": {
-        "name": "웨스트 파마슈티컬",
-        "sector": "💉 바이오 주사기 고무마개 70% 독점",
-        "tag": "필수 패키징",
-        "category": "health",
+        "name": "CF 인더스트리즈",
+        "sector": "⚡ 질소 비료 독점",
+        "tag": "P/FCF 7배",
+        "category": "food",
         "group": "B",
-        "thesis": "바이오의약품, 인슐린, GLP-1 비만치료제 바이알 주사기 특수 고무마개 독점",
-        "special_issue": "GLP-1 비만치료제 펜 주사기 수요 폭발의 숨은 병목이자 최대 수혜주",
-        "if_best": "GLP-1 생산량 2배 확대 ➔ 고마진 특수 코팅 마개 출하량 폭증",
-        "if_worst": "빅파마들의 재고 조정 장기화",
-        "kill_switch": "고마진 프록스(HVP) 제품 비중 하락 시"
+        "thesis": "미국 저렴한 셰일가스로 질소 비료 생산, 유럽/러시아 원가 압살",
+        "special_issue": "P/FCF 7~8배의 강력한 현금 창출력. 대규모 자사주 소각 지속",
+        "if_best": "유럽 천연가스 불안 + 비료 부족 ➔ 판가 급등 및 대규모 특별배당",
+        "if_worst": "미국 천연가스 가격 급등으로 마진 축소",
+        "kill_switch": "미국 헨리허브 가스 가격 $6+ 지속 시"
       },
       "data": {
-        "price": 408.78,
-        "high52": 438.27,
-        "low52": 223.83,
-        "from_low_pct": 82.62967430639321,
-        "from_high_pct": -6.72872886576768,
-        "range_pct": 86.24790151091214,
-        "rsi": 68.34560866911445,
+        "price": 118.57,
+        "high52": 141.96,
+        "low52": 75.42,
+        "from_low_pct": 57.21294086449217,
+        "from_high_pct": -16.476472245703025,
+        "range_pct": 64.84821160204386,
+        "rsi": 37.371077250093634,
         "status": "OK"
       }
     },
@@ -1682,13 +1657,38 @@
         "kill_switch": "가동률 60% 붕괴 시"
       },
       "data": {
-        "price": 267.91,
+        "price": 245.68,
         "high52": 287.7,
         "low52": 140.93,
-        "from_low_pct": 90.10146881430498,
-        "from_high_pct": -6.878693083072633,
-        "range_pct": 86.51631804864756,
-        "rsi": 63.5938437818347,
+        "from_low_pct": 74.32768040871353,
+        "from_high_pct": -14.605491831769198,
+        "range_pct": 71.37017101587519,
+        "rsi": 56.62016655954041,
+        "status": "OK"
+      }
+    },
+    {
+      "ticker": "WST",
+      "meta": {
+        "name": "웨스트 파마슈티컬",
+        "sector": "💉 바이오 주사기 고무마개 70% 독점",
+        "tag": "필수 패키징",
+        "category": "health",
+        "group": "B",
+        "thesis": "바이오의약품, 인슐린, GLP-1 비만치료제 바이알 주사기 특수 고무마개 독점",
+        "special_issue": "GLP-1 비만치료제 펜 주사기 수요 폭발의 숨은 병목이자 최대 수혜주",
+        "if_best": "GLP-1 생산량 2배 확대 ➔ 고마진 특수 코팅 마개 출하량 폭증",
+        "if_worst": "빅파마들의 재고 조정 장기화",
+        "kill_switch": "고마진 프록스(HVP) 제품 비중 하락 시"
+      },
+      "data": {
+        "price": 392.48,
+        "high52": 438.27,
+        "low52": 223.83,
+        "from_low_pct": 75.34736183710852,
+        "from_high_pct": -10.447897414835596,
+        "range_pct": 78.64670770378662,
+        "rsi": 69.37943262973573,
         "status": "OK"
       }
     }
