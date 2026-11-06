@@ -352,6 +352,21 @@
             background: rgba(56, 189, 248, 0.2);
             color: #ffffff;
         }
+        .sort-select {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid var(--border-subtle);
+            color: #ffffff;
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .sort-select:focus {
+            border-color: var(--cyan);
+        }
 
         /* 종목 그리드 */
         .cards-grid {
@@ -700,13 +715,21 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="티커 또는 기업명 검색 (예: MKC, 하이닉스, RDDT)..." oninput="handleSearch()">
             </div>
             <div class="quick-filters">
-                <button class="chip-btn active" onclick="setQuickFilter('all')">전체 보기</button>
-                <button class="chip-btn rsi-alert" onclick="setQuickFilter('oversold')">
+                <button class="chip-btn active" onclick="setQuickFilter('all', this)">전체 보기</button>
+                <button class="chip-btn rsi-alert" onclick="setQuickFilter('oversold', this)">
                     <i class="bi bi-water"></i> 🌊 과매도 바닥 (RSI &lt; 35)
                 </button>
-                <button class="chip-btn" onclick="setQuickFilter('drop20')">
-                    고점 대비 -30% 이상 낙폭
+                <button class="chip-btn" onclick="setQuickFilter('drop30', this)">
+                    🔻 고점대비 -30%+ 낙폭
                 </button>
+                <select id="sortSelect" class="sort-select" onchange="handleSortChange(this.value)">
+                    <option value="drop_desc">🔻 고점대비 낙폭 큰 순</option>
+                    <option value="rsi_asc">🌊 RSI 낮은 순 (과매도)</option>
+                    <option value="rsi_desc">🔥 RSI 높은 순 (과열)</option>
+                    <option value="return_desc">🚀 11.02 대비 수익률순</option>
+                    <option value="price_desc">💰 주가 높은 순</option>
+                    <option value="ticker_asc">🔤 티커 알파벳 순</option>
+                </select>
             </div>
         </div>
 
@@ -866,10 +889,33 @@
             renderCards();
         }
 
-        function setQuickFilter(flt) {
+        let currentSort = 'drop_desc'; // 'drop_desc', 'rsi_asc', 'rsi_desc', 'return_desc', 'price_desc', 'ticker_asc'
+
+        function handleSortChange(val) {
+            currentSort = val;
+            renderCards();
+        }
+
+        function setQuickFilter(flt, btnEl) {
             currentQuickFilter = flt;
             document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            if (btnEl) {
+                btnEl.classList.add('active');
+            } else {
+                const targetBtn = document.querySelector(`.chip-btn[onclick*="'${flt}'"]`);
+                if (targetBtn) targetBtn.classList.add('active');
+            }
+            
+            // 과매도 필터 클릭 시 정렬도 RSI 낮은 순으로 자동 연동
+            const sortSelect = document.getElementById('sortSelect');
+            if (flt === 'oversold') {
+                currentSort = 'rsi_asc';
+                if (sortSelect) sortSelect.value = 'rsi_asc';
+            } else if (flt === 'drop30') {
+                currentSort = 'drop_desc';
+                if (sortSelect) sortSelect.value = 'drop_desc';
+            }
+
             renderCards();
         }
 
@@ -897,7 +943,8 @@
             
             const searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
 
-            const filtered = items.filter(item => {
+            // 1. 필터링
+            let filtered = items.filter(item => {
                 // 검색어
                 if (searchKeyword) {
                     const matchTicker = item.ticker.toLowerCase().includes(searchKeyword);
@@ -907,10 +954,28 @@
                 // 퀵 필터
                 if (currentQuickFilter === 'oversold') {
                     if (item.rsi >= 35) return false;
-                } else if (currentQuickFilter === 'drop20') {
+                } else if (currentQuickFilter === 'drop30') {
                     if (item.from_high_pct > -30) return false;
                 }
                 return true;
+            });
+
+            // 2. 정렬 적용
+            filtered.sort((a, b) => {
+                if (currentSort === 'drop_desc') {
+                    return a.from_high_pct - b.from_high_pct; // 고점대비 더 많이 떨어진 순 (-70% -> -5%)
+                } else if (currentSort === 'rsi_asc') {
+                    return a.rsi - b.rsi; // RSI 낮은 순 (과매도 바닥)
+                } else if (currentSort === 'rsi_desc') {
+                    return b.rsi - a.rsi; // RSI 높은 순 (과열 모멘텀)
+                } else if (currentSort === 'return_desc') {
+                    return b.return_pct - a.return_pct; // 11.02 기준 수익률 높은 순
+                } else if (currentSort === 'price_desc') {
+                    return b.price - a.price; // 주가 높은 순
+                } else if (currentSort === 'ticker_asc') {
+                    return a.ticker.localeCompare(b.ticker); // 티커 알파벳 순
+                }
+                return 0;
             });
 
             if (!filtered.length) {
@@ -942,6 +1007,10 @@
                 // 야후 링크
                 const chartUrl = `https://finance.yahoo.com/quote/${item.ticker}`;
 
+                // 52주 고저 안전 폴백
+                const lowVal = (item.low52 && item.low52 > 0) ? item.low52 : item.price;
+                const highVal = (item.high52 && item.high52 > 0) ? item.high52 : item.price;
+
                 return `
                     <div class="stock-card">
                         <div class="card-top">
@@ -965,8 +1034,8 @@
                         <!-- 52주 레인지 바 -->
                         <div class="range-wrap">
                             <div class="range-text-row">
-                                <span>52주 저 ${formatPrice(item.low52, item.country)}</span>
-                                <span>52주 고 ${formatPrice(item.high52, item.country)}</span>
+                                <span>52주 저 ${formatPrice(lowVal, item.country)}</span>
+                                <span>52주 고 ${formatPrice(highVal, item.country)}</span>
                             </div>
                             <div class="range-bar">
                                 <div class="range-fill" style="width: ${Math.min(Math.max(item.range_pct, 5), 100)}%;"></div>
@@ -995,6 +1064,18 @@
                                     </div>
                                 </div>
                             </details>
+                        </div>
+
+                        <div class="card-actions">
+                            <span>기준일(11.02) 대비: <strong style="color: ${item.return_pct >= 0 ? '#10b981' : '#f43f5e'}">${item.return_pct >= 0 ? '+' : ''}${item.return_pct.toFixed(1)}%</strong></span>
+                            <a href="${chartUrl}" target="_blank" rel="noopener" class="chart-ext-btn">
+                                야후 차트 <i class="bi bi-box-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
                         </div>
 
                         <div class="card-actions">
