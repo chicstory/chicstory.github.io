@@ -877,6 +877,19 @@
             renderCards();
         }
 
+        function formatPrice(val, country) {
+            if (val === undefined || val === null || isNaN(val) || val === 0) return '-';
+            if (country === 'KR') {
+                return Math.round(val).toLocaleString() + '원';
+            } else if (country === 'JP') {
+                return '¥' + Math.round(val).toLocaleString();
+            } else if (country === 'CA') {
+                return 'C$' + val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            } else {
+                return '$' + val.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            }
+        }
+
         function renderCards() {
             if (!radarData) return;
             const container = document.getElementById('cardsGrid');
@@ -942,7 +955,7 @@
                                 <div class="card-sector">${item.sector}</div>
                             </div>
                             <div class="card-price-col">
-                                <div class="current-price">$${item.price.toFixed(2)}</div>
+                                <div class="current-price">${formatPrice(item.price, item.country)}</div>
                                 <div class="from-high" style="color: ${item.from_high_pct <= -25 ? '#38bdf8' : '#94a3b8'};">
                                     고점대비 ${item.from_high_pct.toFixed(1)}%
                                 </div>
@@ -952,8 +965,8 @@
                         <!-- 52주 레인지 바 -->
                         <div class="range-wrap">
                             <div class="range-text-row">
-                                <span>52주 저 $${item.low52 || 0}</span>
-                                <span>52주 고 $${item.high52 || 0}</span>
+                                <span>52주 저 ${formatPrice(item.low52, item.country)}</span>
+                                <span>52주 고 ${formatPrice(item.high52, item.country)}</span>
                             </div>
                             <div class="range-bar">
                                 <div class="range-fill" style="width: ${Math.min(Math.max(item.range_pct, 5), 100)}%;"></div>

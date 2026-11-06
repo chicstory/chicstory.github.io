@@ -201,6 +201,8 @@ def main():
                 "league": league_type,
                 "price": price,
                 "base_price": base_p,
+                "high52": d.get("high52", 0.0),
+                "low52": d.get("low52", 0.0),
                 "return_pct": ret_from_base,
                 "from_high_pct": d.get("from_high_pct", 0.0),
                 "from_low_pct": d.get("from_low_pct", 0.0),

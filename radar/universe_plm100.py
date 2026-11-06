@@ -734,3 +734,4 @@ PLM100_WATCHLIST = {
         "kill_switch": "자유현금흐름(FCF) 적자 전환 시"
     }
 }
+
