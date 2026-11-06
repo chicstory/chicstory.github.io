@@ -4,6 +4,28 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-11-07] 종목 레이더 3.0 개편: PLM100(1부 독점해자) & PLV100(2부 텐배거벤처) 승강제 지수 구축
+- **1. 요청사항**: 
+  - 최근 AI 거품론 속 증시 자금의 '수익성/FCF 톨게이트' 대이동에 대응하는 스크리닝 체계 수립 (MCK/MKC 등).
+  - 기존 레이더를 1부 리그(철옹성 독점 해자 PLM100)와 2부 리그(텐배거 벤처 PLV100)로 분리하고, 분기 승강제(Promotion & Relegation) 시스템 도입.
+  - 2026년 11월 1일(11.02 첫 거래일) = 1,000.00 pt 기준으로 지수화 및 S&P 500(SPY) 벤치마크 상대 비교.
+  - 2026.11.01 ~ 12.31 Beta 시범 운용 기간 명시, 2027년 1월 2일 공식 론칭 예고.
+  - 미국 장 마감 후 매일 한국 시간 오전 09:00 자동 갱신 스케줄링.
+  - $1,000 분할 투자자를 위한 5대 핀포인트 지표(Thesis, IF-Best, IF-Worst, Kill-Switch, RSI 과매도) 및 하단 법적 면책 조항 탑재.
+- **2. 솔루션 & 구현**:
+  - `chicstory.github.io/radar/universe_plm100.py`: 미국 정예(82개 중 엄선) + 한국(SK하이닉스, 리노공업, 클래시스, 삼양식품, 파크시스템스, 오리온) + 일본(키엔스, 디스코, 신에츠, 시마노, 도쿄일렉트론) + 캐나다/인도(컨스텔레이션, 인포시스 등) 총 100개 글로벌 해자 챔피언 유니버스 정의.
+  - `chicstory.github.io/radar/universe_plv100.py`: Rule of 40% (매출성장 20%+ & 유동비율 > 1.5 & D/E < 1 & P/FCF < 35) 기반 텐배거 유망주 100선 정의 (RDDT, SOFI, ELF, TOST, KVYO, GCT 등).
+  - `chicstory.github.io/radar/radar_builder.py`: 야후 파이낸스 멀티스레드 크롤러를 통해 200개 종목의 11월 2일 이후 일별 종가 백필 및 1,000pt 베이스 지수 산출, `radar_data.json` 생성.
+  - `chicstory.github.io/radar/index.html`: Chart.js 기반 1,000pt 상대 곡선 차트, 리그 탭 전환, 실시간 검색, RSI < 35 과매도 원클릭 필터, 5대 시나리오 카드, 법적 면책 조항(Disclaimer) 완비.
+  - `chicstory.github.io/.github/workflows/daily_radar.yml`: 매일 오전 09:00 KST (화~토 00:00 UTC) 무과금 자동 빌드 배포 스케줄러 세팅.
+- **3. 결과 & 검증**:
+  - `radar_builder.py` 10초 만에 200개 전 종목 시세 수집 및 지수 산출 완료 (PLM100 969.53 pt, PLV100 960.73 pt, SPY 981.74 pt).
+  - 11월 5일 중간선거 발 패닉셀 낙폭 및 6일 반등 궤적 완벽 반영.
+- **4. 주요 합의 사항**:
+  - PLM100과 PLV100은 2027년 1월 2일 제1회 승강제 심사를 단행하며, 매 분기 정기 리밸런싱을 통해 텐배거는 1부로 승격하고 해자 침식주는 2부로 강등함.
+
+---
+
 ## [2026-10-28] 네이버 서치어드바이저 SEO 진단 대응 (<meta name="description"> 누락 및 OG/Canonical 보강)
 - **1. 요청사항**: 
   - `thapathlab.com` 네이버 서치어드바이저 진단 시 `<meta name="description"> 설명 누락: 2` 경고가 발생하는 원인 파악 및 해결.
