@@ -1076,18 +1076,6 @@
                 `;
             }).join('');
         }
-                        </div>
-
-                        <div class="card-actions">
-                            <span>기준일(11.02) 대비: <strong style="color: ${item.return_pct >= 0 ? '#10b981' : '#f43f5e'}">${item.return_pct >= 0 ? '+' : ''}${item.return_pct.toFixed(1)}%</strong></span>
-                            <a href="${chartUrl}" target="_blank" rel="noopener" class="chart-ext-btn">
-                                야후 차트 <i class="bi bi-box-arrow-up-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
 
         // 초기 실행
         document.addEventListener('DOMContentLoaded', initRadar);
