@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>아도라블 1초 품번 판독기 & 2층 박스 적재 지도</title>
-  <meta name="description" content="아도라블 슬랙스 주문서 품목명 1초 품번 역매핑 & 2층 창고 박스 적재 실측 지도">
+  <title>아도라블 1초 품번 판독기 & 거래처 도감</title>
+  <meta name="description" content="아도라블 슬랙스 주문서 품목명 1초 품번 역매핑 & 거래처별 출고 헌법 도감">
   <meta name="theme-color" content="#0b1120">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,12 +19,11 @@
       --accent-hover: #0ea5e9;
       --target-gold: #f59e0b;
       --target-bg: rgba(245, 158, 11, 0.12);
-      --box-stack-bg: #1e293b;
-      --box-stack-border: #475569;
-      --box-highlight: #f59e0b;
       --warning-bg: rgba(239, 68, 68, 0.12);
       --warning-border: #ef4444;
       --warning-text: #f87171;
+      --success-green: #10b981;
+      --purple-accent: #a855f7;
     }
 
     * {
@@ -81,7 +80,13 @@
       font-weight: 600;
     }
 
-    /* 탭 전환 버튼 */
+    .stats-count {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      font-weight: 700;
+    }
+
+    /* 메인 탭 전환 바 */
     .main-tab-bar {
       display: flex;
       gap: 6px;
@@ -94,7 +99,7 @@
 
     .main-tab-btn {
       flex: 1;
-      padding: 8px 10px;
+      padding: 9px 10px;
       border-radius: 9px;
       border: none;
       background: transparent;
@@ -130,7 +135,7 @@
       border-radius: 12px;
       padding: 0 44px 0 14px;
       color: #ffffff;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 600;
       outline: none;
       box-shadow: 0 4px 18px rgba(56, 189, 248, 0.2);
@@ -144,7 +149,7 @@
 
     .search-input::placeholder {
       color: #64748b;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 400;
     }
 
@@ -182,7 +187,7 @@
 
     .chip-btn {
       flex-shrink: 0;
-      padding: 5px 10px;
+      padding: 6px 11px;
       border-radius: 8px;
       border: 1px solid var(--card-border);
       background: #1e293b;
@@ -398,637 +403,294 @@
       font-weight: 700;
     }
 
-    /* 컬러 스와치 & 사이즈 */
     .colors-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 6px;
       margin-bottom: 8px;
     }
 
     .color-chip {
-      background: #334155;
-      border: 1px solid #475569;
+      background: #0f172a;
+      border: 1px solid #334155;
       border-radius: 6px;
-      padding: 4px 8px;
+      padding: 5px 8px;
       font-size: 0.75rem;
-      font-weight: 600;
-      color: #f1f5f9;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       cursor: pointer;
+      transition: background 0.15s;
     }
+
     .color-chip:active {
-      background: #38bdf8;
-      color: #0b1120;
+      background: #334155;
     }
 
     .color-dot {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .dot-black { background: #000000; }
-    .dot-charcoal { background: #3f3f46; }
-    .dot-navy { background: #1e3a8a; }
-    .dot-ivory { background: #fef08a; }
-    .dot-beige { background: #d4d4d8; }
-    .dot-brown { background: #78350f; }
+    .color-dot.black { background: #000; }
+    .color-dot.charcoal { background: #475569; }
+    .color-dot.navy { background: #1e3a8a; }
+    .color-dot.cream { background: #fef08a; }
+    .color-dot.gray { background: #94a3b8; }
+    .color-dot.brown { background: #78350f; }
 
     .sizes-wrap {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
-      gap: 4px;
-      padding-top: 6px;
-      border-top: 1px dashed #334155;
+      gap: 5px;
     }
+
     .size-btn {
-      padding: 3px 7px;
-      border-radius: 5px;
-      background: #0b1120;
+      background: #334155;
       border: 1px solid #475569;
-      color: #cbd5e1;
-      font-size: 0.72rem;
-      font-weight: 600;
+      color: #f1f5f9;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
       cursor: pointer;
     }
     .size-btn:active {
-      background: #10b981;
-      color: #fff;
+      background: var(--accent);
+      color: #0b1120;
     }
 
     .card-warning {
+      margin-top: 8px;
       background: var(--warning-bg);
       border: 1px solid var(--warning-border);
-      border-radius: 6px;
-      padding: 6px 8px;
-      margin-top: 8px;
+      border-radius: 8px;
+      padding: 6px 9px;
       font-size: 0.75rem;
       color: var(--warning-text);
       font-weight: 600;
     }
 
     /* =============================================================
-       🗺️ 2층 박스 적재 실측 지도 스타일 (Box-Grid Map)
-       철제 선반 일절 없음! 바닥에서 위로 최대 9단 탑 쌓기 적재 구조
+       🏢 거래처 도감 & 출고 헌법 스타일
        ============================================================= */
-    .map-view-wrapper {
+    .vendors-wrapper {
       display: none;
       margin-top: 10px;
     }
-    .map-view-wrapper.active {
+    .vendors-wrapper.active {
       display: block;
     }
 
-    .map-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .map-legend {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-    }
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .legend-box {
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-    }
-    .l-9tier { background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; }
-    .l-6tier { background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; }
-    .l-fast { background: rgba(245, 158, 11, 0.2); border: 1px solid #f59e0b; }
-
-    .tier-badge.nine {
-      background: rgba(239, 68, 68, 0.15);
-      border-color: #ef4444;
-      color: #fca5a5;
-    }
-    .tier-gauge-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 4px;
-      padding: 3px 6px;
-      margin-top: 5px;
-      font-size: 0.65rem;
-    }
-    .tier-gauge-dots {
-      display: flex;
-      gap: 2px;
-      align-items: center;
-    }
-    .tier-gauge-dot {
-      width: 3px;
-      height: 7px;
-      border-radius: 1px;
-      background: #334155;
-    }
-    .tier-gauge-dot.f9 { background: #ef4444; }
-    .tier-gauge-dot.f6 { background: #38bdf8; }
-    .tier-gauge-dot.ffast { background: #f59e0b; }
-    .tier-gauge-label {
-      color: #94a3b8;
-      font-size: 0.62rem;
-      font-weight: 600;
-    }
-
-    .map-tool-btns {
-      display: flex;
-      gap: 6px;
-    }
-    .map-tool-btn {
-      padding: 4px 8px;
-      border-radius: 6px;
-      background: #1e293b;
-      border: 1px solid var(--card-border);
-      color: #e2e8f0;
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .map-tool-btn.primary {
-      background: #0284c7;
-      color: #fff;
-      border-color: #38bdf8;
-    }
-
-        /* =============================================================
-       🗺️ 2층 박스 적재 실측 지도 스타일 (스케치 2 & 3 가로배치 + 콤팩트 모눈)
-       ============================================================= */
-    .warehouse-container {
-      background: #070d18;
-      border: 2px solid #334155;
+    /* 헌법 5대 원칙 카드 */
+    .constitution-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
+      border: 2px solid #38bdf8;
       border-radius: 14px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
     }
 
-    /* 상단: 3 (스케치 3 메인 단독 전체 폭) */
-    .zone-top-main {
-      width: 100%;
-    }
-
-    /* 하단: 2 (좌측: 휴게실/사무실) ── 1 (우측: 남측 코어 & 작업대 신상대) 가로 2열 배치 */
-    .zones-bottom-split {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 12px;
-      align-items: start;
-    }
-
-    @media (max-width: 900px) {
-      .zones-bottom-split {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .zone-block {
-      border: 1px dashed #334155;
-      border-radius: 10px;
-      padding: 8px;
-      background: rgba(15, 23, 42, 0.65);
-    }
-
-    .zone-block.main-zone {
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      background: rgba(15, 23, 42, 0.85);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .zone-header {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: #94a3b8;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .zone-badge-main {
-      font-size: 0.65rem;
-      padding: 1px 7px;
-      border-radius: 4px;
-      background: #0284c7;
-      color: #fff;
-      font-weight: 800;
-    }
-
-    .zone-header-actions {
-      display: flex;
-      gap: 4px;
-    }
-
-    .zone-btn-sm {
-      padding: 2px 6px;
-      border-radius: 4px;
-      border: 1px solid #475569;
-      background: #1e293b;
-      color: #94a3b8;
-      font-size: 0.65rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .zone-btn-sm:hover {
-      background: #334155;
-      color: #fff;
-    }
-
-    /* 행(Row) 컨트롤 */
-    .row-wrap {
-      margin-bottom: 6px;
-    }
-
-    .row-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 3px;
-    }
-
-    .row-label {
-      font-size: 0.68rem;
-      color: #cbd5e1;
-      font-weight: 700;
-    }
-
-    .row-actions {
-      display: flex;
-      gap: 4px;
-    }
-
-    .row-action-btn {
-      font-size: 0.6rem;
-      padding: 1px 4px;
-      border-radius: 3px;
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #64748b;
-      cursor: pointer;
-    }
-    .row-action-btn:hover {
-      color: #38bdf8;
-      border-color: #38bdf8;
-    }
-
-    /* 🎯 콤팩트 모눈 박스 타일 & 세로 통행로 플렉스 컨테이너 */
-    .box-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      align-items: stretch;
-    }
-
-    .box-stack-card {
-      flex: 1 1 88px;
-      min-width: 80px;
-      max-width: 125px;
-      background: var(--box-stack-bg);
-      border: 1px solid var(--box-stack-border);
-      border-radius: 6px;
-      padding: 4px 5px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.12s;
-      position: relative;
-    }
-
-    /* 🚶 세로 통행로 타일 (박스들 사이를 가르는 수직 통로) */
-    .vertical-aisle-card {
-      flex: 0 0 32px;
-      width: 32px;
-      min-height: 54px;
-      background: repeating-linear-gradient(
-        -45deg,
-        rgba(30, 41, 59, 0.75),
-        rgba(30, 41, 59, 0.75) 5px,
-        rgba(15, 23, 42, 0.85) 5px,
-        rgba(15, 23, 42, 0.85) 10px
-      );
-      border: 1px dashed #64748b;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1px;
-      cursor: pointer;
-      user-select: none;
-      transition: all 0.15s;
-    }
-    .vertical-aisle-card:hover {
-      border-color: #38bdf8;
-      background: rgba(56, 189, 248, 0.15);
-    }
-    .v-aisle-icon {
-      font-size: 0.72rem;
-    }
-    .v-aisle-text {
-      font-size: 0.54rem;
-      font-weight: 800;
-      color: #94a3b8;
-      writing-mode: vertical-rl;
-      text-orientation: upright;
-      letter-spacing: -1px;
-    }
-    .v-aisle-del-btn {
-      font-size: 0.52rem;
-      color: #ef4444;
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      border-radius: 3px;
-      padding: 0 2px;
-      cursor: pointer;
-      margin-top: 1px;
-    }
-    .v-aisle-del-btn:hover {
-      background: #ef4444;
-      color: #fff;
-    }
-
-    .box-stack-card:hover {
-      border-color: #38bdf8;
-    }
-
-    .box-stack-card:active {
-      transform: scale(0.97);
-    }
-
-    .box-stack-card.highlight {
-      border-color: #fbbf24 !important;
-      background: rgba(245, 158, 11, 0.25) !important;
-      box-shadow: 0 0 14px rgba(245, 158, 11, 0.7);
-      animation: boxBlink 1s infinite alternate;
-    }
-
-    .box-top-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2px;
-    }
-
-    .box-code {
-      font-size: 0.78rem;
+    .constitution-title {
+      font-size: 0.95rem;
       font-weight: 900;
       color: #38bdf8;
-      font-family: "Courier New", Courier, monospace, sans-serif;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
     }
 
-    .tier-badge {
-      font-size: 0.58rem;
-      font-weight: 800;
-      padding: 0.5px 3px;
-      border-radius: 3px;
-      background: #0f172a;
-      border: 1px solid #475569;
-      color: #cbd5e1;
-      white-space: nowrap;
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
     }
-    .tier-badge.six {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: #38bdf8;
-      color: #38bdf8;
+
+    .rule-item {
+      background: rgba(11, 17, 32, 0.8);
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 9px 11px;
+      font-size: 0.8rem;
+      line-height: 1.4;
     }
-    .tier-badge.fast {
-      background: rgba(245, 158, 11, 0.2);
+
+    .rule-item.highlight {
       border-color: #f59e0b;
-      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.08);
     }
-    .tier-badge.nine {
-      background: rgba(239, 68, 68, 0.15);
+
+    .rule-item.urgent {
       border-color: #ef4444;
-      color: #fca5a5;
+      background: rgba(239, 68, 68, 0.09);
     }
 
-    .box-name {
-      font-size: 0.65rem;
-      color: #ffffff;
-      font-weight: 600;
-      line-height: 1.15;
-      margin-bottom: 2px;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-
-    .box-note {
-      font-size: 0.6rem;
-      color: #64748b;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .tier-gauge-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 3px;
-      padding: 1.5px 3px;
-      margin-top: 3px;
-      font-size: 0.58rem;
-    }
-
-    .tier-gauge-dots {
-      display: flex;
-      gap: 1.5px;
-      align-items: center;
-    }
-
-    .tier-gauge-dot {
-      width: 2.5px;
-      height: 5px;
-      border-radius: 1px;
-      background: #334155;
-    }
-    .tier-gauge-dot.f9 { background: #ef4444; }
-    .tier-gauge-dot.f6 { background: #38bdf8; }
-    .tier-gauge-dot.ffast { background: #f59e0b; }
-
-    .tier-gauge-label {
-      color: #94a3b8;
-      font-size: 0.56rem;
-      font-weight: 600;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    /* 🚶 인터랙티브 사용자 통행로 바 */
-    .aisle-interactive-bar {
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(30, 41, 59, 0.7),
-        rgba(30, 41, 59, 0.7) 8px,
-        rgba(15, 23, 42, 0.7) 8px,
-        rgba(15, 23, 42, 0.7) 16px
-      );
-      border: 1px dashed #475569;
-      border-radius: 5px;
-      padding: 3px 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 4px 0;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .aisle-interactive-bar:hover {
-      border-color: #38bdf8;
-      background: rgba(56, 189, 248, 0.08);
-    }
-
-    .aisle-title {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .aisle-del-btn {
-      font-size: 0.65rem;
-      color: #ef4444;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 3px;
-      padding: 0 4px;
-      cursor: pointer;
-    }
-    .aisle-del-btn:hover {
-      background: #ef4444;
-      color: #fff;
-    }
-
-    /* 모달 팝업 (박스 수정) */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      z-index: 200;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-    .modal-overlay.open {
-      display: flex;
-    }
-
-    .modal-box {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 16px;
-      width: 100%;
-      max-width: 380px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-title {
-      font-size: 1.1rem;
+    .rule-badge {
+      display: inline-block;
+      font-size: 0.7rem;
       font-weight: 800;
-      color: #38bdf8;
+      padding: 2px 6px;
+      border-radius: 5px;
+      margin-bottom: 4px;
+    }
+    .rule-badge.yellow { background: #f59e0b; color: #0b1120; }
+    .rule-badge.red { background: #ef4444; color: #fff; }
+    .rule-badge.blue { background: #0284c7; color: #fff; }
+    .rule-badge.green { background: #10b981; color: #0b1120; }
+
+    /* PO 디코더 위젯 */
+    .po-decoder-box {
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 12px;
+      padding: 12px;
       margin-bottom: 12px;
     }
 
-    .form-group {
-      margin-bottom: 10px;
+    .po-decoder-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
     }
-    .form-label {
-      display: block;
-      font-size: 0.75rem;
-      color: #94a3b8;
-      font-weight: 700;
-      margin-bottom: 4px;
+
+    .po-input-wrap {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
     }
-    .form-input {
-      width: 100%;
+
+    .po-input {
+      flex: 1;
       height: 38px;
       background: #0f172a;
-      border: 1px solid #475569;
+      border: 1px solid #38bdf8;
       border-radius: 8px;
       padding: 0 10px;
       color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: monospace;
       outline: none;
     }
-    .form-input:focus {
-      border-color: #38bdf8;
-    }
 
-    .modal-btn-row {
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      margin-top: 14px;
-    }
-    .modal-btn {
-      padding: 8px 14px;
-      border-radius: 8px;
+    .po-calc-btn {
+      background: #0284c7;
+      color: #fff;
       border: none;
-      font-size: 0.85rem;
+      border-radius: 8px;
+      padding: 0 12px;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
     }
-    .modal-btn.cancel {
-      background: #334155;
-      color: #cbd5e1;
+
+    .po-result-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px dashed #64748b;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      display: none;
     }
-    .modal-btn.save {
-      background: #0284c7;
-      color: #fff;
+    .po-result-box.visible {
+      display: block;
     }
 
+    /* 거래처 카드 리스트 */
+    .vendor-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      transition: all 0.15s;
+    }
+
+    .vendor-card.urgent {
+      border-color: #ef4444;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+    }
+
+    .vendor-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .vendor-name {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #f8fafc;
+      letter-spacing: 0.3px;
+    }
+
+    .category-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .cat-대납 { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #2563eb; }
+    .cat-매주 { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; }
+    .cat-별도 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #dc2626; }
+    .cat-법인 { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid #9333ea; }
+    .cat-대박 { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #d97706; }
+
+    .vendor-notice-box {
+      background: #0f172a;
+      border-left: 3px solid #38bdf8;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: #f1f5f9;
+    }
+    .vendor-notice-box.alert {
+      border-left-color: #ef4444;
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    .vendor-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      margin-bottom: 4px;
+    }
+    .vendor-meta-row strong {
+      color: #94a3b8;
+      min-width: 58px;
+    }
+
+    /* 토스트 알림 */
     .toast {
       position: fixed;
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #10b981;
-      color: #ffffff;
-      padding: 9px 20px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 10px 20px;
       border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 800;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
       z-index: 1000;
       opacity: 0;
-      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       pointer-events: none;
     }
     .toast.show {
@@ -1043,37 +705,31 @@
   <header class="sticky-header">
     <div class="title-row">
       <div class="brand-title">
-        <span>👖 아도라블 출고 매뉴얼 & 실측 지도</span>
-        <span class="brand-badge">2층 현장</span>
+        <span>👖 아도라블 출고 매뉴얼 & 도감</span>
+        <span class="brand-badge">2층 현장 실전</span>
       </div>
       <div class="stats-count" id="itemCount">로딩중...</div>
     </div>
 
-    <!-- 메인 모드 탭 (판독기 vs 지도) -->
+    <!-- 메인 모드 탭 (판독기 vs 거래처 도감) -->
     <div class="main-tab-bar">
       <button class="main-tab-btn active" id="tabFinderBtn">⚡ 1초 품번 판독기</button>
-      <button class="main-tab-btn" id="tabMapBtn">🗺️ 2층 박스적재 지도 (수정가능)</button>
+      <button class="main-tab-btn" id="tabVendorsBtn">🏢 거래처 도감 & 출고헌법</button>
     </div>
 
     <!-- 검색창 (공통) -->
     <div class="search-box-wrap">
-      <input type="text" id="searchInput" class="search-input" placeholder="품목명, 코드, 옵션 (예: 오비 슬랙스, 세미부츠컷 검정 숏 L, 181)" autofocus autocomplete="off" spellcheck="false">
+      <input type="text" id="searchInput" class="search-input" placeholder="품목명, 코드, 옵션 (예: 세미부츠컷 검정 숏 L, 181)" autofocus autocomplete="off" spellcheck="false">
       <button type="button" id="clearBtn" class="clear-btn" aria-label="검색어 지우기">✕</button>
     </div>
 
-    <!-- 칩 필터 (판독기 뷰일 때) -->
+    <!-- 칩 필터 (판독기용 vs 거래처용 동적 교체) -->
     <div class="chips-container" id="chipsBar">
-      <button class="chip-btn active" data-filter="all">전체</button>
-      <button class="chip-btn" data-filter="winter">❄️ 기모/본딩</button>
-      <button class="chip-btn" data-filter="basic">🌿 사계절 기본</button>
-      <button class="chip-btn" data-filter="summer">☀️ 여름 쿨/오비</button>
-      <button class="chip-btn" data-filter="female">👗 여성라인</button>
-      <button class="chip-btn" data-filter="male">👔 남성라인</button>
-      <button class="chip-btn" data-filter="fast">🚀 181/7712 초특가</button>
+      <!-- 동적 렌더링 -->
     </div>
   </header>
 
-  <!-- 1. [판독기 뷰] -->
+  <!-- 1. [⚡ 1초 품번 판독기 뷰] -->
   <div id="finderWrapper">
     <!-- 🎯 스마트 옵션 디코더 박스 -->
     <div id="decoderContainer"></div>
@@ -1084,61 +740,55 @@
     </main>
   </div>
 
-  <!-- 2. [🗺️ 2층 박스 적재 실측 지도 뷰 (선반 없이 6단~9단 스택 구조)] -->
-  <div id="mapWrapper" class="map-view-wrapper">
-    <!-- 🚨 선반 없는 맨바닥 적재 현장 가이드 -->
-    <div style="background:rgba(30,41,59,0.75);border:1px solid #334155;border-radius:10px;padding:8px 12px;margin-bottom:8px;font-size:0.75rem;color:#cbd5e1;line-height:1.4;">
-      <span style="color:#38bdf8;font-weight:800;">💡 현장 적재 현실:</span> 철제 선반 일절 없음! 바닥에서 위로 탑 쌓기 적재.
-      <strong style="color:#fca5a5;">최대 9단</strong>은 팔을 끝까지 뻗어야 겨우 닿는 한계 높이(~2.2m)이며,
-      작업대 우측 신상 <strong style="color:#38bdf8;">2WC-S / 2WC-L</strong>은 <strong style="color:#38bdf8;">최대 6단</strong>(가슴~어깨 높이 ~1.5m)으로 수월하게 꺼낼 수 있습니다.
-    </div>
-    <div class="map-toolbar">
-      <div class="map-legend">
-        <span class="legend-item"><span class="legend-box l-9tier"></span> 🖐️ 9단 (팔 뻗기 한계 ~2.2m)</span>
-        <span class="legend-item"><span class="legend-box l-6tier"></span> ✋ 6단 (신상 2WC·가슴높이)</span>
-        <span class="legend-item"><span class="legend-box l-fast"></span> ⚡ 전진 (작업대 앞 초고속)</span>
+  <!-- 2. [🏢 거래처 도감 & 출고 헌법 뷰] -->
+  <div id="vendorsWrapper" class="vendors-wrapper">
+    <!-- 헌법 5대 원칙 요약 카드 -->
+    <section class="constitution-card">
+      <div class="constitution-title">
+        <span>🚨 아도라블 2층 출고 헌법 5대 원칙</span>
       </div>
-      <div class="map-tool-btns">
-        <button class="map-tool-btn" id="addBoxBtn">+ 박스스택 추가</button>
-        <button class="map-tool-btn primary" id="saveMapBtn">💾 지도 저장</button>
-        <button class="map-tool-btn" id="resetMapBtn">🔄 초기화</button>
+      <div class="rules-grid">
+        <div class="rule-item urgent">
+          <span class="rule-badge red">1. 매장주문서 기본 원칙</span>
+          <div>주문서 표기 있으면 <strong>[대납]</strong>, 아무 표기 없으면 <strong>[매주]</strong> (매장주문).<br>
+          <span style="color:#f87171;font-weight:800;">⚠️ 단, '코니트' 업체는 표기가 없어도 무조건 [별도] 출고!</span></div>
+        </div>
+        <div class="rule-item highlight">
+          <span class="rule-badge yellow">2. 택배 2중 포장 철칙</span>
+          <div>모든 택배 발송 건은 배송 중 찢어짐·오염 방지를 위해 <strong>무조건 2번 포장 (2중 포장)</strong> 필수!</div>
+        </div>
+        <div class="rule-item urgent">
+          <span class="rule-badge red">3. 앤드스타일 장끼 분할</span>
+          <div>대봉이 2개 이상으로 나갈 때, <strong>모든 대봉마다 장끼(전표)를 각각 따로따로</strong> 넣어야 함!</div>
+        </div>
+        <div class="rule-item highlight">
+          <span class="rule-badge yellow">4. 쿠팡 별도건 매직 기재</span>
+          <div>쿠팡 별도 출고 건은 대봉 겉면에 보내는 <strong>품목명, 사이즈, 수량을 매직으로 모두 기재</strong>!</div>
+        </div>
+        <div class="rule-item">
+          <span class="rule-badge blue">5. 박스 PO 선입선출 (FIFO)</span>
+          <div>박스 라벨 <code>A25-DDMM-XX</code> 중 가운데 4자리 = <strong>DDMM (일/월)</strong>.<br>
+          예: <code>2904</code>=4월 29일, <code>0701</code>=1월 7일 ➔ <strong>날짜가 빠른 박스부터 먼저 개봉/출고!</strong></div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="warehouse-container" id="warehouseContainer">
-      <!-- 동적 렌더링 (북측 벽면 9단, 중앙 더블스택, 작업대 우측 6단 신상대, 휴게실 앞 9단, 남측 코어 9단) -->
-    </div>
-  </div>
+    <!-- PO 디코더 계산기 위젯 -->
+    <section class="po-decoder-box">
+      <div class="po-decoder-title">
+        <span>💡 PO 번호 선입선출(DDMM) 디코더</span>
+      </div>
+      <div class="po-input-wrap">
+        <input type="text" id="poInput" class="po-input" placeholder="PO 가운데 4자리 또는 전체 (예: 2904, 0701, A25-2904-01)">
+        <button type="button" id="poCalcBtn" class="po-calc-btn">해독</button>
+      </div>
+      <div id="poResult" class="po-result-box"></div>
+    </section>
 
-  <!-- 박스 수정 모달 -->
-  <div class="modal-overlay" id="boxModal">
-    <div class="modal-box">
-      <div class="modal-title" id="modalTitle">박스 스택 수정</div>
-      <div class="form-group">
-        <label class="form-label">품번 코드 (예: 181, 7712-1, 2WC-S3, WA-L1~2)</label>
-        <input type="text" id="modalCode" class="form-input">
-      </div>
-      <div class="form-group">
-        <label class="form-label">품목명 / 설명</label>
-        <input type="text" id="modalName" class="form-input">
-      </div>
-      <div class="form-group">
-        <label class="form-label">적재 높이 (최대 단수)</label>
-        <select id="modalTiers" class="form-input">
-          <option value="9단">최대 9단 (🖐️ 팔 뻗어 겨우 닿는 한계 ~2.2m)</option>
-          <option value="6단">최대 6단 (✋ 신상 2WC·가슴높이 ~1.5m)</option>
-          <option value="전진">⚡ 발송대 바로 앞 초고속 (181)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="form-label">현장 메모</label>
-        <input type="text" id="modalNote" class="form-input">
-      </div>
-      <div class="modal-btn-row">
-        <button type="button" class="modal-btn cancel" id="modalCancelBtn">취소</button>
-        <button type="button" class="modal-btn save" id="modalSaveBtn">적용</button>
-      </div>
-    </div>
+    <!-- 거래처 카드 리스트 -->
+    <main class="results-container" id="vendorsContainer">
+      <!-- 동적 생성 -->
+    </main>
   </div>
 
   <!-- 토스트 -->
@@ -1647,327 +1297,250 @@
     ];
 
     // =============================================================
-    // 🗺️ 실측 스케치 1, 2, 3 기반 2층 박스 스택 기본 데이터
-    // 선반 없는 맨바닥 적재! 팔 뻗는 한계 9단 vs 신상 수월 6단 기둥
+    // 🏢 거래처 도감 마스터 데이터베이스 (사용자 확장 가능)
+    // 카테고리: 대납 / 매주 / 별도 / 법인 / 대박
     // =============================================================
-        // =============================================================
-    // 🗺️ 실측 스케치 3(북측/중앙) ➔ 2(휴게실) 가로배치 & 1(남측) 지도 데이터
-    // elements 배열로 박스행(row)과 통행로(aisle)를 사용자가 자유롭게 제어
-    // =============================================================
-        // =============================================================
-    // 🗺️ 실측 스케치 2(휴게실) ── 가로배치 ── 3(메인 적재존) & 1(남측 코어)
-    // 스케치 3이 메인이며 색상별(품번별)로 방대한 실물 박스를 전수 타일화
-    // =============================================================
-    const DEFAULT_BOX_MAP = [
-      // 1. [스케치 2: 좌측 휴게실 & 사무실존] (가로 좌측 배치)
+    const VENDORS = [
       {
-        id: "zone-office",
-        title: "☕ [스케치 2] 휴게실 & 사무실 앞 스택존",
-        badge: "사무실/휴게실",
-        isMain: false,
-        elements: [
-          {
-            type: "row",
-            id: "r-office-wall",
-            label: "휴게실 문 & 벽면 라인",
-            boxes: [
-              { id: "b-wa-l12", code: "WA-L1~2", name: "기모와이드롱 블랙/차콜", tiers: "9단", note: "휴게실 문 우측 벽면" },
-              { id: "b-wa-l3", code: "WA-L3", name: "기모와이드롱 브라운", tiers: "9단", note: "휴게실 벽면 중간" },
-              { id: "b-6944-77", code: "6944-6977", name: "기모와이드 차콜/아이", tiers: "9단", note: "벽면 끝" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-office-1",
-            label: "🚶 휴게실 벽면 ⇄ 중앙 맞댐 통로"
-          },
-          {
-            type: "row",
-            id: "r-office-mid1",
-            label: "중앙 맞댐 1열: 기모와이드 숏 (WA-S)",
-            boxes: [
-              { id: "b-wa-s12", code: "WA-S1~2", name: "기모와이드숏 1~2 (블랙/차콜)", tiers: "9단", note: "앞쪽 스택" },
-              { id: "b-wa-s3", code: "WA-S3", name: "기모와이드숏 3 (브라운)", tiers: "9단", note: "중간 스택" }
-            ]
-          },
-          {
-            type: "row",
-            id: "r-office-mid2",
-            label: "중앙 맞댐 2열: 기모부츠컷 롱 (WC-L)",
-            boxes: [
-              { id: "b-wc-l12", code: "WC-L1~2", name: "기모부츠컷롱 1~2 (블랙/차콜)", tiers: "9단", note: "앞쪽 스택" },
-              { id: "b-wc-l3", code: "WC-L3", name: "기모부츠컷롱 3 (브라운)", tiers: "9단", note: "중간 스택" }
-            ]
-          },
-          {
-            type: "row",
-            id: "r-office-mid3",
-            label: "중앙 맞댐 3열: 기모부츠컷 숏 (WC-S)",
-            boxes: [
-              { id: "b-wc-s12", code: "WC-S1~2", name: "기모부츠컷숏 1~2 (블랙/차콜)", tiers: "9단", note: "앞쪽 스택" },
-              { id: "b-wc-s3", code: "WC-S3", name: "기모부츠컷숏 3 (WCS3 브라운)", tiers: "9단", note: "단독 스택" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-office-2",
-            label: "🚶 중앙 맞댐 ⇄ 외곽 통로"
-          },
-          {
-            type: "row",
-            id: "r-office-outer",
-            label: "외곽 통로 라인 (6911, 6933)",
-            boxes: [
-              { id: "b-6933-6911", code: "6933-6911", name: "기모와이드 네이비/블랙", tiers: "9단", note: "외곽 라인" },
-              { id: "b-6911-b", code: "6911", name: "기모와이드 블랙 (추가)", tiers: "9단", note: "외곽 라인" }
-            ]
-          }
-        ]
+        id: "v-konit",
+        name: "코니트",
+        category: "별도",
+        badge: "🚨 무조건 별도 (초특급 주의)",
+        urgent: true,
+        notice: "매장주문서에 아무런 표기가 없더라도 무조건 [별도] 출고 처리! 순서상 매주 위치에 있더라도 코니트만큼은 별도로 뺍니다.",
+        delivery: "별도 / 지정 배송",
+        items: "C-S, C-L, WA-S, WA-L 등 전 품목",
+        memo: "현장 실수 1순위 방지 업체 (순서에 속지 말 것)"
       },
-
-      // 2. [스케치 3: 북측 벽면 & 중앙 메인 대형 적재존] ⭐ MAIN (가로 우측 넓게 배치)
       {
-        id: "zone-center",
-        title: "🧭 [스케치 3 ⭐MAIN] 북측 벽면 & 중앙 대형 메인 스택존",
-        badge: "⭐메인 적재존 (색상별 다량)",
-        isMain: true,
-        elements: [
-          {
-            type: "row",
-            id: "r-north-8812",
-            label: "북측 최상단 외곽 벽면 (8812 특가숏 대량 & 7712 코너 꺾임)",
-            boxes: [
-              { id: "b-8812-1", code: "8812-1", name: "특가숏 블랙", tiers: "9단", note: "북측 벽면 1열" },
-              { id: "b-8812-2", code: "8812-2", name: "특가숏 차콜", tiers: "9단", note: "북측 벽면 1열" },
-              { id: "b-8812-3", code: "8812-3", name: "특가숏 네이비", tiers: "9단", note: "북측 벽면 1열" },
-              { id: "b-8812-9", code: "8812-9", name: "특가숏 연베이지", tiers: "9단", note: "북측 벽면 1열" },
-              { id: "b-7712-1", code: "7712-1", name: "특가롱 블랙", tiers: "9단", note: "우측 벽면 꺾임" },
-              { id: "b-7712-2", code: "7712-2", name: "특가롱 차콜", tiers: "9단", note: "우측 벽면 꺾임" },
-              { id: "b-7712-3", code: "7712-3", name: "특가롱 네이비", tiers: "9단", note: "우측 벽면 꺾임" },
-              { id: "b-7712-9", code: "7712-9", name: "특가롱 연베이지 코너", tiers: "9단", note: "우측 최외곽 코너" },
-              { id: "b-2944-corner", code: "2944", name: "특가와이드오비 차콜 코너", tiers: "9단", note: "우측 벽면 끝" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-main-1",
-            label: "🚶 북측 벽면 ⇄ 1번 더블스택 통로"
-          },
-          {
-            type: "row",
-            id: "r-stack1-top",
-            label: "1번 스택 상단: 9시리즈 숏 ──세로통로── A-L / B-L",
-            boxes: [
-              { id: "b-994", code: "994", name: "9부 옆밴딩 숏 차콜", tiers: "9단", note: "1번 스택 상단" },
-              { id: "b-993", code: "993", name: "9부 옆밴딩 숏 네이비", tiers: "9단", note: "1번 스택 상단" },
-              { id: "b-991-top", code: "991", name: "9부 옆밴딩 숏 블랙", tiers: "9단", note: "1번 스택 상단" },
-              { type: "v-aisle", id: "va-s1-1", label: "통로" },
-              { id: "b-al-1", code: "A-L1", name: "투핀턱 와이드롱 블랙", tiers: "9단", note: "1번 스택 중단" },
-              { id: "b-al-2", code: "A-L2", name: "투핀턱 와이드롱 차콜", tiers: "9단", note: "1번 스택 중단" },
-              { id: "b-bl-1", code: "B-L1", name: "스트레이트 롱 블랙", tiers: "9단", note: "1번 스택 중단" },
-              { id: "b-bl-4", code: "B-L4", name: "스트레이트 롱 아이보리", tiers: "9단", note: "1번 스택 중단" }
-            ]
-          },
-          {
-            type: "row",
-            id: "r-stack1-bot",
-            label: "1번 스택 하단: 세미부츠컷 숏 (C-S1 ~ C-S4 전컬러)",
-            boxes: [
-              { id: "b-cs-1", code: "C-S1", name: "세미부츠컷 숏 블랙", tiers: "9단", note: "1번 스택 하단" },
-              { id: "b-cs-2", code: "C-S2", name: "세미부츠컷 숏 차콜", tiers: "9단", note: "1번 스택 하단" },
-              { id: "b-cs-3", code: "C-S3", name: "세미부츠컷 숏 네이비", tiers: "9단", note: "1번 스택 하단" },
-              { id: "b-cs-4", code: "C-S4", name: "세미부츠컷 숏 아이보리", tiers: "9단", note: "1번 스택 하단" },
-              { id: "b-cs-bulk", code: "C-S", name: "세미부츠컷 숏 (추가스택)", tiers: "9단", note: "1번 스택 끝" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-main-2",
-            label: "🚶 1번 스택 ⇄ 2번 스택 메인 통로"
-          },
-          {
-            type: "row",
-            id: "r-stack2-top",
-            label: "2번 스택 상단: 69시리즈 롱 ──세로통로── A-S & C-L",
-            boxes: [
-              { id: "b-991-mid", code: "991", name: "9부 밴딩 숏 블랙", tiers: "9단", note: "2번 스택 1열" },
-              { id: "b-694", code: "694", name: "10부 옆밴딩 롱 차콜", tiers: "9단", note: "2번 스택 1열" },
-              { id: "b-693", code: "693", name: "10부 옆밴딩 롱 네이비", tiers: "9단", note: "2번 스택 1열" },
-              { id: "b-692", code: "692", name: "10부 옆밴딩 롱 그레이", tiers: "9단", note: "2번 스택 1열" },
-              { type: "v-aisle", id: "va-s2-1", label: "통로" },
-              { id: "b-992", code: "992", name: "9부 밴딩 숏 아이", tiers: "9단", note: "2번 스택 2열" },
-              { id: "b-as-2", code: "A-S2", name: "투핀턱 와이드숏 차콜", tiers: "9단", note: "2번 스택 2열" },
-              { id: "b-as-4", code: "A-S4", name: "투핀턱 와이드숏 아이", tiers: "9단", note: "2번 스택 2열" },
-              { id: "b-cl-2", code: "C-L2", name: "세미부츠컷 롱 차콜", tiers: "9단", note: "2번 스택 2열" },
-              { id: "b-cl-3", code: "C-L3", name: "세미부츠컷 롱 네이비", tiers: "9단", note: "2번 스택 2열" }
-            ]
-          },
-          {
-            type: "row",
-            id: "r-stack2-bot",
-            label: "2번 스택 하단: 3944 & 시크릿밴딩 (2954, 2953, 4911)",
-            boxes: [
-              { id: "b-9914", code: "991-4", name: "9부 밴딩 차콜", tiers: "9단", note: "2번 스택 하단" },
-              { id: "b-as-3", code: "A-S3", name: "투핀턱 와이드숏 크림", tiers: "9단", note: "2번 스택 하단" },
-              { id: "b-as-4b", code: "A-S4", name: "투핀턱 와이드숏 아이보리", tiers: "9단", note: "2번 스택 하단" },
-              { id: "b-3944", code: "3944", name: "특가와이드 차콜", tiers: "9단", note: "2번 스택 하단" },
-              { id: "b-2954", code: "2954", name: "시크릿밴딩 숏 차콜", tiers: "9단", note: "2번 스택 바닥" },
-              { id: "b-2953", code: "2953", name: "시크릿밴딩 롱 차콜", tiers: "9단", note: "2번 스택 바닥" },
-              { id: "b-4911", code: "4911", name: "남성와이드 블랙", tiers: "9단", note: "2번 스택 바닥" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-main-3",
-            label: "🚶 2번 스택 ⇄ 3번 스택 통로"
-          },
-          {
-            type: "row",
-            id: "r-stack3",
-            label: "3번 스택: 기본 롱 ──세로통로── 2911 오비 3줄 집중 적재",
-            boxes: [
-              { id: "b-691-bot", code: "691", name: "10부 밴딩 롱 블랙", tiers: "9단", note: "3번 스택" },
-              { id: "b-al1-bot", code: "A-L1", name: "와이드롱 블랙", tiers: "9단", note: "3번 스택" },
-              { id: "b-cl1-bot", code: "C-L1", name: "세미부츠컷롱 블랙", tiers: "9단", note: "3번 스택" },
-              { type: "v-aisle", id: "va-s3-1", label: "통로" },
-              { id: "b-2911-line1", code: "2911 (1줄)", name: "특가와이드오비 블랙 (1줄째)", tiers: "9단", note: "오비 3줄 연속" },
-              { id: "b-2911-line2", code: "2911 (2줄)", name: "특가와이드오비 블랙 (2줄째)", tiers: "9단", note: "오비 3줄 연속" },
-              { id: "b-2911-line3", code: "2911 (3줄)", name: "특가와이드오비 블랙 (3줄째)", tiers: "9단", note: "오비 3줄 연속" },
-              { id: "b-2999-cor", code: "2999", name: "특가와이드오비 연베이지", tiers: "9단", note: "통로 코너" }
-            ]
-          }
-        ]
+        id: "v-andstyle",
+        name: "앤드스타일",
+        category: "매주",
+        badge: "📑 대봉마다 장끼 개별 분할 동봉",
+        urgent: true,
+        notice: "대봉이 여러 개로 나갈 경우, 모든 대봉에 장끼(전표)를 반드시 따로따로 넣어야 합니다! (대봉 3개면 장끼 3장 각각 투입)",
+        delivery: "매장 / 사입 삼촌",
+        items: "2WC-S, 2WC-L, C-S, WA-L",
+        memo: "장끼 누락 시 매장 입고 거부 위험"
       },
-
-      // 3. [스케치 1: 남측 우측 피킹 코어존 & 작업대 우측 신상대] (하단 가로 전체)
       {
-        id: "zone-south",
-        title: "⚡ [스케치 1] 남측 우측 핵심 피킹존 & 작업대 6단 신상대",
-        badge: "작업대/코어",
-        isMain: false,
-        elements: [
-          {
-            type: "row",
-            id: "r-south-fast",
-            label: "작업대 바로 옆 181(전진) & 신상 전용 6단 스택 라인",
-            boxes: [
-              { id: "b-181-fast", code: "181 (초고속)", name: "특가밴딩 숏 블랙", tiers: "전진", note: "발송대 3걸음 단독 전진배치!" },
-              { id: "b-2wc-s12", code: "2WC-S1~2 (신상)", name: "여성 신상기모부츠컷 숏 1~2 (블랙/차콜)", tiers: "6단", note: "작업대 우측 신상대 (최대 6단 가슴높이)" },
-              { id: "b-2wc-s3", code: "2WC-S3 (신상)", name: "여성 신상기모부츠컷 숏 3 (브라운)", tiers: "6단", note: "스케치1: 통로 벽면 바로 옆 6단 스택!" },
-              { id: "b-2wc-l", code: "2WC-L1~3 (신상)", name: "여성 신상기모부츠컷 롱 전컬러", tiers: "6단", note: "작업대 우측 신상대 (최대 6단 가슴높이)" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-south-1",
-            label: "🚶 작업대 신상대 ⇄ 외곽 18시리즈 통로"
-          },
-          {
-            type: "row",
-            id: "r-south-18",
-            label: "외곽 통로 18시리즈 라인 (183, 189, 187, 184, 199)",
-            boxes: [
-              { id: "b-183", code: "183", name: "특가밴딩 숏 네이비", tiers: "9단", note: "외곽 통로" },
-              { id: "b-189", code: "189", name: "특가밴딩 숏 연베이지", tiers: "9단", note: "외곽 통로" },
-              { id: "b-187", code: "187", name: "특가밴딩 숏 아이보리", tiers: "9단", note: "외곽 통로" },
-              { id: "b-184", code: "184", name: "특가밴딩 숏 차콜", tiers: "9단", note: "외곽 통로" },
-              { id: "b-199", code: "199", name: "특가밴딩 롱 연베이지", tiers: "9단", note: "통로 끝" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-south-2",
-            label: "🚶 18시리즈 ⇄ 코어 1열 통로"
-          },
-          {
-            type: "row",
-            id: "r-south-core1",
-            label: "코어 1열 (HA 핀턱 & 19 밴딩 맞댐 스택)",
-            boxes: [
-              { id: "b-1944-top", code: "1944", name: "와이드 차콜", tiers: "9단", note: "1열 상단" },
-              { id: "b-ha-s1", code: "HA-S1", name: "쿨와이드숏 블랙", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-197-a", code: "197", name: "특가밴딩롱 아이", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-ha-s2", code: "HA-S2", name: "쿨와이드숏 차콜", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-191-a", code: "191", name: "특가밴딩롱 블랙", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-ha-s3", code: "HA-S3", name: "쿨와이드숏 크림", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-193-a", code: "193", name: "특가밴딩롱 네이비", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-ha-s4", code: "HA-S4", name: "쿨와이드숏 베이지", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-194-a", code: "194", name: "특가밴딩롱 차콜", tiers: "9단", note: "1열 맞댐" },
-              { id: "b-ha-l1", code: "HA-L1", name: "쿨와이드롱 블랙", tiers: "9단", note: "1열 맞댐" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-south-3",
-            label: "🚶 코어 1열 ⇄ 코어 2열 통로"
-          },
-          {
-            type: "row",
-            id: "r-south-core2",
-            label: "코어 2열 (HC 부츠컷 & 6812/5712 본딩 맞댐)",
-            boxes: [
-              { id: "b-hc-s1", code: "HC-S1", name: "쿨부츠컷숏 블랙", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-hc-s2", code: "HC-S2", name: "쿨부츠컷숏 차콜", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-hc-s3", code: "HC-S3", name: "쿨부츠컷숏 크림", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-hc-s4", code: "HC-S4", name: "쿨부츠컷숏 베이지", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-hc-l1", code: "HC-L1", name: "쿨부츠컷롱 블랙", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-hc-l4", code: "HC-L4", name: "쿨부츠컷롱 베이지", tiers: "9단", note: "2열 부츠컷" },
-              { id: "b-6812-bond", code: "6812", name: "TR본딩 9부 블랙/차콜", tiers: "9단", note: "2열 본딩" },
-              { id: "b-5712-bond", code: "5712", name: "TR본딩 10부 블랙/차콜", tiers: "9단", note: "2열 본딩" }
-            ]
-          },
-          {
-            type: "aisle",
-            id: "a-south-4",
-            label: "🚶 코어 2열 ⇄ 코어 3열 통로"
-          },
-          {
-            type: "row",
-            id: "r-south-core3",
-            label: "코어 3열 (겨울 기모 3712 / 2712 & 1911)",
-            boxes: [
-              { id: "b-3712-gimo", code: "3712", name: "TR기모 9부 블랙/차콜/네이비", tiers: "9단", note: "기모 코어" },
-              { id: "b-2712-gimo", code: "2712", name: "TR기모 10부 블랙/차콜/네이비", tiers: "9단", note: "기모 코어" },
-              { id: "b-1911-south", code: "1911", name: "특가와이드 밴딩 블랙", tiers: "9단", note: "코어 3열 끝" }
-            ]
-          }
-        ]
+        id: "v-coupang",
+        name: "쿠팡 (별도건)",
+        category: "별도",
+        badge: "🏷️ 겉면 품목·사이즈·수량 매직 기재",
+        urgent: true,
+        notice: "쿠팡 별도건은 대봉 겉면에 보내는 품목명, 사이즈, 수량을 매직으로 빠짐없이 모두 기재해야 합니다!",
+        delivery: "택배 / 화물 입고",
+        items: "181, 7712, 1911, C-S, WA-L 등 대량 출고",
+        memo: "센터 바코드 및 겉면 식별 표기 필수"
+      },
+      {
+        id: "v-delivery-common",
+        name: "택배 발송 (공통 규정)",
+        category: "별도",
+        badge: "📦 2번(2중) 포장 철칙",
+        urgent: true,
+        notice: "모든 택배 발송 건은 운송 중 비닐 터짐 및 오염 방지를 위해 무조건 2번 포장(속포장 + 겉대봉 2중) 필수!",
+        delivery: "택배 (CJ대한통운 / 한진 / 우체국)",
+        items: "전 품목 공통",
+        memo: "1중 포장 시 운송장 훼손 및 상품 오염 위험"
+      },
+      {
+        id: "v-jstyle",
+        name: "제이스타일",
+        category: "대납",
+        badge: "대납 정규 출고",
+        urgent: false,
+        notice: "주문서 '대납' 표기 확인 후 지정 물류 센터로 출고 진행.",
+        delivery: "대납 / 화물 납품",
+        items: "WA-L, WC-L, 5811",
+        memo: "지정 대납처"
+      },
+      {
+        id: "v-hotping",
+        name: "핫핑",
+        category: "대박",
+        badge: "대박 / 대량 출고",
+        urgent: false,
+        notice: "대량 주문건으로 규격 대봉 적재 및 박스 단위 수량 검수.",
+        delivery: "대량 화물 / 삼촌",
+        items: "C-S, C-L, 2712, 181",
+        memo: "수량 오차 주의 (카운팅 더블 체크)"
+      },
+      {
+        id: "v-dailyjou",
+        name: "데일리쥬",
+        category: "매주",
+        badge: "매장 주문 (기본)",
+        urgent: false,
+        notice: "아무 표기 없는 일반 매장 주문서 ➔ [매주] 라인으로 피킹 및 패킹.",
+        delivery: "매장 / 사입 삼촌",
+        items: "2WC-S, 2WC-L, C-S, C-L",
+        memo: "일반 매주 루틴"
+      },
+      {
+        id: "v-sona",
+        name: "소녀나라 (소나)",
+        category: "대납",
+        badge: "대납 출고",
+        urgent: false,
+        notice: "소나 물류센터 지정 대납 출고. 센터 바코드 부착 확인.",
+        delivery: "대납 센터",
+        items: "181, C-S, SA-S",
+        memo: "바코드 라벨 부착"
+      },
+      {
+        id: "v-morecherry",
+        name: "모어체리",
+        category: "매주",
+        badge: "매장 주문 (기본)",
+        urgent: false,
+        notice: "일반 매장 주문 ➔ 매주 출고대 적재.",
+        delivery: "매장 / 사입 삼촌",
+        items: "WA-S, WA-L, C-S",
+        memo: "일반 매주 루틴"
+      },
+      {
+        id: "v-secretlabel",
+        name: "시크릿라벨",
+        category: "법인",
+        badge: "법인 발주",
+        urgent: false,
+        notice: "법인 발주건 명세서 확인 및 법인 전용 전표 동봉 패킹.",
+        delivery: "지정 납품 / 택배",
+        items: "2712, 6911, WC-L",
+        memo: "법인 전표 대조"
+      },
+      {
+        id: "v-cherrykoko",
+        name: "체리코코",
+        category: "매주",
+        badge: "매장 주문 (기본)",
+        urgent: false,
+        notice: "일반 매장 주문 ➔ 매주 라인 피킹.",
+        delivery: "매장 / 사입 삼촌",
+        items: "C-S, C-L, WA-L",
+        memo: "일반 매주 루틴"
+      },
+      {
+        id: "v-attrangs",
+        name: "아뜨랑스",
+        category: "대납",
+        badge: "대납 지정처",
+        urgent: false,
+        notice: "아뜨랑스 풀필먼트 센터 대납 출고.",
+        delivery: "대납 납품",
+        items: "C-L, 2WC-L, 2911",
+        memo: "검수 기준 준수"
+      },
+      {
+        id: "v-aably",
+        name: "에이블리",
+        category: "법인",
+        badge: "법인 / 플랫폼",
+        urgent: false,
+        notice: "에이블리 전용 주문서 매칭 및 발송 (택배 출고 시 2중 포장 필수).",
+        delivery: "택배 / 플랫폼 물류",
+        items: "181, 7712, C-S, WA-L",
+        memo: "택배 2중 포장 준수"
+      },
+      {
+        id: "v-zigzag",
+        name: "지그재그 (직진배송)",
+        category: "별도",
+        badge: "별도 / 직진배송",
+        urgent: true,
+        notice: "직진배송 센터 입고 규격 준수 (바코드 부착 및 겉면 식별 표기).",
+        delivery: "지정 센터 입고",
+        items: "2WC-S, 2WC-L, C-S, 181",
+        memo: "입고 지연 시 패널티 주의"
       }
     ];
 
-    const MAP_STORAGE_KEY = 'adorapick_box_map_v5';
-    let currentBoxMap = loadBoxMap();
+    // =============================================================
+    // UI 요소 참조
+    // =============================================================
+    const tabFinderBtn = document.getElementById("tabFinderBtn");
+    const tabVendorsBtn = document.getElementById("tabVendorsBtn");
+    const finderWrapper = document.getElementById("finderWrapper");
+    const vendorsWrapper = document.getElementById("vendorsWrapper");
+    const searchInput = document.getElementById("searchInput");
+    const clearBtn = document.getElementById("clearBtn");
+    const chipsBar = document.getElementById("chipsBar");
+    const decoderContainer = document.getElementById("decoderContainer");
+    const cardsContainer = document.getElementById("cardsContainer");
+    const vendorsContainer = document.getElementById("vendorsContainer");
+    const itemCount = document.getElementById("itemCount");
+    const toast = document.getElementById("toast");
 
-    function loadBoxMap() {
-      try {
-        const saved = localStorage.getItem(MAP_STORAGE_KEY);
-        if (saved) return JSON.parse(saved);
-      } catch (e) {}
-      return JSON.parse(JSON.stringify(DEFAULT_BOX_MAP));
+    const poInput = document.getElementById("poInput");
+    const poCalcBtn = document.getElementById("poCalcBtn");
+    const poResult = document.getElementById("poResult");
+
+    let currentTab = 'finder'; // 'finder' | 'vendors'
+    let searchQuery = '';
+    let currentFinderFilter = 'all';
+    let currentVendorFilter = 'all';
+
+    // 칩 목록 정의
+    const FINDER_CHIPS = [
+      { id: 'all', label: '전체' },
+      { id: 'winter', label: '❄️ 기모/본딩' },
+      { id: 'basic', label: '🌿 사계절 기본' },
+      { id: 'summer', label: '☀️ 여름 쿨/오비' },
+      { id: 'female', label: '👗 여성라인' },
+      { id: 'male', label: '👔 남성라인' },
+      { id: 'fast', label: '🚀 181/7712 초특가' }
+    ];
+
+    const VENDOR_CHIPS = [
+      { id: 'all', label: '전체' },
+      { id: '대납', label: '🚚 대납' },
+      { id: '매주', label: '🏬 매주' },
+      { id: '별도', label: '⚡ 별도' },
+      { id: '법인', label: '🏛️ 법인' },
+      { id: '대박', label: '📦 대박' }
+    ];
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1500);
     }
 
-    function saveBoxMapToStorage() {
-      try {
-        localStorage.setItem(MAP_STORAGE_KEY, JSON.stringify(currentBoxMap));
-        showToast("💾 박스 지도 저장 완료!");
-      } catch (e) {
-        showToast("저장 실패 (용량 초과)");
+    function copyText(text, label) {
+      if (!text) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(`📋 ${label || text} 복사됨!`);
+        }).catch(() => {
+          fallbackCopy(text, label);
+        });
+      } else {
+        fallbackCopy(text, label);
       }
     }
 
-    function resetBoxMap() {
-      if (confirm("정말 손그림 실측 초기 상태로 되돌릴까요?")) {
-        currentBoxMap = JSON.parse(JSON.stringify(DEFAULT_BOX_MAP));
-        localStorage.removeItem(MAP_STORAGE_KEY);
-        renderBoxMap();
-        showToast("🔄 실측 기본값으로 복원되었습니다.");
+    function fallbackCopy(text, label) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast(`📋 ${label || text} 복사됨!`);
+      } catch (err) {
+        showToast('복사 실패');
       }
+      document.body.removeChild(ta);
     }
 
     // =============================================================
     // 🎯 스마트 주문 옵션 디코더 (단품 판독)
     // =============================================================
-    function parseOrderOption(raw) {
+function parseOrderOption(raw) {
       if (!raw || raw.trim().length < 2) return null;
       const text = raw.trim().toLowerCase();
 
@@ -2071,57 +1644,7 @@
     }
 
     // =============================================================
-    // UI 상태 관리
-    // =============================================================
-    let currentTab = 'finder'; // 'finder' or 'map'
-    let currentFilter = 'all';
-    let searchQuery = '';
-    let editingBox = null;
-
-    const tabFinderBtn = document.getElementById('tabFinderBtn');
-    const tabMapBtn = document.getElementById('tabMapBtn');
-    const finderWrapper = document.getElementById('finderWrapper');
-    const mapWrapper = document.getElementById('mapWrapper');
-    const searchInput = document.getElementById('searchInput');
-    const clearBtn = document.getElementById('clearBtn');
-    const chipsBar = document.getElementById('chipsBar');
-    const cardsContainer = document.getElementById('cardsContainer');
-    const decoderContainer = document.getElementById('decoderContainer');
-    const warehouseContainer = document.getElementById('warehouseContainer');
-    const itemCount = document.getElementById('itemCount');
-    const toast = document.getElementById('toast');
-
-    // 모달 엘리먼트
-    const boxModal = document.getElementById('boxModal');
-    const modalCode = document.getElementById('modalCode');
-    const modalName = document.getElementById('modalName');
-    const modalTiers = document.getElementById('modalTiers');
-    const modalNote = document.getElementById('modalNote');
-    const modalCancelBtn = document.getElementById('modalCancelBtn');
-    const modalSaveBtn = document.getElementById('modalSaveBtn');
-
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1500);
-    }
-
-    function copyText(text, label) {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(() => showToast(`📋 ${label || text} 복사됨`));
-      } else {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        showToast(`📋 ${label || text} 복사됨`);
-      }
-    }
-
-    // =============================================================
-    // 판독기 렌더링
+    // 1초 품번 판독기 렌더링
     // =============================================================
     function renderFinder() {
       const decoded = parseOrderOption(searchQuery);
@@ -2150,12 +1673,12 @@
       const query = qRaw.replace(/-/g, '').replace(/\s+/g, '');
 
       const filtered = ITEMS.filter(item => {
-        if (currentFilter === 'winter' && item.season !== 'winter') return false;
-        if (currentFilter === 'basic' && item.season !== 'basic') return false;
-        if (currentFilter === 'summer' && item.season !== 'summer') return false;
-        if (currentFilter === 'female' && item.gender !== 'female') return false;
-        if (currentFilter === 'male' && item.gender !== 'male') return false;
-        if (currentFilter === 'fast' && !item.isFast) return false;
+        if (currentFinderFilter === 'winter' && item.season !== 'winter') return false;
+        if (currentFinderFilter === 'basic' && item.season !== 'basic') return false;
+        if (currentFinderFilter === 'summer' && item.season !== 'summer') return false;
+        if (currentFinderFilter === 'female' && item.gender !== 'female') return false;
+        if (currentFinderFilter === 'male' && item.gender !== 'male') return false;
+        if (currentFinderFilter === 'fast' && !item.isFast) return false;
 
         if (!query) return true;
 
@@ -2210,386 +1733,199 @@
     }
 
     // =============================================================
-    // 🗺️ 2층 박스 적재 실측 지도 렌더링 (스케치 3 & 2 가로배치 + 통로 자유제어)
+    // 🏢 거래처 도감 렌더링
     // =============================================================
-    function renderBoxMap() {
-      const q = searchQuery.trim().toLowerCase();
+    function renderVendors() {
+      const qRaw = searchQuery.trim().toLowerCase();
+      const query = qRaw.replace(/-/g, '').replace(/\s+/g, '');
 
-      function renderZone(zone) {
-        const isMain = zone.isMain;
-        const elementsHtml = (zone.elements || []).map((el, elIdx) => {
-          if (el.type === 'aisle') {
-            return `
-              <div class="aisle-interactive-bar" onclick="editAisleName('${zone.id}', '${el.id}')" title="클릭하여 통로 이름 수정">
-                <span class="aisle-title">${el.label}</span>
-                <button type="button" class="aisle-del-btn" onclick="event.stopPropagation(); deleteAisle('${zone.id}', '${el.id}')" title="이 통로 삭제">✖ 삭제</button>
-              </div>
-            `;
-          }
+      const filtered = VENDORS.filter(v => {
+        if (currentVendorFilter !== 'all' && v.category !== currentVendorFilter) return false;
+        if (!query) return true;
 
-          // Row items: can be a box OR a vertical aisle (v-aisle)
-          const boxesHtml = (el.boxes || []).map((item, bIdx) => {
-            if (item.type === 'v-aisle') {
-              return `
-                <div class="vertical-aisle-card" onclick="editVAisle('${zone.id}', '${el.id}', '${item.id}')" title="세로 통로 (클릭하여 이름 수정)">
-                  <span class="v-aisle-icon">🚶</span>
-                  <span class="v-aisle-text">${item.label || '통로'}</span>
-                  <button type="button" class="v-aisle-del-btn" onclick="event.stopPropagation(); deleteVAisle('${zone.id}', '${el.id}', '${item.id}')" title="세로 통로 삭제">✖</button>
-                </div>
-              `;
-            }
+        const target = (v.name + " " + v.category + " " + v.badge + " " + v.notice + " " + v.items + " " + v.memo).toLowerCase().replace(/-/g, '').replace(/\s+/g, '');
+        return target.includes(query);
+      });
 
-            const box = item;
-            const isMatch = q.length > 0 && (
-              (box.code && box.code.toLowerCase().includes(q)) ||
-              (box.name && box.name.toLowerCase().includes(q)) ||
-              (box.note && box.note.toLowerCase().includes(q))
-            );
+      itemCount.textContent = `거래처 ${filtered.length}개`;
 
-            let tierClass = 'nine';
-            let tierBadgeText = '🖐️ 9단';
-            let dotsHtml = '';
-            let gaugeLabel = '팔 뻗기 한계 (~2.2m)';
-
-            if (box.tiers === '6단') {
-              tierClass = 'six';
-              tierBadgeText = '✋ 6단';
-              gaugeLabel = '가슴높이 수월 (~1.5m)';
-              dotsHtml = `
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot f6"></span>
-                <span class="tier-gauge-dot"></span>
-                <span class="tier-gauge-dot"></span>
-                <span class="tier-gauge-dot"></span>
-              `;
-            } else if (box.tiers === '전진') {
-              tierClass = 'fast';
-              tierBadgeText = '⚡ 전진';
-              gaugeLabel = '작업대 초근접 (3걸음)';
-              dotsHtml = `
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-                <span class="tier-gauge-dot ffast"></span>
-              `;
-            } else {
-              dotsHtml = `
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-                <span class="tier-gauge-dot f9"></span>
-              `;
-            }
-
-            return `
-              <div class="box-stack-card ${isMatch ? 'highlight' : ''}" onclick="openEditModal('${zone.id}', '${box.id}')" title="클릭하여 수정">
-                <div class="box-top-row">
-                  <span class="box-code">${box.code}</span>
-                  <span class="tier-badge ${tierClass}">${tierBadgeText}</span>
-                </div>
-                <div class="box-name">${box.name}</div>
-                <div class="box-note">📌 ${box.note}</div>
-                <div class="tier-gauge-wrap">
-                  <div class="tier-gauge-dots">${dotsHtml}</div>
-                  <span class="tier-gauge-label">${gaugeLabel}</span>
-                </div>
-              </div>
-            `;
-          }).join('');
-
-          return `
-            <div class="row-wrap">
-              <div class="row-header">
-                <span class="row-label">${el.label}</span>
-                <div class="row-actions">
-                  <button type="button" class="row-action-btn" onclick="addBoxToRow('${zone.id}', '${el.id}')">+ 박스</button>
-                  <button type="button" class="row-action-btn" onclick="addVAisleToRow('${zone.id}', '${el.id}')" style="color:#38bdf8;border-color:rgba(56,189,248,0.4);" title="박스들 사이에 세로 통행로 추가">🚶 + 세로통로</button>
-                  <button type="button" class="row-action-btn" onclick="insertAisleAfter('${zone.id}', ${elIdx})">═ + 가로통로</button>
-                </div>
-              </div>
-              <div class="box-grid">
-                ${boxesHtml}
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        return `
-          <section class="zone-block ${isMain ? 'main-zone' : ''}" id="${zone.id}">
-            <div class="zone-header">
-              <span>${zone.title}</span>
-              <div class="zone-header-actions">
-                <span class="${isMain ? 'zone-badge-main' : 'zone-badge'}">${zone.badge}</span>
-                <button type="button" class="zone-btn-sm" onclick="addAisleToZone('${zone.id}')">+ 통행로</button>
-                <button type="button" class="zone-btn-sm" onclick="addRowToZone('${zone.id}')">+ 새 행</button>
-              </div>
-            </div>
-            ${elementsHtml}
-          </section>
+      if (filtered.length === 0) {
+        vendorsContainer.innerHTML = `
+          <div style="text-align:center;padding:40px 20px;color:#94a3b8;font-size:0.9rem;">
+            🔍 검색된 거래처가 없습니다.<br>
+            <span style="font-size:0.8rem;color:#64748b;">다른 검색어나 칩 필터를 선택해 보세요.</span>
+          </div>
         `;
+        return;
       }
 
-      // 0: office(스케치2), 1: center(스케치3 메인), 2: south(스케치1)
-      const officeZone = currentBoxMap.find(z => z.id === 'zone-office');
-      const centerZone = currentBoxMap.find(z => z.id === 'zone-center');
-      const southZone = currentBoxMap.find(z => z.id === 'zone-south');
-
-      warehouseContainer.innerHTML = `
-        <!-- 🧭 [3] 스케치 3: 북측 벽면 & 중앙 대형 메인 스택존 (상단 단독 전체 폭) -->
-        <div class="zone-top-main">
-          ${centerZone ? renderZone(centerZone) : ''}
-        </div>
-
-        <!-- 하단: 2 (좌측: 휴게실 & 사무실) ── 1 (우측: 남측 코어 & 작업대 신상대) 가로 2열 배치 -->
-        <div class="zones-bottom-split">
-          ${officeZone ? renderZone(officeZone) : ''}
-          ${southZone ? renderZone(southZone) : ''}
-        </div>
-      `;
+      vendorsContainer.innerHTML = filtered.map(v => {
+        const catClass = `cat-${v.category}`;
+        return `
+          <article class="vendor-card ${v.urgent ? 'urgent' : ''}">
+            <div class="vendor-header">
+              <span class="vendor-name">${v.name}</span>
+              <span class="category-tag ${catClass}">${v.category}</span>
+            </div>
+            <div class="vendor-notice-box ${v.urgent ? 'alert' : ''}">
+              <div style="font-weight:800;margin-bottom:3px;color:${v.urgent ? '#fca5a5' : '#38bdf8'};">
+                ${v.badge}
+              </div>
+              <div>${v.notice}</div>
+            </div>
+            <div class="vendor-meta-row">
+              <strong>🚚 배송수단:</strong>
+              <span>${v.delivery}</span>
+            </div>
+            <div class="vendor-meta-row">
+              <strong>👖 주요품번:</strong>
+              <span style="color:#38bdf8;font-weight:700;">${v.items}</span>
+            </div>
+            ${v.memo ? `
+            <div class="vendor-meta-row" style="color:#94a3b8;font-size:0.74rem;">
+              <strong>💡 현장메모:</strong>
+              <span>${v.memo}</span>
+            </div>` : ''}
+          </article>
+        `;
+      }).join('');
     }
 
-        // =============================================================
-    // 🚶 세로 통행로 (Vertical Aisle) 제어 함수
     // =============================================================
-    function addVAisleToRow(zoneId, rowId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const row = zone.elements.find(el => el.id === rowId);
-      if (!row || !row.boxes) return;
-      const label = prompt("세로 통행로 이름 (생략 시 '통로'):", "통로");
-      if (label === null) return;
-      row.boxes.push({
-        type: 'v-aisle',
-        id: 'va-' + Date.now(),
-        label: (label.trim() || '통로')
-      });
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("🚶 세로 통행로가 추가되었습니다!");
-    }
+    // 💡 PO 선입선출 디코더 로직
+    // =============================================================
+    function decodePO(input) {
+      if (!input) return null;
+      const raw = input.trim().toUpperCase();
+      let ddmmMatch = null;
 
-    function editVAisle(zoneId, rowId, aisleId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const row = zone.elements.find(el => el.id === rowId);
-      if (!row || !row.boxes) return;
-      const aisle = row.boxes.find(b => b.id === aisleId);
-      if (!aisle) return;
-      const newLabel = prompt("세로 통행로 이름 수정 (삭제하려면 '삭제' 입력):", aisle.label || '통로');
-      if (newLabel === null) return;
-      if (newLabel.trim() === '삭제' || newLabel.trim() === '') {
-        deleteVAisle(zoneId, rowId, aisleId);
-      } else {
-        aisle.label = newLabel.trim();
-        renderBoxMap();
-        saveBoxMapToStorage();
-        showToast("✏️ 세로 통행로 이름이 수정되었습니다.");
-      }
-    }
-
-    function deleteVAisle(zoneId, rowId, aisleId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const row = zone.elements.find(el => el.id === rowId);
-      if (!row || !row.boxes) return;
-      row.boxes = row.boxes.filter(b => b.id !== aisleId);
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("🗑️ 세로 통행로가 삭제되었습니다.");
-    }
-
-    function addAisleToZone(zoneId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const label = prompt("추가할 통행로 이름을 입력하세요:", "🚶 대차 통행로");
-      if (!label) return;
-      zone.elements.push({
-        type: 'aisle',
-        id: 'aisle-' + Date.now(),
-        label: label.trim()
-      });
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("🚶 통행로가 추가되었습니다!");
-    }
-
-    function insertAisleAfter(zoneId, elIndex) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const label = prompt("이 행 아래에 삽입할 통행로 이름:", "🚶 피킹 이동 통로");
-      if (!label) return;
-      zone.elements.splice(elIndex + 1, 0, {
-        type: 'aisle',
-        id: 'aisle-' + Date.now(),
-        label: label.trim()
-      });
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("🚶 통행로가 삽입되었습니다!");
-    }
-
-    function editAisleName(zoneId, aisleId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const aisle = zone.elements.find(el => el.id === aisleId);
-      if (!aisle) return;
-      const newLabel = prompt("통행로 이름 수정 (삭제하려면 '삭제' 입력):", aisle.label);
-      if (newLabel === null) return;
-      if (newLabel.trim() === '삭제' || newLabel.trim() === '') {
-        deleteAisle(zoneId, aisleId);
-      } else {
-        aisle.label = newLabel.trim();
-        renderBoxMap();
-        saveBoxMapToStorage();
-        showToast("✏️ 통행로 이름이 변경되었습니다.");
-      }
-    }
-
-    function deleteAisle(zoneId, aisleId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      zone.elements = zone.elements.filter(el => el.id !== aisleId);
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("🗑️ 통행로가 삭제되었습니다.");
-    }
-
-    function addRowToZone(zoneId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const label = prompt("새 행(라인) 이름을 입력하세요 (예: 4번 더블스택, 외곽 보조라인):", "신규 적재 라인");
-      if (!label) return;
-      zone.elements.push({
-        type: 'row',
-        id: 'r-' + Date.now(),
-        label: label.trim(),
-        boxes: []
-      });
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast("📦 새 행이 추가되었습니다! '+ 박스'로 상품을 넣어보세요.");
-    }
-
-    function addBoxToRow(zoneId, rowId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      const row = zone.elements.find(el => el.id === rowId);
-      if (!row || !row.boxes) return;
-      const code = prompt("추가할 품번 코드를 입력하세요 (예: 2WC-L, 181, 7712-1):");
-      if (!code) return;
-      const name = prompt("품목명 또는 설명 (생략 가능):", code);
-      row.boxes.push({
-        id: 'box-' + Date.now(),
-        code: code.trim(),
-        name: (name || code).trim(),
-        tiers: '9단',
-        note: '현장 추가 박스'
-      });
-      renderBoxMap();
-      saveBoxMapToStorage();
-      showToast(`📦 [${code}] 박스가 추가되었습니다!`);
-    }
-
-    function openEditModal(zoneId, boxId) {
-      const zone = currentBoxMap.find(z => z.id === zoneId);
-      if (!zone) return;
-      for (const el of (zone.elements || [])) {
-        if (el.type === 'row' && el.boxes) {
-          const box = el.boxes.find(b => b.id === boxId && b.type !== 'v-aisle');
-          if (box) {
-            editingBox = { zoneId, boxId, box };
-            modalCode.value = box.code || '';
-            modalName.value = box.name || '';
-            modalTiers.value = box.tiers || '9단';
-            modalNote.value = box.note || '';
-            boxModal.classList.add('open');
-            return;
+      // 1) 4자리 숫자 연속 매칭
+      const match4 = raw.match(/(\d{2})(\d{2})/);
+      const parts = raw.split('-');
+      if (parts.length >= 2) {
+        for (const p of parts) {
+          if (/^\d{4}$/.test(p)) {
+            ddmmMatch = [p, p.slice(0, 2), p.slice(2, 4)];
+            break;
           }
         }
       }
+      if (!ddmmMatch && match4) {
+        ddmmMatch = match4;
+      }
+
+      if (ddmmMatch) {
+        const dd = parseInt(ddmmMatch[1], 10);
+        const mm = parseInt(ddmmMatch[2], 10);
+        if (dd >= 1 && dd <= 31 && mm >= 1 && mm <= 12) {
+          return { dd, mm, rawMatch: ddmmMatch[0] };
+        }
+      }
+      return null;
     }
 
-    modalCancelBtn.addEventListener('click', () => boxModal.classList.remove('open'));
+    function handlePOCalc() {
+      const val = poInput.value.trim();
+      if (!val) {
+        poResult.classList.remove('visible');
+        return;
+      }
+      const res = decodePO(val);
+      if (res) {
+        poResult.classList.add('visible');
+        poResult.innerHTML = `
+          <div style="color:#34d399;font-weight:800;font-size:0.95rem;margin-bottom:4px;">
+            📅 생산일자: <span style="color:#fbbf24;">${res.mm}월 ${res.dd}일</span> (코드: ${res.rawMatch})
+          </div>
+          <div style="color:#cbd5e1;font-size:0.78rem;line-height:1.4;">
+            💡 <strong>선입선출 룰:</strong> 가운데 4자리는 <code>DDMM</code>(일/월)입니다.<br>
+            예를 들어 <strong>${res.mm}월 ${res.dd}일</strong> 생산분이므로, 이보다 더 빠른 날짜의 박스를 먼저 까서 출고하세요!
+          </div>
+        `;
+      } else {
+        poResult.classList.add('visible');
+        poResult.innerHTML = `
+          <div style="color:#f87171;font-weight:700;">
+            ⚠️ 4자리 DDMM(일/월) 형식을 찾을 수 없습니다.
+          </div>
+          <div style="color:#94a3b8;font-size:0.75rem;">
+            예시: <code>2904</code> (4월 29일), <code>0701</code> (1월 7일), <code>A25-2205-01</code> (5월 22일)
+          </div>
+        `;
+      }
+    }
 
-    modalSaveBtn.addEventListener('click', () => {
-      if (!editingBox) return;
-      editingBox.box.code = modalCode.value.trim();
-      editingBox.box.name = modalName.value.trim();
-      editingBox.box.tiers = modalTiers.value;
-      editingBox.box.note = modalNote.value.trim();
-
-      boxModal.classList.remove('open');
-      renderBoxMap();
-      saveBoxMapToStorage();
+    poCalcBtn.addEventListener('click', handlePOCalc);
+    poInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handlePOCalc();
     });
 
-    document.getElementById('saveMapBtn').addEventListener('click', saveBoxMapToStorage);
-    document.getElementById('resetMapBtn').addEventListener('click', resetBoxMap);
+    // =============================================================
+    // 칩 렌더링
+    // =============================================================
+    function renderChips() {
+      const chips = currentTab === 'finder' ? FINDER_CHIPS : VENDOR_CHIPS;
+      const activeFilter = currentTab === 'finder' ? currentFinderFilter : currentVendorFilter;
 
-    document.getElementById('addBoxBtn').addEventListener('click', () => {
-      const code = prompt("추가할 품번 코드를 입력하세요 (예: 2WC-L, 191, 신상박스):");
-      if (!code) return;
-      const targetZone = currentBoxMap[0]; // 스케치 3(북측 메인)에 기본 추가
-      const firstRow = (targetZone.elements || []).find(el => el.type === 'row');
-      if (firstRow) {
-        firstRow.boxes.push({
-          id: "box-" + Date.now(),
-          code: code.trim(),
-          name: code.trim() + " 신규 박스",
-          tiers: "9단",
-          note: "현장 추가 박스"
-        });
-        renderBoxMap();
-        saveBoxMapToStorage();
-        showToast(`📦 [${code}] 박스가 추가되었습니다!`);
+      chipsBar.innerHTML = chips.map(c => `
+        <button class="chip-btn ${c.id === activeFilter ? 'active' : ''}" data-id="${c.id}">
+          ${c.label}
+        </button>
+      `).join('');
+    }
+
+    chipsBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip-btn');
+      if (!btn) return;
+      const id = btn.dataset.id;
+      if (currentTab === 'finder') {
+        currentFinderFilter = id;
+        renderChips();
+        renderFinder();
+      } else {
+        currentVendorFilter = id;
+        renderChips();
+        renderVendors();
       }
     });
 
     // =============================================================
-    // 탭 전환 & 검색 연동
+    // 탭 전환
     // =============================================================
     tabFinderBtn.addEventListener('click', () => {
+      if (currentTab === 'finder') return;
       currentTab = 'finder';
       tabFinderBtn.classList.add('active');
-      tabMapBtn.classList.remove('active');
+      tabVendorsBtn.classList.remove('active');
       finderWrapper.style.display = 'block';
-      mapWrapper.classList.remove('active');
-      chipsBar.style.display = 'flex';
-      searchInput.placeholder = "품목명, 코드, 옵션 (예: 오비 슬랙스, 세미부츠컷 검정 숏 L, 181)";
+      vendorsWrapper.classList.remove('active');
+      searchInput.placeholder = "품목명, 코드, 옵션 (예: 세미부츠컷 검정 숏 L, 181)";
+      renderChips();
+      renderFinder();
     });
 
-    tabMapBtn.addEventListener('click', () => {
-      currentTab = 'map';
-      tabMapBtn.classList.add('active');
+    tabVendorsBtn.addEventListener('click', () => {
+      if (currentTab === 'vendors') return;
+      currentTab = 'vendors';
+      tabVendorsBtn.classList.add('active');
       tabFinderBtn.classList.remove('active');
       finderWrapper.style.display = 'none';
-      mapWrapper.classList.add('active');
-      chipsBar.style.display = 'none';
-      searchInput.placeholder = "지도에서 박스 찾기 (예: 2WC, 181, 6911, 8812 치면 박스가 깜빡임)";
-      renderBoxMap();
+      vendorsWrapper.classList.add('active');
+      searchInput.placeholder = "거래처명, 품번, 주의사항 (예: 코니트, 앤드스타일, 쿠팡, 택배)";
+      renderChips();
+      renderVendors();
     });
 
+    // =============================================================
+    // 검색창 공통 이벤트
+    // =============================================================
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value;
       if (searchQuery.length > 0) clearBtn.classList.add('visible');
       else clearBtn.classList.remove('visible');
 
       if (currentTab === 'finder') renderFinder();
-      else renderBoxMap();
+      else renderVendors();
     });
 
     clearBtn.addEventListener('click', () => {
@@ -2598,21 +1934,12 @@
       clearBtn.classList.remove('visible');
       searchInput.focus();
       if (currentTab === 'finder') renderFinder();
-      else renderBoxMap();
-    });
-
-    chipsBar.addEventListener('click', (e) => {
-      const target = e.target.closest('.chip-btn');
-      if (!target) return;
-      document.querySelectorAll('.chip-btn').forEach(btn => btn.classList.remove('active'));
-      target.classList.add('active');
-      currentFilter = target.dataset.filter;
-      renderFinder();
+      else renderVendors();
     });
 
     // 초기 실행
+    renderChips();
     renderFinder();
-    renderBoxMap();
   </script>
 </body>
 </html>
