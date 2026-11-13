@@ -74,9 +74,9 @@ def fetch_ticker_data(ticker):
             rsi = compute_rsi(valid_closes) if valid_closes else 50.0
             
             # 52주 위치
-            from_low_pct = round(((price - low52) / low52) * 100, 1) if low52 else 0.0
-            from_high_pct = round(((price - high52) / high52) * 100, 1) if high52 else 0.0
-            range_pct = round(((price - low52) / (high52 - low52)) * 100, 1) if (high52 and low52 and high52 != low52) else 50.0
+            from_low_pct = round(((price - low52) / low52) * 100, 1) if (price and low52) else 0.0
+            from_high_pct = round(((price - high52) / high52) * 100, 1) if (price and high52) else 0.0
+            range_pct = round(((price - low52) / (high52 - low52)) * 100, 1) if (price and high52 and low52 and high52 != low52) else 50.0
             
             # 11월 2일 기준가
             # 만약 11월 2일 데이터가 휴장 등으로 없으면 가장 가까운 첫 영업일 종가
@@ -225,8 +225,9 @@ def main():
     plm_items.sort(key=lambda x: x["from_high_pct"])
     plv_items.sort(key=lambda x: x["from_high_pct"])
     
-    # 5. 최종 데이터셋 생성
-    now_str = datetime.datetime.now().strftime("%Y년 %m월 %d일 %H:%M")
+    # 5. 최종 데이터셋 생성 (GitHub Actions UTC 환경에서도 KST 기준 표기)
+    kst = datetime.timezone(datetime.timedelta(hours=9))
+    now_str = datetime.datetime.now(kst).strftime("%Y년 %m월 %d일 %H:%M KST")
     payload = {
         "updated": now_str,
         "base_date": BASE_DATE,
