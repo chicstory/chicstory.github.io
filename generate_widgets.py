@@ -6,10 +6,10 @@ os.makedirs('widgets', exist_ok=True)
 banners = [
     {
         'id': 'thepathlab',
-        'tag': 'METALS & POWERTRAIN',
+        'tag': 'BLOG KEYWORD LAB',
         'title': 'ThePathLab',
-        'desc': '9대 금속 시세 & 파워트레인',
-        'accent': (56, 189, 248),  # #38bdf8
+        'desc': '무료 키워드 · 순위 · 누락 진단',
+        'accent': (49, 130, 246),  # #3182f6
         'sub': 'thapathlab.com',
         'url': 'https://thapathlab.com/'
     },
