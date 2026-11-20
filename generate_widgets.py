@@ -23,6 +23,15 @@ banners = [
         'url': 'https://runanalyz.com/'
     },
     {
+        'id': 'justmakehabit',
+        'tag': 'HABIT & ASSET ARCHIVE',
+        'title': 'JustMakeHabit',
+        'desc': '1분 러닝의 법칙 & 자산 아카이브',
+        'accent': (16, 185, 129),  # #10b981
+        'sub': 'justmakehabit.com',
+        'url': 'https://justmakehabit.com/'
+    },
+    {
         'id': 'bookinquiry',
         'tag': 'THINKING ENGINE',
         'title': 'BookInquiry',
