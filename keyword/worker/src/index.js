@@ -143,14 +143,54 @@ function parseRssItems(xmlText, limit = 15) {
     const titleMatch = /<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>|<title>([\s\S]*?)<\/title>/.exec(block);
     const linkMatch = /<link>([\s\S]*?)<\/link>/.exec(block);
     const dateMatch = /<pubDate>([\s\S]*?)<\/pubDate>/.exec(block);
+    const catMatch = /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>|<category>([\s\S]*?)<\/category>/.exec(block);
     const title = stripHtml(titleMatch?.[1] || titleMatch?.[2] || '');
     const link = (linkMatch?.[1] || '').trim();
     const pubDate = (dateMatch?.[1] || '').trim();
+    const category = stripHtml(catMatch?.[1] || catMatch?.[2] || '');
     if (title && link) {
-      items.push({ title, link, pubDate });
+      items.push({ title, link, pubDate, category });
     }
   }
   return items;
+}
+
+function analyzeRssActivity(rssItems) {
+  const dates = rssItems
+    .map((p) => Date.parse(p.pubDate))
+    .filter((t) => Number.isFinite(t))
+    .sort((a, b) => b - a);
+
+  const dayMs = 86400000;
+  const daysSinceLast = dates.length > 0 ? Math.max(0, Math.floor((Date.now() - dates[0]) / dayMs)) : null;
+  let avgIntervalDays = null;
+  if (dates.length >= 2) {
+    avgIntervalDays = Number(((dates[0] - dates[dates.length - 1]) / dayMs / (dates.length - 1)).toFixed(1));
+  }
+
+  let status = '정적/휴면';
+  if (daysSinceLast !== null) {
+    if (daysSinceLast <= 7 && (avgIntervalDays === null || avgIntervalDays <= 5)) status = '활발';
+    else if (daysSinceLast <= 21) status = '보통';
+  }
+
+  const catCounts = {};
+  rssItems.forEach((p) => {
+    const c = p.category || '미분류';
+    catCounts[c] = (catCounts[c] || 0) + 1;
+  });
+  const topCategories = Object.entries(catCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 2)
+    .map(([name, count]) => `${name}(${count})`);
+
+  return {
+    postCount: rssItems.length,
+    daysSinceLast,
+    avgIntervalDays,
+    status,
+    topCategories,
+  };
 }
 
 function analyzeTopDifficulty(items, totalDocs) {
@@ -392,13 +432,39 @@ export default {
         const okCount = results.filter((r) => r.status === 'OK').length;
         const badCount = results.filter((r) => r.status === 'BAD').length;
 
+        const activity = analyzeRssActivity(rssItems);
         const response = jsonResponse({
           blogId,
           checkedCount: results.length,
           okCount,
           badCount,
+          activity,
           posts: results,
         }, 200, 1800);
+        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        return response;
+      }
+
+      // 4. Competitor Blog Activity Check (RSS-only, zero Search API quota)
+      if (url.pathname === '/api/blog-activity') {
+        const blogId = (url.searchParams.get('blogId') || '').trim().toLowerCase();
+        if (!blogId || !/^[a-z0-9_-]+$/.test(blogId)) {
+          return jsonResponse({ error: '네이버 블로그 ID를 확인할 수 없습니다.' }, 400);
+        }
+        const rssRes = await fetch(`https://rss.blog.naver.com/${encodeURIComponent(blogId)}.xml`, {
+          headers: { 'User-Agent': 'Mozilla/5.0' },
+        });
+        if (!rssRes.ok) {
+          return jsonResponse({ error: `RSS를 불러올 수 없습니다 (${rssRes.status}).` }, 404);
+        }
+        const xmlText = await rssRes.text();
+        const rssItems = parseRssItems(xmlText, 15);
+        const activity = analyzeRssActivity(rssItems);
+        const response = jsonResponse({
+          blogId,
+          activity,
+          recentTitles: rssItems.slice(0, 3).map((p) => p.title),
+        }, 200, 3600);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
         return response;
       }

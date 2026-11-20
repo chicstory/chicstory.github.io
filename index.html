@@ -393,7 +393,7 @@
       <nav class="nav-tabs" role="tablist" aria-label="분석 도구 메뉴">
         <button class="nav-tab" role="tab" data-tab="keywords" aria-selected="true" aria-controls="panel-keywords" id="tab-keywords">꿀키워드 발굴</button>
         <button class="nav-tab" role="tab" data-tab="rank" aria-selected="false" aria-controls="panel-rank" id="tab-rank">상위노출 순위</button>
-        <button class="nav-tab" role="tab" data-tab="omission" aria-selected="false" aria-controls="panel-omission" id="tab-omission">내 글 누락 진단</button>
+        <button class="nav-tab" role="tab" data-tab="omission" aria-selected="false" aria-controls="panel-omission" id="tab-omission">내 블로그 진단</button>
       </nav>
     </div>
   </header>
@@ -433,7 +433,7 @@
           <h2>상위노출 순위 조회</h2>
         </div>
         <div class="guide-box">
-          <strong>어떻게 쓰나요?</strong> 노리고 있는 키워드와 내 블로그 ID(또는 <code>blog.naver.com/아이디</code> 주소 전체)를 넣으면, 현재 <strong>네이버 블로그 검색(정확도순) 1~30위</strong>에 어떤 글들이 있는지와 <strong>내 블로그가 몇 위</strong>에 있는지 바로 확인합니다.
+          <strong>어떻게 쓰나요?</strong> 키워드와 내 블로그 ID(또는 <code>blog.naver.com/아이디</code> 주소)를 넣으면 1~30위 순위를 보여줍니다. <strong>목록에서 경쟁 블로그 행을 클릭</strong>하면 해당 블로그가 활발한 현역인지, 정적/휴면 상태인지 바로 분석합니다.
         </div>
 
         <div class="card">
@@ -450,19 +450,19 @@
         </div>
       </section>
 
-      <!-- Tab 3: Omission Check -->
+      <!-- Tab 3: My Blog Diagnostics (Omission + Activity) -->
       <section class="tab-panel" id="panel-omission" role="tabpanel" aria-labelledby="tab-omission" hidden>
         <div class="panel-header">
-          <h2>내 글 누락 일괄 진단</h2>
+          <h2>내 블로그 진단</h2>
         </div>
         <div class="guide-box">
-          <strong>어떻게 쓰나요?</strong> 내 블로그 주소(<code>https://blog.naver.com/아이디</code>)를 통째로 붙여넣거나 ID만 입력하면 최근 글 15개를 자동으로 불러와 네이버 검색 누락 여부를 진단합니다. <strong>제목에 특수문자([], (), ·)가 많으면</strong> 일시적으로 누락 의심으로 뜰 수 있으니 링크를 눌러 직접 확인해 보세요.
+          <strong>어떻게 쓰나요?</strong> 내 블로그 주소(<code>https://blog.naver.com/아이디</code>)나 ID를 입력하면 최근 글 15개를 기준으로 <strong>검색 누락 여부 · 활동성(발행 주기) · 주력 카테고리</strong>를 한 번에 진단합니다.
         </div>
 
         <div class="card">
           <form class="search-row" id="form-omission">
             <input class="input-field" id="omissionBlogId" type="text" value="thepathlab" placeholder="블로그 ID 또는 주소 붙여넣기 (예: https://blog.naver.com/thepathlab)" required />
-            <button class="btn-primary" type="submit">누락 일괄 진단</button>
+            <button class="btn-primary" type="submit">내 블로그 진단</button>
           </form>
           <div id="omissionError" class="error-banner" hidden></div>
           <div id="omissionSummary" class="stats-grid" hidden></div>
@@ -1010,7 +1010,27 @@
 
         const tbody = createEl('tbody');
         (data.items || []).forEach((item) => {
-          const tr = createEl('tr', item.isMine ? 'mine-row' : '');
+          const tr = createEl('tr', `clickable-row${item.isMine ? ' mine-row' : ''}`);
+          tr.addEventListener('click', () => {
+            const nextEl = tr.nextElementSibling;
+            const isAlreadyOpen = nextEl && nextEl.classList.contains('detail-row');
+            tbody.querySelectorAll('tr.detail-row').forEach((dr) => dr.remove());
+            tbody.querySelectorAll('tr.selected-row').forEach((sr) => sr.classList.remove('selected-row'));
+            if (isAlreadyOpen) return;
+
+            tr.classList.add('selected-row');
+            const detailTr = createEl('tr', 'detail-row');
+            const detailTd = createEl('td', 'detail-cell');
+            detailTd.colSpan = 4;
+            const inlineWrap = createEl('div', 'detail-inline');
+            detailTd.appendChild(inlineWrap);
+            detailTr.appendChild(detailTd);
+            tr.after(detailTr);
+
+            const compBlogId = extractBlogId(item.bloggerlink || item.link || '');
+            loadCompetitorDetail(compBlogId, item.bloggerlink, inlineWrap);
+          });
+
           const tdRank = createEl('td');
           tdRank.appendChild(createEl('span', `badge ${item.isMine ? 'badge-blue' : ''}`, `${item.rank}위`));
           tr.appendChild(tdRank);
@@ -1020,6 +1040,7 @@
           a.href = item.link;
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
+          a.addEventListener('click', (ev) => ev.stopPropagation());
           tdTitle.appendChild(a);
           tr.appendChild(tdTitle);
 
@@ -1038,7 +1059,48 @@
       }
     });
 
-    // 3. Omission Handler
+    // Competitor RSS Activity Loader
+    async function loadCompetitorDetail(compBlogId, bloggerLink, containerEl) {
+      clearEl(containerEl);
+      if (!compBlogId || !(bloggerLink || '').toLowerCase().includes('blog.naver.com')) {
+        containerEl.appendChild(createEl('div', 'empty-state', '네이버 블로그(blog.naver.com)만 RSS 활동성 분석이 지원됩니다.'));
+        return;
+      }
+      containerEl.appendChild(createEl('div', 'empty-state', '경쟁 블로그 활동성을 분석하는 중...'));
+      try {
+        const res = await callApi(`/api/blog-activity?blogId=${encodeURIComponent(compBlogId)}`);
+        const act = res.activity || {};
+        clearEl(containerEl);
+
+        const card = createEl('div', 'detail-card');
+        const titleRow = createEl('div', 'detail-card-title');
+        titleRow.appendChild(createEl('span', '', `경쟁 블로그 활동성 (${compBlogId})`));
+        const stCls = act.status === '활발' ? 'badge-ok' : (act.status === '보통' ? 'badge-warn' : 'badge-bad');
+        titleRow.appendChild(createEl('span', `badge ${stCls}`, act.status || '확인불가'));
+        card.appendChild(titleRow);
+
+        const kv = createEl('div', 'kv-list');
+        [
+          ['마지막 발행', act.daysSinceLast !== null ? `${act.daysSinceLast}일 전` : '-'],
+          ['평균 발행 주기', act.avgIntervalDays !== null ? `${act.avgIntervalDays}일마다 1회` : '-'],
+          ['주력 카테고리', (act.topCategories || []).join(', ') || '-'],
+          ['최근 발행 글', (res.recentTitles || [])[0] || '-'],
+        ].forEach(([k, v]) => {
+          const r = createEl('div', 'kv-row');
+          r.appendChild(createEl('span', 'kv-label', k));
+          r.appendChild(createEl('span', 'kv-val', v));
+          kv.appendChild(r);
+        });
+        card.appendChild(kv);
+        containerEl.appendChild(card);
+      } catch (err) {
+        clearEl(containerEl);
+        const eb = createEl('div', 'error-banner', err.message);
+        containerEl.appendChild(eb);
+      }
+    }
+
+    // 3. My Blog Diagnostics Handler
     const omForm = document.getElementById('form-omission');
     omForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1048,17 +1110,20 @@
       const sumEl = document.getElementById('omissionSummary');
       const resEl = document.getElementById('omissionResult');
       errEl.hidden = true;
-      setLoading(omForm, true, '누락 일괄 진단');
+      setLoading(omForm, true, '내 블로그 진단');
 
       try {
         const data = await callApi(`/api/omission?blogId=${encodeURIComponent(blogId)}`);
+        const act = data.activity || {};
 
         clearEl(sumEl);
         sumEl.hidden = false;
         [
-          ['진단 글 수', `${data.checkedCount}개`, '블로그 공식 RSS에서 가져온 최근 글 수입니다.'],
-          ['정상 노출 (OK)', `${data.okCount}개`, '글 제목 검색 시 10위 이내에 정상 노출되는 글입니다.'],
+          ['블로그 활동성', act.status || '-', '최근 글 발행일과 주기를 기준으로 활발/보통/정적(휴면) 상태를 진단합니다.'],
+          ['평균 발행 주기', act.avgIntervalDays !== null && act.avgIntervalDays !== undefined ? `${act.avgIntervalDays}일` : '-', `마지막 글 발행: ${act.daysSinceLast ?? '-'}일 전`],
+          ['정상 노출 (OK)', `${data.okCount}/${data.checkedCount}`, '글 제목 검색 시 10위 이내에 정상 노출되는 글 비율입니다.'],
           ['누락 의심 (BAD)', `${data.badCount}개`, '제목 검색 시 10위 내에 잡히지 않는 글입니다. 발행 직후이거나 제목 특수문자/외부링크 영향일 수 있습니다.'],
+          ['주력 카테고리', (act.topCategories || [])[0] || '-', `최근 글 기준 상위 카테고리: ${(act.topCategories || []).join(', ')}`],
         ].forEach(([label, val, help]) => {
           const box = createEl('div', 'stat-box');
           const lbl = createEl('div', 'stat-label', label);
@@ -1107,7 +1172,7 @@
         errEl.textContent = err.message;
         errEl.hidden = false;
       } finally {
-        setLoading(omForm, false, '누락 일괄 진단');
+        setLoading(omForm, false, '내 블로그 진단');
       }
     });
   </script>
