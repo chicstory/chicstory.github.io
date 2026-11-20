@@ -1156,7 +1156,7 @@
 
           const tdTitle = createEl('td', 'wrap-cell');
           const a = createEl('a', 'post-link', post.title);
-          a.href = post.link;
+          a.href = (post.link || '').replace(/^<!\[CDATA\[/, '').replace(/\]\]>$/, '').trim();
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
           tdTitle.appendChild(a);

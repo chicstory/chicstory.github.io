@@ -134,20 +134,24 @@ function stripHtml(str) {
     .trim();
 }
 
+function unwrapCdata(str) {
+  return (str || '').replace(/^<!\[CDATA\[/, '').replace(/\]\]>$/, '').trim();
+}
+
 function parseRssItems(xmlText, limit = 15) {
   const items = [];
   const itemRegex = /<item>([\s\S]*?)<\/item>/g;
   let match;
   while ((match = itemRegex.exec(xmlText)) !== null && items.length < limit) {
     const block = match[1];
-    const titleMatch = /<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>|<title>([\s\S]*?)<\/title>/.exec(block);
+    const titleMatch = /<title>([\s\S]*?)<\/title>/.exec(block);
     const linkMatch = /<link>([\s\S]*?)<\/link>/.exec(block);
     const dateMatch = /<pubDate>([\s\S]*?)<\/pubDate>/.exec(block);
-    const catMatch = /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>|<category>([\s\S]*?)<\/category>/.exec(block);
-    const title = stripHtml(titleMatch?.[1] || titleMatch?.[2] || '');
-    const link = (linkMatch?.[1] || '').trim();
-    const pubDate = (dateMatch?.[1] || '').trim();
-    const category = stripHtml(catMatch?.[1] || catMatch?.[2] || '');
+    const catMatch = /<category>([\s\S]*?)<\/category>/.exec(block);
+    const title = stripHtml(unwrapCdata(titleMatch?.[1] || ''));
+    const link = unwrapCdata(linkMatch?.[1] || '');
+    const pubDate = unwrapCdata(dateMatch?.[1] || '');
+    const category = stripHtml(unwrapCdata(catMatch?.[1] || ''));
     if (title && link) {
       items.push({ title, link, pubDate, category });
     }
