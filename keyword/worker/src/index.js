@@ -296,12 +296,20 @@ export default {
           fetchNaverBlogSearch(q, env, 10, 'sim'),
         ]);
 
-        const difficulty = analyzeTopDifficulty(blogRes.items || [], blogRes.total || 0);
+        const items = blogRes.items || [];
+        const difficulty = analyzeTopDifficulty(items, blogRes.total || 0);
+        const topPosts = items.slice(0, 5).map((item, idx) => ({
+          rank: idx + 1,
+          title: stripHtml(item.title),
+          link: item.link,
+          postdate: item.postdate || '',
+        }));
         const response = jsonResponse({
           query: q,
           filters: { gender, ages },
           trend,
           difficulty,
+          topPosts,
         }, 200, 21600);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
         return response;

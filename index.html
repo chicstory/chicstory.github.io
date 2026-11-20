@@ -802,6 +802,49 @@
         });
         c4.appendChild(kv4);
         gridEl.appendChild(c4);
+
+        // Card 5: 상위 5개 글 제목 & 발행일 (전체 너비)
+        const topPosts = detail.topPosts || [];
+        if (topPosts.length > 0) {
+          const c5 = createEl('div', 'detail-card');
+          c5.style.gridColumn = '1 / -1';
+          const c5Title = createEl('div', 'detail-card-title');
+          const c5Left = createEl('span', '', '상위 노출 5개 글 (제목 · 발행일)');
+          c5Left.appendChild(createHelpBtn('현재 네이버 블로그 검색(정확도순) 1~5위 글의 제목과 작성일입니다.'));
+          c5Title.appendChild(c5Left);
+          c5.appendChild(c5Title);
+
+          const kv5 = createEl('div', 'kv-list');
+          topPosts.forEach((post) => {
+            const r = createEl('div', 'kv-row');
+            r.style.gap = '12px';
+            const left = createEl('span', '');
+            left.style.minWidth = '0';
+            left.style.flex = '1';
+            const rankBadge = createEl('span', 'badge badge-blue', `${post.rank}위`);
+            rankBadge.style.marginRight = '8px';
+            left.appendChild(rankBadge);
+            const a = createEl('a', 'post-link', post.title);
+            a.href = post.link;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.addEventListener('click', (ev) => ev.stopPropagation());
+            left.appendChild(a);
+            r.appendChild(left);
+
+            const pd = /^\d{8}$/.test(post.postdate)
+              ? `${post.postdate.slice(0, 4)}.${post.postdate.slice(4, 6)}.${post.postdate.slice(6, 8)}`
+              : (post.postdate || '-');
+            const right = createEl('span', 'kv-val', pd);
+            right.style.flexShrink = '0';
+            right.style.fontSize = '12px';
+            right.style.color = 'var(--text-muted)';
+            r.appendChild(right);
+            kv5.appendChild(r);
+          });
+          c5.appendChild(kv5);
+          gridEl.appendChild(c5);
+        }
       } catch (err) {
         clearEl(gridEl);
         errEl.textContent = err.message;
