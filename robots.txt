@@ -3,8 +3,3 @@ Allow: /
 
 Sitemap: https://thapathlab.com/sitemap.xml
 Sitemap: https://thapathlab.com/rss.xml
-Sitemap: https://thapathlab.com/metals/sitemap.xml
-Sitemap: https://thapathlab.com/metals/rss.xml
-Sitemap: https://thapathlab.com/autoissue/sitemap.xml
-Sitemap: https://thapathlab.com/autoissue/rss.xml
-Sitemap: https://thapathlab.com/engines/sitemap.xml
