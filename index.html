@@ -48,29 +48,41 @@
       overflow-wrap: anywhere;
     }
 
-    .app-shell {
-      display: flex;
-      min-height: 100vh;
-      max-width: 1240px;
-      margin: 0 auto;
-    }
-
-    .sidebar {
-      width: 260px;
-      flex-shrink: 0;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      padding: 24px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    /* Top Sticky Nav Bar (Desktop & Mobile Unified) */
+    .top-nav {
       position: sticky;
       top: 0;
-      height: 100vh;
-      overflow-y: auto;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .brand { display: flex; flex-direction: column; gap: 6px; padding: 0 4px; }
+    .top-nav-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 0;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.02em;
+    }
+
     .brand-badge {
       display: inline-flex;
       align-items: center;
@@ -78,40 +90,48 @@
       font-weight: 700;
       color: var(--accent);
       background: var(--accent-soft);
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 999px;
-      width: fit-content;
     }
-    .brand h1 { margin: 0; font-size: 20px; font-weight: 800; color: var(--text-title); letter-spacing: -0.02em; }
-    .brand p { margin: 0; font-size: 12px; color: var(--text-muted); }
 
-    .nav-list { display: flex; flex-direction: column; gap: 8px; }
-    .nav-btn {
+    .nav-tabs {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      width: 100%;
-      min-height: 48px;
-      padding: 12px 14px;
-      border: 1px solid transparent;
-      border-radius: 14px;
-      background: transparent;
-      color: var(--text-body);
-      text-align: left;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      align-items: center;
+      gap: 24px;
     }
-    .nav-btn:hover { background: var(--bg); }
-    .nav-btn:active { transform: scale(0.98); }
-    .nav-btn[aria-selected="true"] { background: var(--accent-soft); border-color: #BFDBFE; color: var(--accent); }
-    .nav-title { font-size: 14px; font-weight: 700; }
-    .nav-desc { font-size: 12px; color: var(--text-muted); font-weight: 500; }
-    .nav-btn[aria-selected="true"] .nav-desc { color: #2563EB; }
 
-    .mobile-nav { display: none; }
+    .nav-tab {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 4px;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
 
-    .main-content { flex: 1; min-width: 0; padding: 28px 24px 72px; }
+    .nav-tab:hover {
+      color: var(--text-title);
+    }
+
+    .nav-tab[aria-selected="true"] {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .main-content {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
     .panel-header { margin-bottom: 16px; }
     .panel-header h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; color: var(--text-title); letter-spacing: -0.02em; }
 
@@ -319,98 +339,55 @@
     }
     .tooltip-popover[hidden] { display: none; }
 
-    .sidebar-footer { margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
-    .config-box { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-    .config-box input[type="url"] { width: 100%; min-height: 38px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; color: var(--text-title); background: var(--bg); }
-    .mode-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-body); cursor: pointer; }
+    .page-footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    .config-box { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 10px; }
+    .config-box input[type="url"] { flex: 1; min-width: 220px; min-height: 40px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; color: var(--text-title); background: #FFFFFF; }
+    .mode-pill { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; font-size: 12px; font-weight: 600; color: var(--text-body); cursor: pointer; }
     .mode-pill input[type="checkbox"] { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
 
-    @media (max-width: 860px) {
-      .app-shell { flex-direction: column; }
-      .sidebar { display: none; }
-      .mobile-nav {
-        display: block;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid var(--border);
-        padding: 10px 12px 8px;
+    @media (max-width: 720px) {
+      .top-nav-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 12px;
       }
-      .mobile-brand { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-      .mobile-brand-title { font-size: 16px; font-weight: 800; color: var(--text-title); }
-      .mobile-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-      .mobile-tab-btn {
+      .brand {
+        padding: 10px 4px 4px;
+        justify-content: space-between;
+      }
+      .nav-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+      .nav-tab {
         min-height: 44px;
-        padding: 8px 6px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        background: var(--bg);
-        color: var(--text-muted);
-        font-size: 12px;
-        font-weight: 700;
-        cursor: pointer;
-        text-align: center;
+        font-size: 13px;
+        padding: 0 4px;
       }
-      .mobile-tab-btn[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #FFFFFF; }
-      .main-content { padding: 16px 12px 64px; }
+      .main-content { padding: 18px 14px 64px; }
       .panel-header h2 { font-size: 19px; }
       .detail-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav class="mobile-nav" aria-label="모바일 메뉴">
-    <div class="mobile-brand">
-      <span class="mobile-brand-title">ThePathLab 블로그 분석실</span>
-      <span class="brand-badge">무료</span>
-    </div>
-    <div class="mobile-tabs" role="tablist">
-      <button class="mobile-tab-btn" role="tab" data-tab="keywords" aria-selected="true">꿀키워드 발굴</button>
-      <button class="mobile-tab-btn" role="tab" data-tab="rank" aria-selected="false">상위노출 순위</button>
-      <button class="mobile-tab-btn" role="tab" data-tab="omission" aria-selected="false">내 글 누락 진단</button>
-    </div>
-  </nav>
-
-  <div class="app-shell">
-    <aside class="sidebar">
+  <header class="top-nav">
+    <div class="top-nav-inner">
       <div class="brand">
-        <span class="brand-badge">ThePathLab · 무료 블로거 도구</span>
-        <h1>블로그 분석 실험실</h1>
-        <p>블랙키위 + 웨어이즈포스트 통합</p>
+        <span class="brand-title">ThePathLab</span>
+        <span class="brand-badge">블로그 분석실</span>
       </div>
-
-      <nav class="nav-list" role="tablist" aria-label="분석 도구 메뉴">
-        <button class="nav-btn" role="tab" data-tab="keywords" aria-selected="true" aria-controls="panel-keywords" id="tab-keywords">
-          <span class="nav-title">1. 꿀키워드 발굴</span>
-          <span class="nav-desc">검색량 · 1년 추이 · 공략 난이도</span>
-        </button>
-        <button class="nav-btn" role="tab" data-tab="rank" aria-selected="false" aria-controls="panel-rank" id="tab-rank">
-          <span class="nav-title">2. 상위노출 순위</span>
-          <span class="nav-desc">1~30위 현황 · 내 블로그 순위</span>
-        </button>
-        <button class="nav-btn" role="tab" data-tab="omission" aria-selected="false" aria-controls="panel-omission" id="tab-omission">
-          <span class="nav-title">3. 내 글 누락 진단</span>
-          <span class="nav-desc">최근 글 검색 노출 일괄 체크</span>
-        </button>
+      <nav class="nav-tabs" role="tablist" aria-label="분석 도구 메뉴">
+        <button class="nav-tab" role="tab" data-tab="keywords" aria-selected="true" aria-controls="panel-keywords" id="tab-keywords">꿀키워드 발굴</button>
+        <button class="nav-tab" role="tab" data-tab="rank" aria-selected="false" aria-controls="panel-rank" id="tab-rank">상위노출 순위</button>
+        <button class="nav-tab" role="tab" data-tab="omission" aria-selected="false" aria-controls="panel-omission" id="tab-omission">내 글 누락 진단</button>
       </nav>
+    </div>
+  </header>
 
-      <div class="sidebar-footer">
-        <details>
-          <summary style="cursor: pointer; font-weight: 700;">API 연결 설정</summary>
-          <div class="config-box">
-            <input id="workerUrl" type="url" value="https://thapathlab-keyword-worker.chicstory.workers.dev" placeholder="Worker URL" />
-            <label class="mode-pill">
-              <input id="demoToggle" type="checkbox" />
-              데모 모드 (미리보기)
-            </label>
-          </div>
-        </details>
-      </div>
-    </aside>
-
-    <main class="main-content">
+  <main class="main-content">
       <!-- Tab 1: Keyword Discovery -->
       <section class="tab-panel" id="panel-keywords" role="tabpanel" aria-labelledby="tab-keywords">
         <div class="panel-header">
@@ -493,8 +470,20 @@
           </div>
         </div>
       </section>
+
+      <footer class="page-footer">
+        <details>
+          <summary style="cursor: pointer; font-weight: 700;">API 연결 설정</summary>
+          <div class="config-box">
+            <input id="workerUrl" type="url" value="https://thapathlab-keyword-worker.chicstory.workers.dev" placeholder="Worker URL" />
+            <label class="mode-pill">
+              <input id="demoToggle" type="checkbox" />
+              데모 모드 (미리보기)
+            </label>
+          </div>
+        </details>
+      </footer>
     </main>
-  </div>
 
   <div id="tooltipPopover" class="tooltip-popover" role="tooltip" hidden></div>
 
