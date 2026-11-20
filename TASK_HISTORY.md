@@ -4,6 +4,15 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-11-20] 🔍 thapathlab.com 블로그 키워드 · 순위 · 누락 분석기 전환 배포
+- **요청사항**: 기존 `thapathlab.com` 메인 진입점을 무료 네이버 블로그 키워드 발굴(검색량·경쟁강도·1년 추이·난이도·수익성) + 상위노출 순위 + 글 누락 일괄 진단 통합 도구로 전환.
+- **수정한 내용**:
+  - `keyword/worker/src/index.js`, `wrangler.toml`, `package.json`: 네이버 검색광고 API + NCP NAVER API HUB(블로그 검색·검색어 트렌드) + 블로그 RSS 연동 Cloudflare Worker 구축.
+  - `index.html`: 클린 라이트 UI(데스크탑 좌측 사이드바 + 모바일 상단 Sticky Nav, `?` 호버/탭 툴팁, 4단 키워드 상세 카드, 블로그 URL→ID 자동 추출) 전면 교체.
+- **앞으로 지킬 규칙**: API 키 5종은 Cloudflare Worker Secret으로만 관리하며 절대 코드/커밋에 노출하지 않고, 기존 다른 자동화 파일(`daily_radar.yml`, `radar_builder.py` 등)과 분리해 명시적 파일만 스테이징할 것.
+
+---
+
 ## [2026-11-10] 📈 종목 레이더 3.0(PLM100/PLV100) 지수 자동 갱신 엔진 안정화 & 미국 장 마감 정합성 패치
 - **1. 요청사항**: 
   - 레이더 지수 자동 업데이트가 매일 아침 9시에 정상적으로 이루어지도록 자동화 파이프라인 점검 및 오류 수정 요청.
