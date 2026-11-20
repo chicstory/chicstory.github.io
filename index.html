@@ -236,7 +236,18 @@
     .badge-warn { background: var(--warn-soft); color: var(--warn); }
     .badge-blue { background: var(--accent-soft); color: var(--accent); }
 
-    /* Keyword Detail 4-Card Section */
+    /* Keyword Detail 4-Card Accordion */
+    tr.detail-row > td.detail-cell {
+      padding: 0;
+      background: #F8FAFC;
+      white-space: normal;
+    }
+    .detail-inline {
+      padding: 16px;
+      position: sticky;
+      left: 0;
+      max-width: calc(100vw - 56px);
+    }
     .detail-section { margin-top: 16px; }
     .detail-header {
       display: flex;
@@ -411,18 +422,8 @@
             <div id="kwAutocomplete" class="chips-wrap"></div>
           </div>
           <div id="kwResult">
-            <div class="empty-state">키워드를 입력하면 월간 검색량, 문서수, 경쟁강도를 계산합니다. 키워드를 클릭하면 상세 분석 카드가 열립니다.</div>
+            <div class="empty-state">키워드를 입력하면 월간 검색량, 문서수, 경쟁강도를 계산합니다. 키워드를 클릭하면 바로 아래에 상세 분석 카드가 펼쳐집니다.</div>
           </div>
-        </div>
-
-        <!-- 4-Card Deep Dive -->
-        <div id="kwDetailSection" class="detail-section" hidden>
-          <div class="detail-header">
-            <h3 id="kwDetailTitle">키워드 상세 분석</h3>
-            <span class="badge badge-blue" id="kwDetailHint">행 클릭 시 실시간 조회</span>
-          </div>
-          <div id="kwDetailError" class="error-banner" hidden></div>
-          <div class="detail-grid" id="kwDetailGrid"></div>
         </div>
       </section>
 
@@ -676,18 +677,9 @@
       };
     }
 
-    // Keyword Detail Loader (4 Cards)
-    let currentDetailRow = null;
-    async function loadKeywordDetail(row, gender = '', ages = '') {
-      currentDetailRow = row;
-      const section = document.getElementById('kwDetailSection');
-      const titleEl = document.getElementById('kwDetailTitle');
-      const errEl = document.getElementById('kwDetailError');
-      const gridEl = document.getElementById('kwDetailGrid');
-
-      section.hidden = false;
+    // Keyword Detail Loader (Inline Accordion under clicked row)
+    async function loadKeywordDetail(row, gridEl, errEl, gender = '', ages = '') {
       errEl.hidden = true;
-      titleEl.textContent = `"${row.keyword}" 상세 분석`;
       clearEl(gridEl);
       gridEl.appendChild(createEl('div', 'empty-state', '상세 데이터를 불러오는 중...'));
 
@@ -752,7 +744,10 @@
         ].forEach(([label, g, a]) => {
           const btn = createEl('button', `filter-pill ${gender === g && ages === a ? 'active' : ''}`, label);
           btn.type = 'button';
-          btn.addEventListener('click', () => loadKeywordDetail(row, g, a));
+          btn.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            loadKeywordDetail(row, gridEl, errEl, g, a);
+          });
           filterBox.appendChild(btn);
         });
         c2.appendChild(filterBox);
@@ -823,7 +818,6 @@
       const acSection = document.getElementById('kwAcSection');
       const acEl = document.getElementById('kwAutocomplete');
       const resEl = document.getElementById('kwResult');
-      document.getElementById('kwDetailSection').hidden = true;
       errEl.hidden = true;
       setLoading(kwForm, true, '키워드 분석');
 
@@ -871,9 +865,26 @@
         sorted.forEach((row) => {
           const tr = createEl('tr', 'clickable-row');
           tr.addEventListener('click', () => {
-            tbody.querySelectorAll('tr').forEach((r) => r.classList.remove('selected-row'));
+            const nextEl = tr.nextElementSibling;
+            const isAlreadyOpen = nextEl && nextEl.classList.contains('detail-row');
+            tbody.querySelectorAll('tr.detail-row').forEach((dr) => dr.remove());
+            tbody.querySelectorAll('tr.selected-row').forEach((sr) => sr.classList.remove('selected-row'));
+            if (isAlreadyOpen) return;
+
             tr.classList.add('selected-row');
-            loadKeywordDetail(row);
+            const detailTr = createEl('tr', 'detail-row');
+            const detailTd = createEl('td', 'detail-cell');
+            detailTd.colSpan = 7;
+            const inlineWrap = createEl('div', 'detail-inline');
+            const errBox = createEl('div', 'error-banner');
+            errBox.hidden = true;
+            const gridBox = createEl('div', 'detail-grid');
+            inlineWrap.appendChild(errBox);
+            inlineWrap.appendChild(gridBox);
+            detailTd.appendChild(inlineWrap);
+            detailTr.appendChild(detailTd);
+            tr.after(detailTr);
+            loadKeywordDetail(row, gridBox, errBox);
           });
           tr.appendChild(createEl('td', 'wrap-cell', row.keyword));
           tr.appendChild(createEl('td', '', formatNum(row.pc)));
