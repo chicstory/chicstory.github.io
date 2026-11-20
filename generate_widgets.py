@@ -95,9 +95,9 @@ for b in banners:
     btn_box = [22, 154, W-22, 196]
     draw.rounded_rectangle(btn_box, radius=8, fill=(30, 41, 59), outline=(71, 85, 105), width=1)
     draw.text((36, 164), '서비스 바로가기', font=font_btn, fill=(241, 245, 249))
-    draw.text((W-56, 163), '➔', font=font_btn, fill=b['accent'])
+    draw.text((W-46, 163), '>', font=font_btn, fill=b['accent'])
     
-    out_path = f"widgets/banner_{b['id']}.png"
+    out_path = f"widgets/banner_{b['id']}_v2.png"
     img.save(out_path, quality=95)
     print(f"Generated {out_path}")
 
