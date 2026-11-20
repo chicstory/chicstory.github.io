@@ -391,7 +391,7 @@
       <!-- Tab 1: Keyword Discovery -->
       <section class="tab-panel" id="panel-keywords" role="tabpanel" aria-labelledby="tab-keywords">
         <div class="panel-header">
-          <h2>1. 꿀키워드 발굴 &amp; 상세 분석</h2>
+          <h2>꿀키워드 발굴 &amp; 상세 분석</h2>
         </div>
         <div class="guide-box">
           <strong>어떻게 쓰나요?</strong> 키워드를 검색한 뒤 <strong>표에서 원하는 키워드 행을 클릭</strong>하면 아래에 <strong>1년 검색 추이 · PC/모바일 &amp; 타깃 추이 · 공략 난이도 · 수익성</strong> 4가지 상세 카드가 열립니다.
@@ -429,7 +429,7 @@
       <!-- Tab 2: Rank Check -->
       <section class="tab-panel" id="panel-rank" role="tabpanel" aria-labelledby="tab-rank" hidden>
         <div class="panel-header">
-          <h2>2. 상위노출 순위 조회</h2>
+          <h2>상위노출 순위 조회</h2>
         </div>
         <div class="guide-box">
           <strong>어떻게 쓰나요?</strong> 노리고 있는 키워드와 내 블로그 ID(또는 <code>blog.naver.com/아이디</code> 주소 전체)를 넣으면, 현재 <strong>네이버 블로그 검색(정확도순) 1~30위</strong>에 어떤 글들이 있는지와 <strong>내 블로그가 몇 위</strong>에 있는지 바로 확인합니다.
@@ -452,7 +452,7 @@
       <!-- Tab 3: Omission Check -->
       <section class="tab-panel" id="panel-omission" role="tabpanel" aria-labelledby="tab-omission" hidden>
         <div class="panel-header">
-          <h2>3. 내 글 누락 일괄 진단</h2>
+          <h2>내 글 누락 일괄 진단</h2>
         </div>
         <div class="guide-box">
           <strong>어떻게 쓰나요?</strong> 내 블로그 주소(<code>https://blog.naver.com/아이디</code>)를 통째로 붙여넣거나 ID만 입력하면 최근 글 15개를 자동으로 불러와 네이버 검색 누락 여부를 진단합니다. <strong>제목에 특수문자([], (), ·)가 많으면</strong> 일시적으로 누락 의심으로 뜰 수 있으니 링크를 눌러 직접 확인해 보세요.
@@ -472,36 +472,14 @@
       </section>
 
       <footer class="page-footer">
-        <details>
-          <summary style="cursor: pointer; font-weight: 700;">API 연결 설정</summary>
-          <div class="config-box">
-            <input id="workerUrl" type="url" value="https://thapathlab-keyword-worker.chicstory.workers.dev" placeholder="Worker URL" />
-            <label class="mode-pill">
-              <input id="demoToggle" type="checkbox" />
-              데모 모드 (미리보기)
-            </label>
-          </div>
-        </details>
+        © ThePathLab · 무료 블로그 키워드 · 순위 · 누락 분석기
       </footer>
     </main>
 
   <div id="tooltipPopover" class="tooltip-popover" role="tooltip" hidden></div>
 
   <script>
-    const DEFAULT_WORKER_URL = 'https://thapathlab-keyword-worker.chicstory.workers.dev';
-    const workerInput = document.getElementById('workerUrl');
-    const demoToggle = document.getElementById('demoToggle');
-
-    const savedWorker = localStorage.getItem('tpl_keyword_worker_url') || DEFAULT_WORKER_URL;
-    workerInput.value = savedWorker;
-    demoToggle.checked = false;
-
-    workerInput.addEventListener('change', () => {
-      const val = workerInput.value.trim().replace(/\/+$/, '');
-      workerInput.value = val;
-      localStorage.setItem('tpl_keyword_worker_url', val || DEFAULT_WORKER_URL);
-      if (val) demoToggle.checked = false;
-    });
+    const WORKER_URL = 'https://thapathlab-keyword-worker.chicstory.workers.dev';
 
     const allTabBtns = document.querySelectorAll('[data-tab]');
     const tabPanels = document.querySelectorAll('.tab-panel');
@@ -578,8 +556,7 @@
       return Number.isFinite(num) ? num.toLocaleString('ko-KR') : '0';
     }
     async function callApi(path) {
-      const base = workerInput.value.trim().replace(/\/+$/, '') || DEFAULT_WORKER_URL;
-      const res = await fetch(`${base}${path}`);
+      const res = await fetch(`${WORKER_URL}${path}`);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || `요청 실패 (${res.status})`);
       return data;
@@ -715,16 +692,14 @@
       gridEl.appendChild(createEl('div', 'empty-state', '상세 데이터를 불러오는 중...'));
 
       try {
-        const detail = demoToggle.checked
-          ? getDemoDetail(row.keyword)
-          : await callApi(`/api/keyword-detail?q=${encodeURIComponent(row.keyword)}&gender=${encodeURIComponent(gender)}&ages=${encodeURIComponent(ages)}`);
+        const detail = await callApi(`/api/keyword-detail?q=${encodeURIComponent(row.keyword)}&gender=${encodeURIComponent(gender)}&ages=${encodeURIComponent(ages)}`);
 
         clearEl(gridEl);
 
         // Card 1: 1년 검색량 추이 차트
         const c1 = createEl('div', 'detail-card');
         const c1Title = createEl('div', 'detail-card-title');
-        const c1Left = createEl('span', '', '1. 1년 검색량 추이');
+        const c1Left = createEl('span', '', '1년 검색량 추이');
         c1Left.appendChild(createHelpBtn('네이버 검색어 트렌드 API 기준 최근 12개월 월별 상대지수(최댓값=100)입니다.'));
         c1Title.appendChild(c1Left);
 
@@ -745,7 +720,7 @@
         // Card 2: 검색 환경(PC vs 모바일) & 타깃 추이 필터
         const c2 = createEl('div', 'detail-card');
         const c2Title = createEl('div', 'detail-card-title');
-        const c2Left = createEl('span', '', '2. 검색 환경 & 타깃 추이');
+        const c2Left = createEl('span', '', '검색 환경 & 타깃 추이');
         c2Left.appendChild(createHelpBtn('PC vs 모바일 비율은 검색광고 API의 절대 수치이며, 성별/연령 필터를 누르면 해당 그룹의 1년 추이 곡선을 다시 조회합니다.'));
         c2Title.appendChild(c2Left);
         c2.appendChild(c2Title);
@@ -787,7 +762,7 @@
         const d = detail.difficulty || {};
         const c3 = createEl('div', 'detail-card');
         const c3Title = createEl('div', 'detail-card-title');
-        const c3Left = createEl('span', '', '3. 상위 10위 공략 난이도');
+        const c3Left = createEl('span', '', '상위 10위 공략 난이도');
         c3Left.appendChild(createHelpBtn('현재 블로그 검색 상위 10개 글의 작성일을 분석해 오래된 글이 많은지(공략 쉬움), 최신 글이 밀어내는지(치열) 판단합니다.'));
         c3Title.appendChild(c3Left);
         const diffCls = d.old1yCount >= 5 ? 'badge-ok' : (d.recent3mCount >= 6 ? 'badge-bad' : 'badge-warn');
@@ -811,7 +786,7 @@
         // Card 4: 수익성 키워드 분석
         const c4 = createEl('div', 'detail-card');
         const c4Title = createEl('div', 'detail-card-title');
-        const c4Left = createEl('span', '', '4. 수익성 키워드 지표');
+        const c4Left = createEl('span', '', '수익성 키워드 지표');
         c4Left.appendChild(createHelpBtn('검색광고 API의 광고 클릭률(CTR), 노출 광고 수, 광고 경쟁정도를 바탕으로 상업적 수익성을 가늠합니다.'));
         c4Title.appendChild(c4Left);
         const isHighBiz = row.compIdx === '높음' || (row.plAvgDepth || 0) >= 6;
@@ -853,9 +828,7 @@
       setLoading(kwForm, true, '키워드 분석');
 
       try {
-        const data = demoToggle.checked
-          ? getDemoKeywords(q)
-          : await callApi(`/api/keywords?q=${encodeURIComponent(q)}`);
+        const data = await callApi(`/api/keywords?q=${encodeURIComponent(q)}`);
 
         clearEl(acEl);
         const acList = data.autocomplete || [];
@@ -948,9 +921,7 @@
       setLoading(rankForm, true, '순위 조회');
 
       try {
-        const data = demoToggle.checked
-          ? getDemoRank(q, blogId)
-          : await callApi(`/api/rank?q=${encodeURIComponent(q)}&blogId=${encodeURIComponent(blogId)}`);
+        const data = await callApi(`/api/rank?q=${encodeURIComponent(q)}&blogId=${encodeURIComponent(blogId)}`);
 
         clearEl(sumEl);
         sumEl.hidden = false;
@@ -1026,9 +997,7 @@
       setLoading(omForm, true, '누락 일괄 진단');
 
       try {
-        const data = demoToggle.checked
-          ? getDemoOmission(blogId)
-          : await callApi(`/api/omission?blogId=${encodeURIComponent(blogId)}`);
+        const data = await callApi(`/api/omission?blogId=${encodeURIComponent(blogId)}`);
 
         clearEl(sumEl);
         sumEl.hidden = false;
