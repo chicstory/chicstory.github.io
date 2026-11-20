@@ -1,12 +1,12 @@
 {
   "status": "success",
   "source": "한국석유공사 오피넷 (Opinet)",
-  "updated_at": "2026.10.19",
+  "updated_at": "2026.11.20",
   "prices": {
-    "gasoline": 1856,
-    "diesel": 1842,
-    "lpg": 1144,
-    "premium": 2066,
+    "gasoline": 1854,
+    "diesel": 1841,
+    "lpg": 1178,
+    "premium": 2064,
     "electricity": 340
   }
 }
