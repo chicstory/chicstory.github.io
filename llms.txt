@@ -1,10 +1,13 @@
 # ThePathLab (Chicstory) Ecosystem
 
-> ThePathLab (https://thapathlab.com/ / https://chicstory.github.io/) is an independent engineering and market data intelligence ecosystem providing real-time commodity data, sports science diagnostics, powertrain technical specifications, and automotive recall monitoring.
+> ThePathLab (https://thapathlab.com/) provides a 100% free, login-free Naver Blog SEO, keyword volume, rank tracking, and post omission diagnostic tool, alongside automotive recall, powertrain, and running science hubs.
 
 ## Core Projects & Knowledge Hubs
 
-### 1. Metals & Scrap Intelligence Hub
+### 1. Free Naver Blog Keyword, Rank & Omission Diagnostic Lab (Main)
+- [ThePathLab Keyword & Blog Lab](https://thapathlab.com/): Free alternative to paid Korean blog tools (no login, no daily paywall). Provides Naver PC/mobile monthly search volume, blog document count, competition ratio, 1-year search trend chart, demographic trend filters, top-10 post age difficulty, ad profitability metrics, top-30 blog rank check, competitor RSS activity analysis, and batch blog post omission check.
+
+### 2. Metals & Scrap Intelligence Hub
 - [Dashboard](https://chicstory.github.io/metals/): Real-time market prices for industrial base metals (Copper, Aluminum, Zinc, Tin, Lead, Steel Scrap) and precious metals (Gold, Silver, Platinum, Palladium, Rhodium).
 - [Latest Rates API](https://chicstory.github.io/metals/latest.json): Daily JSON API containing USD/KRW rates and domestic KRW/kg conversion prices.
 - [llms.txt](https://chicstory.github.io/metals/llms.txt): Dedicated machine-readable specification for metals.
