@@ -17,7 +17,7 @@ banners = [
         'id': 'runanalyz',
         'tag': 'RUNNING DATA LAB',
         'title': 'RunAnalyz',
-        'desc': '러닝 마일리지 & 94종 슈즈',
+        'desc': '러닝 도구 및 러닝화 랩',
         'accent': (0, 242, 254),  # #00f2fe
         'sub': 'runanalyz.com',
         'url': 'https://runanalyz.com/'
