@@ -388,7 +388,139 @@
       .main-content { padding: 18px 14px 64px; }
       .panel-header h2 { font-size: 19px; }
       .detail-grid { grid-template-columns: 1fr; }
+      .hero-entry { min-height: calc(100vh - 210px); padding: 20px 4px 16px; }
+      .hero-title { font-size: 25px; }
+      .hero-sub { font-size: 14px; }
+      .hero-search-pill { padding: 5px 6px 5px 12px; gap: 8px; }
+      .hero-search-input { font-size: 15px; }
+      .hero-search-btn { padding: 0 16px; font-size: 14px; min-height: 40px; }
     }
+
+    /* Focused Honey-Pot Hero Entry */
+    .hero-entry {
+      min-height: calc(100vh - 190px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 28px 12px 24px;
+    }
+    .hero-entry[hidden] { display: none; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #B45309;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-title {
+      margin: 16px 0 10px;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.03em;
+      line-height: 1.28;
+    }
+    .hero-title .accent-text { color: var(--accent); }
+    .hero-sub {
+      margin: 0 0 28px;
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 540px;
+    }
+    .hero-search-pill {
+      width: 100%;
+      max-width: 640px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 8px 6px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(49, 130, 246, 0.10);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .hero-search-pill:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 12px 34px rgba(49, 130, 246, 0.18);
+    }
+    .hero-honeypot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #FFFBEB;
+      flex-shrink: 0;
+    }
+    .hero-search-input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: var(--text-title);
+      background: transparent;
+      font-family: inherit;
+    }
+    .hero-search-input::placeholder { color: #94A3B8; }
+    .hero-search-btn {
+      min-height: 44px;
+      padding: 0 22px;
+      border: none;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.1s ease, opacity 0.15s ease;
+    }
+    .hero-search-btn:active { transform: scale(0.98); }
+    .hero-trends {
+      margin-top: 26px;
+      width: 100%;
+      max-width: 680px;
+    }
+    .hero-trends-head {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .hero-trends .chips-wrap {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+    .chip-more {
+      border-color: #BFDBFE;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .btn-ghost-sm {
+      min-height: 36px;
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-body);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-ghost-sm:hover { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
@@ -409,40 +541,75 @@
   <main class="main-content">
       <!-- Tab 1: Keyword Discovery -->
       <section class="tab-panel" id="panel-keywords" role="tabpanel" aria-labelledby="tab-keywords">
-        <div class="panel-header">
-          <h2>꿀키워드 발굴 &amp; 상세 분석</h2>
-        </div>
-        <div class="guide-box">
-          <strong>어떻게 쓰나요?</strong> 키워드를 검색한 뒤 <strong>표에서 원하는 키워드 행을 클릭</strong>하면 아래에 <strong>1년 검색 추이 · PC/모바일 &amp; 타깃 추이 · 공략 난이도 · 수익성</strong> 4가지 상세 카드가 열립니다.
-        </div>
+        <!-- Focused Honey-Pot Hero Entry (Initial Screen) -->
+        <div class="hero-entry" id="heroEntry">
+          <div class="hero-badge">🍯 유료화 없는 무료 블로그 키워드 · 순위 분석</div>
+          <h1 class="hero-title">
+            황금 <span class="accent-text">꿀키워드</span>를<br />1초 만에 찾아보세요
+          </h1>
+          <p class="hero-sub">
+            월간 검색량, 경쟁강도, 1년 검색 추이부터 네이버·구글·유튜브 연관검색어까지 한 번에 분석합니다.
+          </p>
 
-        <div class="card">
-          <form class="search-row" id="form-keywords">
-            <input class="input-field" id="kwInput" type="text" placeholder="시드 키워드 입력 (예: 가민 심박계, 차량용 거치대)" required />
-            <button class="btn-primary" type="submit">키워드 분석</button>
-          </form>
-          <div id="kwError" class="error-banner" hidden></div>
-          <div id="kwAcSection" hidden>
-            <div class="chips-label">
-              네이버 실시간 자동완성 (클릭 시 재검색)
-              <button type="button" class="help-btn" data-help="사람들이 네이버 검색창에 입력할 때 실제로 추천되는 연관 검색어입니다. 클릭하면 해당 키워드로 바로 분석합니다.">?</button>
-            </div>
-            <div id="kwAutocomplete" class="chips-wrap"></div>
-          </div>
-          <div id="kwResult">
-            <div class="empty-state">키워드를 입력하면 월간 검색량, 문서수, 경쟁강도를 계산합니다. 키워드를 클릭하면 바로 아래에 상세 분석 카드가 펼쳐집니다.</div>
-          </div>
-        </div>
-
-        <div class="card" id="googleTrendsCard" style="margin-top: 16px;">
-          <div class="detail-card-title" style="margin-bottom: 10px;">
-            <span>
-              오늘의 구글 급상승 검색어 (블로그 이슈 글감)
-              <button type="button" class="help-btn" data-help="구글 트렌드 한국(KR) 실시간 급상승 검색어 RSS입니다. 키워드를 클릭하면 바로 네이버 검색량·경쟁강도를 분석합니다.">?</button>
+          <form class="hero-search-pill" id="form-hero-keywords">
+            <span class="hero-honeypot" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M8 6h8l1.5 3.5c1.1 2.2 1 5.3-.5 7.5-1.1 1.6-2.8 2.5-5 2.5s-3.9-.9-5-2.5c-1.5-2.2-1.6-5.3-.5-7.5L8 6z" fill="#F59E0B" stroke="#B45309" stroke-width="1.6"/>
+                <rect x="7" y="4" width="10" height="2.6" rx="1.3" fill="#FDE68A" stroke="#B45309" stroke-width="1.4"/>
+                <path d="M9.5 11.5c1.5 1 3.5 1 5 0" stroke="#FFFBEB" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
             </span>
-            <span class="badge badge-blue" id="googleTrendsStatus">불러오는 중...</span>
+            <input class="hero-search-input" id="heroKwInput" type="text" placeholder="분석할 꿀키워드를 입력하세요 (예: 가민 심박계, 차량용 거치대)" autofocus required />
+            <button class="hero-search-btn" type="submit">분석하기</button>
+          </form>
+
+          <div class="hero-trends">
+            <div class="hero-trends-head">
+              <span>🔥 오늘의 구글 급상승 키워드</span>
+              <span class="badge badge-blue" id="heroTrendsStatus">불러오는 중...</span>
+            </div>
+            <div id="heroTrendsWrap" class="chips-wrap"></div>
           </div>
-          <div id="googleTrendsWrap" class="chips-wrap" style="margin-bottom: 0;"></div>
+        </div>
+
+        <!-- Normal Keyword Analysis Workspace (Shown after first search) -->
+        <div id="kwWorkspace" hidden>
+          <div class="panel-header">
+            <h2>꿀키워드 발굴 &amp; 상세 분석</h2>
+            <button type="button" class="btn-ghost-sm" id="btnBackToHero">🍯 첫 화면으로</button>
+          </div>
+          <div class="guide-box">
+            <strong>어떻게 쓰나요?</strong> 키워드를 검색한 뒤 <strong>표에서 원하는 키워드 행을 클릭</strong>하면 아래에 <strong>1년 검색 추이 · PC/모바일 &amp; 타깃 추이 · 공략 난이도 · 수익성</strong> 상세 카드가 열립니다.
+          </div>
+
+          <div class="card">
+            <form class="search-row" id="form-keywords">
+              <input class="input-field" id="kwInput" type="text" placeholder="시드 키워드 입력 (예: 가민 심박계, 차량용 거치대)" required />
+              <button class="btn-primary" type="submit">키워드 분석</button>
+            </form>
+            <div id="kwError" class="error-banner" hidden></div>
+            <div id="kwAcSection" hidden>
+              <div class="chips-label">
+                네이버 실시간 자동완성 (클릭 시 재검색)
+                <button type="button" class="help-btn" data-help="사람들이 네이버 검색창에 입력할 때 실제로 추천되는 연관 검색어입니다. 클릭하면 해당 키워드로 바로 분석합니다.">?</button>
+              </div>
+              <div id="kwAutocomplete" class="chips-wrap"></div>
+            </div>
+            <div id="kwResult">
+              <div class="empty-state">키워드를 입력하면 월간 검색량, 문서수, 경쟁강도를 계산합니다. 키워드를 클릭하면 바로 아래에 상세 분석 카드가 펼쳐집니다.</div>
+            </div>
+          </div>
+
+          <div class="card" id="googleTrendsCard" style="margin-top: 16px;">
+            <div class="detail-card-title" style="margin-bottom: 10px;">
+              <span>
+                오늘의 구글 급상승 검색어 (블로그 이슈 글감)
+                <button type="button" class="help-btn" data-help="구글 트렌드 한국(KR) 실시간 급상승 검색어 RSS입니다. 키워드를 클릭하면 바로 네이버 검색량·경쟁강도를 분석합니다.">?</button>
+              </span>
+              <span class="badge badge-blue" id="googleTrendsStatus">불러오는 중...</span>
+            </div>
+            <div id="googleTrendsWrap" class="chips-wrap" style="margin-bottom: 0;"></div>
+          </div>
         </div>
       </section>
 
@@ -1238,45 +1405,115 @@
       }
     });
 
+    // Hero Entry <-> Workspace Mode Switcher
+    const heroEntryEl = document.getElementById('heroEntry');
+    const kwWorkspaceEl = document.getElementById('kwWorkspace');
+    const heroForm = document.getElementById('form-hero-keywords');
+    const heroKwInput = document.getElementById('heroKwInput');
+
+    function enterWorkspaceWithKeyword(keyword) {
+      if (heroEntryEl) heroEntryEl.hidden = true;
+      if (kwWorkspaceEl) kwWorkspaceEl.hidden = false;
+      document.getElementById('kwInput').value = keyword;
+      kwForm.dispatchEvent(new Event('submit'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function returnToHero() {
+      if (heroEntryEl) heroEntryEl.hidden = false;
+      if (kwWorkspaceEl) kwWorkspaceEl.hidden = true;
+      if (heroKwInput) {
+        heroKwInput.value = '';
+        heroKwInput.focus();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    if (heroForm) {
+      heroForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const q = heroKwInput.value.trim();
+        if (!q) return;
+        enterWorkspaceWithKeyword(q);
+      });
+    }
+
+    const btnBackToHero = document.getElementById('btnBackToHero');
+    if (btnBackToHero) {
+      btnBackToHero.addEventListener('click', returnToHero);
+    }
+
     // Initial Load: Google Trending Searches RSS (KR)
     async function loadGoogleTrends() {
       const wrapEl = document.getElementById('googleTrendsWrap');
       const statusEl = document.getElementById('googleTrendsStatus');
+      const heroWrapEl = document.getElementById('heroTrendsWrap');
+      const heroStatusEl = document.getElementById('heroTrendsStatus');
       if (!wrapEl || !statusEl) return;
 
       try {
         const data = await callApi('/api/google-trends');
         const items = data.items || [];
         clearEl(wrapEl);
+        if (heroWrapEl) clearEl(heroWrapEl);
 
         if (items.length === 0) {
           statusEl.textContent = '데이터 없음';
           statusEl.className = 'badge badge-warn';
+          if (heroStatusEl) { heroStatusEl.textContent = '데이터 없음'; heroStatusEl.className = 'badge badge-warn'; }
           wrapEl.appendChild(createEl('div', 'empty-state', '현재 표시할 구글 급상승 검색어가 없습니다.'));
           return;
         }
 
         statusEl.textContent = `KR 실시간 ${items.length}개`;
         statusEl.className = 'badge badge-ok';
+        if (heroStatusEl) {
+          heroStatusEl.textContent = `KR 실시간 ${items.length}개`;
+          heroStatusEl.className = 'badge badge-ok';
+        }
 
+        // Render Workspace Trends (all)
         items.forEach((item, idx) => {
           const chip = createEl('button', 'chip');
           chip.type = 'button';
           chip.title = item.newsTitle ? `${item.newsTitle} (${item.traffic || ''})` : item.title;
           const label = item.traffic ? `${idx + 1}. ${item.title} (${item.traffic})` : `${idx + 1}. ${item.title}`;
           chip.textContent = label;
-          chip.addEventListener('click', () => {
-            document.getElementById('kwInput').value = item.title;
-            kwForm.dispatchEvent(new Event('submit'));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
+          chip.addEventListener('click', () => enterWorkspaceWithKeyword(item.title));
           wrapEl.appendChild(chip);
         });
+
+        // Render Hero Trends (6 initially + More toggle)
+        if (heroWrapEl) {
+          let expanded = false;
+          const renderHeroChips = () => {
+            clearEl(heroWrapEl);
+            const visible = expanded ? items : items.slice(0, 6);
+            visible.forEach((item) => {
+              const chip = createEl('button', 'chip', `#${item.title}`);
+              chip.type = 'button';
+              chip.title = item.newsTitle ? `${item.newsTitle} (${item.traffic || ''})` : item.title;
+              chip.addEventListener('click', () => enterWorkspaceWithKeyword(item.title));
+              heroWrapEl.appendChild(chip);
+            });
+            if (items.length > 6) {
+              const moreBtn = createEl('button', 'chip chip-more', expanded ? '접기' : '더 보기 →');
+              moreBtn.type = 'button';
+              moreBtn.addEventListener('click', () => {
+                expanded = !expanded;
+                renderHeroChips();
+              });
+              heroWrapEl.appendChild(moreBtn);
+            }
+          };
+          renderHeroChips();
+        }
       } catch {
         statusEl.textContent = '연결 대기';
         statusEl.className = 'badge badge-warn';
+        if (heroStatusEl) { heroStatusEl.textContent = '연결 대기'; heroStatusEl.className = 'badge badge-warn'; }
         clearEl(wrapEl);
-        wrapEl.appendChild(createEl('div', 'empty-state', '구글 급상승 검색어를 불러오지 못했습니다. (Worker 배포 후 자동 연동됩니다)'));
+        wrapEl.appendChild(createEl('div', 'empty-state', '구글 급상승 검색어를 불러오지 못했습니다.'));
       }
     }
 
