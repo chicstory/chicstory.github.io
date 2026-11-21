@@ -619,19 +619,18 @@
           <h2>상위노출 순위 조회</h2>
         </div>
         <div class="guide-box">
-          <strong>어떻게 쓰나요?</strong> 키워드와 내 블로그 ID(또는 <code>blog.naver.com/아이디</code> 주소)를 넣으면 1~30위 순위를 보여줍니다. <strong>목록에서 경쟁 블로그 행을 클릭</strong>하면 해당 블로그가 활발한 현역인지, 정적/휴면 상태인지 바로 분석합니다.
+          <strong>어떻게 쓰나요?</strong> 키워드를 입력하면 현재 네이버 블로그 검색 상위 1~30위 목록을 보여줍니다. <strong>목록에서 경쟁 블로그 행을 클릭</strong>하면 해당 블로그가 활발한 현역인지, 정적/휴면 상태인지 바로 분석합니다. (내 블로그 진단과 누락 여부는 <strong>내 블로그 진단</strong> 탭에서 ID를 입력해 확인하세요.)
         </div>
 
         <div class="card">
           <form class="search-row" id="form-rank">
             <input class="input-field" id="rankQuery" type="text" placeholder="조회할 키워드 (예: 캐롯 퍼마일 단점)" required />
-            <input class="input-field" id="rankBlogId" type="text" placeholder="블로그 ID 또는 주소 (예: blog.naver.com/thepathlab)" />
             <button class="btn-primary" type="submit">순위 조회</button>
           </form>
           <div id="rankError" class="error-banner" hidden></div>
           <div id="rankSummary" class="stats-grid" hidden></div>
           <div id="rankResult">
-            <div class="empty-state">특정 키워드에서 현재 네이버 블로그 검색 상위 1~30위와 내 블로그 순위를 확인합니다.</div>
+            <div class="empty-state">특정 키워드에서 현재 네이버 블로그 검색 상위 1~30위 글과 경쟁 블로그 활동성을 확인합니다.</div>
           </div>
         </div>
       </section>
@@ -998,6 +997,16 @@
           const c5Left = createEl('span', '', '상위 노출 5개 글 (제목 · 발행일)');
           c5Left.appendChild(createHelpBtn('현재 네이버 블로그 검색(정확도순) 1~5위 글의 제목과 작성일입니다.'));
           c5Title.appendChild(c5Left);
+          const rankLinkBtn = createEl('button', 'btn-ghost-sm', '1~30위 전체 & 경쟁 블로그 분석 →');
+          rankLinkBtn.type = 'button';
+          rankLinkBtn.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            activateTab('rank');
+            document.getElementById('rankQuery').value = row.keyword;
+            document.getElementById('form-rank').dispatchEvent(new Event('submit'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          c5Title.appendChild(rankLinkBtn);
           c5.appendChild(c5Title);
 
           const kv5 = createEl('div', 'kv-list');
@@ -1195,8 +1204,6 @@
     rankForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const q = document.getElementById('rankQuery').value.trim();
-      const blogId = extractBlogId(document.getElementById('rankBlogId').value);
-      if (blogId) document.getElementById('rankBlogId').value = blogId;
       const errEl = document.getElementById('rankError');
       const sumEl = document.getElementById('rankSummary');
       const resEl = document.getElementById('rankResult');
@@ -1204,7 +1211,7 @@
       setLoading(rankForm, true, '순위 조회');
 
       try {
-        const data = await callApi(`/api/rank?q=${encodeURIComponent(q)}&blogId=${encodeURIComponent(blogId)}`);
+        const data = await callApi(`/api/rank?q=${encodeURIComponent(q)}`);
 
         clearEl(sumEl);
         sumEl.hidden = false;
@@ -1217,10 +1224,10 @@
         sumEl.appendChild(box1);
 
         const box2 = createEl('div', 'stat-box');
-        const l2 = createEl('div', 'stat-label', '내 블로그 순위 (30위 내)');
-        l2.appendChild(createHelpBtn('네이버 블로그 검색 정확도순 상위 30개 중 내 블로그 ID가 처음 등장하는 순위입니다.'));
+        const l2 = createEl('div', 'stat-label', '조회된 상위 노출 수');
+        l2.appendChild(createHelpBtn('네이버 블로그 검색 정확도순 상위 노출 목록입니다. 각 행을 클릭하면 작성자 블로그의 최근 활동성을 분석합니다.'));
         box2.appendChild(l2);
-        box2.appendChild(createEl('div', 'stat-value', data.myRank ? `${data.myRank}위` : '권외'));
+        box2.appendChild(createEl('div', 'stat-value', `1 ~ ${(data.items || []).length}위`));
         sumEl.appendChild(box2);
 
         clearEl(resEl);
