@@ -521,6 +521,48 @@
       cursor: pointer;
     }
     .btn-ghost-sm:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* SEO FAQ Accordion */
+    .faq-section {
+      margin-top: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .faq-title {
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-title);
+    }
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 10px 0;
+    }
+    .faq-item:first-of-type { border-top: none; padding-top: 2px; }
+    .faq-item:last-of-type { padding-bottom: 2px; }
+    .faq-item summary {
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-body);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      min-height: 36px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--text-muted); font-size: 16px; font-weight: 700; }
+    .faq-item[open] summary::after { content: '−'; color: var(--accent); }
+    .faq-item p {
+      margin: 6px 0 4px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -655,6 +697,26 @@
             <div class="empty-state">블로그 ID를 입력하면 RSS에서 최근 글 15개를 불러와 네이버 검색 누락 여부를 일괄 진단합니다.</div>
           </div>
         </div>
+      </section>
+
+      <section class="faq-section" aria-label="자주 묻는 질문">
+        <h3 class="faq-title">자주 묻는 질문 (블로그 키워드 · 순위 · 누락 진단 가이드)</h3>
+        <details class="faq-item">
+          <summary>경쟁강도 0.5 이하 '꿀키워드'는 어떤 기준인가요?</summary>
+          <p>경쟁강도는 네이버 블로그 총 문서수를 월간 총 검색량(PC+모바일)으로 나눈 값입니다. 일반적으로 월간 검색량 200회 이상이면서 경쟁강도가 0.5 이하이면 공급 대비 수요가 많아 신규 블로그도 상위노출을 노리기 좋습니다.</p>
+        </details>
+        <details class="faq-item">
+          <summary>네이버·구글·유튜브 연관 검색어를 함께 보는 이유는 무엇인가요?</summary>
+          <p>네이버 검색량 조회 결과에 더해 구글과 유튜브 자동완성 키워드를 함께 확인하면, 사람들이 실제로 구매·비교·후기를 찾을 때 쓰는 세부 롱테일 키워드(예: 단점, 실사용, 비교)를 빠짐없이 발굴할 수 있습니다.</p>
+        </details>
+        <details class="faq-item">
+          <summary>상위 10위 공략 난이도와 '노후 글 다수'는 어떻게 활용하나요?</summary>
+          <p>상위 10개 블로그 글 중 작성한 지 1년이 넘은 글이 5개 이상이면 최신 정보 수요를 채울 여지가 크다는 뜻입니다. 반대로 최근 3개월 내 글이 6개 이상이면 경쟁이 치열하므로 연관 롱테일 키워드로 우회하는 것이 유리합니다.</p>
+        </details>
+        <details class="faq-item">
+          <summary>내 블로그 글 검색 누락(BAD)은 어떻게 확인하고 해결하나요?</summary>
+          <p>내 블로그 진단 탭에 블로그 ID나 주소를 입력하면 최근 글 15개의 제목으로 네이버 블로그 검색 상위 10위 내 노출 여부를 일괄 검사합니다. 누락 의심이 뜨면 제목 내 과도한 특수문자, 본문 외부링크 과다 여부를 점검해 보세요.</p>
+        </details>
       </section>
 
       <footer class="page-footer">
@@ -1096,6 +1158,7 @@
     kwForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const q = document.getElementById('kwInput').value.trim();
+      if (q && typeof updateUrlQuery === 'function') updateUrlQuery({ q });
       const errEl = document.getElementById('kwError');
       const acSection = document.getElementById('kwAcSection');
       const acEl = document.getElementById('kwAutocomplete');
@@ -1419,10 +1482,20 @@
     const heroForm = document.getElementById('form-hero-keywords');
     const heroKwInput = document.getElementById('heroKwInput');
 
+    function updateUrlQuery(paramsObj) {
+      const u = new URL(window.location.href);
+      u.search = '';
+      Object.entries(paramsObj).forEach(([k, v]) => {
+        if (v) u.searchParams.set(k, v);
+      });
+      history.replaceState(null, '', u.pathname + u.search);
+    }
+
     function enterWorkspaceWithKeyword(keyword) {
       if (heroEntryEl) heroEntryEl.hidden = true;
       if (kwWorkspaceEl) kwWorkspaceEl.hidden = false;
       document.getElementById('kwInput').value = keyword;
+      updateUrlQuery({ q: keyword });
       kwForm.dispatchEvent(new Event('submit'));
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1430,6 +1503,7 @@
     function returnToHero() {
       if (heroEntryEl) heroEntryEl.hidden = false;
       if (kwWorkspaceEl) kwWorkspaceEl.hidden = true;
+      updateUrlQuery({});
       if (heroKwInput) {
         heroKwInput.value = '';
         heroKwInput.focus();
@@ -1526,6 +1600,28 @@
     }
 
     loadGoogleTrends();
+
+    // URL Query Parameter Auto-Run (?q=키워드, ?tab=rank&q=키워드, ?tab=omission&blog=아이디)
+    (function initFromQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      const tab = (params.get('tab') || '').trim();
+      const q = (params.get('q') || '').trim();
+      const blog = (params.get('blog') || '').trim();
+
+      if (tab === 'rank' && q) {
+        activateTab('rank');
+        document.getElementById('rankQuery').value = q;
+        rankForm.dispatchEvent(new Event('submit'));
+      } else if (tab === 'omission' || blog) {
+        activateTab('omission');
+        if (blog) {
+          document.getElementById('omissionBlogId').value = blog;
+          omForm.dispatchEvent(new Event('submit'));
+        }
+      } else if (q) {
+        enterWorkspaceWithKeyword(q);
+      }
+    })();
   </script>
 </body>
 </html>

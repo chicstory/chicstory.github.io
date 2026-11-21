@@ -8,7 +8,7 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 - **요청사항**: `thapathlab.com` 첫 화면의 빈 공간을 구글 오늘의 급상승 검색어 RSS로 채우고, 키워드 상세 분석(추이·상위 글) 하단에 네이버·구글 자동완성 기반 연관 검색어 칩을 추가.
 - **수정한 내용**:
   - `keyword/worker/src/index.js`: `GET /api/google-trends` 엔드포인트(`trends.google.com/trending/rss?geo=KR`, 30분 캐시) 및 `fetchGoogleAutocomplete()`(구글·유튜브 자동완성) 추가, `/api/keyword-detail` 응답에 `relatedKeywords: { naver, google, youtube }` 포함.
-  - `index.html`: 꿀단지 아이콘·포커스 필 검색창·구글 급상승 키워드 칩 기반의 첫 화면 히어로(`#heroEntry`) 구축(검색 시 일반 분석 페이지 `#kwWorkspace`로 전환 + `첫 화면으로` 복귀 지원), 키워드 상세 카드 5번(`1~30위 전체 & 경쟁 블로그 분석 →` 직결 링크) 및 카드 6번(`연관 검색어`) 추가, `상위노출 순위` 탭에서 블로그 ID 입력 제거(ID 입력은 `내 블로그 진단` 탭으로 일원화).
+  - `index.html`: 꿀단지 아이콘·포커스 필 검색창·구글 급상승 키워드 칩 기반의 첫 화면 히어로(`#heroEntry`) 구축(검색 시 일반 분석 페이지 `#kwWorkspace`로 전환 + `첫 화면으로` 복귀 지원), 키워드 상세 카드 5번(`1~30위 전체 & 경쟁 블로그 분석 →` 직결 링크) 및 카드 6번(`연관 검색어`) 추가, `상위노출 순위` 탭에서 블로그 ID 입력 제거(ID 입력은 `내 블로그 진단` 탭으로 일원화), SEO용 FAQ 아코디언 및 `?q=` URL 공유 파라미터 자동 실행 지원 추가.
 - **앞으로 지킬 규칙**: Worker 수정 시 `keyword/worker`에서 `npx wrangler deploy`로 워커를 함께 배포해야 `index.html`의 신규 엔드포인트(`/api/google-trends`)가 실시간 동작함.
 
 ---
