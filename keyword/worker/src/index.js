@@ -123,9 +123,10 @@ async function fetchAutocomplete(query) {
   return list.map((item) => item[0]).filter(Boolean).slice(0, 10);
 }
 
-async function fetchGoogleAutocomplete(query) {
+async function fetchGoogleAutocomplete(query, ds = '') {
   try {
-    const url = `https://suggestqueries.google.com/complete/search?client=firefox&hl=ko&gl=kr&q=${encodeURIComponent(query)}`;
+    const dsParam = ds ? `&ds=${encodeURIComponent(ds)}` : '';
+    const url = `https://suggestqueries.google.com/complete/search?client=firefox&hl=ko&gl=kr${dsParam}&q=${encodeURIComponent(query)}`;
     const res = await fetch(url, {
       headers: { 'User-Agent': 'Mozilla/5.0' },
     });
@@ -383,11 +384,12 @@ export default {
           return jsonResponse({ error: 'NAVER API HUB 키가 Worker Secret에 설정되지 않았습니다.' }, 500);
         }
 
-        const [trend, blogRes, naverAc, googleAc] = await Promise.all([
+        const [trend, blogRes, naverAc, googleAc, youtubeAc] = await Promise.all([
           fetchSearchTrend(q, env, gender, ages),
           fetchNaverBlogSearch(q, env, 10, 'sim'),
           fetchAutocomplete(q),
           fetchGoogleAutocomplete(q),
+          fetchGoogleAutocomplete(q, 'yt'),
         ]);
 
         const items = blogRes.items || [];
@@ -407,6 +409,7 @@ export default {
           relatedKeywords: {
             naver: naverAc,
             google: googleAc,
+            youtube: youtubeAc,
           },
         }, 200, 21600);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));

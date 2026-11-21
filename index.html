@@ -865,22 +865,24 @@
           gridEl.appendChild(c5);
         }
 
-        // Card 6: 연관 검색어 (네이버 · 구글 자동완성)
+        // Card 6: 연관 검색어 (네이버 · 구글 · 유튜브 자동완성)
         const rel = detail.relatedKeywords || {};
         const naverRel = rel.naver || [];
         const googleRel = rel.google || [];
-        if (naverRel.length > 0 || googleRel.length > 0) {
+        const youtubeRel = rel.youtube || [];
+        if (naverRel.length > 0 || googleRel.length > 0 || youtubeRel.length > 0) {
           const c6 = createEl('div', 'detail-card');
           c6.style.gridColumn = '1 / -1';
           const c6Title = createEl('div', 'detail-card-title');
-          const c6Left = createEl('span', '', '연관 검색어 (네이버 · 구글 자동완성)');
-          c6Left.appendChild(createHelpBtn('네이버와 구글 검색창에 실제로 자동완성되는 연관 키워드입니다. 클릭하면 해당 키워드로 바로 분석합니다.'));
+          const c6Left = createEl('span', '', '연관 검색어 (네이버 · 구글 · 유튜브 자동완성)');
+          c6Left.appendChild(createHelpBtn('네이버, 구글, 유튜브 검색창에 실제로 자동완성되는 연관 키워드입니다. 클릭하면 해당 키워드로 바로 분석합니다.'));
           c6Title.appendChild(c6Left);
           c6.appendChild(c6Title);
 
           [
             ['네이버', naverRel],
             ['구글', googleRel],
+            ['유튜브', youtubeRel],
           ].forEach(([srcLabel, list]) => {
             if (list.length === 0) return;
             const grpLabel = createEl('div', 'chips-label', `${srcLabel} 연관 검색어`);
