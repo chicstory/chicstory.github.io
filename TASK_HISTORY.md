@@ -4,6 +4,15 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-11-21] 🔥 thapathlab.com 구글 급상승 검색어 RSS & 네이버·구글 연관검색어 연동
+- **요청사항**: `thapathlab.com` 첫 화면의 빈 공간을 구글 오늘의 급상승 검색어 RSS로 채우고, 키워드 상세 분석(추이·상위 글) 하단에 네이버·구글 자동완성 기반 연관 검색어 칩을 추가.
+- **수정한 내용**:
+  - `keyword/worker/src/index.js`: `GET /api/google-trends` 엔드포인트(`trends.google.com/trending/rss?geo=KR`, 30분 캐시) 및 `fetchGoogleAutocomplete()` 추가, `/api/keyword-detail` 응답에 `relatedKeywords: { naver, google }` 포함.
+  - `index.html`: 첫 화면 하단에 `오늘의 구글 급상승 검색어` 카드(클릭 시 원클릭 네이버 키워드 분석) 추가, 키워드 상세 카드 6번(`연관 검색어 (네이버 · 구글 자동완성)`) 추가.
+- **앞으로 지킬 규칙**: Worker 수정 시 `keyword/worker`에서 `npx wrangler deploy`로 워커를 함께 배포해야 `index.html`의 신규 엔드포인트(`/api/google-trends`)가 실시간 동작함.
+
+---
+
 ## [2026-11-20] 🔍 thapathlab.com 블로그 키워드 · 순위 · 누락 분석기 전환 배포
 - **요청사항**: 기존 `thapathlab.com` 메인 진입점을 무료 네이버 블로그 키워드 발굴(검색량·경쟁강도·1년 추이·난이도·수익성) + 상위노출 순위 + 글 누락 일괄 진단 통합 도구로 전환.
 - **수정한 내용**:

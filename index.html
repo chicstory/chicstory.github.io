@@ -433,6 +433,17 @@
             <div class="empty-state">키워드를 입력하면 월간 검색량, 문서수, 경쟁강도를 계산합니다. 키워드를 클릭하면 바로 아래에 상세 분석 카드가 펼쳐집니다.</div>
           </div>
         </div>
+
+        <div class="card" id="googleTrendsCard" style="margin-top: 16px;">
+          <div class="detail-card-title" style="margin-bottom: 10px;">
+            <span>
+              오늘의 구글 급상승 검색어 (블로그 이슈 글감)
+              <button type="button" class="help-btn" data-help="구글 트렌드 한국(KR) 실시간 급상승 검색어 RSS입니다. 키워드를 클릭하면 바로 네이버 검색량·경쟁강도를 분석합니다.">?</button>
+            </span>
+            <span class="badge badge-blue" id="googleTrendsStatus">불러오는 중...</span>
+          </div>
+          <div id="googleTrendsWrap" class="chips-wrap" style="margin-bottom: 0;"></div>
+        </div>
       </section>
 
       <!-- Tab 2: Rank Check -->
@@ -853,6 +864,47 @@
           c5.appendChild(kv5);
           gridEl.appendChild(c5);
         }
+
+        // Card 6: 연관 검색어 (네이버 · 구글 자동완성)
+        const rel = detail.relatedKeywords || {};
+        const naverRel = rel.naver || [];
+        const googleRel = rel.google || [];
+        if (naverRel.length > 0 || googleRel.length > 0) {
+          const c6 = createEl('div', 'detail-card');
+          c6.style.gridColumn = '1 / -1';
+          const c6Title = createEl('div', 'detail-card-title');
+          const c6Left = createEl('span', '', '연관 검색어 (네이버 · 구글 자동완성)');
+          c6Left.appendChild(createHelpBtn('네이버와 구글 검색창에 실제로 자동완성되는 연관 키워드입니다. 클릭하면 해당 키워드로 바로 분석합니다.'));
+          c6Title.appendChild(c6Left);
+          c6.appendChild(c6Title);
+
+          [
+            ['네이버', naverRel],
+            ['구글', googleRel],
+          ].forEach(([srcLabel, list]) => {
+            if (list.length === 0) return;
+            const grpLabel = createEl('div', 'chips-label', `${srcLabel} 연관 검색어`);
+            grpLabel.style.marginBottom = '6px';
+            c6.appendChild(grpLabel);
+
+            const wrap = createEl('div', 'chips-wrap');
+            wrap.style.marginBottom = '8px';
+            list.forEach((phrase) => {
+              const chip = createEl('button', 'chip', phrase);
+              chip.type = 'button';
+              chip.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+                document.getElementById('kwInput').value = phrase;
+                document.getElementById('form-keywords').dispatchEvent(new Event('submit'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              });
+              wrap.appendChild(chip);
+            });
+            c6.appendChild(wrap);
+          });
+
+          gridEl.appendChild(c6);
+        }
       } catch (err) {
         clearEl(gridEl);
         errEl.textContent = err.message;
@@ -1183,6 +1235,50 @@
         setLoading(omForm, false, '내 블로그 진단');
       }
     });
+
+    // Initial Load: Google Trending Searches RSS (KR)
+    async function loadGoogleTrends() {
+      const wrapEl = document.getElementById('googleTrendsWrap');
+      const statusEl = document.getElementById('googleTrendsStatus');
+      if (!wrapEl || !statusEl) return;
+
+      try {
+        const data = await callApi('/api/google-trends');
+        const items = data.items || [];
+        clearEl(wrapEl);
+
+        if (items.length === 0) {
+          statusEl.textContent = '데이터 없음';
+          statusEl.className = 'badge badge-warn';
+          wrapEl.appendChild(createEl('div', 'empty-state', '현재 표시할 구글 급상승 검색어가 없습니다.'));
+          return;
+        }
+
+        statusEl.textContent = `KR 실시간 ${items.length}개`;
+        statusEl.className = 'badge badge-ok';
+
+        items.forEach((item, idx) => {
+          const chip = createEl('button', 'chip');
+          chip.type = 'button';
+          chip.title = item.newsTitle ? `${item.newsTitle} (${item.traffic || ''})` : item.title;
+          const label = item.traffic ? `${idx + 1}. ${item.title} (${item.traffic})` : `${idx + 1}. ${item.title}`;
+          chip.textContent = label;
+          chip.addEventListener('click', () => {
+            document.getElementById('kwInput').value = item.title;
+            kwForm.dispatchEvent(new Event('submit'));
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+          wrapEl.appendChild(chip);
+        });
+      } catch {
+        statusEl.textContent = '연결 대기';
+        statusEl.className = 'badge badge-warn';
+        clearEl(wrapEl);
+        wrapEl.appendChild(createEl('div', 'empty-state', '구글 급상승 검색어를 불러오지 못했습니다. (Worker 배포 후 자동 연동됩니다)'));
+      }
+    }
+
+    loadGoogleTrends();
   </script>
 </body>
 </html>

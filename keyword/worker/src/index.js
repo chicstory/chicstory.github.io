@@ -123,6 +123,54 @@ async function fetchAutocomplete(query) {
   return list.map((item) => item[0]).filter(Boolean).slice(0, 10);
 }
 
+async function fetchGoogleAutocomplete(query) {
+  try {
+    const url = `https://suggestqueries.google.com/complete/search?client=firefox&hl=ko&gl=kr&q=${encodeURIComponent(query)}`;
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const list = Array.isArray(data?.[1]) ? data[1] : [];
+    return list.filter((item) => typeof item === 'string' && item.trim()).slice(0, 10);
+  } catch {
+    return [];
+  }
+}
+
+async function fetchGoogleTrendingRss(geo = 'KR') {
+  const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
+  const res = await fetch(url, {
+    headers: { 'User-Agent': 'Mozilla/5.0' },
+  });
+  if (!res.ok) {
+    throw new Error(`Google Trends RSS error (${res.status})`);
+  }
+  const xmlText = await res.text();
+  const items = [];
+  const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+  let match;
+  while ((match = itemRegex.exec(xmlText)) !== null && items.length < 15) {
+    const block = match[1];
+    const titleMatch = /<title>([\s\S]*?)<\/title>/.exec(block);
+    const trafficMatch = /<ht:approx_traffic>([\s\S]*?)<\/ht:approx_traffic>/.exec(block);
+    const pubDateMatch = /<pubDate>([\s\S]*?)<\/pubDate>/.exec(block);
+    const newsTitleMatch = /<ht:news_item_title>([\s\S]*?)<\/ht:news_item_title>/.exec(block);
+    const newsUrlMatch = /<ht:news_item_url>([\s\S]*?)<\/ht:news_item_url>/.exec(block);
+
+    const title = stripHtml(unwrapCdata(titleMatch?.[1] || ''));
+    if (!title) continue;
+    items.push({
+      title,
+      traffic: stripHtml(unwrapCdata(trafficMatch?.[1] || '')),
+      pubDate: unwrapCdata(pubDateMatch?.[1] || ''),
+      newsTitle: stripHtml(unwrapCdata(newsTitleMatch?.[1] || '')),
+      newsUrl: unwrapCdata(newsUrlMatch?.[1] || ''),
+    });
+  }
+  return items;
+}
+
 function stripHtml(str) {
   return (str || '')
     .replace(/<[^>]*>/g, '')
@@ -335,9 +383,11 @@ export default {
           return jsonResponse({ error: 'NAVER API HUB 키가 Worker Secret에 설정되지 않았습니다.' }, 500);
         }
 
-        const [trend, blogRes] = await Promise.all([
+        const [trend, blogRes, naverAc, googleAc] = await Promise.all([
           fetchSearchTrend(q, env, gender, ages),
           fetchNaverBlogSearch(q, env, 10, 'sim'),
+          fetchAutocomplete(q),
+          fetchGoogleAutocomplete(q),
         ]);
 
         const items = blogRes.items || [];
@@ -354,7 +404,23 @@ export default {
           trend,
           difficulty,
           topPosts,
+          relatedKeywords: {
+            naver: naverAc,
+            google: googleAc,
+          },
         }, 200, 21600);
+        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        return response;
+      }
+
+      // 1-C. Google Trending Searches RSS (Daily Issue Topics)
+      if (url.pathname === '/api/google-trends') {
+        const items = await fetchGoogleTrendingRss('KR');
+        const response = jsonResponse({
+          geo: 'KR',
+          updatedAt: new Date().toISOString(),
+          items,
+        }, 200, 1800);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
         return response;
       }
