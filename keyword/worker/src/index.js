@@ -6,22 +6,69 @@
  * - Naver Blog RSS (rss.blog.naver.com)
  */
 
+const DAILY_LIMIT = 10;
+const RATE_LIMITED_PATHS = new Set(['/api/keywords', '/api/keyword-detail', '/api/rank', '/api/omission']);
+
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Key',
+  'Access-Control-Expose-Headers': 'X-RateLimit-Limit, X-RateLimit-Remaining',
   'Access-Control-Max-Age': '86400',
 };
 
-function jsonResponse(data, status = 200, cacheSeconds = 0) {
+function jsonResponse(data, status = 200, cacheSeconds = 0, extraHeaders = {}) {
   const headers = {
     ...CORS_HEADERS,
     'Content-Type': 'application/json; charset=utf-8',
+    ...extraHeaders,
   };
   if (cacheSeconds > 0) {
     headers['Cache-Control'] = `public, max-age=${cacheSeconds}`;
   }
   return new Response(JSON.stringify(data), { status, headers });
+}
+
+function getKstDateString() {
+  return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+}
+
+function isAdminRequest(request, url, env) {
+  const secret = (env.ADMIN_BYPASS_KEY || '').trim();
+  if (!secret) return false;
+  const provided = (request.headers.get('X-Admin-Key') || url.searchParams.get('adminKey') || '').trim();
+  return provided === secret;
+}
+
+async function checkAndConsumeQuota(request, cache, ctx) {
+  const ip = (request.headers.get('CF-Connecting-IP') || 'unknown').trim();
+  const today = getKstDateString();
+  const keyReq = new Request(`https://rate-limit.internal/v1/${encodeURIComponent(ip)}/${today}`);
+
+  let count = 0;
+  const existing = await cache.match(keyReq);
+  if (existing) {
+    try {
+      const data = await existing.json();
+      count = Number(data.count) || 0;
+    } catch {
+      count = 0;
+    }
+  }
+
+  if (count >= DAILY_LIMIT) {
+    return { allowed: false, remaining: 0 };
+  }
+
+  const nextCount = count + 1;
+  const recordRes = new Response(JSON.stringify({ count: nextCount, date: today }), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, max-age=86400',
+    },
+  });
+  ctx.waitUntil(cache.put(keyReq, recordRes));
+  return { allowed: true, remaining: Math.max(0, DAILY_LIMIT - nextCount) };
 }
 
 function getSearchCreds(env) {
@@ -297,9 +344,50 @@ export default {
     }
 
     const cache = caches.default;
-    const cacheKey = new Request(url.toString(), request);
+    const cacheUrl = new URL(url.toString());
+    cacheUrl.searchParams.delete('adminKey');
+    const cacheKey = new Request(cacheUrl.toString(), { method: 'GET' });
+    const isAdmin = isAdminRequest(request, url, env);
+
     const cached = await cache.match(cacheKey);
-    if (cached) return cached;
+    if (cached) {
+      if (isAdmin) {
+        const res = new Response(cached.body, cached);
+        res.headers.set('X-RateLimit-Limit', String(DAILY_LIMIT));
+        res.headers.set('X-RateLimit-Remaining', 'unlimited');
+        return res;
+      }
+      return cached;
+    }
+
+    let quotaHeaders = {};
+    if (RATE_LIMITED_PATHS.has(url.pathname)) {
+      if (isAdmin) {
+        quotaHeaders = {
+          'X-RateLimit-Limit': String(DAILY_LIMIT),
+          'X-RateLimit-Remaining': 'unlimited',
+        };
+      } else {
+        const quota = await checkAndConsumeQuota(request, cache, ctx);
+        if (!quota.allowed) {
+          return jsonResponse(
+            { error: `오늘의 무료 조회 한도(${DAILY_LIMIT}회)를 모두 사용했습니다. 내일(00시 KST) 다시 이용해 주세요.` },
+            429,
+            0,
+            { 'X-RateLimit-Limit': String(DAILY_LIMIT), 'X-RateLimit-Remaining': '0' }
+          );
+        }
+        quotaHeaders = {
+          'X-RateLimit-Limit': String(DAILY_LIMIT),
+          'X-RateLimit-Remaining': String(quota.remaining),
+        };
+      }
+    }
+
+    const withQuota = (res) => {
+      Object.entries(quotaHeaders).forEach(([k, v]) => res.headers.set(k, v));
+      return res;
+    };
 
     try {
       // 1. Keyword Discovery
@@ -336,7 +424,7 @@ export default {
         }
 
         const adData = await adRes.json();
-        const rawList = (adData.keywordList || []).slice(0, 15);
+        const rawList = (adData.keywordList || []).slice(0, 10);
 
         const enriched = await Promise.all(
           rawList.map(async (item) => {
@@ -370,7 +458,7 @@ export default {
 
         const response = jsonResponse({ query: q, autocomplete, keywords: enriched }, 200, 43200);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        return response;
+        return withQuota(response);
       }
 
       // 1-B. Keyword Deep-Dive Detail (Trend + Top10 Difficulty)
@@ -425,7 +513,7 @@ export default {
           items,
         }, 200, 1800);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        return response;
+        return withQuota(response);
       }
 
       // 2. Top Blog Rank Check
@@ -462,7 +550,7 @@ export default {
           items,
         }, 200, 3600);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        return response;
+        return withQuota(response);
       }
 
       // 3. Blog Post Omission Check
@@ -515,7 +603,7 @@ export default {
           posts: results,
         }, 200, 1800);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        return response;
+        return withQuota(response);
       }
 
       // 4. Competitor Blog Activity Check (RSS-only, zero Search API quota)

@@ -4,6 +4,15 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
+## [2026-11-24] 🛡️ API 쿼터 보호: 연관 키워드 10개 축소 · IP 일일 10회 제한 · 관리자 예외 처리
+- **요청사항**: 네이버 검색 API 일일 2.5만 건 한도 보호를 위해 연관 키워드를 10개로 줄이고, 사용자별 일일 10회 조회 제한 + 남은 횟수 UI 표기 + 관리자 본인 예외 처리 적용.
+- **수정한 내용**:
+  - `keyword/worker/src/index.js`: `/api/keywords` 연관 키워드 최대 10개로 축소(1회당 API 소모 33% 절감), `caches.default` + `CF-Connecting-IP` 기반 KST 일일 10회 제한(캐시 히트는 미차감), `env.ADMIN_BYPASS_KEY` 일치 시 무제한 예외(`X-RateLimit-Remaining: unlimited`) 처리.
+  - `index.html`: 헤더에 `#quotaBadge`(오늘 남은 조회 X/10 또는 관리자 무제한) 추가, `?admin=키` 1회 접속 시 `localStorage` 저장 후 URL에서 자동 제거하고 `X-Admin-Key` 헤더 전송.
+- **앞으로 지킬 규칙**: 관리자 예외 키(`ADMIN_BYPASS_KEY`)는 Cloudflare Worker Secret으로만 등록하며 절대 코드/커밋에 평문 기록 금지.
+
+---
+
 ## [2026-11-21] 🔥 thapathlab.com 구글 급상승 검색어 RSS & 네이버·구글 연관검색어 연동
 - **요청사항**: `thapathlab.com` 첫 화면의 빈 공간을 구글 오늘의 급상승 검색어 RSS로 채우고, 키워드 상세 분석(추이·상위 글) 하단에 네이버·구글 자동완성 기반 연관 검색어 칩을 추가.
 - **수정한 내용**:
