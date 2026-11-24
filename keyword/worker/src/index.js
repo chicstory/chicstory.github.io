@@ -80,6 +80,37 @@ async function fetchNaverBlogSearch(query, env, display = 10, sort = 'sim') {
   return res.json();
 }
 
+async function fetchNaverShopSearch(query, env, display = 20, sort = 'sim') {
+  const { id, secret } = getSearchCreds(env);
+  const url = `https://naverapihub.apigw.ntruss.com/search/v1/shop?query=${encodeURIComponent(query)}&display=${display}&start=1&sort=${sort}&format=json`;
+  const res = await fetch(url, {
+    headers: {
+      'X-NCP-APIGW-API-KEY-ID': id,
+      'X-NCP-APIGW-API-KEY': secret,
+    },
+  });
+  if (!res.ok) {
+    throw new Error(`NAVER Shopping API error (${res.status})`);
+  }
+  return res.json();
+}
+
+function calcPriceStats(items) {
+  const prices = (items || [])
+    .map((it) => parseInt(it.lprice, 10))
+    .filter((p) => Number.isFinite(p) && p > 0);
+  if (prices.length === 0) {
+    return { min: 0, avg: 0, max: 0, count: 0 };
+  }
+  const sum = prices.reduce((acc, p) => acc + p, 0);
+  return {
+    min: Math.min(...prices),
+    avg: Math.round(sum / prices.length),
+    max: Math.max(...prices),
+    count: prices.length,
+  };
+}
+
 async function fetchSearchTrend(keyword, env, gender = '', ages = []) {
   const { id, secret } = getSearchCreds(env);
   const now = new Date();
@@ -424,6 +455,145 @@ export default {
           updatedAt: new Date().toISOString(),
           items,
         }, 200, 1800);
+        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        return response;
+      }
+
+      // 1-D. Shopping Keyword Discovery (ItemScout-style)
+      if (url.pathname === '/api/shop-keywords') {
+        const q = (url.searchParams.get('q') || '').trim();
+        if (!q) return jsonResponse({ error: '상품 키워드를 입력해 주세요.' }, 400);
+        if (!env.NAVER_AD_API_KEY || !env.NAVER_AD_SECRET_KEY || !env.NAVER_AD_CUSTOMER_ID) {
+          return jsonResponse({ error: '검색광고 API 키가 Worker Secret에 설정되지 않았습니다.' }, 500);
+        }
+        if (!creds.id || !creds.secret) {
+          return jsonResponse({ error: 'NAVER API HUB 키가 Worker Secret에 설정되지 않았습니다.' }, 500);
+        }
+
+        const hintKeywords = q.replace(/\s+/g, '');
+        const uri = '/keywordstool';
+        const timestamp = Date.now().toString();
+        const signature = await createSearchAdSignature(timestamp, 'GET', uri, env.NAVER_AD_SECRET_KEY);
+
+        const [adRes, autocomplete] = await Promise.all([
+          fetch(`https://api.searchad.naver.com${uri}?hintKeywords=${encodeURIComponent(hintKeywords)}&showDetail=1`, {
+            headers: {
+              'X-Timestamp': timestamp,
+              'X-API-KEY': env.NAVER_AD_API_KEY,
+              'X-Customer': env.NAVER_AD_CUSTOMER_ID,
+              'X-Signature': signature,
+            },
+          }),
+          fetchAutocomplete(q),
+        ]);
+
+        if (!adRes.ok) {
+          const errText = await adRes.text();
+          return jsonResponse({ error: `검색광고 API 오류 (${adRes.status}): ${errText}` }, 502);
+        }
+
+        const adData = await adRes.json();
+        const rawList = (adData.keywordList || []).slice(0, 15);
+
+        const enriched = await Promise.all(
+          rawList.map(async (item) => {
+            const pc = parseCount(item.monthlyPcQcCnt);
+            const mobile = parseCount(item.monthlyMobileQcCnt);
+            const totalSearch = pc + mobile;
+            let shopTotal = 0;
+            let priceStats = { min: 0, avg: 0, max: 0, count: 0 };
+            try {
+              const shopRes = await fetchNaverShopSearch(item.relKeyword, env, 10, 'sim');
+              shopTotal = shopRes.total || 0;
+              priceStats = calcPriceStats(shopRes.items || []);
+            } catch {
+              shopTotal = 0;
+            }
+            const competition = totalSearch > 0 ? Number((shopTotal / totalSearch).toFixed(2)) : 999;
+            return {
+              keyword: item.relKeyword,
+              pc,
+              mobile,
+              totalSearch,
+              shopTotal,
+              competition,
+              avgPrice: priceStats.avg,
+              minPrice: priceStats.min,
+              maxPrice: priceStats.max,
+            };
+          })
+        );
+
+        const response = jsonResponse({ query: q, autocomplete, keywords: enriched }, 200, 43200);
+        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+        return response;
+      }
+
+      // 1-E. Shopping Product Detail & Mall Filter (also reusable for runanalyz.com)
+      if (url.pathname === '/api/shop-detail') {
+        const q = (url.searchParams.get('q') || '').trim();
+        const mallsRaw = (url.searchParams.get('malls') || '').trim();
+        const sort = (url.searchParams.get('sort') || 'sim').trim();
+        if (!q) return jsonResponse({ error: '상품 키워드를 입력해 주세요.' }, 400);
+        if (!creds.id || !creds.secret) {
+          return jsonResponse({ error: 'NAVER API HUB 키가 Worker Secret에 설정되지 않았습니다.' }, 500);
+        }
+
+        const mallFilters = mallsRaw
+          ? mallsRaw.split(',').map((m) => m.trim().toLowerCase()).filter(Boolean)
+          : [];
+        const display = mallFilters.length > 0 ? 100 : 40;
+        const allowedSort = ['sim', 'date', 'asc', 'dsc'].includes(sort) ? sort : 'sim';
+
+        const shopRes = await fetchNaverShopSearch(q, env, display, allowedSort);
+        let items = shopRes.items || [];
+        if (mallFilters.length > 0) {
+          items = items.filter((it) => {
+            const mName = (it.mallName || '').toLowerCase();
+            return mallFilters.some((f) => mName.includes(f));
+          });
+        }
+
+        const priceStats = calcPriceStats(items);
+        const mallCounts = {};
+        const catCounts = {};
+        items.forEach((it) => {
+          const mall = (it.mallName || '기타').trim();
+          mallCounts[mall] = (mallCounts[mall] || 0) + 1;
+          const cat = [it.category1, it.category2, it.category3].filter(Boolean).join(' > ');
+          if (cat) catCounts[cat] = (catCounts[cat] || 0) + 1;
+        });
+
+        const totalSample = items.length || 1;
+        const topMalls = Object.entries(mallCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5)
+          .map(([name, count]) => ({
+            name,
+            count,
+            sharePct: Math.round((count / totalSample) * 100),
+          }));
+
+        const topCategory = Object.entries(catCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || '-';
+        const cleanItems = items.slice(0, 12).map((it) => ({
+          title: stripHtml(it.title),
+          link: it.link,
+          image: it.image,
+          lprice: parseInt(it.lprice, 10) || 0,
+          mallName: it.mallName || '-',
+          brand: it.brand || '',
+          category: [it.category1, it.category2, it.category3].filter(Boolean).join(' > '),
+        }));
+
+        const response = jsonResponse({
+          query: q,
+          mallsFilter: mallFilters,
+          totalDocs: shopRes.total || 0,
+          priceStats,
+          topMalls,
+          topCategory,
+          items: cleanItems,
+        }, 200, 21600);
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
         return response;
       }
