@@ -4,15 +4,6 @@ ThePathLab 메인 포털 허브 및 공통 네비게이션, SEO, 차량 유지�
 
 > 루트 전체 마스터 히스토리는 [루트 TASK_HISTORY.md](../TASK_HISTORY.md)를 참조하십시오.
 
-## [2026-11-24] 🛍️ thapathlab.com 쇼핑 키워드·가격 비교 탭 추가 (네이버 쇼핑 검색 API 연동)
-- **요청사항**: 기존 `thapathlab.com`에 아이템스카우트 방식의 `쇼핑 키워드` 탭을 추가해 상품 경쟁강도·평균가·주요 판매처·상위 상품을 분석하고, `runanalyz.com`에서도 활용 가능한 특정 몰 필터링 기능 지원 여부 확인.
-- **수정한 내용**:
-  - `keyword/worker/src/index.js`: `fetchNaverShopSearch()` 및 `GET /api/shop-keywords`, `GET /api/shop-detail` (`?malls=` 특정 몰 필터링 지원) 엔드포인트 추가.
-  - `index.html`: `쇼핑 키워드` 탭 추가(월간 검색량 · 등록 상품수 · 상품 경쟁강도 · 평균가 · 판매처 TOP 5 · 상위 상품 목록 + 특정 몰 필터 입력).
-- **앞으로 지킬 규칙**: Worker에 `/api/shop-keywords` 및 `/api/shop-detail`이 추가되었으므로 Cloudflare Worker 재배포 필수.
-
----
-
 ## [2026-11-21] 🔥 thapathlab.com 구글 급상승 검색어 RSS & 네이버·구글 연관검색어 연동
 - **요청사항**: `thapathlab.com` 첫 화면의 빈 공간을 구글 오늘의 급상승 검색어 RSS로 채우고, 키워드 상세 분석(추이·상위 글) 하단에 네이버·구글 자동완성 기반 연관 검색어 칩을 추가.
 - **수정한 내용**:

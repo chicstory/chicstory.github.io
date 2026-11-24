@@ -377,14 +377,13 @@
       }
       .nav-tabs {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 0;
       }
       .nav-tab {
         min-height: 44px;
-        font-size: 11.5px;
-        letter-spacing: -0.02em;
-        padding: 0 2px;
+        font-size: 13px;
+        padding: 0 4px;
       }
       .main-content { padding: 18px 14px 64px; }
       .panel-header h2 { font-size: 19px; }
@@ -575,7 +574,6 @@
       </div>
       <nav class="nav-tabs" role="tablist" aria-label="분석 도구 메뉴">
         <button class="nav-tab" role="tab" data-tab="keywords" aria-selected="true" aria-controls="panel-keywords" id="tab-keywords">꿀키워드 발굴</button>
-        <button class="nav-tab" role="tab" data-tab="shop" aria-selected="false" aria-controls="panel-shop" id="tab-shop">쇼핑 키워드</button>
         <button class="nav-tab" role="tab" data-tab="rank" aria-selected="false" aria-controls="panel-rank" id="tab-rank">상위노출 순위</button>
         <button class="nav-tab" role="tab" data-tab="omission" aria-selected="false" aria-controls="panel-omission" id="tab-omission">내 블로그 진단</button>
       </nav>
@@ -653,32 +651,6 @@
               <span class="badge badge-blue" id="googleTrendsStatus">불러오는 중...</span>
             </div>
             <div id="googleTrendsWrap" class="chips-wrap" style="margin-bottom: 0;"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tab 1-B: Shopping Keyword Discovery -->
-      <section class="tab-panel" id="panel-shop" role="tabpanel" aria-labelledby="tab-shop" hidden>
-        <div class="panel-header">
-          <h2>쇼핑 키워드 · 가격 비교</h2>
-        </div>
-        <div class="guide-box">
-          <strong>어떻게 쓰나요?</strong> 상품 키워드를 입력하면 네이버 쇼핑 등록 상품수 대비 검색량(상품 경쟁강도)과 평균가를 계산합니다. <strong>표에서 키워드 행을 클릭</strong>하면 아래에 <strong>가격 분포 · 주요 판매처 TOP 5 · 실제 상위 노출 상품</strong>이 열립니다.
-        </div>
-
-        <div class="card">
-          <form class="search-row" id="form-shop">
-            <input class="input-field" id="shopInput" type="text" placeholder="상품 키워드 입력 (예: 러닝화, 캠핑 랜턴, 가민 포러너)" required />
-            <input class="input-field" id="shopMallsInput" type="text" placeholder="특정 몰만 필터 (선택 · 예: ABC마트,무신사,나이키)" />
-            <button class="btn-primary" type="submit">쇼핑 분석</button>
-          </form>
-          <div id="shopError" class="error-banner" hidden></div>
-          <div id="shopAcSection" hidden>
-            <div class="chips-label">네이버 실시간 자동완성 (클릭 시 재검색)</div>
-            <div id="shopAutocomplete" class="chips-wrap"></div>
-          </div>
-          <div id="shopResult">
-            <div class="empty-state">상품 키워드를 입력하면 월간 검색량, 네이버 쇼핑 상품수, 상품 경쟁강도, 평균 판매가를 한 번에 분석합니다.</div>
           </div>
         </div>
       </section>
@@ -1629,252 +1601,14 @@
 
     loadGoogleTrends();
 
-    // Shopping Keyword Detail Loader (Inline Accordion under clicked row)
-    async function loadShopDetail(row, gridEl, errEl, mallsFilter = '') {
-      errEl.hidden = true;
-      clearEl(gridEl);
-      gridEl.appendChild(createEl('div', 'empty-state', '쇼핑 상품 데이터를 불러오는 중...'));
-
-      try {
-        const qs = `q=${encodeURIComponent(row.keyword)}${mallsFilter ? `&malls=${encodeURIComponent(mallsFilter)}` : ''}`;
-        const detail = await callApi(`/api/shop-detail?${qs}`);
-        clearEl(gridEl);
-
-        // Card 1: 가격 분포 & 대표 카테고리
-        const ps = detail.priceStats || {};
-        const c1 = createEl('div', 'detail-card');
-        const c1Title = createEl('div', 'detail-card-title');
-        const c1Left = createEl('span', '', '상위 상품 가격 분포');
-        c1Left.appendChild(createHelpBtn('네이버 쇼핑 상위 노출 상품의 최저가(lprice) 기준 가격대 요약입니다.'));
-        c1Title.appendChild(c1Left);
-        if (mallsFilter) {
-          c1Title.appendChild(createEl('span', 'badge badge-blue', `필터: ${mallsFilter}`));
-        }
-        c1.appendChild(c1Title);
-
-        const kv1 = createEl('div', 'kv-list');
-        [
-          ['최저가', ps.min ? `${formatNum(ps.min)}원` : '-'],
-          ['평균가', ps.avg ? `${formatNum(ps.avg)}원` : '-'],
-          ['최고가', ps.max ? `${formatNum(ps.max)}원` : '-'],
-          ['대표 카테고리', detail.topCategory || '-'],
-        ].forEach(([k, v]) => {
-          const r = createEl('div', 'kv-row');
-          r.appendChild(createEl('span', 'kv-label', k));
-          r.appendChild(createEl('span', 'kv-val', v));
-          kv1.appendChild(r);
-        });
-        c1.appendChild(kv1);
-        gridEl.appendChild(c1);
-
-        // Card 2: 주요 판매처 TOP 5
-        const c2 = createEl('div', 'detail-card');
-        const c2Title = createEl('div', 'detail-card-title');
-        const c2Left = createEl('span', '', '주요 판매처 TOP 5');
-        c2Left.appendChild(createHelpBtn('상위 노출 상품이 집중된 쇼핑몰(판매처) 비중입니다. 특정 대형몰 쏠림 여부를 확인할 수 있습니다.'));
-        c2Title.appendChild(c2Left);
-        c2.appendChild(c2Title);
-
-        const malls = detail.topMalls || [];
-        if (malls.length === 0) {
-          c2.appendChild(createEl('div', 'empty-state', '조건에 일치하는 판매처가 없습니다.'));
-        } else {
-          const kv2 = createEl('div', 'kv-list');
-          malls.forEach((m) => {
-            const r = createEl('div', 'kv-row');
-            r.appendChild(createEl('span', 'kv-label', m.name));
-            r.appendChild(createEl('span', 'kv-val', `${m.count}개 (${m.sharePct}%)`));
-            kv2.appendChild(r);
-          });
-          c2.appendChild(kv2);
-        }
-        gridEl.appendChild(c2);
-
-        // Card 3: 실제 상위 노출 상품 리스트
-        const items = detail.items || [];
-        const c3 = createEl('div', 'detail-card');
-        c3.style.gridColumn = '1 / -1';
-        const c3Title = createEl('div', 'detail-card-title');
-        const c3Left = createEl('span', '', `상위 노출 상품 (${items.length}개)`);
-        c3Left.appendChild(createHelpBtn('네이버 쇼핑 검색 결과 상위 상품의 판매처와 최저가입니다. 제목 클릭 시 상품 페이지로 이동합니다.'));
-        c3Title.appendChild(c3Left);
-        c3.appendChild(c3Title);
-
-        if (items.length === 0) {
-          c3.appendChild(createEl('div', 'empty-state', '조건에 일치하는 상품이 없습니다. 특정 몰 필터를 비우거나 다른 몰 이름을 입력해 보세요.'));
-        } else {
-          const kv3 = createEl('div', 'kv-list');
-          items.forEach((it) => {
-            const r = createEl('div', 'kv-row');
-            r.style.gap = '12px';
-
-            const left = createEl('span', '');
-            left.style.display = 'flex';
-            left.style.alignItems = 'center';
-            left.style.gap = '10px';
-            left.style.minWidth = '0';
-            left.style.flex = '1';
-
-            if (it.image) {
-              const img = document.createElement('img');
-              img.src = it.image;
-              img.alt = '';
-              img.loading = 'lazy';
-              img.style.width = '36px';
-              img.style.height = '36px';
-              img.style.objectFit = 'cover';
-              img.style.borderRadius = '6px';
-              img.style.flexShrink = '0';
-              img.style.border = '1px solid var(--border)';
-              left.appendChild(img);
-            }
-
-            const a = createEl('a', 'post-link', it.title);
-            a.href = it.link;
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            a.addEventListener('click', (ev) => ev.stopPropagation());
-            left.appendChild(a);
-            r.appendChild(left);
-
-            const right = createEl('span', 'kv-val', `${it.mallName} · ${formatNum(it.lprice)}원`);
-            right.style.flexShrink = '0';
-            right.style.fontSize = '12px';
-            r.appendChild(right);
-            kv3.appendChild(r);
-          });
-          c3.appendChild(kv3);
-        }
-        gridEl.appendChild(c3);
-      } catch (err) {
-        clearEl(gridEl);
-        errEl.textContent = err.message;
-        errEl.hidden = false;
-      }
-    }
-
-    // Shopping Keywords Handler
-    const shopForm = document.getElementById('form-shop');
-    if (shopForm) {
-      shopForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const q = document.getElementById('shopInput').value.trim();
-        const mallsFilter = document.getElementById('shopMallsInput').value.trim();
-        const errEl = document.getElementById('shopError');
-        const acSection = document.getElementById('shopAcSection');
-        const acEl = document.getElementById('shopAutocomplete');
-        const resEl = document.getElementById('shopResult');
-        errEl.hidden = true;
-        setLoading(shopForm, true, '쇼핑 분석');
-
-        try {
-          const data = await callApi(`/api/shop-keywords?q=${encodeURIComponent(q)}`);
-
-          clearEl(acEl);
-          const acList = data.autocomplete || [];
-          acSection.hidden = acList.length === 0;
-          acList.forEach((phrase) => {
-            const chip = createEl('button', 'chip', phrase);
-            chip.type = 'button';
-            chip.addEventListener('click', () => {
-              document.getElementById('shopInput').value = phrase;
-              shopForm.dispatchEvent(new Event('submit'));
-            });
-            acEl.appendChild(chip);
-          });
-
-          const sorted = [...(data.keywords || [])].sort((a, b) => a.competition - b.competition);
-          clearEl(resEl);
-
-          if (sorted.length === 0) {
-            resEl.appendChild(createEl('div', 'empty-state', '조회된 쇼핑 키워드가 없습니다.'));
-            return;
-          }
-
-          const wrap = createEl('div', 'table-wrap');
-          const table = createEl('table');
-          const thead = createEl('thead');
-          const headRow = createEl('tr');
-          [
-            ['키워드 (클릭 시 상세)', '행을 클릭하면 가격 분포, 주요 판매처 TOP 5, 상위 상품 목록이 열립니다.'],
-            ['월간 검색량', '최근 30일 네이버 PC+모바일 총 검색 횟수입니다.'],
-            ['등록 상품수', '네이버 쇼핑에 등록된 해당 키워드 총 상품 개수입니다.'],
-            ['상품 경쟁강도', '등록 상품수 ÷ 월간 검색량입니다. 낮을수록 공급 대비 수요가 많습니다.'],
-            ['평균가', '상위 10개 노출 상품의 평균 최저가입니다.'],
-            ['추천도', '상품 경쟁강도 5 이하 & 월간 검색량 500 이상이면 꿀상품으로 추천합니다.'],
-          ].forEach(([label, help]) => headRow.appendChild(createHeaderWithHelp(label, help)));
-          thead.appendChild(headRow);
-          table.appendChild(thead);
-
-          const tbody = createEl('tbody');
-          sorted.forEach((row) => {
-            const tr = createEl('tr', 'clickable-row');
-            tr.addEventListener('click', () => {
-              const nextEl = tr.nextElementSibling;
-              const isAlreadyOpen = nextEl && nextEl.classList.contains('detail-row');
-              tbody.querySelectorAll('tr.detail-row').forEach((dr) => dr.remove());
-              tbody.querySelectorAll('tr.selected-row').forEach((sr) => sr.classList.remove('selected-row'));
-              if (isAlreadyOpen) return;
-
-              tr.classList.add('selected-row');
-              const detailTr = createEl('tr', 'detail-row');
-              const detailTd = createEl('td', 'detail-cell');
-              detailTd.colSpan = 6;
-              const inlineWrap = createEl('div', 'detail-inline');
-              const errBox = createEl('div', 'error-banner');
-              errBox.hidden = true;
-              const gridBox = createEl('div', 'detail-grid');
-              inlineWrap.appendChild(errBox);
-              inlineWrap.appendChild(gridBox);
-              detailTd.appendChild(inlineWrap);
-              detailTr.appendChild(detailTd);
-              tr.after(detailTr);
-              loadShopDetail(row, gridBox, errBox, mallsFilter);
-            });
-
-            tr.appendChild(createEl('td', 'wrap-cell', row.keyword));
-            tr.appendChild(createEl('td', '', formatNum(row.totalSearch)));
-            tr.appendChild(createEl('td', '', formatNum(row.shopTotal)));
-            tr.appendChild(createEl('td', '', row.competition));
-            tr.appendChild(createEl('td', '', row.avgPrice ? `${formatNum(row.avgPrice)}원` : '-'));
-
-            const tdBadge = createEl('td');
-            let badgeClass = 'badge-warn';
-            let label = '보통';
-            if (row.competition <= 5 && row.totalSearch >= 500) {
-              badgeClass = 'badge-ok'; label = '꿀상품';
-            } else if (row.competition > 50) {
-              badgeClass = 'badge-bad'; label = '포화';
-            }
-            tdBadge.appendChild(createEl('span', `badge ${badgeClass}`, label));
-            tr.appendChild(tdBadge);
-            tbody.appendChild(tr);
-          });
-
-          table.appendChild(tbody);
-          wrap.appendChild(table);
-          resEl.appendChild(wrap);
-        } catch (err) {
-          errEl.textContent = err.message;
-          errEl.hidden = false;
-        } finally {
-          setLoading(shopForm, false, '쇼핑 분석');
-        }
-      });
-    }
-
-    // URL Query Parameter Auto-Run (?q=키워드, ?tab=shop&q=키워드, ?tab=rank&q=키워드, ?tab=omission&blog=아이디)
+    // URL Query Parameter Auto-Run (?q=키워드, ?tab=rank&q=키워드, ?tab=omission&blog=아이디)
     (function initFromQueryParams() {
       const params = new URLSearchParams(window.location.search);
       const tab = (params.get('tab') || '').trim();
       const q = (params.get('q') || '').trim();
       const blog = (params.get('blog') || '').trim();
 
-      if (tab === 'shop' && q) {
-        activateTab('shop');
-        document.getElementById('shopInput').value = q;
-        shopForm.dispatchEvent(new Event('submit'));
-      } else if (tab === 'rank' && q) {
+      if (tab === 'rank' && q) {
         activateTab('rank');
         document.getElementById('rankQuery').value = q;
         rankForm.dispatchEvent(new Event('submit'));
